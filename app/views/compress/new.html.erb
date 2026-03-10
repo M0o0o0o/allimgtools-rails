@@ -1,0 +1,12 @@
+<div class="max-w-2xl mx-auto">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold">이미지 압축</h1>
+    <p class="text-base-content/60 mt-2">이미지를 업로드하면 품질과 포맷을 설정해 용량을 줄일 수 있습니다.</p>
+  </div>
+
+  <div class="card bg-base-100 shadow-sm">
+    <div class="card-body">
+      <%= render "shared/upload_form", success_path: "/compress", task: @task %>
+    </div>
+  </div>
+</div>

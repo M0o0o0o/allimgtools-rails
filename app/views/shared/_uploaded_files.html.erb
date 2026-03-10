@@ -1,0 +1,17 @@
+<div class="card bg-base-100 shadow-sm mb-6">
+  <div class="card-body">
+    <h2 class="card-title text-base mb-3">업로드된 파일</h2>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+      <% uploads.each do |upload| %>
+        <li class="relative rounded-xl overflow-hidden bg-base-200 aspect-square flex items-center justify-center">
+          <%= image_tag rails_blob_path(upload.file, disposition: "inline"),
+                        class: "w-full h-full object-cover",
+                        alt: upload.filename %>
+          <div class="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 truncate text-xs text-white">
+            <%= upload.filename %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

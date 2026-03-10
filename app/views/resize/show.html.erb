@@ -1,0 +1,70 @@
+<div class="max-w-2xl mx-auto">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold">리사이즈 옵션</h1>
+    <p class="text-base-content/60 mt-2">각 이미지의 크기를 개별적으로 설정하세요.</p>
+  </div>
+
+  <%= form_with url: start_resize_path(task_id: @task.task_id), method: :post do %>
+    <div class="space-y-4 mb-6">
+      <% @uploads.each do |upload| %>
+        <% orig_w = upload.file.metadata["width"] %>
+        <% orig_h = upload.file.metadata["height"] %>
+
+        <div class="card bg-base-100 shadow-sm">
+          <div class="card-body">
+            <div class="flex gap-4">
+              <%= image_tag rails_blob_path(upload.file, disposition: "inline"),
+                            class: "w-20 h-20 rounded-lg object-cover shrink-0",
+                            alt: upload.filename %>
+
+              <div class="flex-1 min-w-0">
+                <p class="font-medium text-sm truncate mb-1"><%= upload.filename %></p>
+                <% if orig_w && orig_h %>
+                  <p class="text-xs text-base-content/40 mb-3"><%= orig_w %> × <%= orig_h %> px</p>
+                <% end %>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="form-control">
+                    <label class="label py-0 mb-1">
+                      <span class="label-text text-xs">너비 (px)</span>
+                    </label>
+                    <input type="number"
+                           name="resizes[<%= upload.upload_id %>][width]"
+                           value="<%= orig_w %>"
+                           min="1" max="10000"
+                           class="input input-bordered input-sm w-full" />
+                  </div>
+                  <div class="form-control">
+                    <label class="label py-0 mb-1">
+                      <span class="label-text text-xs">높이 (px)</span>
+                    </label>
+                    <input type="number"
+                           name="resizes[<%= upload.upload_id %>][height]"
+                           value="<%= orig_h %>"
+                           min="1" max="10000"
+                           class="input input-bordered input-sm w-full" />
+                  </div>
+                </div>
+
+                <label class="label cursor-pointer justify-start gap-2 mt-2 pb-0">
+                  <input type="checkbox"
+                         name="resizes[<%= upload.upload_id %>][maintain_aspect_ratio]"
+                         value="1" checked
+                         class="checkbox checkbox-primary checkbox-sm" />
+                  <span class="label-text text-sm">비율 유지</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-3">
+      <button type="submit" class="btn btn-primary flex-1 sm:flex-none sm:w-40">리사이즈 시작</button>
+      <%= link_to new_resize_path, class: "btn btn-ghost flex-1 sm:flex-none" do %>
+        다시 업로드
+      <% end %>
+    </div>
+  <% end %>
+</div>

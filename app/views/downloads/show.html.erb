@@ -1,0 +1,82 @@
+<div class="max-w-2xl mx-auto">
+  <% if @task.status == "processing" %>
+    <%# 처리 중 %>
+    <div class="text-center py-20">
+      <span class="loading loading-spinner loading-lg text-primary mb-6"></span>
+      <h1 class="text-2xl font-bold mb-2">처리 중...</h1>
+      <p class="text-base-content/60">잠시만 기다려 주세요.</p>
+    </div>
+    <script>
+      setTimeout(() => location.reload(), 2000);
+    </script>
+
+  <% elsif @task.status == "done" %>
+    <%# 처리 완료 %>
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold">처리 완료</h1>
+      <p class="text-base-content/60 mt-2"><%= @uploads.size %>개 파일이 처리되었습니다.</p>
+    </div>
+
+    <div class="card bg-base-100 shadow-sm mb-6">
+      <div class="card-body">
+        <ul class="divide-y divide-base-200">
+          <% @uploads.each do |upload| %>
+            <% next unless upload.compressed_file.attached? %>
+            <li class="flex items-center justify-between py-3 first:pt-0 last:pb-0 gap-4">
+              <div class="flex items-center gap-3 min-w-0">
+                <%= image_tag rails_blob_path(upload.compressed_file, disposition: "inline"),
+                              class: "w-10 h-10 rounded object-cover shrink-0",
+                              alt: upload.filename %>
+                <div class="min-w-0">
+                  <p class="text-sm font-medium truncate"><%= upload.compressed_file.filename %></p>
+                  <p class="text-xs text-base-content/50">
+                    <%= number_to_human_size(upload.file.byte_size) %> →
+                    <span class="text-success font-medium"><%= number_to_human_size(upload.compressed_file.byte_size) %></span>
+                    <% ratio = (upload.compressed_file.byte_size.to_f / upload.file.byte_size * 100).round %>
+                    <span class="text-base-content/40">(<%= ratio %>%)</span>
+                  </p>
+                </div>
+              </div>
+              <%= link_to rails_blob_path(upload.compressed_file, disposition: "attachment"),
+                          class: "btn btn-sm btn-outline shrink-0" do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                다운로드
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-3">
+      <% if @uploads.size > 1 %>
+        <%= link_to download_zip_path(task_id: @task.task_id), class: "btn btn-primary flex-1 sm:flex-none" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          전체 ZIP 다운로드
+        <% end %>
+      <% end %>
+      <%= link_to url_for(controller: @task.tool, action: :new), class: "btn btn-ghost" do %>
+        새로 시작하기
+      <% end %>
+    </div>
+
+  <% else %>
+    <%# 실패 %>
+    <div class="text-center py-20">
+      <div class="text-error mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+        </svg>
+      </div>
+      <h1 class="text-2xl font-bold mb-2">처리 실패</h1>
+      <p class="text-base-content/60 mb-6">오류가 발생했습니다. 다시 시도해 주세요.</p>
+      <%= link_to url_for(controller: @task.tool, action: :new), class: "btn btn-primary" do %>
+        다시 시도
+      <% end %>
+    </div>
+  <% end %>
+</div>

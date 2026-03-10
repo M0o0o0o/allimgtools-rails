@@ -1,0 +1,39 @@
+<div class="max-w-2xl mx-auto">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold">압축 옵션</h1>
+    <p class="text-base-content/60 mt-2">업로드된 <%= @uploads.size %>개 파일의 압축 설정을 선택하세요.</p>
+  </div>
+
+  <%= render "shared/uploaded_files", uploads: @uploads %>
+
+  <%# 압축 옵션 폼 %>
+  <div class="card bg-base-100 shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title text-base mb-4">압축 설정</h2>
+
+      <%= form_with url: start_compress_path(task_id: @task.task_id), method: :post do |f| %>
+        <%# 품질 슬라이더 %>
+        <div class="form-control mb-8">
+          <label class="label">
+            <span class="label-text font-medium">품질</span>
+            <span class="label-text-alt text-primary font-bold" id="quality-value">80</span>
+          </label>
+          <%= f.range_field :quality, min: 1, max: 100, value: 80,
+                class: "range range-primary",
+                oninput: "document.getElementById('quality-value').textContent = this.value" %>
+          <div class="flex justify-between text-xs text-base-content/50 mt-1 px-1">
+            <span>낮음</span>
+            <span>높음</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <%= f.submit "압축 시작", class: "btn btn-primary flex-1 sm:flex-none sm:w-40" %>
+          <%= link_to new_compress_path, class: "btn btn-ghost flex-1 sm:flex-none" do %>
+            다시 업로드
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

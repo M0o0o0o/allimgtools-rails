@@ -9,6 +9,18 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  post "uploads/chunk", to: "uploads#chunk", as: :upload_chunk
+
+  get  "compress",                  to: "compress#new",   as: :new_compress
+  get  "compress/:task_id",         to: "compress#show",  as: :compress
+  post "compress/:task_id/start",   to: "compress#start", as: :start_compress
+
+  get  "resize",                    to: "resize#new",     as: :new_resize
+  get  "resize/:task_id",           to: "resize#show",    as: :resize
+  post "resize/:task_id/start",     to: "resize#start",   as: :start_resize
+
+  get  "download/:task_id",         to: "downloads#show", as: :download
+  get  "download/:task_id/zip",     to: "downloads#zip",  as: :download_zip
+
+  root "pages#home"
 end

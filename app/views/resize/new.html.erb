@@ -1,0 +1,12 @@
+<div class="max-w-2xl mx-auto">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold">이미지 리사이즈</h1>
+    <p class="text-base-content/60 mt-2">이미지를 업로드하면 원하는 크기로 조절할 수 있습니다.</p>
+  </div>
+
+  <div class="card bg-base-100 shadow-sm">
+    <div class="card-body">
+      <%= render "shared/upload_form", success_path: "/resize", task: @task %>
+    </div>
+  </div>
+</div>
