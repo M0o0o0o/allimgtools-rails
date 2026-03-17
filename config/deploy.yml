@@ -22,7 +22,7 @@ servers:
 #
 proxy:
   ssl: true
-  host: allimgtools.com
+  host: allimgtools.com,www.allimgtools.com
 
 # Where you keep your container images.
 registry:
