@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en" data-theme="light">
+
+<head>
     <title><%= content_for(:title) || "Allimgtools — Free Online Image Tools" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="<%= content_for(:description) || "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required. Files deleted after 3 hours." %>">
@@ -37,52 +38,53 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
+</head>
 
-  <body class="bg-base-200 min-h-screen">
+<body class="bg-base-200 min-h-screen">
     <div class="drawer">
-      <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
+        <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
 
-      <div class="drawer-content flex flex-col min-h-screen">
-        <%= render "shared/header" %>
+        <div class="drawer-content flex flex-col min-h-screen">
+            <%= render "shared/header" %>
 
-        <main class="container mx-auto px-4 py-8 max-w-4xl flex-1">
-          <%= yield %>
-        </main>
-      </div>
+            <main class="container mx-auto px-4 py-8 max-w-4xl flex-1">
+                <%= yield %>
+            </main>
+        </div>
 
-      <%# Mobile slide menu %>
-      <div class="drawer-side z-[100]">
-        <label for="nav-drawer" aria-label="Close menu" class="drawer-overlay"></label>
-        <nav class="bg-base-100 min-h-full w-64 shadow-xl flex flex-col">
-          <div class="p-4 border-b border-base-200">
-            <%= link_to root_path, class: "flex items-center gap-2 font-bold text-lg" do %>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              allimgtools
-            <% end %>
-          </div>
-          <ul class="menu p-4 gap-1 flex-1">
-            <li>
-              <%= link_to new_compress_path, class: "#{controller_name == 'compress' ? 'active' : ''}" do %>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                </svg>
-                Image Compress
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_resize_path, class: "#{controller_name == 'resize' ? 'active' : ''}" do %>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                </svg>
-                Image Resize
-              <% end %>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        <%# Mobile slide menu %>
+        <div class="drawer-side z-[100]">
+            <label for="nav-drawer" aria-label="Close menu" class="drawer-overlay"></label>
+            <nav class="bg-base-100 min-h-full w-64 shadow-xl flex flex-col">
+                <div class="p-4 border-b border-base-200">
+                    <%= link_to root_path, class: "flex items-center gap-2 font-bold text-lg" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    allimgtools
+                    <% end %>
+                </div>
+                <ul class="menu p-4 gap-1 flex-1">
+                    <li>
+                        <%= link_to new_compress_path, class: "#{controller_name == 'compress' ? 'active' : ''}" do %>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        Image Compress
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to new_resize_path, class: "#{controller_name == 'resize' ? 'active' : ''}" do %>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                        </svg>
+                        Image Resize
+                        <% end %>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
