@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+# Build Tailwind CSS and precompile assets inside the running container.
+# This is needed because the Docker image is built without node_modules,
+# so Tailwind must be compiled after the container starts on the server.
+echo "Building Tailwind CSS and precompiling assets..."
+CONTAINER=$(ssh root@138.68.46.107 'docker ps -q --filter name=allimgtools-web')
+ssh root@138.68.46.107 "docker exec -u root $CONTAINER sh -c 'bin/rails tailwindcss:build && bin/rails assets:precompile'"
+echo "Assets compiled."
