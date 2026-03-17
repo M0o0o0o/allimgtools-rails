@@ -1,7 +1,7 @@
 <div class="max-w-2xl mx-auto">
   <div class="mb-8">
-    <h1 class="text-3xl font-bold">리사이즈 옵션</h1>
-    <p class="text-base-content/60 mt-2">각 이미지의 크기를 개별적으로 설정하세요.</p>
+    <h1 class="text-3xl font-bold">Resize Options</h1>
+    <p class="text-base-content/60 mt-2">Set the dimensions for each image individually.</p>
   </div>
 
   <%= form_with url: start_resize_path(task_id: @task.task_id), method: :post do %>
@@ -26,7 +26,7 @@
                 <div class="grid grid-cols-2 gap-3">
                   <div class="form-control">
                     <label class="label py-0 mb-1">
-                      <span class="label-text text-xs">너비 (px)</span>
+                      <span class="label-text text-xs">Width (px)</span>
                     </label>
                     <input type="number"
                            name="resizes[<%= upload.upload_id %>][width]"
@@ -36,7 +36,7 @@
                   </div>
                   <div class="form-control">
                     <label class="label py-0 mb-1">
-                      <span class="label-text text-xs">높이 (px)</span>
+                      <span class="label-text text-xs">Height (px)</span>
                     </label>
                     <input type="number"
                            name="resizes[<%= upload.upload_id %>][height]"
@@ -51,7 +51,7 @@
                          name="resizes[<%= upload.upload_id %>][maintain_aspect_ratio]"
                          value="1" checked
                          class="checkbox checkbox-primary checkbox-sm" />
-                  <span class="label-text text-sm">비율 유지</span>
+                  <span class="label-text text-sm">Maintain aspect ratio</span>
                 </label>
               </div>
             </div>
@@ -61,9 +61,9 @@
     </div>
 
     <div class="flex flex-col sm:flex-row gap-3">
-      <button type="submit" class="btn btn-primary flex-1 sm:flex-none sm:w-40">리사이즈 시작</button>
+      <button type="submit" class="btn btn-primary flex-1 sm:flex-none sm:w-40">Start Resize</button>
       <%= link_to new_resize_path, class: "btn btn-ghost flex-1 sm:flex-none" do %>
-        다시 업로드
+        Upload Again
       <% end %>
     </div>
   <% end %>

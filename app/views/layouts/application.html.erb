@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= content_for(:title) || "Allimgtools" %></title>
+    <title><%= content_for(:title) || "Allimgtools — Free Online Image Tools" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= content_for(:description) || "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required. Files deleted after 3 hours." %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Allimgtools">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <%# Canonical URL %>
+    <link rel="canonical" href="https://allimgtools.com<%= request.path == '/' ? '' : request.path %>">
+
+    <%# Open Graph %>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Allimgtools">
+    <meta property="og:title" content="<%= content_for(:title) || "Allimgtools — Free Online Image Tools" %>">
+    <meta property="og:description" content="<%= content_for(:description) || "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required." %>">
+    <meta property="og:url" content="https://allimgtools.com<%= request.path == '/' ? '' : request.path %>">
+
+    <%# Twitter Card %>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<%= content_for(:title) || "Allimgtools — Free Online Image Tools" %>">
+    <meta name="twitter:description" content="<%= content_for(:description) || "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required." %>">
 
     <%= yield :head %>
 
@@ -35,9 +51,9 @@
         </main>
       </div>
 
-      <%# 모바일 슬라이드 메뉴 %>
+      <%# Mobile slide menu %>
       <div class="drawer-side z-[100]">
-        <label for="nav-drawer" aria-label="메뉴 닫기" class="drawer-overlay"></label>
+        <label for="nav-drawer" aria-label="Close menu" class="drawer-overlay"></label>
         <nav class="bg-base-100 min-h-full w-64 shadow-xl flex flex-col">
           <div class="p-4 border-b border-base-200">
             <%= link_to root_path, class: "flex items-center gap-2 font-bold text-lg" do %>
@@ -53,7 +69,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                 </svg>
-                이미지 압축
+                Image Compress
               <% end %>
             </li>
             <li>
@@ -61,7 +77,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                 </svg>
-                이미지 리사이즈
+                Image Resize
               <% end %>
             </li>
           </ul>

@@ -1,6 +1,6 @@
 <header class="navbar bg-base-100 shadow-sm sticky top-0 z-50">
   <div class="navbar-start">
-    <label for="nav-drawer" class="btn btn-ghost btn-sm drawer-button sm:hidden mr-1" aria-label="메뉴 열기">
+    <label for="nav-drawer" class="btn btn-ghost btn-sm drawer-button sm:hidden mr-1" aria-label="Open menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -15,8 +15,8 @@
 
   <div class="navbar-end">
     <nav class="hidden sm:flex gap-1">
-      <%= link_to "이미지 압축", new_compress_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'compress' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
-      <%= link_to "이미지 리사이즈", new_resize_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'resize' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
+      <%= link_to "Image Compress", new_compress_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'compress' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
+      <%= link_to "Image Resize", new_resize_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'resize' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
     </nav>
   </div>
 </header>

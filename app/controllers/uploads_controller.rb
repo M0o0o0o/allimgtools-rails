@@ -11,30 +11,30 @@ class UploadsController < ApplicationController
     task_id      = params.require(:task_id)
     ip_address   = request.remote_ip
 
-    # 1. upload_id UUID 형식 검증 (Path Traversal 방지)
+    # 1. Validate upload_id UUID format (prevent path traversal)
     unless upload_id.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/)
-      return render json: { error: "잘못된 요청입니다." }, status: :bad_request
+      return render json: { error: "Invalid request." }, status: :bad_request
     end
 
-    # 2. total_chunks 상한 검증
+    # 2. Validate total_chunks upper bound
     if total_chunks < 1 || total_chunks > MAX_CHUNKS
-      return render json: { error: "잘못된 요청입니다." }, status: :bad_request
+      return render json: { error: "Invalid request." }, status: :bad_request
     end
 
-    # 3. filename 검증
+    # 3. Validate filename
     if filename.blank? || filename.length > MAX_FILENAME_LENGTH || filename.include?("\x00")
-      return render json: { error: "잘못된 파일명입니다." }, status: :bad_request
+      return render json: { error: "Invalid filename." }, status: :bad_request
     end
 
-    # 4. 청크 실제 크기 검증 (client file_size 신뢰하지 않음)
+    # 4. Validate actual chunk size (do not trust client-reported file_size)
     if chunk_data.size > Upload::MAX_FILE_SIZE
-      return render json: { error: "파일 크기가 5MB를 초과합니다." }, status: :unprocessable_entity
+      return render json: { error: "File size exceeds 5MB." }, status: :unprocessable_entity
     end
 
     upload = Upload.find_by(upload_id: upload_id)
 
     if upload.nil?
-      return render json: { error: "일일 업로드 한도(#{Task::DAILY_UPLOAD_LIMIT}개)를 초과했습니다." }, status: :too_many_requests if Task.limit_reached?(ip_address)
+      return render json: { error: "Daily upload limit (#{Task::DAILY_UPLOAD_LIMIT} files) exceeded." }, status: :too_many_requests if Task.limit_reached?(ip_address)
 
       upload = Upload.create!(
         upload_id:    upload_id,
@@ -45,7 +45,7 @@ class UploadsController < ApplicationController
       )
     end
 
-    return render json: { error: "이미 완료된 업로드입니다." }, status: :unprocessable_entity if upload.status == "done"
+    return render json: { error: "Upload already completed." }, status: :unprocessable_entity if upload.status == "done"
 
     FileUtils.mkdir_p(upload.tmp_dir)
     File.binwrite(upload.chunk_path(chunk_index), chunk_data.read)
@@ -59,6 +59,7 @@ class UploadsController < ApplicationController
       render json: { status: "pending", received: saved_count, total: total_chunks }
     end
   rescue => e
-    render json: { error: e.message }, status: :unprocessable_entity
+    Rails.logger.error "UploadsController#chunk error: #{e.class}: #{e.message}"
+    render json: { error: "An error occurred. Please try again." }, status: :unprocessable_entity
   end
 end

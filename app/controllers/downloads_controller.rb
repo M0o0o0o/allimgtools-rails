@@ -8,20 +8,22 @@ class DownloadsController < ApplicationController
   def zip
     uploads = @task.uploads.completed.with_attached_compressed_file.select { |u| u.compressed_file.attached? }
 
-    zip_data = Zip::OutputStream.write_buffer do |zip|
-      uploads.each do |upload|
+    response.headers["Content-Type"] = "application/zip"
+    response.headers["Content-Disposition"] = "attachment; filename=\"compressed_#{@task.task_id[0..7]}.zip\""
+
+    writer = ZipTricks::Streamer.new(response.stream)
+    uploads.each do |upload|
+      filename = File.basename(upload.compressed_file.filename.to_s)
+      size = upload.compressed_file.byte_size
+      writer.write_deflated_file(filename) do |sink|
         upload.compressed_file.open do |f|
-          zip.put_next_entry(upload.compressed_file.filename.to_s)
-          zip.write(f.read)
+          IO.copy_stream(f, sink)
         end
       end
     end
-
-    zip_data.rewind
-    send_data zip_data.read,
-              type: "application/zip",
-              filename: "compressed_#{@task.task_id[0..7]}.zip",
-              disposition: "attachment"
+    writer.close
+  ensure
+    response.stream.close
   end
 
   private

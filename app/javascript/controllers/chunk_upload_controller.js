@@ -19,7 +19,7 @@ export default class extends Controller {
 
   #files = [];
 
-  // ── 파일 선택 ──────────────────────────────────────────────
+  // ── File selection ─────────────────────────────────────────
 
   openFilePicker() {
     this.inputTarget.click();
@@ -74,7 +74,7 @@ export default class extends Controller {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
             </svg>
             <p class="text-xs text-error font-medium leading-tight">${file.name}</p>
-            <p class="text-xs text-error/70">5MB 초과</p>
+            <p class="text-xs text-error/70">Exceeds 5MB</p>
           </div>`;
       } else {
         const img = document.createElement("img");
@@ -112,7 +112,7 @@ export default class extends Controller {
     this.submitTarget.disabled = this.#files.length === 0;
   }
 
-  // ── 업로드 ──────────────────────────────────────────────────
+  // ── Upload ──────────────────────────────────────────────────
 
   async upload(event) {
     event.preventDefault();
@@ -131,10 +131,10 @@ export default class extends Controller {
         const file = this.#files[i];
 
         if (file.size > MAX_FILE_SIZE) {
-          throw new Error(`${file.name}의 크기가 5MB를 초과합니다.`);
+          throw new Error(`${file.name} exceeds the 5MB size limit.`);
         }
 
-        this.statusTarget.textContent = `파일 ${i + 1}/${this.#files.length}: ${file.name} 업로드 중...`;
+        this.statusTarget.textContent = `File ${i + 1}/${this.#files.length}: ${file.name} uploading...`;
         this.progressTarget.value = 0;
 
         await this.#uploadFile(file, taskId, csrfToken);
@@ -144,7 +144,7 @@ export default class extends Controller {
         );
       }
 
-      this.statusTarget.textContent = "업로드 완료! 이동 중...";
+      this.statusTarget.textContent = "Upload complete! Redirecting...";
       window.location.href = `${this.successPathValue}/${taskId}`;
     } catch (e) {
       this.#showError(e.message);
@@ -178,14 +178,14 @@ export default class extends Controller {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "업로드 실패");
+        throw new Error(data.error || "Upload failed.");
       }
 
       this.statusTarget.textContent = `${file.name}: ${Math.round(((i + 1) / totalChunks) * 100)}%`;
     }
   }
 
-  // ── 에러 표시 ────────────────────────────────────────────────
+  // ── Error display ────────────────────────────────────────────
 
   #showError(message) {
     this.errorMessageTarget.textContent = message;

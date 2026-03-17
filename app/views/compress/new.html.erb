@@ -1,7 +1,24 @@
+<% content_for :title, "Free Image Compressor — Reduce File Size Online | Allimgtools" %>
+<% content_for :description, "Compress JPEG, PNG, WebP, GIF, and AVIF images online for free. Adjust quality settings and reduce file size without losing detail. No signup required." %>
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Compressor",
+    "url": "https://allimgtools.com/compress",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Compress JPEG, PNG, WebP, GIF, and AVIF images online for free."
+  }
+  </script>
+<% end %>
+
 <div class="max-w-2xl mx-auto">
   <div class="mb-8">
-    <h1 class="text-3xl font-bold">이미지 압축</h1>
-    <p class="text-base-content/60 mt-2">이미지를 업로드하면 품질과 포맷을 설정해 용량을 줄일 수 있습니다.</p>
+    <h1 class="text-3xl font-bold">Image Compress</h1>
+    <p class="text-base-content/60 mt-2">Upload images to reduce file size by adjusting quality and format.</p>
   </div>
 
   <div class="card bg-base-100 shadow-sm">

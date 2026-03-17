@@ -9,8 +9,10 @@ class CleanupExpiredTasksJob < ApplicationJob
       upload.file.purge if upload.file.attached?
       upload.compressed_file.purge if upload.compressed_file.attached?
       FileUtils.rm_rf(upload.tmp_dir)
+    rescue => e
+      Rails.logger.error "Upload #{upload.upload_id} cleanup failed: #{e.message}"
     end
-    task.uploads.delete_all
+    Upload.where(task_id: task.task_id).delete_all
     task.destroy
   end
 end

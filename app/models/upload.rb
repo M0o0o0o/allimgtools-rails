@@ -24,7 +24,7 @@ class Upload < ApplicationRecord
 
   def assemble!
     total_size = total_chunks.times.sum { |i| File.size(chunk_path(i)) }
-    raise "파일 크기가 5MB를 초과합니다." if total_size > MAX_FILE_SIZE
+    raise "File size exceeds 5MB." if total_size > MAX_FILE_SIZE
 
     update!(status: "assembling")
 
@@ -35,7 +35,7 @@ class Upload < ApplicationRecord
       output.rewind
 
       content_type = Marcel::MimeType.for(output, name: filename)
-      raise "허용되지 않는 파일 형식입니다." unless ALLOWED_TYPES.include?(content_type)
+      raise "File type not allowed." unless ALLOWED_TYPES.include?(content_type)
 
       file.attach(io: output, filename: filename, content_type: content_type)
     end

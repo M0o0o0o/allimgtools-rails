@@ -1,40 +1,58 @@
+<% content_for :title, "Allimgtools — Free Online Image Tools" %>
+<% content_for :description, "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required. Files deleted after 3 hours." %>
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Allimgtools",
+    "url": "https://allimgtools.com",
+    "description": "Free online image tools. Compress and resize images instantly.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://allimgtools.com"
+    }
+  }
+  </script>
+<% end %>
+
 <div class="max-w-2xl mx-auto">
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold mb-3">이미지 도구 모음</h1>
-    <p class="text-base-content/60 text-lg">무료로 이미지를 변환하고 최적화하세요. 업로드된 파일은 3시간 후 자동으로 삭제됩니다.</p>
-  </div>
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-3">Image Tools</h1>
+        <p class="text-base-content/60 text-lg">Convert and optimize your images for free. Uploaded files are automatically deleted after 3 hours.</p>
+    </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <%= link_to new_compress_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-      <div class="card-body">
-        <div class="flex items-center gap-4">
-          <div class="p-3 bg-primary/10 rounded-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-            </svg>
-          </div>
-          <div>
-            <h2 class="card-title text-lg">이미지 압축</h2>
-            <p class="text-base-content/60 text-sm">품질을 유지하면서 파일 용량을 줄입니다.</p>
-          </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <%= link_to new_compress_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
+        <div class="card-body">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-primary/10 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="card-title text-lg">Image Compress</h2>
+                    <p class="text-base-content/60 text-sm">Reduce file size while maintaining quality.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    <% end %>
+        <% end %>
 
-    <%= link_to new_resize_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-      <div class="card-body">
-        <div class="flex items-center gap-4">
-          <div class="p-3 bg-primary/10 rounded-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-            </svg>
-          </div>
-          <div>
-            <h2 class="card-title text-lg">이미지 리사이즈</h2>
-            <p class="text-base-content/60 text-sm">원하는 크기로 이미지를 조절합니다.</p>
-          </div>
+        <%= link_to new_resize_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
+        <div class="card-body">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-primary/10 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="card-title text-lg">Image Resize</h2>
+                    <p class="text-base-content/60 text-sm">Adjust images to your desired dimensions.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+        <% end %>
+    </div>
 </div>
