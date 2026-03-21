@@ -177,9 +177,6 @@ export default class extends Controller {
     }
     this.#updateStatus();
 
-    // TODO: remove test delay
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-
     await uploadFiles(files, this.taskIdValue, {
       onSuccess: (file, uploadId) => {
         this.#uploadIds.set(file, uploadId);
@@ -278,7 +275,9 @@ export default class extends Controller {
       this.statusTarget.textContent = this.processingStatusText;
     }
 
-    this.startBtnTargets.forEach((btn) => (btn.disabled = isIdle || isProcessing));
+    this.startBtnTargets.forEach(
+      (btn) => (btn.disabled = isIdle || isProcessing),
+    );
     this.fixedActionsTargets.forEach((el) =>
       el.classList.toggle("hidden", isIdle),
     );
@@ -313,5 +312,4 @@ export default class extends Controller {
     this.#waitOverlay?.remove();
     this.#waitOverlay = null;
   }
-
 }
