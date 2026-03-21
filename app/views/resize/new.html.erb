@@ -14,16 +14,233 @@
   }
   </script>
 <% end %>
+<% content_for :main_class, "flex-1 flex flex-col min-h-0" %>
 
-<div class="max-w-2xl mx-auto">
-  <div class="mb-8">
-    <h1 class="text-3xl font-bold">Image Resize</h1>
-    <p class="text-base-content/60 mt-2">Upload images and adjust them to your desired dimensions.</p>
-  </div>
+<div data-controller="resize-tool"
+     data-resize-tool-task-id-value="<%= @task.task_id %>"
+     data-resize-tool-start-url-value="<%= start_resize_path %>"
+     class="flex-1 flex flex-col min-h-0 relative"
+     data-action="dragenter->resize-tool#onDragEnter
+                  dragover->resize-tool#onDragOver
+                  dragleave->resize-tool#onDragLeave
+                  drop->resize-tool#onDrop">
 
-  <div class="card bg-base-100 shadow-sm">
-    <div class="card-body">
-      <%= render "shared/upload_form", success_path: "/resize", task: @task %>
+  <%# ─── Drag overlay (active state) ───────────────────────────── %>
+  <div class="hidden absolute inset-0 z-20 m-3 border-2 border-dashed border-primary rounded-2xl
+              bg-primary/5 flex items-center justify-center pointer-events-none"
+       data-resize-tool-target="dragOverlay">
+    <div class="text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <p class="text-base font-semibold text-primary">Drop images to add</p>
     </div>
   </div>
+
+  <%# ─── Main layout: desktop sidebar + scrollable content ───────── %>
+  <div class="flex-1 flex min-h-0">
+
+    <%# ─── Desktop sidebar (left, inline layout block) ────── %>
+    <aside class="hidden lg:flex flex-col w-72 bg-base-100 border-r border-base-200 p-6 shrink-0"
+           data-resize-tool-target="sidebar">
+
+      <h2 class="text-base font-bold mb-6">Resize Settings</h2>
+
+      <div class="flex-1 flex flex-col gap-4">
+        <%# Width %>
+        <div class="form-control">
+          <label class="label pb-1">
+            <span class="label-text font-medium">Width (px)</span>
+          </label>
+          <input type="number" min="1" max="10000" placeholder="Original"
+                 class="input input-bordered w-full"
+                 data-resize-tool-target="widthInput"
+                 data-action="input->resize-tool#updateWidth">
+        </div>
+
+        <%# Height %>
+        <div class="form-control">
+          <label class="label pb-1">
+            <span class="label-text font-medium">Height (px)</span>
+          </label>
+          <input type="number" min="1" max="10000" placeholder="Original"
+                 class="input input-bordered w-full"
+                 data-resize-tool-target="heightInput"
+                 data-action="input->resize-tool#updateHeight">
+        </div>
+
+        <%# Maintain aspect ratio %>
+        <label class="flex items-center gap-3 cursor-pointer p-3 rounded-xl hover:bg-base-200 transition-colors">
+          <input type="checkbox" checked
+                 class="checkbox checkbox-primary"
+                 data-resize-tool-target="maintainAspectRatioInput"
+                 data-action="change->resize-tool#updateMaintainAspectRatio">
+          <div>
+            <p class="text-sm font-medium">Maintain aspect ratio</p>
+            <p class="text-xs text-base-content/50">Scale proportionally</p>
+          </div>
+        </label>
+
+        <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
+          Tip: Leave a field blank to resize only one dimension.
+        </div>
+      </div>
+
+      <%# Start button %>
+      <button class="btn btn-primary w-full mt-6 gap-2"
+              data-resize-tool-target="startBtn"
+              data-action="click->resize-tool#startResize"
+              disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+        </svg>
+        Start Resize
+      </button>
+    </aside>
+
+    <%# ─── Scrollable content area ─────────────────────────────────── %>
+    <div class="flex-1 overflow-auto">
+
+      <%# Idle state: fullscreen dropzone %>
+      <div class="flex flex-col min-h-full"
+           data-resize-tool-target="dropzoneArea">
+        <div class="flex-1 m-4 sm:m-6 border-2 border-dashed border-base-300 rounded-2xl cursor-pointer
+                    flex flex-col items-center justify-center text-center
+                    transition-colors hover:border-primary hover:bg-primary/5"
+             data-resize-tool-target="dropzone"
+             data-action="click->resize-tool#openFilePicker">
+          <div class="flex flex-col items-center gap-4 p-10 pointer-events-none">
+            <h1 class="text-2xl font-bold">Image Resize</h1>
+            <p class="text-sm text-base-content/60">Upload images and set your desired dimensions.</p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-base-content/25 mt-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+            </svg>
+            <div>
+              <p class="text-base font-semibold text-base-content">Drag images here or click to select</p>
+              <p class="text-sm text-base-content/50 mt-1">JPEG, PNG, GIF, WebP, AVIF · Max 5MB per file</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%# Active state: image grid %>
+      <div class="hidden p-4 sm:p-6 pb-28 lg:pb-6" data-resize-tool-target="contentArea">
+
+        <%# Image grid %>
+        <ul class="flex flex-wrap justify-center gap-3"
+            data-resize-tool-target="fileGrid"></ul>
+
+        <%# Progress / status %>
+        <div class="hidden mt-5 flex items-center justify-center gap-3" data-resize-tool-target="progressArea">
+          <span class="loading loading-spinner loading-sm text-primary"></span>
+          <span class="text-sm text-base-content/70" data-resize-tool-target="status">Uploading...</span>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <%# ─── Fixed bottom-right: Settings (mobile) + Add more ─────────── %>
+  <div class="hidden fixed bottom-6 right-6 z-10 flex flex-col items-end gap-2"
+       data-resize-tool-target="fixedActions">
+    <button class="btn btn-outline btn-sm gap-2 bg-base-100 shadow-lg lg:hidden"
+            data-action="click->resize-tool#openSettings">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+      </svg>
+      Settings
+    </button>
+    <button class="btn btn-outline btn-sm gap-2 bg-base-100 shadow-lg"
+            data-action="click->resize-tool#openFilePicker">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+      </svg>
+      Add more
+    </button>
+  </div>
+
+  <%# ─── Fixed bottom-left: Start (mobile only) ───────────────────── %>
+  <div class="hidden fixed bottom-6 left-6 z-10 lg:hidden"
+       data-resize-tool-target="fixedActions">
+    <button class="btn btn-primary gap-2 shadow-lg"
+            data-resize-tool-target="startBtn"
+            data-action="click->resize-tool#startResize"
+            disabled>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+      </svg>
+      Start Resize
+    </button>
+  </div>
+
+  <%# Hidden file input %>
+  <input type="file"
+         accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
+         multiple
+         class="hidden"
+         data-resize-tool-target="input"
+         data-action="change->resize-tool#onFileChange">
+
+  <%# ─── Mobile bottom sheet modal ──────────────────────────────── %>
+  <dialog id="settings-modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box rounded-t-2xl sm:rounded-2xl">
+      <h3 class="font-bold text-lg mb-5">Resize Settings</h3>
+
+      <div class="flex flex-col gap-4 mb-6">
+        <div class="grid grid-cols-2 gap-3">
+          <div class="form-control">
+            <label class="label pb-1">
+              <span class="label-text font-medium">Width (px)</span>
+            </label>
+            <input type="number" min="1" max="10000" placeholder="Original"
+                   class="input input-bordered w-full"
+                   data-resize-tool-target="widthInput"
+                   data-action="input->resize-tool#updateWidth">
+          </div>
+          <div class="form-control">
+            <label class="label pb-1">
+              <span class="label-text font-medium">Height (px)</span>
+            </label>
+            <input type="number" min="1" max="10000" placeholder="Original"
+                   class="input input-bordered w-full"
+                   data-resize-tool-target="heightInput"
+                   data-action="input->resize-tool#updateHeight">
+          </div>
+        </div>
+
+        <label class="flex items-center gap-3 cursor-pointer p-3 rounded-xl hover:bg-base-200 transition-colors">
+          <input type="checkbox" checked
+                 class="checkbox checkbox-primary"
+                 data-resize-tool-target="maintainAspectRatioInput"
+                 data-action="change->resize-tool#updateMaintainAspectRatio">
+          <div>
+            <p class="text-sm font-medium">Maintain aspect ratio</p>
+            <p class="text-xs text-base-content/50">Scale proportionally</p>
+          </div>
+        </label>
+      </div>
+
+      <button class="btn btn-primary w-full gap-2"
+              data-resize-tool-target="startBtn"
+              data-action="click->resize-tool#startResize"
+              disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+        </svg>
+        Start Resize
+      </button>
+
+      <form method="dialog" class="mt-3">
+        <button class="btn btn-ghost w-full">Close</button>
+      </form>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
+
 </div>

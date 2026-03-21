@@ -40,6 +40,8 @@ class Upload < ApplicationRecord
       file.attach(io: output, filename: filename, content_type: content_type)
     end
 
+    file.blob.analyze_later
+
     update!(status: "done")
     FileUtils.rm_rf(tmp_dir)
   rescue => e

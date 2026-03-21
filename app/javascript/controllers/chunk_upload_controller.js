@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 
-const CHUNK_SIZE = 2 * 1024 * 1024; // 2MB
+const CHUNK_SIZE = 5 * 1024 * 1024; // 5MB
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
 export default class extends Controller {
@@ -126,23 +126,29 @@ export default class extends Controller {
     this.progressAreaTarget.classList.remove("hidden");
     this.#hideError();
 
-    try {
-      for (let i = 0; i < this.#files.length; i++) {
-        const file = this.#files[i];
-
-        if (file.size > MAX_FILE_SIZE) {
-          throw new Error(`${file.name} exceeds the 5MB size limit.`);
-        }
-
-        this.statusTarget.textContent = `File ${i + 1}/${this.#files.length}: ${file.name} uploading...`;
-        this.progressTarget.value = 0;
-
-        await this.#uploadFile(file, taskId, csrfToken);
-
-        this.progressTarget.value = Math.round(
-          ((i + 1) / this.#files.length) * 100,
-        );
+    for (const file of this.#files) {
+      if (file.size > MAX_FILE_SIZE) {
+        this.#showError(`${file.name} exceeds the 5MB size limit.`);
+        this.progressAreaTarget.classList.add("hidden");
+        this.submitTarget.disabled = false;
+        return;
       }
+    }
+
+    let completed = 0;
+    const total = this.#files.length;
+    this.statusTarget.textContent = `Uploading ${total} file${total > 1 ? "s" : ""}...`;
+    this.progressTarget.value = 0;
+
+    try {
+      await Promise.all(
+        this.#files.map(async (file) => {
+          await this.#uploadFile(file, taskId, csrfToken);
+          completed++;
+          this.progressTarget.value = Math.round((completed / total) * 100);
+          this.statusTarget.textContent = `${completed}/${total} files uploaded...`;
+        })
+      );
 
       this.statusTarget.textContent = "Upload complete! Redirecting...";
       window.location.href = `${this.successPathValue}/${taskId}`;

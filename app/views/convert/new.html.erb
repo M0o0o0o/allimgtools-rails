@@ -1,0 +1,254 @@
+<%
+  from_label = @from_format&.upcase
+  to_label   = @to_format == "jpeg" ? "JPG" : @to_format&.upcase
+  specific   = from_label && to_label
+
+  tool_title       = specific ? "#{from_label} to #{to_label} Converter" : "Image Format Converter"
+  tool_description = specific ? "Convert #{from_label} images to #{to_label} online for free. No signup required." \
+                               : "Convert images between JPEG, PNG, and WebP formats online for free. No signup required."
+
+  accept = case @from_format
+           when "jpg"  then "image/jpeg"
+           when "png"  then "image/png"
+           when "webp" then "image/webp"
+           else "image/jpeg,image/png,image/webp,image/avif"
+           end
+
+  formats = [["jpeg", "JPG"], ["png", "PNG"], ["webp", "WebP"]]
+
+  related_links = [
+    ["JPG → PNG",  :jpg_to_png_path],
+    ["JPG → WebP", :jpg_to_webp_path],
+    ["PNG → JPG",  :png_to_jpg_path],
+    ["PNG → WebP", :png_to_webp_path],
+    ["WebP → JPG", :webp_to_jpg_path],
+    ["WebP → PNG", :webp_to_png_path],
+  ].reject { |_, path| send(path) == request.path rescue false }
+%>
+
+<% content_for :title, "Free #{tool_title} Online | Allimgtools" %>
+<% content_for :description, tool_description %>
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "<%= tool_title %>",
+    "url": "https://allimgtools.com<%= request.path %>",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "<%= tool_description %>"
+  }
+  </script>
+<% end %>
+<% content_for :main_class, "flex-1 flex flex-col min-h-0" %>
+
+<div data-controller="convert-tool"
+     data-convert-tool-task-id-value="<%= @task.task_id %>"
+     data-convert-tool-start-url-value="<%= start_convert_path %>"
+     data-convert-tool-to-format-value="<%= @to_format || 'jpeg' %>"
+     data-convert-tool-locked-value="<%= specific ? 'true' : 'false' %>"
+     class="flex-1 flex flex-col min-h-0 relative"
+     data-action="dragenter->convert-tool#onDragEnter
+                  dragover->convert-tool#onDragOver
+                  dragleave->convert-tool#onDragLeave
+                  drop->convert-tool#onDrop">
+
+  <%# ─── Drag overlay ───────────────────────────────────────────── %>
+  <div class="hidden absolute inset-0 z-20 m-3 border-2 border-dashed border-primary rounded-2xl
+              bg-primary/5 flex items-center justify-center pointer-events-none"
+       data-convert-tool-target="dragOverlay">
+    <div class="text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <p class="text-base font-semibold text-primary">Drop images to add</p>
+    </div>
+  </div>
+
+  <%# ─── Main layout ──────────────────────────────────────────────── %>
+  <div class="flex-1 flex min-h-0">
+
+    <%# ─── Desktop sidebar ──────────────────────────────────────── %>
+    <aside class="hidden lg:flex flex-col w-72 bg-base-100 border-r border-base-200 p-6 shrink-0"
+           data-convert-tool-target="sidebar">
+
+      <h2 class="text-base font-bold mb-6">Convert Settings</h2>
+
+      <div class="flex-1 flex flex-col gap-6">
+        <div class="form-control">
+          <label class="label pb-2">
+            <span class="label-text font-medium">Output Format</span>
+          </label>
+          <div class="join w-full">
+            <% formats.each do |fmt, label| %>
+              <% active = @to_format == fmt || (!@to_format && fmt == 'jpeg') %>
+              <button type="button"
+                      class="join-item btn btn-sm flex-1 <%= active ? 'btn-primary' : 'btn-outline' %>"
+                      data-convert-tool-target="toFormatBtn"
+                      data-format="<%= fmt %>"
+                      data-action="click->convert-tool#selectFormat"
+                      <%= "disabled" if specific && !active %>>
+                <%= label %>
+              </button>
+            <% end %>
+          </div>
+          <% if specific %>
+            <p class="text-xs text-base-content/50 mt-2">Format is fixed for this page.</p>
+          <% end %>
+        </div>
+
+        <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
+          Tip: WebP offers the best compression with high quality for web images.
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-full mt-6 gap-2"
+              data-convert-tool-target="startBtn"
+              data-action="click->convert-tool#startConvert"
+              disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+        </svg>
+        Start Convert
+      </button>
+    </aside>
+
+    <%# ─── Scrollable content area ──────────────────────────────── %>
+    <div class="flex-1 overflow-auto">
+
+      <%# Idle: dropzone %>
+      <div class="flex flex-col min-h-full" data-convert-tool-target="dropzoneArea">
+        <div class="flex-1 m-4 sm:m-6 border-2 border-dashed border-base-300 rounded-2xl cursor-pointer
+                    flex flex-col items-center justify-center text-center
+                    transition-colors hover:border-primary hover:bg-primary/5"
+             data-convert-tool-target="dropzone"
+             data-action="click->convert-tool#openFilePicker">
+          <div class="flex flex-col items-center gap-4 p-10 pointer-events-none">
+            <h1 class="text-2xl font-bold"><%= tool_title %></h1>
+            <p class="text-sm text-base-content/60"><%= tool_description %></p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-base-content/25 mt-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
+            <div>
+              <p class="text-base font-semibold text-base-content">Drag images here or click to select</p>
+              <p class="text-sm text-base-content/50 mt-1">JPEG, PNG, WebP, AVIF · Max 5MB per file</p>
+            </div>
+          </div>
+        </div>
+
+        <%# Related links (SEO pages only) %>
+        <% if specific %>
+          <div class="px-6 pb-6">
+            <p class="text-xs text-base-content/40 mb-2 font-medium uppercase tracking-wide">Related conversions</p>
+            <div class="flex flex-wrap gap-2">
+              <% related_links.each do |label, path_helper| %>
+                <%= link_to label, send(path_helper),
+                      class: "badge badge-outline badge-sm hover:badge-primary transition-colors" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <%# Active: image grid %>
+      <div class="hidden p-4 sm:p-6 pb-28 lg:pb-6" data-convert-tool-target="contentArea">
+        <ul class="flex flex-wrap justify-center gap-3" data-convert-tool-target="fileGrid"></ul>
+
+        <div class="hidden mt-5 flex items-center justify-center gap-3" data-convert-tool-target="progressArea">
+          <span class="loading loading-spinner loading-sm text-primary"></span>
+          <span class="text-sm text-base-content/70" data-convert-tool-target="status">Uploading...</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# ─── Fixed bottom-right: Settings + Add more (mobile) ─────── %>
+  <div class="hidden fixed bottom-6 right-6 z-10 flex flex-col items-end gap-2"
+       data-convert-tool-target="fixedActions">
+    <button class="btn btn-outline btn-sm gap-2 bg-base-100 shadow-lg lg:hidden"
+            data-action="click->convert-tool#openSettings">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+      </svg>
+      Settings
+    </button>
+    <button class="btn btn-outline btn-sm gap-2 bg-base-100 shadow-lg"
+            data-action="click->convert-tool#openFilePicker">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+      </svg>
+      Add more
+    </button>
+  </div>
+
+  <%# ─── Fixed bottom-left: Start (mobile only) ───────────────── %>
+  <div class="hidden fixed bottom-6 left-6 z-10 lg:hidden"
+       data-convert-tool-target="fixedActions">
+    <button class="btn btn-primary gap-2 shadow-lg"
+            data-convert-tool-target="startBtn"
+            data-action="click->convert-tool#startConvert"
+            disabled>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+      </svg>
+      Start Convert
+    </button>
+  </div>
+
+  <%# Hidden file input %>
+  <input type="file"
+         accept="<%= accept %>"
+         multiple
+         class="hidden"
+         data-convert-tool-target="input"
+         data-action="change->convert-tool#onFileChange">
+
+  <%# ─── Mobile settings modal ─────────────────────────────────── %>
+  <dialog id="settings-modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box rounded-t-2xl sm:rounded-2xl">
+      <h3 class="font-bold text-lg mb-5">Convert Settings</h3>
+
+      <div class="form-control mb-6">
+        <label class="label pb-2">
+          <span class="label-text font-medium">Output Format</span>
+        </label>
+        <div class="join w-full">
+          <% formats.each do |fmt, label| %>
+            <% active = @to_format == fmt || (!@to_format && fmt == 'jpeg') %>
+            <button type="button"
+                    class="join-item btn flex-1 <%= active ? 'btn-primary' : 'btn-outline' %>"
+                    data-convert-tool-target="toFormatBtn"
+                    data-format="<%= fmt %>"
+                    data-action="click->convert-tool#selectFormat"
+                    <%= "disabled" if specific && !active %>>
+              <%= label %>
+            </button>
+          <% end %>
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-full gap-2"
+              data-convert-tool-target="startBtn"
+              data-action="click->convert-tool#startConvert"
+              disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+        </svg>
+        Start Convert
+      </button>
+
+      <form method="dialog" class="mt-3">
+        <button class="btn btn-ghost w-full">Close</button>
+      </form>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
+
+</div>

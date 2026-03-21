@@ -1,35 +1,27 @@
 class ResizeController < ApplicationController
   include ToolController
 
-  before_action :set_task, only: [ :show, :start ]
-
   def new
-  end
-
-  def show
-    @uploads = @task.uploads.completed.with_attached_file
-    @uploads.each { |u| u.file.blob.analyze unless u.file.analyzed? }
+    @task = create_task
   end
 
   def start
-    resizes = {}
-    (params[:resizes] || {}).each do |upload_id, settings|
-      resizes[upload_id] = {
-        "width"                 => settings[:width].presence&.to_i,
-        "height"                => settings[:height].presence&.to_i,
-        "maintain_aspect_ratio" => settings[:maintain_aspect_ratio] == "1"
+    task = find_task
+    width = params[:width].presence&.to_i
+    height = params[:height].presence&.to_i
+    maintain_aspect_ratio = params[:maintain_aspect_ratio] != "false"
+
+    resizes = task.uploads.pluck(:upload_id).each_with_object({}) do |uid, h|
+      h[uid] = {
+        "width" => width,
+        "height" => height,
+        "maintain_aspect_ratio" => maintain_aspect_ratio
       }
     end
 
-    @task.update!(status: "processing")
-    ResizeImagesJob.perform_later(@task.task_id, resizes: resizes)
+    task.update!(status: "processing")
+    ResizeImagesJob.perform_later(task.task_id, resizes: resizes)
 
-    redirect_to download_path(task_id: @task.task_id)
-  end
-
-  private
-
-  def set_task
-    @task = Task.find_by!(task_id: params[:task_id])
+    render_download_url(task)
   end
 end

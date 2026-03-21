@@ -1,5 +1,5 @@
 <% content_for :title, "Allimgtools — Free Online Image Tools" %>
-<% content_for :description, "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required. Files deleted after 3 hours." %>
+<% content_for :description, "Free online image tools. Compress, resize, and convert JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required. Files deleted after 3 hours." %>
 <% content_for :head do %>
   <script type="application/ld+json">
   {
@@ -7,7 +7,7 @@
     "@type": "WebSite",
     "name": "Allimgtools",
     "url": "https://allimgtools.com",
-    "description": "Free online image tools. Compress and resize images instantly.",
+    "description": "Free online image tools. Compress, resize, and convert images instantly.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://allimgtools.com"
@@ -50,6 +50,22 @@
                 <div>
                     <h2 class="card-title text-lg">Image Resize</h2>
                     <p class="text-base-content/60 text-sm">Adjust images to your desired dimensions.</p>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
+        <%= link_to new_convert_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
+        <div class="card-body">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-primary/10 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="card-title text-lg">Image Convert</h2>
+                    <p class="text-base-content/60 text-sm">Convert between JPEG, PNG, and WebP formats.</p>
                 </div>
             </div>
         </div>

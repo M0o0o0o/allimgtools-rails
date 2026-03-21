@@ -59,7 +59,7 @@
         <div class="drawer-content flex flex-col min-h-screen">
             <%= render "shared/header" %>
 
-            <main class="container mx-auto px-4 py-8 max-w-4xl flex-1">
+            <main class="<%= content_for?(:main_class) ? yield(:main_class) : 'container mx-auto px-4 py-8 max-w-4xl flex-1' %>">
                 <%= yield %>
             </main>
         </div>
@@ -92,6 +92,25 @@
                         </svg>
                         Image Resize
                         <% end %>
+                    </li>
+                    <li>
+                        <details <%= controller_name == 'convert' ? 'open' : '' %>>
+                            <summary class="<%= controller_name == 'convert' ? 'active' : '' %>">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                                </svg>
+                                Image Convert
+                            </summary>
+                            <ul>
+                                <li><%= link_to "Image Converter", new_convert_path %></li>
+                                <li><%= link_to "JPG → PNG",  jpg_to_png_path %></li>
+                                <li><%= link_to "JPG → WebP", jpg_to_webp_path %></li>
+                                <li><%= link_to "PNG → JPG",  png_to_jpg_path %></li>
+                                <li><%= link_to "PNG → WebP", png_to_webp_path %></li>
+                                <li><%= link_to "WebP → JPG", webp_to_jpg_path %></li>
+                                <li><%= link_to "WebP → PNG", webp_to_png_path %></li>
+                            </ul>
+                        </details>
                     </li>
                 </ul>
             </nav>

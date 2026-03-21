@@ -11,13 +11,21 @@ Rails.application.routes.draw do
 
   post "uploads/chunk", to: "uploads#chunk", as: :upload_chunk
 
-  get  "compress",                  to: "compress#new",   as: :new_compress
-  get  "compress/:task_id",         to: "compress#show",  as: :compress
-  post "compress/:task_id/start",   to: "compress#start", as: :start_compress
+  get  "compress",         to: "compress#new",   as: :new_compress
+  post "compress/start",   to: "compress#start", as: :start_compress
 
-  get  "resize",                    to: "resize#new",     as: :new_resize
-  get  "resize/:task_id",           to: "resize#show",    as: :resize
-  post "resize/:task_id/start",     to: "resize#start",   as: :start_resize
+  get  "resize",         to: "resize#new",   as: :new_resize
+  post "resize/start",   to: "resize#start", as: :start_resize
+
+  get  "convert",       to: "convert#new",   as: :new_convert
+  post "convert/start", to: "convert#start", as: :start_convert
+
+  get "jpg-to-png",  to: "convert#new", defaults: { from_format: "jpg",  to_format: "png"  }, as: :jpg_to_png
+  get "jpg-to-webp", to: "convert#new", defaults: { from_format: "jpg",  to_format: "webp" }, as: :jpg_to_webp
+  get "png-to-jpg",  to: "convert#new", defaults: { from_format: "png",  to_format: "jpeg" }, as: :png_to_jpg
+  get "png-to-webp", to: "convert#new", defaults: { from_format: "png",  to_format: "webp" }, as: :png_to_webp
+  get "webp-to-jpg", to: "convert#new", defaults: { from_format: "webp", to_format: "jpeg" }, as: :webp_to_jpg
+  get "webp-to-png", to: "convert#new", defaults: { from_format: "webp", to_format: "png"  }, as: :webp_to_png
 
   get  "download/:task_id",         to: "downloads#show", as: :download
   get  "download/:task_id/zip",     to: "downloads#zip",  as: :download_zip
