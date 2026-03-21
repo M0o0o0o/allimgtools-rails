@@ -4,10 +4,12 @@ class ConvertImagesJob < ApplicationJob
   EXTENSION_MAP = { "jpeg" => "jpg", "png" => "png", "webp" => "webp" }.freeze
   CONTENT_TYPE_MAP = { "jpeg" => "image/jpeg", "png" => "image/png", "webp" => "image/webp" }.freeze
 
-  def perform(task_id, to_format:)
+  def perform(task_id, to_format:, upload_ids: nil)
     task = Task.find_by!(task_id: task_id)
+    uploads = task.uploads.completed
+    uploads = uploads.where(upload_id: upload_ids) if upload_ids.present?
 
-    task.uploads.completed.find_each do |upload|
+    uploads.find_each do |upload|
       convert_upload(upload, to_format: to_format)
     end
 

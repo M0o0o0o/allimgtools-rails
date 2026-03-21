@@ -4,7 +4,7 @@ class ResizeImagesJob < ApplicationJob
   def perform(task_id, resizes:)
     task = Task.find_by!(task_id: task_id)
 
-    task.uploads.completed.find_each do |upload|
+    task.uploads.completed.where(upload_id: resizes.keys).find_each do |upload|
       settings = resizes[upload.upload_id] || {}
       resize_upload(upload,
         width: settings["width"],

@@ -17,8 +17,10 @@ class ConvertController < ApplicationController
       return render json: { error: "Invalid format." }, status: :unprocessable_entity
     end
 
+    upload_ids = Array(params[:upload_ids]).presence
+
     task.update!(status: "processing")
-    ConvertImagesJob.perform_later(task.task_id, to_format: to_format)
+    ConvertImagesJob.perform_later(task.task_id, to_format: to_format, upload_ids: upload_ids)
 
     render_download_url(task)
   end

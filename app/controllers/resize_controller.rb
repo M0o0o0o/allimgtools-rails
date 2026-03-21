@@ -11,7 +11,9 @@ class ResizeController < ApplicationController
     height = params[:height].presence&.to_i
     maintain_aspect_ratio = params[:maintain_aspect_ratio] != "false"
 
-    resizes = task.uploads.pluck(:upload_id).each_with_object({}) do |uid, h|
+    upload_ids = Array(params[:upload_ids]).presence
+    scope = upload_ids ? task.uploads.where(upload_id: upload_ids) : task.uploads
+    resizes = scope.pluck(:upload_id).each_with_object({}) do |uid, h|
       h[uid] = {
         "width" => width,
         "height" => height,

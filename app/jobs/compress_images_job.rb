@@ -1,10 +1,12 @@
 class CompressImagesJob < ApplicationJob
   queue_as :default
 
-  def perform(task_id, quality:)
+  def perform(task_id, quality:, upload_ids: nil)
     task = Task.find_by!(task_id: task_id)
+    uploads = task.uploads.completed
+    uploads = uploads.where(upload_id: upload_ids) if upload_ids.present?
 
-    task.uploads.completed.find_each do |upload|
+    uploads.find_each do |upload|
       compress_upload(upload, quality: quality)
     end
 

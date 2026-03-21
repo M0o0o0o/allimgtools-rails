@@ -12,7 +12,8 @@ export async function uploadFiles(files, taskId, callbacks = {}) {
   await Promise.allSettled(
     files.map(async (file) => {
       try {
-        await uploadFile(file, taskId, csrfToken);
+        const uploadId = await uploadFile(file, taskId, csrfToken);
+        callbacks.onSuccess?.(file, uploadId);
       } catch (e) {
         callbacks.onError?.(file, e);
       } finally {
@@ -24,6 +25,7 @@ export async function uploadFiles(files, taskId, callbacks = {}) {
 
 async function uploadFile(file, taskId, csrfToken) {
   const uploadId = crypto.randomUUID();
+  // uploadId is returned so callers can track which server records to process
   const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
 
   for (let i = 0; i < totalChunks; i++) {
@@ -47,4 +49,6 @@ async function uploadFile(file, taskId, csrfToken) {
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || "Upload failed.");
   }
+
+  return uploadId;
 }

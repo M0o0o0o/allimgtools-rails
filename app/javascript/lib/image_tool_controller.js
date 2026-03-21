@@ -29,6 +29,9 @@ export default class extends Controller {
   #state = "idle";
   #dragCounter = 0;
   #resizeHandler = null;
+  #startRequested = false;
+  #waitOverlay = null;
+  #uploadIds = new Map(); // File → uploadId
 
   connect() {
     this.#setState("idle");
@@ -156,6 +159,7 @@ export default class extends Controller {
   }
 
   #removeFile(index) {
+    this.#uploadIds.delete(this.#files[index]);
     this.#files = this.#files.filter((_, i) => i !== index);
     if (this.#files.length === 0) {
       this.#setState("idle");
@@ -173,7 +177,13 @@ export default class extends Controller {
     }
     this.#updateStatus();
 
+    // TODO: remove test delay
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
     await uploadFiles(files, this.taskIdValue, {
+      onSuccess: (file, uploadId) => {
+        this.#uploadIds.set(file, uploadId);
+      },
       onError: (file, e) => {
         showToast(`Failed to upload ${file.name}: ${e.message}`);
         this.#files = this.#files.filter((f) => f !== file);
@@ -188,6 +198,9 @@ export default class extends Controller {
         this.#updateStatus();
         if (this.#pendingUploads === 0 && this.#state === "uploading") {
           this.#setState("ready");
+          if (this.#startRequested) {
+            this.startTool();
+          }
         }
       },
     });
@@ -208,7 +221,14 @@ export default class extends Controller {
   // ── Start (shared flow) ─────────────────────────────────────────
 
   async startTool() {
+    if (this.#state === "uploading") {
+      this.#startRequested = true;
+      this.#showWaitOverlay();
+      return;
+    }
     if (this.#state !== "ready") return;
+    this.#startRequested = false;
+    this.#hideWaitOverlay();
     this.#setState("processing");
 
     const modal = document.getElementById("settings-modal");
@@ -219,6 +239,10 @@ export default class extends Controller {
     try {
       const formData = new FormData();
       formData.append("task_id", this.taskIdValue);
+      this.#files.forEach((file) => {
+        const uid = this.#uploadIds.get(file);
+        if (uid) formData.append("upload_ids[]", uid);
+      });
       this.buildFormData(formData);
 
       const response = await fetch(this.startUrlValue, {
@@ -244,22 +268,17 @@ export default class extends Controller {
 
     const isIdle = state === "idle";
     const isActive = !isIdle;
-    const isUploading = state === "uploading";
-    const isReady = state === "ready";
     const isProcessing = state === "processing";
 
     this.dropzoneAreaTarget.classList.toggle("hidden", isActive);
     this.contentAreaTarget.classList.toggle("hidden", isIdle);
-    this.progressAreaTarget.classList.toggle(
-      "hidden",
-      !isUploading && !isProcessing,
-    );
+    this.progressAreaTarget.classList.toggle("hidden", !isProcessing);
 
     if (isProcessing) {
       this.statusTarget.textContent = this.processingStatusText;
     }
 
-    this.startBtnTargets.forEach((btn) => (btn.disabled = !isReady));
+    this.startBtnTargets.forEach((btn) => (btn.disabled = isIdle || isProcessing));
     this.fixedActionsTargets.forEach((el) =>
       el.classList.toggle("hidden", isIdle),
     );
@@ -270,8 +289,29 @@ export default class extends Controller {
     });
 
     if (isIdle) {
+      this.#startRequested = false;
+      this.#hideWaitOverlay();
+      this.#uploadIds.clear();
       this.fileGridTarget.innerHTML = "";
     }
+  }
+
+  #showWaitOverlay() {
+    if (this.#waitOverlay) return;
+    const overlay = document.createElement("div");
+    overlay.className =
+      "absolute inset-0 z-30 bg-base-100/80 backdrop-blur-sm flex flex-col items-center justify-center gap-3";
+    overlay.innerHTML = `
+      <span class="loading loading-spinner loading-lg text-primary"></span>
+      <p class="text-sm text-base-content/60">Waiting for upload to finish...</p>
+    `;
+    this.element.appendChild(overlay);
+    this.#waitOverlay = overlay;
+  }
+
+  #hideWaitOverlay() {
+    this.#waitOverlay?.remove();
+    this.#waitOverlay = null;
   }
 
 }
