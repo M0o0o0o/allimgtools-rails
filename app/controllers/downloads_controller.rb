@@ -15,7 +15,7 @@ class DownloadsController < ApplicationController
     uploads.each do |upload|
       filename = File.basename(upload.compressed_file.filename.to_s)
       size = upload.compressed_file.byte_size
-      writer.write_deflated_file(filename) do |sink|
+      writer.write_stored_file(filename, size_estimate_in_bytes: size) do |sink|
         upload.compressed_file.open do |f|
           IO.copy_stream(f, sink)
         end
