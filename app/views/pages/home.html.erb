@@ -55,6 +55,38 @@
         </div>
         <% end %>
 
+        <%= link_to new_rotate_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
+        <div class="card-body">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-primary/10 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="card-title text-lg">Image Rotate</h2>
+                    <p class="text-base-content/60 text-sm">Rotate or flip your image 90°, 180°, or 270°.</p>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
+        <%= link_to new_exif_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
+        <div class="card-body">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-primary/10 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="card-title text-lg">EXIF Remover</h2>
+                    <p class="text-base-content/60 text-sm">Strip GPS, camera info, and all metadata.</p>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
         <%= link_to new_convert_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
         <div class="card-body">
             <div class="flex items-center gap-4">

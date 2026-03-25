@@ -1,0 +1,142 @@
+<% content_for :title, "Free EXIF Remover — Strip Image Metadata Online | Allimgtools" %>
+<% content_for :description, "Remove EXIF metadata from JPEG, PNG, WebP, and GIF images online for free. Strip GPS location, camera info, and other metadata. No signup required." %>
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "EXIF Remover",
+    "url": "https://allimgtools.com/exif",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Remove EXIF metadata from images online for free."
+  }
+  </script>
+<% end %>
+<% content_for :main_class, "flex-1 flex flex-col min-h-0" %>
+
+<div data-controller="exif-tool"
+     data-exif-tool-task-id-value="<%= @task.task_id %>"
+     data-exif-tool-start-url-value="<%= start_exif_path %>"
+     class="flex-1 flex flex-col min-h-0 relative"
+     data-action="dragenter->exif-tool#onDragEnter
+                  dragover->exif-tool#onDragOver
+                  dragleave->exif-tool#onDragLeave
+                  drop->exif-tool#onDrop">
+
+  <%# ─── Drag overlay ───────────────────────────────────────────── %>
+  <div class="hidden absolute inset-0 z-20 m-3 border-2 border-dashed border-primary rounded-2xl
+              bg-primary/5 flex items-center justify-center pointer-events-none"
+       data-exif-tool-target="dragOverlay">
+    <div class="text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <p class="text-base font-semibold text-primary">Drop images to add</p>
+    </div>
+  </div>
+
+  <%# ─── Main layout ───────────────────────────────────────────── %>
+  <div class="flex-1 flex min-h-0">
+
+    <%# ─── Desktop sidebar ────── %>
+    <aside class="hidden lg:flex flex-col w-72 bg-base-100 border-r border-base-200 p-6 shrink-0"
+           data-exif-tool-target="sidebar">
+
+      <h2 class="text-base font-bold mb-6">EXIF Removal</h2>
+
+      <div class="flex-1 flex flex-col gap-4">
+        <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3 leading-relaxed">
+          Removes all metadata from your images — including GPS location, camera model, date taken, and other EXIF/IPTC data.
+        </div>
+        <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
+          Image quality and dimensions are preserved.
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-full mt-6 gap-2"
+              data-exif-tool-target="startBtn"
+              data-action="click->exif-tool#startExifRemoval"
+              disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Remove EXIF
+      </button>
+    </aside>
+
+    <%# ─── Scrollable content ─────────────────────────────────────── %>
+    <div class="flex-1 overflow-auto">
+
+      <%# Idle: dropzone %>
+      <div class="flex flex-col min-h-full"
+           data-exif-tool-target="dropzoneArea">
+        <div class="flex-1 m-4 sm:m-6 border-2 border-dashed border-base-300 rounded-2xl cursor-pointer
+                    flex flex-col items-center justify-center text-center
+                    transition-colors hover:border-primary hover:bg-primary/5"
+             data-exif-tool-target="dropzone"
+             data-action="click->exif-tool#openFilePicker">
+          <div class="flex flex-col items-center gap-4 p-10 pointer-events-none">
+            <h1 class="text-2xl font-bold">EXIF Remover</h1>
+            <p class="text-sm text-base-content/60">Strip GPS, camera info, and all metadata from your images.</p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-base-content/25 mt-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <div>
+              <p class="text-base font-semibold text-base-content">Drag images here or click to select</p>
+              <p class="text-sm text-base-content/50 mt-1">JPEG, PNG, GIF, WebP, AVIF · Max 5MB per file</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%# Active: image grid %>
+      <div class="hidden p-4 sm:p-6 pb-28 lg:pb-6" data-exif-tool-target="contentArea">
+        <ul class="flex flex-wrap justify-center gap-3"
+            data-exif-tool-target="fileGrid"></ul>
+
+        <div class="hidden mt-5 flex items-center justify-center gap-3" data-exif-tool-target="progressArea">
+          <span class="loading loading-spinner loading-sm text-primary"></span>
+          <span class="text-sm text-base-content/70" data-exif-tool-target="status">Processing...</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <%# ─── Fixed bottom-right: Add more ─────────────────────────────── %>
+  <div class="hidden fixed bottom-6 right-6 z-10 flex flex-col items-end gap-2"
+       data-exif-tool-target="fixedActions">
+    <button class="btn btn-outline btn-sm gap-2 bg-base-100 shadow-lg"
+            data-action="click->exif-tool#openFilePicker">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+      </svg>
+      Add more
+    </button>
+  </div>
+
+  <%# ─── Fixed bottom-left: Start (mobile only) ───────────────────── %>
+  <div class="hidden fixed bottom-6 left-6 z-10 lg:hidden"
+       data-exif-tool-target="fixedActions">
+    <button class="btn btn-primary gap-2 shadow-lg"
+            data-exif-tool-target="startBtn"
+            data-action="click->exif-tool#startExifRemoval"
+            disabled>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+      Remove EXIF
+    </button>
+  </div>
+
+  <%# Hidden file input %>
+  <input type="file"
+         accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
+         multiple
+         class="hidden"
+         data-exif-tool-target="input"
+         data-action="change->exif-tool#onFileChange">
+
+</div>

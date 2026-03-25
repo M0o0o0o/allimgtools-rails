@@ -27,6 +27,12 @@ Rails.application.routes.draw do
   get "webp-to-jpg", to: "convert#new", defaults: { from_format: "webp", to_format: "jpeg" }, as: :webp_to_jpg
   get "webp-to-png", to: "convert#new", defaults: { from_format: "webp", to_format: "png"  }, as: :webp_to_png
 
+  get  "exif",         to: "exif#new",   as: :new_exif
+  post "exif/start",   to: "exif#start", as: :start_exif
+
+  get  "rotate",       to: "rotate#new",   as: :new_rotate
+  post "rotate/start", to: "rotate#start", as: :start_rotate
+
   get  "download/:task_id",         to: "downloads#show", as: :download
   get  "download/:task_id/zip",     to: "downloads#zip",  as: :download_zip
 
