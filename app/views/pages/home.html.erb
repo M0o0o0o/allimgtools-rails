@@ -1,5 +1,5 @@
-<% content_for :title, "Allimgtools — Free Online Image Tools" %>
-<% content_for :description, "Free online image tools. Compress, resize, and convert JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required. Files deleted after 3 hours." %>
+<% content_for :title, t("home.meta_title") %>
+<% content_for :description, t("home.meta_description") %>
 <% content_for :head do %>
   <script type="application/ld+json">
   {
@@ -18,8 +18,8 @@
 
 <div class="max-w-2xl mx-auto">
     <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold mb-3">Image Tools</h1>
-        <p class="text-base-content/60 text-lg">Convert and optimize your images for free. Uploaded files are automatically deleted after 3 hours.</p>
+        <h1 class="text-4xl font-bold mb-3"><%= t("home.title") %></h1>
+        <p class="text-base-content/60 text-lg"><%= t("home.description") %></p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -32,8 +32,8 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="card-title text-lg">Image Compress</h2>
-                    <p class="text-base-content/60 text-sm">Reduce file size while maintaining quality.</p>
+                    <h2 class="card-title text-lg"><%= t("nav.compress") %></h2>
+                    <p class="text-base-content/60 text-sm"><%= t("home.compress_desc") %></p>
                 </div>
             </div>
         </div>
@@ -48,8 +48,8 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="card-title text-lg">Image Resize</h2>
-                    <p class="text-base-content/60 text-sm">Adjust images to your desired dimensions.</p>
+                    <h2 class="card-title text-lg"><%= t("nav.resize") %></h2>
+                    <p class="text-base-content/60 text-sm"><%= t("home.resize_desc") %></p>
                 </div>
             </div>
         </div>
@@ -64,8 +64,8 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="card-title text-lg">Image Rotate</h2>
-                    <p class="text-base-content/60 text-sm">Rotate or flip your image 90°, 180°, or 270°.</p>
+                    <h2 class="card-title text-lg"><%= t("nav.rotate") %></h2>
+                    <p class="text-base-content/60 text-sm"><%= t("home.rotate_desc") %></p>
                 </div>
             </div>
         </div>
@@ -80,8 +80,8 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="card-title text-lg">EXIF Remover</h2>
-                    <p class="text-base-content/60 text-sm">Strip GPS, camera info, and all metadata.</p>
+                    <h2 class="card-title text-lg"><%= t("nav.exif") %></h2>
+                    <p class="text-base-content/60 text-sm"><%= t("home.exif_desc") %></p>
                 </div>
             </div>
         </div>
@@ -96,8 +96,8 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="card-title text-lg">Image Convert</h2>
-                    <p class="text-base-content/60 text-sm">Convert between JPEG, PNG, and WebP formats.</p>
+                    <h2 class="card-title text-lg"><%= t("nav.convert") %></h2>
+                    <p class="text-base-content/60 text-sm"><%= t("home.convert_desc") %></p>
                 </div>
             </div>
         </div>

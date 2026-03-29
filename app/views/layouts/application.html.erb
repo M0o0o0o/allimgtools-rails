@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="<%= I18n.locale %>" data-theme="light">
 
 <head>
-    <title><%= content_for(:title) || "Allimgtools — Free Online Image Tools" %></title>
+    <title><%= content_for(:title) || t("home.meta_title") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="<%= content_for(:description) || "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required. Files deleted after 3 hours." %>">
+    <meta name="description" content="<%= content_for(:description) || t("home.meta_description") %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Allimgtools">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# Canonical URL %>
-    <link rel="canonical" href="https://allimgtools.com<%= request.path == '/' ? '' : request.path %>">
+    <%# Canonical URL — always points to English (default) version %>
+    <% canonical_path = request.path.sub(%r{\A/(#{PUBLIC_LOCALE_PATTERN})(/|\z)}, '/') %>
+    <link rel="canonical" href="https://allimgtools.com<%= canonical_path == '/' ? '' : canonical_path %>">
+
+    <%# hreflang tags for SEO %>
+    <% SUPPORTED_LOCALES.each_key do |locale| %>
+      <link rel="alternate" hreflang="<%= locale %>"
+            href="https://allimgtools.com<%= url_for(locale: locale == I18n.default_locale ? nil : locale, only_path: true) %>">
+    <% end %>
+    <link rel="alternate" hreflang="x-default"
+          href="https://allimgtools.com<%= url_for(locale: nil, only_path: true) %>">
 
     <%# Open Graph %>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Allimgtools">
-    <meta property="og:title" content="<%= content_for(:title) || "Allimgtools — Free Online Image Tools" %>">
-    <meta property="og:description" content="<%= content_for(:description) || "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required." %>">
-    <meta property="og:url" content="https://allimgtools.com<%= request.path == '/' ? '' : request.path %>">
+    <meta property="og:title" content="<%= content_for(:title) || t("home.meta_title") %>">
+    <meta property="og:description" content="<%= content_for(:description) || t("home.meta_description") %>">
+    <meta property="og:url" content="https://allimgtools.com<%= canonical_path == '/' ? '' : canonical_path %>">
+    <meta property="og:locale" content="<%= I18n.locale.to_s.gsub('-', '_') %>">
+    <% (SUPPORTED_LOCALES.keys.map(&:to_s) - [ I18n.locale.to_s ]).each do |loc| %>
+    <meta property="og:locale:alternate" content="<%= loc.gsub('-', '_') %>">
+    <% end %>
 
     <%# Twitter Card %>
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="<%= content_for(:title) || "Allimgtools — Free Online Image Tools" %>">
-    <meta name="twitter:description" content="<%= content_for(:description) || "Free online image tools. Compress and resize JPEG, PNG, WebP, GIF, and AVIF images instantly. No signup required." %>">
+    <meta name="twitter:title" content="<%= content_for(:title) || t("home.meta_title") %>">
+    <meta name="twitter:description" content="<%= content_for(:description) || t("home.meta_description") %>">
 
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <!-- Google tag (gtag.js) -->
@@ -66,7 +75,7 @@
 
         <%# Mobile slide menu %>
         <div class="drawer-side z-[100]">
-            <label for="nav-drawer" aria-label="Close menu" class="drawer-overlay"></label>
+            <label for="nav-drawer" aria-label="<%= t("common.close") %>" class="drawer-overlay"></label>
             <nav class="bg-base-100 min-h-full w-64 shadow-xl flex flex-col">
                 <div class="p-4 border-b border-base-200">
                     <%= link_to root_path, class: "flex items-center gap-2 font-bold text-lg" do %>
@@ -82,7 +91,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
-                        Image Compress
+                        <%= t("nav.compress") %>
                         <% end %>
                     </li>
                     <li>
@@ -90,7 +99,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                         </svg>
-                        Image Resize
+                        <%= t("nav.resize") %>
                         <% end %>
                     </li>
                     <li>
@@ -98,7 +107,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                         </svg>
-                        Image Rotate
+                        <%= t("nav.rotate") %>
                         <% end %>
                     </li>
                     <li>
@@ -106,7 +115,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
-                        EXIF Remover
+                        <%= t("nav.exif") %>
                         <% end %>
                     </li>
                     <li>
@@ -115,10 +124,10 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                                 </svg>
-                                Image Convert
+                                <%= t("nav.convert") %>
                             </summary>
                             <ul>
-                                <li><%= link_to "Image Converter", new_convert_path %></li>
+                                <li><%= link_to t("nav.image_converter"), new_convert_path %></li>
                                 <li><%= link_to "JPG → PNG",  jpg_to_png_path %></li>
                                 <li><%= link_to "JPG → WebP", jpg_to_webp_path %></li>
                                 <li><%= link_to "PNG → JPG",  png_to_jpg_path %></li>
@@ -129,6 +138,18 @@
                         </details>
                     </li>
                 </ul>
+
+                <%# Language switcher in mobile drawer %>
+                <div class="p-4 border-t border-base-200">
+                    <p class="text-xs font-semibold text-base-content/40 uppercase tracking-wide mb-2"><%= t("nav.language") %></p>
+                    <div class="flex flex-wrap gap-1">
+                        <% SUPPORTED_LOCALES.each do |locale, info| %>
+                          <%= link_to info[:native],
+                                url_for(locale: locale.to_s == I18n.default_locale.to_s ? nil : locale),
+                                class: "text-xs px-2 py-1 rounded-lg transition-colors #{I18n.locale.to_s == locale.to_s ? 'bg-primary text-primary-content font-semibold' : 'hover:bg-base-200 text-base-content/60'}" %>
+                        <% end %>
+                    </div>
+                </div>
             </nav>
         </div>
     </div>

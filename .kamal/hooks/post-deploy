@@ -1,10 +1,16 @@
 #!/bin/sh
 set -e
 
+CONTAINER=$(ssh root@137.184.236.118 'docker ps -q --filter name=allimgtools-web')
+
 # Build Tailwind CSS and precompile assets inside the running container.
 # This is needed because the Docker image is built without node_modules,
 # so Tailwind must be compiled after the container starts on the server.
 echo "Building Tailwind CSS and precompiling assets..."
-CONTAINER=$(ssh root@137.184.236.118 'docker ps -q --filter name=allimgtools-web')
 ssh root@137.184.236.118 "docker exec -u root $CONTAINER sh -c 'bin/rails tailwindcss:build && bin/rails assets:precompile'"
 echo "Assets compiled."
+
+# Generate sitemap (stored in persistent storage volume).
+echo "Generating sitemap..."
+ssh root@137.184.236.118 "docker exec -u root $CONTAINER sh -c 'bundle exec rake sitemap:refresh'"
+echo "Sitemap generated."

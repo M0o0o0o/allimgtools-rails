@@ -1,5 +1,5 @@
-<% content_for :title, "Free EXIF Remover — Strip Image Metadata Online | Allimgtools" %>
-<% content_for :description, "Remove EXIF metadata from JPEG, PNG, WebP, and GIF images online for free. Strip GPS location, camera info, and other metadata. No signup required." %>
+<% content_for :title, t("exif.page_title") %>
+<% content_for :description, t("exif.page_description") %>
 <% content_for :head do %>
   <script type="application/ld+json">
   {
@@ -33,7 +33,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
       </svg>
-      <p class="text-base font-semibold text-primary">Drop images to add</p>
+      <p class="text-base font-semibold text-primary"><%= t("common.drop_images") %></p>
     </div>
   </div>
 
@@ -44,14 +44,14 @@
     <aside class="hidden lg:flex flex-col w-72 bg-base-100 border-r border-base-200 p-6 shrink-0"
            data-exif-tool-target="sidebar">
 
-      <h2 class="text-base font-bold mb-6">EXIF Removal</h2>
+      <h2 class="text-base font-bold mb-6"><%= t("exif.sidebar_title") %></h2>
 
       <div class="flex-1 flex flex-col gap-4">
         <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3 leading-relaxed">
-          Removes all metadata from your images — including GPS location, camera model, date taken, and other EXIF/IPTC data.
+          <%= t("exif.info") %>
         </div>
         <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
-          Image quality and dimensions are preserved.
+          <%= t("exif.quality_note") %>
         </div>
       </div>
 
@@ -62,7 +62,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
         </svg>
-        Remove EXIF
+        <%= t("exif.start") %>
       </button>
     </aside>
 
@@ -78,14 +78,14 @@
              data-exif-tool-target="dropzone"
              data-action="click->exif-tool#openFilePicker">
           <div class="flex flex-col items-center gap-4 p-10 pointer-events-none">
-            <h1 class="text-2xl font-bold">EXIF Remover</h1>
-            <p class="text-sm text-base-content/60">Strip GPS, camera info, and all metadata from your images.</p>
+            <h1 class="text-2xl font-bold"><%= t("exif.title") %></h1>
+            <p class="text-sm text-base-content/60"><%= t("exif.description") %></p>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-base-content/25 mt-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
             <div>
-              <p class="text-base font-semibold text-base-content">Drag images here or click to select</p>
-              <p class="text-sm text-base-content/50 mt-1">JPEG, PNG, GIF, WebP, AVIF · Max 5MB per file</p>
+              <p class="text-base font-semibold text-base-content"><%= t("common.drag_click") %></p>
+              <p class="text-sm text-base-content/50 mt-1"><%= t("common.file_types") %></p>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@
 
         <div class="hidden mt-5 flex items-center justify-center gap-3" data-exif-tool-target="progressArea">
           <span class="loading loading-spinner loading-sm text-primary"></span>
-          <span class="text-sm text-base-content/70" data-exif-tool-target="status">Processing...</span>
+          <span class="text-sm text-base-content/70" data-exif-tool-target="status"><%= t("common.processing") %></span>
         </div>
       </div>
 
@@ -113,7 +113,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
       </svg>
-      Add more
+      <%= t("common.add_more") %>
     </button>
   </div>
 
@@ -127,7 +127,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
       </svg>
-      Remove EXIF
+      <%= t("exif.start") %>
     </button>
   </div>
 
