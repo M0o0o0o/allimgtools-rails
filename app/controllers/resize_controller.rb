@@ -5,10 +5,12 @@ class ResizeController < ApplicationController
     @task = create_task
   end
 
+  MAX_DIMENSION = 4096
+
   def start
     task = find_task
-    width = params[:width].presence&.to_i
-    height = params[:height].presence&.to_i
+    width = params[:width].presence&.to_i&.clamp(1, MAX_DIMENSION)
+    height = params[:height].presence&.to_i&.clamp(1, MAX_DIMENSION)
     maintain_aspect_ratio = params[:maintain_aspect_ratio] != "false"
 
     upload_ids = Array(params[:upload_ids]).presence

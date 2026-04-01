@@ -1,0 +1,60 @@
+<div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+  <h1 class="text-2xl font-bold">Posts</h1>
+  <%= link_to "New Post", new_admin_post_path, class: "btn btn-primary btn-sm" %>
+</div>
+
+<div class="flex flex-wrap gap-2 mb-4">
+  <%= link_to "All", admin_posts_path,
+      class: "btn btn-sm #{params[:status].blank? ? 'btn-neutral' : 'btn-ghost'}" %>
+  <%= link_to "Draft", admin_posts_path(status: :draft),
+      class: "btn btn-sm #{params[:status] == 'draft' ? 'btn-warning' : 'btn-ghost'}" %>
+  <%= link_to "Published", admin_posts_path(status: :published),
+      class: "btn btn-sm #{params[:status] == 'published' ? 'btn-success' : 'btn-ghost'}" %>
+</div>
+
+<div class="card bg-base-100 shadow overflow-x-auto">
+  <table class="table table-zebra w-full">
+    <thead>
+      <tr>
+        <th>제목 (KO)</th>
+        <th class="hidden sm:table-cell">Slug</th>
+        <th>Status</th>
+        <th class="hidden md:table-cell">Published</th>
+        <th class="text-right">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <% ko_title = post.translations.find { |t| t.locale == "ko" }&.title.presence || "—" %>
+        <tr>
+          <td class="font-medium max-w-[200px] truncate"><%= ko_title %></td>
+          <td class="hidden sm:table-cell text-base-content/60 text-sm"><%= post.slug %></td>
+          <td>
+            <% if post.published? %>
+              <span class="badge badge-success badge-sm">Published</span>
+            <% elsif post.archived? %>
+              <span class="badge badge-neutral badge-sm">Archived</span>
+            <% else %>
+              <span class="badge badge-warning badge-sm">Draft</span>
+            <% end %>
+          </td>
+          <td class="hidden md:table-cell text-base-content/60 text-sm">
+            <%= post.published_at&.strftime("%b %d, %Y") || "—" %>
+          </td>
+          <td class="text-right space-x-2 whitespace-nowrap">
+            <%= link_to "Edit", edit_admin_post_path(post), class: "btn btn-ghost btn-xs" %>
+            <%= button_to "Delete", admin_post_path(post), method: :delete,
+                data: { turbo_confirm: "Delete this post?" },
+                class: "btn btn-ghost btn-xs text-error" %>
+          </td>
+        </tr>
+      <% end %>
+
+      <% if @posts.empty? %>
+        <tr>
+          <td colspan="5" class="text-center text-base-content/50 py-8">No posts yet.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

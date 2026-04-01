@@ -1,5 +1,6 @@
 vi:
   nav:
+    blog: "Blog"
     compress: "Nén ảnh"
     resize: "Thay đổi kích thước ảnh"
     rotate: "Xoay ảnh"

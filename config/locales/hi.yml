@@ -1,5 +1,6 @@
 hi:
   nav:
+    blog: "ब्लॉग"
     compress: "छवि संपीड़न"
     resize: "छवि का आकार बदलें"
     rotate: "छवि घुमाएं"

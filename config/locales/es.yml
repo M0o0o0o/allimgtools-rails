@@ -1,5 +1,6 @@
 es:
   nav:
+    blog: "Blog"
     compress: "Comprimir imagen"
     resize: "Redimensionar imagen"
     rotate: "Rotar imagen"
@@ -108,3 +109,13 @@ es:
     failed: "Error en el procesamiento"
     error: "Se produjo un error. Por favor, inténtalo de nuevo."
     try_again: "Intentar de nuevo"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Consejos y guías sobre optimización, conversión y edición de imágenes."
+    index_title: "Blog"
+    index_description: "Consejos útiles, guías y actualizaciones para trabajar con imágenes."
+    no_posts: "Aún no hay publicaciones."
+    read_more: "Leer más"
+    read_time: "%{minutes} min de lectura"
+    back_to_blog: "Volver al blog"

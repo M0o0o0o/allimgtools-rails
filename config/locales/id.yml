@@ -1,5 +1,6 @@
 id:
   nav:
+    blog: "Blog"
     compress: "Kompresi Gambar"
     resize: "Ubah Ukuran Gambar"
     rotate: "Putar Gambar"

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <title>Admin · Allimgtools</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+<body class="bg-base-200 min-h-screen">
+  <div class="navbar bg-base-100 shadow-sm px-4">
+    <div class="flex-1">
+      <%= link_to "Allimgtools Admin", admin_root_path, class: "text-lg font-bold" %>
+    </div>
+    <% if authenticated? %>
+    <div class="flex-none">
+      <%= button_to "Sign out", session_path, method: :delete, class: "btn btn-sm btn-ghost" %>
+    </div>
+    <% end %>
+  </div>
+
+  <main class="container mx-auto px-4 py-8 max-w-5xl">
+    <% if notice %>
+      <div class="alert alert-success mb-4"><%= notice %></div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-error mb-4"><%= alert %></div>
+    <% end %>
+    <%= yield %>
+  </main>
+
+  <%# Image Library Modal %>
+  <div data-controller="image-library">
+    <div data-image-library-target="modal"
+         class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
+         data-action="click->image-library#closeOnBackdrop">
+      <div class="bg-base-100 rounded-2xl shadow-xl w-full max-w-3xl max-h-[80vh] flex flex-col">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-base-300">
+          <h3 class="text-lg font-bold">이미지 라이브러리</h3>
+          <button type="button" data-action="click->image-library#close"
+                  class="btn btn-ghost btn-sm btn-circle">✕</button>
+        </div>
+        <div class="overflow-y-auto p-4">
+          <div data-image-library-target="grid"
+               class="grid grid-cols-3 sm:grid-cols-4 gap-3">
+            <p class="col-span-4 text-center text-base-content/50 py-8">로딩 중...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

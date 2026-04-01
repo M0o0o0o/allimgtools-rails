@@ -1,5 +1,6 @@
 nl:
   nav:
+    blog: "Blog"
     compress: "Afbeelding comprimeren"
     resize: "Afbeelding vergroten/verkleinen"
     rotate: "Afbeelding roteren"

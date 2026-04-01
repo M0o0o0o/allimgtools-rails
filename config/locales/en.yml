@@ -1,5 +1,6 @@
 en:
   nav:
+    blog: "Blog"
     compress: "Image Compress"
     resize: "Image Resize"
     rotate: "Image Rotate"
@@ -7,6 +8,16 @@ en:
     convert: "Image Convert"
     image_converter: "Image Converter"
     language: "Language"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Tips, guides, and updates on image optimization, conversion, and editing."
+    index_title: "Blog"
+    index_description: "Useful tips, guides, and updates for working with images."
+    no_posts: "No posts yet."
+    read_more: "Read more"
+    read_time: "%{minutes} min read"
+    back_to_blog: "Back to Blog"
 
   common:
     drop_images: "Drop images to add"

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
+
+  constraints subdomain: "admin" do
+    resource :session
+
+    scope module: :admin, as: :admin do
+      root "dashboard#index"
+      resources :posts
+      resources :uploads, only: [ :index, :create ]
+    end
+  end
   get "sitemap.xml", to: "sitemaps#show"
 
   # API endpoints — no locale prefix needed
@@ -16,6 +26,8 @@ Rails.application.routes.draw do
 
   # Localized page routes
   scope "(:locale)", locale: PUBLIC_LOCALE_PATTERN do
+    resources :posts, only: [ :index, :show ], param: :slug
+
     get "compress", to: "compress#new", as: :new_compress
     get "resize",   to: "resize#new",   as: :new_resize
     get "convert",  to: "convert#new",  as: :new_convert

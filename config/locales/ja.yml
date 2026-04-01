@@ -1,5 +1,6 @@
 ja:
   nav:
+    blog: "ブログ"
     compress: "画像圧縮"
     resize: "画像リサイズ"
     rotate: "画像回転"
@@ -108,3 +109,13 @@ ja:
     failed: "処理失敗"
     error: "エラーが発生しました。もう一度お試しください。"
     try_again: "再試行"
+
+  posts:
+    meta_title: "ブログ — Allimgtools"
+    meta_description: "画像の最適化、変換、編集に関するヒントとガイド。"
+    index_title: "ブログ"
+    index_description: "画像作業に役立つヒント、ガイド、最新情報をご覧ください。"
+    no_posts: "まだ記事がありません。"
+    read_more: "続きを読む"
+    read_time: "%{minutes}分で読めます"
+    back_to_blog: "ブログに戻る"

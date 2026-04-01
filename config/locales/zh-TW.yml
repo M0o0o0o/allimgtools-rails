@@ -1,5 +1,6 @@
 "zh-TW":
   nav:
+    blog: "部落格"
     compress: "圖片壓縮"
     resize: "圖片調整大小"
     rotate: "圖片旋轉"
@@ -108,3 +109,13 @@
     failed: "處理失敗"
     error: "發生錯誤，請重試。"
     try_again: "重試"
+
+  posts:
+    meta_title: "部落格 — Allimgtools"
+    meta_description: "圖像最佳化、轉換和編輯的技巧與指南。"
+    index_title: "部落格"
+    index_description: "有關圖像處理的實用技巧、指南和最新消息。"
+    no_posts: "尚無文章。"
+    read_more: "閱讀更多"
+    read_time: "%{minutes} 分鐘閱讀"
+    back_to_blog: "返回部落格"

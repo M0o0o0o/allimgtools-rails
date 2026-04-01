@@ -1,0 +1,91 @@
+<% content_for :title, "#{@translation.title} — Allimgtools Blog" %>
+<% content_for :description, @translation.description.presence || @translation.title %>
+<% content_for :main_class, "flex-1" %>
+
+<%# Article hero %>
+<div class="bg-gradient-to-br from-base-100 to-base-200 border-b border-base-200">
+  <div class="container mx-auto px-4 py-14 max-w-3xl">
+    <%# Back link %>
+    <%= link_to posts_path, class: "inline-flex items-center gap-1.5 text-sm text-base-content/50 hover:text-primary transition-colors mb-8 group" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      <%= t("posts.back_to_blog") %>
+    <% end %>
+
+    <%# Label %>
+    <div class="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+      Blog
+    </div>
+
+    <%# Title %>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-base-content leading-tight mb-4">
+      <%= @translation.title %>
+    </h1>
+
+    <%# Description %>
+    <% if @translation.description.present? %>
+      <p class="text-base-content/60 text-lg leading-relaxed mb-6">
+        <%= @translation.description %>
+      </p>
+    <% end %>
+
+    <%# Meta info %>
+    <div class="flex flex-wrap items-center gap-4 text-sm text-base-content/40">
+      <span class="flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <%= @post.published_at&.strftime("%B %-d, %Y") || @post.created_at.strftime("%B %-d, %Y") %>
+      </span>
+      <% word_count = @translation.body.to_plain_text.split.size rescue 0 %>
+      <% read_minutes = [(word_count / 200.0).ceil, 1].max %>
+      <span class="flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <%= t("posts.read_time", minutes: read_minutes) %>
+      </span>
+    </div>
+  </div>
+</div>
+
+<%# Divider with gradient %>
+<div class="h-1 bg-gradient-to-r from-primary via-secondary to-accent"></div>
+
+<%# Article content %>
+<div class="container mx-auto px-4 py-12 max-w-3xl">
+  <article class="prose prose-lg max-w-none
+    prose-headings:font-bold prose-headings:text-base-content
+    prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+    prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2
+    prose-p:text-base-content/80 prose-p:leading-relaxed prose-p:my-4
+    prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+    prose-strong:text-base-content prose-strong:font-semibold
+    prose-code:bg-base-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:text-secondary prose-code:before:content-none prose-code:after:content-none
+    prose-pre:bg-base-300 prose-pre:rounded-xl prose-pre:shadow-inner
+    prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:rounded-r-lg prose-blockquote:py-1
+    prose-img:rounded-xl prose-img:shadow-md prose-img:mx-auto
+    prose-ul:text-base-content/80 prose-ol:text-base-content/80
+    prose-li:my-1
+    prose-hr:border-base-300">
+    <%= @translation.body %>
+  </article>
+
+  <%# Bottom separator %>
+  <div class="divider mt-16 mb-10"></div>
+
+  <%# Back to blog CTA %>
+  <div class="text-center">
+    <%= link_to posts_path, class: "btn btn-outline btn-primary gap-2" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      <%= t("posts.back_to_blog") %>
+    <% end %>
+  </div>
+</div>

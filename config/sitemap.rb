@@ -56,6 +56,29 @@ SitemapGenerator::Sitemap.create(include_root: false) do
     end
   end
 
-  # Blog posts will be added here later
-  # Post.published.includes(:translations).find_each do |post| ... end
+  # Blog index page (per locale)
+  blog_alternates = build_alternates.call(->(l) { locale_path.call(l, "posts") })
+  locales.each do |locale|
+    add locale_path.call(locale, "posts"),
+        changefreq: "weekly",
+        priority: 0.7,
+        alternates: blog_alternates
+  end
+
+  # Individual blog posts (per locale that has a translation)
+  Post.published.includes(:translations).find_each do |post|
+    post_alternates = post.translations.map do |t|
+      locale = t.locale.to_sym
+      { href: "#{SitemapGenerator::Sitemap.default_host}#{locale_path.call(locale, "posts/#{post.slug}")}", lang: t.locale }
+    end
+
+    post.translations.each do |translation|
+      locale = translation.locale.to_sym
+      add locale_path.call(locale, "posts/#{post.slug}"),
+          changefreq: "monthly",
+          priority: 0.6,
+          lastmod: post.updated_at,
+          alternates: post_alternates
+    end
+  end
 end

@@ -1,0 +1,100 @@
+<%= form_with model: [:admin, post], class: "space-y-6" do |f| %>
+  <% if post.errors.any? %>
+    <div class="alert alert-error">
+      <ul class="list-disc list-inside text-sm">
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# Sort translations: ko first, then by SUPPORTED_LOCALES order %>
+  <% sorted_translations = post.translations
+       .select { |t| t.locale.to_sym.in?(SUPPORTED_LOCALES.keys) }
+       .sort_by { |t|
+         locale_sym = t.locale.to_sym
+         locale_sym == :ko ? -1 : SUPPORTED_LOCALES.keys.index(locale_sym).to_i
+       } %>
+
+  <div data-controller="tabs">
+    <%# Tab buttons %>
+    <div class="border-b border-base-300 mb-6 overflow-x-auto">
+      <div class="flex gap-1 min-w-max">
+        <% sorted_translations.each_with_index do |translation, index| %>
+          <button type="button"
+                  data-tabs-target="tab"
+                  data-action="click->tabs#select"
+                  class="px-3 py-2 text-sm font-medium border-b-2 transition whitespace-nowrap shrink-0 <%= index == 0 ? 'border-primary text-primary' : 'border-transparent text-base-content/50 hover:text-base-content' %>">
+            <%= translation.locale == "ko" ? "한국어 (원본)" : SUPPORTED_LOCALES[translation.locale.to_sym]&.dig(:name) || translation.locale.upcase %>
+          </button>
+        <% end %>
+      </div>
+    </div>
+
+    <%# Translation panels %>
+    <%= f.fields_for :translations, sorted_translations do |t| %>
+      <div data-tabs-target="panel" class="<%= t.index == 0 ? '' : 'hidden' %> space-y-4">
+        <%= t.hidden_field :locale %>
+        <%= t.hidden_field :id if t.object.persisted? %>
+
+        <div class="form-control">
+          <%= t.label :title, class: "label label-text font-medium" %>
+          <%= t.text_field :title,
+              class: "input input-bordered w-full",
+              placeholder: t.object.locale == "ko" ? "제목을 입력하세요" : "Post title" %>
+        </div>
+
+        <div class="form-control">
+          <%= t.label :description, class: "label label-text font-medium" %>
+          <%= t.text_area :description, rows: 2,
+              class: "textarea textarea-bordered w-full",
+              placeholder: t.object.locale == "ko" ? "SEO용 짧은 설명" : "Short description for SEO" %>
+        </div>
+
+        <div class="form-control">
+          <%= t.label :body, class: "label label-text font-medium" %>
+          <%= t.rich_text_area :body,
+              class: "min-h-64",
+              placeholder: t.object.locale == "ko" ? "내용을 입력하세요..." : "Write your content..." %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="divider"></div>
+
+  <%# Post metadata %>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="form-control">
+      <%= f.label :slug, "Slug (URL)", class: "label label-text font-medium" %>
+      <%= f.text_field :slug,
+          class: "input input-bordered w-full",
+          placeholder: "my-post-title" %>
+      <p class="label label-text-alt text-base-content/50">영소문자, 숫자, 하이픈만 허용</p>
+    </div>
+
+    <div class="form-control">
+      <%= f.label :status, class: "label label-text font-medium" %>
+      <%= f.select :status,
+          Post.statuses.keys.map { |s| [s.capitalize, s] },
+          {},
+          class: "select select-bordered w-full" %>
+    </div>
+
+    <div class="form-control sm:col-span-2 md:col-span-1">
+      <%= f.label :published_at, class: "label label-text font-medium" %>
+      <%= f.datetime_local_field :published_at,
+          value: post.published_at&.strftime("%Y-%m-%dT%H:%M"),
+          class: "input input-bordered w-full" %>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap gap-3 pt-2">
+    <%= f.submit class: "btn btn-primary" %>
+    <% if post.persisted? %>
+      <%= f.submit "Update Post + Translate", name: "translate", class: "btn btn-secondary gap-2" %>
+    <% end %>
+    <%= link_to "Cancel", admin_posts_path, class: "btn btn-ghost" %>
+  </div>
+<% end %>

@@ -1,0 +1,119 @@
+<% content_for :title, t("posts.meta_title") %>
+<% content_for :description, t("posts.meta_description") %>
+<% content_for :main_class, "flex-1" %>
+
+<%# Hero section %>
+<div class="bg-gradient-to-br from-primary/10 via-base-100 to-secondary/10 border-b border-base-200">
+  <div class="container mx-auto px-4 py-16 max-w-5xl text-center">
+    <div class="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+      Blog
+    </div>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-base-content mb-4 leading-tight">
+      <%= t("posts.index_title") %>
+    </h1>
+    <p class="text-base-content/60 text-lg max-w-xl mx-auto">
+      <%= t("posts.index_description") %>
+    </p>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 py-12 max-w-5xl">
+
+  <% if @posts.empty? %>
+    <div class="text-center py-24">
+      <div class="text-6xl mb-4">📝</div>
+      <p class="text-xl font-semibold text-base-content/60"><%= t("posts.no_posts") %></p>
+    </div>
+  <% else %>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @posts.each do |post| %>
+        <% translation = post.translation_for(I18n.locale) %>
+        <% next unless translation %>
+        <%= link_to post_path(post.slug), class: "group card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-base-200 overflow-hidden" do %>
+          <%# Decorative gradient bar at top %>
+          <div class="h-1 bg-gradient-to-r from-primary to-secondary"></div>
+
+          <div class="card-body p-6">
+            <%# Date badge %>
+            <div class="flex items-center gap-2 text-xs text-base-content/40 mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <%= post.published_at&.strftime("%b %-d, %Y") || post.created_at.strftime("%b %-d, %Y") %>
+            </div>
+
+            <%# Title %>
+            <h2 class="card-title text-base-content text-lg leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">
+              <%= translation.title %>
+            </h2>
+
+            <%# Description %>
+            <% if translation.description.present? %>
+              <p class="text-sm text-base-content/60 leading-relaxed line-clamp-3 flex-1">
+                <%= translation.description %>
+              </p>
+            <% end %>
+
+            <%# Read more indicator %>
+            <div class="flex items-center gap-1 text-primary text-xs font-semibold mt-4 group-hover:gap-2 transition-all">
+              <%= t("posts.read_more") %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%# Kaminari pagination %>
+    <% if @posts.total_pages > 1 %>
+      <div class="flex justify-center mt-12">
+        <div class="join">
+          <% if @posts.prev_page %>
+            <%= link_to posts_path(page: @posts.prev_page), class: "join-item btn btn-sm btn-ghost" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            <% end %>
+          <% else %>
+            <button class="join-item btn btn-sm btn-ghost btn-disabled" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          <% end %>
+
+          <% (1..@posts.total_pages).each do |page_num| %>
+            <% if page_num == @posts.current_page %>
+              <button class="join-item btn btn-sm btn-primary"><%= page_num %></button>
+            <% elsif (page_num - @posts.current_page).abs <= 2 %>
+              <%= link_to page_num, posts_path(page: page_num), class: "join-item btn btn-sm btn-ghost" %>
+            <% elsif page_num == 1 || page_num == @posts.total_pages %>
+              <%= link_to page_num, posts_path(page: page_num), class: "join-item btn btn-sm btn-ghost" %>
+            <% elsif (page_num - @posts.current_page).abs == 3 %>
+              <button class="join-item btn btn-sm btn-ghost btn-disabled">…</button>
+            <% end %>
+          <% end %>
+
+          <% if @posts.next_page %>
+            <%= link_to posts_path(page: @posts.next_page), class: "join-item btn btn-sm btn-ghost" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            <% end %>
+          <% else %>
+            <button class="join-item btn btn-sm btn-ghost btn-disabled" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

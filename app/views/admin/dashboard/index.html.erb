@@ -1,0 +1,27 @@
+<h1 class="text-2xl font-bold mb-6">Dashboard</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title text-sm text-base-content/60">Signed in as</h2>
+      <p class="text-lg font-semibold"><%= Current.user.email_address %></p>
+    </div>
+  </div>
+
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title text-sm text-base-content/60">Posts</h2>
+      <p class="text-3xl font-bold"><%= Post.count %></p>
+      <div class="flex gap-3 text-sm text-base-content/50 mt-1">
+        <span><%= Post.published.count %> published</span>
+        <span><%= Post.draft.count %> draft</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="text-lg font-semibold mb-3">Quick Actions</h2>
+<div class="flex flex-wrap gap-3">
+  <%= link_to "✏️ New Post", new_admin_post_path, class: "btn btn-primary" %>
+  <%= link_to "📋 All Posts", admin_posts_path, class: "btn btn-ghost" %>
+</div>

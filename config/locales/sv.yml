@@ -1,5 +1,6 @@
 sv:
   nav:
+    blog: "Blogg"
     compress: "Komprimera bild"
     resize: "Ändra bildstorlek"
     rotate: "Rotera bild"

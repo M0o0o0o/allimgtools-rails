@@ -1,5 +1,6 @@
 "zh-CN":
   nav:
+    blog: "博客"
     compress: "图片压缩"
     resize: "图片调整大小"
     rotate: "图片旋转"
@@ -108,3 +109,13 @@
     failed: "处理失败"
     error: "发生错误，请重试。"
     try_again: "重试"
+
+  posts:
+    meta_title: "博客 — Allimgtools"
+    meta_description: "图像优化、转换和编辑的技巧和指南。"
+    index_title: "博客"
+    index_description: "有关图像处理的实用技巧、指南和更新。"
+    no_posts: "暂无文章。"
+    read_more: "阅读更多"
+    read_time: "%{minutes} 分钟阅读"
+    back_to_blog: "返回博客"

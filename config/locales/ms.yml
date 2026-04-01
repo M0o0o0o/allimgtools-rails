@@ -1,5 +1,6 @@
 ms:
   nav:
+    blog: "Blog"
     compress: "Mampat Imej"
     resize: "Ubah Saiz Imej"
     rotate: "Putar Imej"

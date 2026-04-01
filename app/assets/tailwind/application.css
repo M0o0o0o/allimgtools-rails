@@ -6,5 +6,43 @@
 
 /* Optional for custom themes – Docs: https://daisyui.com/docs/themes/#how-to-add-a-new-custom-theme */
 @plugin "./daisyui-theme.mjs" {
-  /* custom theme here */
+  name: "light";
+  default: true;
+
+  /* Primary — vibrant blue */
+  --color-primary: oklch(55% 0.22 255);
+  --color-primary-content: oklch(98% 0.005 255);
+
+  /* Secondary — indigo */
+  --color-secondary: oklch(55% 0.2 275);
+  --color-secondary-content: oklch(98% 0.005 275);
+
+  /* Accent — cyan */
+  --color-accent: oklch(68% 0.17 215);
+  --color-accent-content: oklch(98% 0.005 215);
+
+  /* Neutral */
+  --color-neutral: oklch(25% 0.03 255);
+  --color-neutral-content: oklch(95% 0.005 255);
+
+  /* Base surfaces */
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(96% 0.005 255);
+  --color-base-300: oklch(91% 0.01 255);
+  --color-base-content: oklch(20% 0.03 255);
+
+  /* Semantic */
+  --color-info: oklch(65% 0.18 230);
+  --color-info-content: oklch(98% 0.005 230);
+  --color-success: oklch(62% 0.18 155);
+  --color-success-content: oklch(98% 0.005 155);
+  --color-warning: oklch(72% 0.18 75);
+  --color-warning-content: oklch(20% 0.03 75);
+  --color-error: oklch(58% 0.22 25);
+  --color-error-content: oklch(98% 0.005 25);
+
+  /* Shape */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
 }

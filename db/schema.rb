@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_03_072656) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_31_075041) do
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.bigint "record_id", null: false
+    t.string "record_type", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -39,6 +49,35 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_03_072656) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "post_translations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "locale", null: false
+    t.integer "post_id", null: false
+    t.string "title", default: "", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id", "locale"], name: "index_post_translations_on_post_id_and_locale", unique: true
+    t.index ["post_id"], name: "index_post_translations_on_post_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "published_at"
+    t.string "slug", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "ip_address"
+    t.datetime "updated_at", null: false
+    t.string "user_agent"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "ip_address", null: false
@@ -64,6 +103,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_03_072656) do
     t.index ["upload_id"], name: "index_uploads_on_upload_id", unique: true
   end
 
+  create_table "users", force: :cascade do |t|
+    t.boolean "admin", default: false, null: false
+    t.datetime "created_at", null: false
+    t.string "email_address", null: false
+    t.string "password_digest", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "post_translations", "posts"
+  add_foreign_key "sessions", "users"
 end

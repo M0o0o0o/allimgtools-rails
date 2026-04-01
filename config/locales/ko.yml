@@ -1,5 +1,6 @@
 ko:
   nav:
+    blog: "블로그"
     compress: "이미지 압축"
     resize: "이미지 크기 조정"
     rotate: "이미지 회전"
@@ -7,6 +8,16 @@ ko:
     convert: "이미지 변환"
     image_converter: "이미지 변환기"
     language: "언어"
+
+  posts:
+    meta_title: "블로그 — Allimgtools"
+    meta_description: "이미지 최적화, 변환, 편집 팁과 가이드를 소개합니다."
+    index_title: "블로그"
+    index_description: "이미지 작업에 유용한 팁, 가이드, 업데이트를 확인하세요."
+    no_posts: "아직 게시글이 없습니다."
+    read_more: "더 읽기"
+    read_time: "%{minutes}분 소요"
+    back_to_blog: "블로그로 돌아가기"
 
   common:
     drop_images: "이미지를 여기에 놓으세요"

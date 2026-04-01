@@ -1,5 +1,6 @@
 it:
   nav:
+    blog: "Blog"
     compress: "Comprimi immagine"
     resize: "Ridimensiona immagine"
     rotate: "Ruota immagine"

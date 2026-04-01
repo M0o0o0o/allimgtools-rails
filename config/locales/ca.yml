@@ -1,5 +1,6 @@
 ca:
   nav:
+    blog: "Blog"
     compress: "Comprimir imatge"
     resize: "Redimensionar imatge"
     rotate: "Girar imatge"
