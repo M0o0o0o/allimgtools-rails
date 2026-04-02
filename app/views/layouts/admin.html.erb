@@ -11,8 +11,12 @@
 </head>
 <body class="bg-base-200 min-h-screen">
   <div class="navbar bg-base-100 shadow-sm px-4">
-    <div class="flex-1">
+    <div class="flex-1 flex items-center gap-4">
       <%= link_to "Allimgtools Admin", admin_root_path, class: "text-lg font-bold" %>
+      <% if authenticated? %>
+        <%= link_to "Posts", admin_posts_path, class: "btn btn-ghost btn-sm" %>
+        <%= link_to "AI Writer", admin_ai_writer_path, class: "btn btn-ghost btn-sm" %>
+      <% end %>
     </div>
     <% if authenticated? %>
     <div class="flex-none">

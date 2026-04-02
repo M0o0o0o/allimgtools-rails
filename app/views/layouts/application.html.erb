@@ -16,12 +16,18 @@
     <link rel="canonical" href="https://allimgtools.com<%= canonical_path == '/' ? '' : canonical_path %>">
 
     <%# hreflang tags for SEO %>
-    <% SUPPORTED_LOCALES.each_key do |locale| %>
-      <link rel="alternate" hreflang="<%= locale %>"
-            href="https://allimgtools.com<%= url_for(locale: locale == I18n.default_locale ? nil : locale, only_path: true) %>">
+    <%# Blog is English-only — only declare en + x-default to avoid duplicate content signals %>
+    <% if controller_name == "posts" %>
+      <link rel="alternate" hreflang="en" href="https://allimgtools.com<%= canonical_path == "/" ? "" : canonical_path %>">
+      <link rel="alternate" hreflang="x-default" href="https://allimgtools.com<%= canonical_path == "/" ? "" : canonical_path %>">
+    <% else %>
+      <% SUPPORTED_LOCALES.each_key do |locale| %>
+        <link rel="alternate" hreflang="<%= locale %>"
+              href="https://allimgtools.com<%= url_for(locale: locale == I18n.default_locale ? nil : locale, only_path: true) %>">
+      <% end %>
+      <link rel="alternate" hreflang="x-default"
+            href="https://allimgtools.com<%= url_for(locale: nil, only_path: true) %>">
     <% end %>
-    <link rel="alternate" hreflang="x-default"
-          href="https://allimgtools.com<%= url_for(locale: nil, only_path: true) %>">
 
     <%# Open Graph %>
     <meta property="og:type" content="website">
@@ -29,9 +35,11 @@
     <meta property="og:title" content="<%= content_for(:title) || t("home.meta_title") %>">
     <meta property="og:description" content="<%= content_for(:description) || t("home.meta_description") %>">
     <meta property="og:url" content="https://allimgtools.com<%= canonical_path == '/' ? '' : canonical_path %>">
-    <meta property="og:locale" content="<%= I18n.locale.to_s.gsub('-', '_') %>">
-    <% (SUPPORTED_LOCALES.keys.map(&:to_s) - [ I18n.locale.to_s ]).each do |loc| %>
+    <meta property="og:locale" content="<%= controller_name == "posts" ? "en" : I18n.locale.to_s.gsub('-', '_') %>">
+    <% unless controller_name == "posts" %>
+      <% (SUPPORTED_LOCALES.keys.map(&:to_s) - [ I18n.locale.to_s ]).each do |loc| %>
     <meta property="og:locale:alternate" content="<%= loc.gsub('-', '_') %>">
+      <% end %>
     <% end %>
 
     <%# Twitter Card %>

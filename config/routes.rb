@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       root "dashboard#index"
       resources :posts
       resources :uploads, only: [ :index, :create ]
+      get  "ai-writer",          to: "ai_writer#index",    as: :ai_writer
+      post "ai-writer/generate", to: "ai_writer#generate", as: :ai_writer_generate
     end
   end
   get "sitemap.xml", to: "sitemaps#show"

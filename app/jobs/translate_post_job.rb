@@ -3,42 +3,38 @@
 class TranslatePostJob < ApplicationJob
   queue_as :default
 
+  retry_on StandardError, wait: :polynomially_longer, attempts: 3
+
   SOURCE_LOCALE = "ko"
+  TARGET_LOCALE = "en"
 
   def perform(post_id)
     post = Post.includes(:translations).find(post_id)
     source = post.translations.find { |t| t.locale == SOURCE_LOCALE }
 
-    return unless source
+    unless source
+      Rails.logger.error "[TranslatePostJob] No Korean translation found for post #{post_id}"
+      return
+    end
+
     return if source.title.blank?
 
-    target_locales = SUPPORTED_LOCALES.keys.map(&:to_s) - [ SOURCE_LOCALE ]
+    Rails.logger.info "[TranslatePostJob] Translating post #{post_id} ko → en..."
 
-    target_locales.each do |locale|
-      translation = post.translations.find { |t| t.locale == locale } ||
-                    post.translations.build(locale: locale)
+    translated = AiServices::OpenaiService.new.translate_content(
+      title: source.title,
+      description: source.description,
+      body: source.body.to_s,
+      target_locale: TARGET_LOCALE
+    )
 
-      translation.title       = translate(source.title, from: SOURCE_LOCALE, to: locale)
-      translation.description = translate(source.description, from: SOURCE_LOCALE, to: locale) if source.description.present?
-      translation.body        = translate_html(source.body.to_s, from: SOURCE_LOCALE, to: locale) if source.body.present?
-      translation.save!
-    end
-  end
+    translation = post.translations.find { |t| t.locale == TARGET_LOCALE } ||
+                  post.translations.build(locale: TARGET_LOCALE)
+    translation.title       = translated[:title]
+    translation.description = translated[:description]
+    translation.body        = translated[:body] if source.body.present?
+    translation.save!
 
-  private
-
-  # TODO: AI API 연결 후 구현
-  # @param text [String]
-  # @param from [String] source locale (e.g. "ko")
-  # @param to   [String] target locale (e.g. "en")
-  # @return [String] translated text
-  def translate(text, from:, to:)
-    raise NotImplementedError, "translate() — AI API not connected yet"
-  end
-
-  # HTML rich text 번역 (태그 구조 유지)
-  # TODO: AI API 연결 후 구현
-  def translate_html(html, from:, to:)
-    raise NotImplementedError, "translate_html() — AI API not connected yet"
+    Rails.logger.info "[TranslatePostJob] Successfully translated post #{post_id} to en"
   end
 end

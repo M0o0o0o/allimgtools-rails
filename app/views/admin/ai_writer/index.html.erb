@@ -1,0 +1,72 @@
+<div class="mb-8">
+  <h2 class="text-2xl font-bold">AI Post Generator</h2>
+  <p class="text-base-content/60 mt-1">주제와 영어 검색어를 입력하면 AI가 자료를 수집·분석하여 한국어 블로그 글을 생성합니다.</p>
+</div>
+
+<div data-controller="ai-topics" class="space-y-6">
+  <%# 주제 입력 폼 %>
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h3 class="card-title text-base">주제 추가</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="form-control">
+          <label class="label"><span class="label-text">주제 (한국어)</span></label>
+          <input type="text"
+                 data-ai-topics-target="topicInput"
+                 class="input input-bordered"
+                 placeholder="예: 이미지 압축 방법, WebP 변환 장점">
+        </div>
+
+        <div class="form-control">
+          <label class="label"><span class="label-text">검색어 (영어)</span></label>
+          <input type="text"
+                 data-ai-topics-target="searchQueryInput"
+                 data-action="keydown.enter->ai-topics#addTopic"
+                 class="input input-bordered"
+                 placeholder="예: how to compress images for web, JPG to WebP benefits">
+        </div>
+      </div>
+
+      <div class="card-actions mt-2">
+        <button type="button"
+                data-action="click->ai-topics#addTopic"
+                class="btn btn-success btn-sm">
+          + 주제 추가
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <%# 주제 목록 %>
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h3 class="card-title text-base">주제 목록</h3>
+
+      <div data-ai-topics-target="topicsList" class="space-y-3 hidden">
+        <%# 동적으로 추가됨 %>
+      </div>
+
+      <div data-ai-topics-target="emptyState" class="text-center py-6 text-base-content/40">
+        아직 추가된 주제가 없습니다. 위에서 주제를 추가해주세요.
+      </div>
+    </div>
+  </div>
+
+  <%# 생성 버튼 %>
+  <%= form_with url: admin_ai_writer_generate_path, method: :post, data: { "ai-topics-target": "form" } do |f| %>
+    <div data-ai-topics-target="hiddenInputs"></div>
+
+    <div class="flex items-center gap-4">
+      <button type="submit"
+              data-ai-topics-target="generateBtn"
+              disabled
+              class="btn btn-primary disabled:btn-disabled">
+        글 생성하기
+      </button>
+      <span data-ai-topics-target="topicCount" class="text-base-content/60 text-sm">
+        0개의 주제
+      </span>
+    </div>
+  <% end %>
+</div>

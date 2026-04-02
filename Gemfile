@@ -71,3 +71,7 @@ end
 
 gem "kaminari", "~> 1.2"
 gem "ruby-openai", "~> 7.0"
+
+# Web scraping for AI post generation
+gem "ferrum"
+gem "ruby-readability"
