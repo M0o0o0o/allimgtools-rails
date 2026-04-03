@@ -40,12 +40,18 @@ class AiPostGeneratorJob < ApplicationJob
     openai = AiServices::OpenaiService.new
     analysis = openai.analyze_articles(articles.map { |a| a[:content] })
 
+    puts "\n=== ANALYSIS RESULT ==="
+    puts "Facts (#{analysis[:facts].size}):"
+    analysis[:facts].each_with_index { |f, i| puts "  #{i + 1}. #{f}" }
+    puts "\nSummary: #{analysis[:summary]}"
+    puts "======================\n"
+
     # Step 4: GPT-4o-mini로 글 작성
     Rails.logger.info "[AiPostGenerator] Step 4: Generating post with GPT-4o-mini..."
     content = openai.generate_post(topic: topic, analysis: analysis)
 
-    # 고유 slug 생성
-    base_slug = content[:title].parameterize.presence || topic.parameterize
+    # 고유 slug 생성 (AI가 영어 slug 제안, 중복 시 숫자 suffix)
+    base_slug = content[:slug].presence || topic.parameterize
     slug = base_slug
     counter = 1
     while Post.exists?(slug: slug)

@@ -3,60 +3,63 @@
 module AiServices
   class OpenaiService
     ANALYSIS_SYSTEM_PROMPT = <<~PROMPT
-      You are a content researcher specializing in image processing, web optimization, and digital media topics.
-      Analyze the given article and extract useful information for writing an image tools blog post.
+      You are a researcher collecting information to help write a helpful Korean blog post.
 
-      ## Analysis Principles
-      - Extract key ideas, tips, techniques, and facts about image processing/optimization
-      - Focus on practical information useful for web developers, designers, and general users
-      - If previous analysis is provided, integrate new information into it
-      - Remove duplicates; preserve both sides of conflicting information
-      - Keep specific details (tools, formats, file sizes, performance numbers)
+      Read the given article and pull out everything that could be useful — facts, tips, specific data,
+      examples, common mistakes, surprising details, platform specs, anything a reader would find valuable.
 
-      ## Response Format
-      Respond ONLY in valid JSON:
-      {
-        "key_ideas": ["main ideas for a blog post"],
-        "useful_info": ["practical tips, specific details (tools, sizes, formats)"],
-        "statistics_and_facts": ["numbers, benchmarks, format comparisons"],
-        "unique_insights": ["non-obvious insights or lesser-known tips"],
-        "content_angles": ["suggested sections or angles for the article"],
-        "summary": "overall summary of findings"
-      }
+      If previous research is provided:
+      - Keep ALL existing facts as-is
+      - Add every new piece of useful information from this article
+      - Only skip something if it says exactly the same thing as an existing fact
+      - When in doubt, keep it — more information is better than less
+      - Update the summary to naturally reflect everything collected so far
     PROMPT
 
     WRITER_SYSTEM_PROMPT = <<~PROMPT
-      You write blog posts about image processing and optimization for web developers, designers, and general users.
-      Write like a knowledgeable friend sharing what they actually know, not a technical manual.
+      You write Korean blog posts that are genuinely useful to readers — the kind of post that answers
+      their question thoroughly and makes them feel like they learned something.
 
-      ## Voice & Tone
-      - Write in Korean
-      - Be direct and specific. Say "WebP는 JPG보다 평균 30% 작아요" instead of "WebP can reduce file sizes"
-      - Share practical details only someone experienced would know
-      - It's okay to have opinions. "솔직히 PNG to WebP 변환이 가장 효과적인 방법이에요"
-      - Skip generic intro paragraphs. Get to useful content fast
-      - Mix paragraphs and lists naturally — don't overuse bullet points
-      - Never use filler phrases like "이 포괄적인 가이드에서", "함께 알아보겠습니다", "모든 것을 알아보세요"
+      ## Voice
+      - Write in Korean, casual but knowledgeable — like a friend who actually knows this stuff
+      - Be direct. Say exactly what you mean without warming up
+      - Have opinions. "솔직히 이 방법이 제일 낫습니다" is better than "여러 방법이 있습니다"
+      - Write like a human with their own rhythm — vary sentence length, mix short punchy lines with longer ones
+      - It's fine to be a little conversational: "근데", "사실", "진짜로", "생각보다"
 
       ## Structure
       - Use HTML tags: h2, h3, p, ul, li, strong
       - 1000-1800 words
-      - No h1 tag in body (title is separate)
-      - Start body directly with content, not a repeat of the title
+      - No h1 in body (title is separate)
+      - Don't start by restating the title or announcing what the post will cover
+      - Don't end with a summary section that just repeats everything
+      - Structure should feel natural to the topic, not templated — sometimes a list makes sense, sometimes flowing paragraphs do
 
-      ## What NOT to do
-      - Don't make up specific facts or numbers not in the analysis
-      - Don't write a "conclusion" section that just repeats everything
-      - Don't use cliché phrases ("완벽한 가이드", "최고의 방법", "숨겨진 팁")
-      - Don't number your sections ("1. 첫 번째", "2. 두 번째")
+      ## What makes it sound like a human wrote it
+      - Never use: "이러한", "따라서", "결과적으로", "그러므로", "즉,", "요약하자면", "살펴보겠습니다", "알아보겠습니다"
+      - Don't number your sections or points ("1. 첫째", "2. 둘째")
+      - Don't over-hedge with "일반적으로", "대부분의 경우", "보통은"
+      - Avoid announcing what you're about to say — just say it
+      - Don't balance every argument. Take a position
+      - Skip the obvious. Readers already know the basics; get to the useful part
 
-      ## Response Format
-      Return ONLY a JSON object:
-      {
-        "title": "Short, natural Korean title (under 60 chars)",
-        "description": "Meta description in Korean (under 155 chars)",
-        "body": "HTML body content"
-      }
+      ## Hard rules
+      - Only use facts from the research — don't invent numbers or specs
+      - No clichés: "완벽한 가이드", "모든 것", "숨겨진 팁", "쉽게 알아보는"
+
+      ## Slug
+      - Generate a URL slug in English: lowercase, hyphenated, SEO-friendly (e.g. "instagram-image-size-2026")
+      - Max 60 characters, no special characters
+    PROMPT
+
+    TRANSLATION_PROMPT = <<~PROMPT
+      Translate the following Korean blog post into the target language.
+
+      Rules:
+      - Keep the same casual, human tone as the original — do not make it more formal or structured
+      - Translate naturally, not literally. If a Korean expression doesn't work in the target language, find an equivalent
+      - Keep all HTML tags exactly as-is
+      - Do not add or remove content
     PROMPT
 
     def initialize
@@ -76,23 +79,44 @@ module AiServices
 
     def generate_post(topic:, analysis:)
       user_message = <<~MSG
-        ## Topic
+        ## 주제
         #{topic}
 
-        ## Research Analysis
-        #{JSON.pretty_generate(analysis)}
+        ## 수집된 정보
+        #{analysis[:facts].map { |f| "- #{f}" }.join("\n")}
 
-        위 분석 자료를 활용하여 블로그 글을 작성해주세요.
+        ## 전체 요약
+        #{analysis[:summary]}
+
+        위 정보를 바탕으로 블로그 글을 작성해주세요.
       MSG
 
       response = @client.chat(
         parameters: {
-          model: "gpt-4o-mini",
+          model: "gpt-4o",
+          temperature: 1.0,
           messages: [
             { role: "system", content: WRITER_SYSTEM_PROMPT },
             { role: "user", content: user_message }
           ],
-          response_format: { type: "json_object" }
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              name: "post",
+              strict: true,
+              schema: {
+                type: "object",
+                properties: {
+                  slug:        { type: "string" },
+                  title:       { type: "string" },
+                  description: { type: "string" },
+                  body:        { type: "string" }
+                },
+                required: [ "slug", "title", "description", "body" ],
+                additionalProperties: false
+              }
+            }
+          }
         }
       )
 
@@ -115,7 +139,23 @@ module AiServices
           messages: [
             { role: "user", content: prompt }
           ],
-          response_format: { type: "json_object" }
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              name: "translation",
+              strict: true,
+              schema: {
+                type: "object",
+                properties: {
+                  title:       { type: "string" },
+                  description: { type: "string" },
+                  body:        { type: "string" }
+                },
+                required: [ "title", "description", "body" ],
+                additionalProperties: false
+              }
+            }
+          }
         }
       )
 
@@ -134,7 +174,22 @@ module AiServices
           messages: [
             { role: "user", content: user_prompt }
           ],
-          response_format: { type: "json_object" }
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              name: "analysis",
+              strict: true,
+              schema: {
+                type: "object",
+                properties: {
+                  facts:   { type: "array", items: { type: "string" } },
+                  summary: { type: "string" }
+                },
+                required: [ "facts", "summary" ],
+                additionalProperties: false
+              }
+            }
+          }
         }
       )
 
@@ -145,7 +200,7 @@ module AiServices
     def build_analysis_prompt(article_text, previous_analysis)
       prompt = +"#{ANALYSIS_SYSTEM_PROMPT}\n\n"
       if previous_analysis
-        prompt << "## Previous Analysis (integrate new info into this)\n"
+        prompt << "## Research So Far\n"
         prompt << previous_analysis.to_json
         prompt << "\n\n"
       end
@@ -157,11 +212,7 @@ module AiServices
     def parse_analysis(response_text)
       parsed = JSON.parse(response_text)
       {
-        key_ideas: parsed["key_ideas"] || [],
-        useful_info: parsed["useful_info"] || [],
-        statistics_and_facts: parsed["statistics_and_facts"] || [],
-        unique_insights: parsed["unique_insights"] || [],
-        content_angles: parsed["content_angles"] || [],
+        facts: parsed["facts"] || [],
         summary: parsed["summary"] || ""
       }
     rescue JSON::ParserError => e
@@ -174,7 +225,7 @@ module AiServices
       title = parsed["title"].presence
       body  = parsed["body"].presence
       raise "Failed to parse AI response: missing title or body" if title.nil? || body.nil?
-      { title: title, description: parsed["description"].presence, body: body }
+      { slug: parsed["slug"].presence, title: title, description: parsed["description"].presence, body: body }
     rescue JSON::ParserError => e
       Rails.logger.error "[OpenaiService] Failed to parse post: #{e.message}"
       raise "Failed to parse AI post response"
