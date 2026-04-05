@@ -4,6 +4,7 @@ hi:
     compress: "छवि संपीड़न"
     resize: "छवि का आकार बदलें"
     rotate: "छवि घुमाएं"
+    crop: "छवि क्रॉप करें"
     exif: "EXIF हटाएं"
     convert: "छवि रूपांतरण"
     image_converter: "छवि कनवर्टर"
@@ -30,6 +31,7 @@ hi:
     compress_desc: "गुणवत्ता बनाए रखते हुए फ़ाइल का आकार कम करें।"
     resize_desc: "छवियों को अपने मनचाहे आकार में समायोजित करें।"
     rotate_desc: "छवि को बाएं या दाएं घुमाएं।"
+    crop_desc: "अपनी छवियों को किसी भी आकार में क्रॉप करें।"
     exif_desc: "GPS, कैमरा जानकारी और सभी मेटाडेटा हटाएं।"
     convert_desc: "JPEG, PNG और WebP फॉर्मेट के बीच कनवर्ट करें।"
     meta_title: "Allimgtools — मुफ्त ऑनलाइन छवि उपकरण"
@@ -84,6 +86,17 @@ hi:
     start: "EXIF हटाएं"
     title: "EXIF रिमूवर"
     description: "अपनी छवियों से GPS, कैमरा जानकारी और सभी मेटाडेटा हटाएं।"
+
+  crop:
+    page_title: "मुफ्त इमेज क्रॉपर — ऑनलाइन क्रॉप करें | Allimgtools"
+    page_description: "JPEG, PNG, WebP और GIF छवियों को ऑनलाइन मुफ्त में क्रॉप करें। कोई भी क्षेत्र चुनें और तुरंत डाउनलोड करें। साइनअप की जरूरत नहीं।"
+    sidebar_title: "क्रॉप करें"
+    settings: "क्रॉप सेटिंग्स"
+    aspect_ratio: "अनुपात"
+    free: "मुक्त"
+    start: "क्रॉप लागू करें"
+    title: "छवि क्रॉप"
+    description: "एक छवि अपलोड करें और क्रॉप करने के लिए क्षेत्र चुनें।"
 
   rotate:
     page_title: "मुफ्त छवि घुमाने वाला — ऑनलाइन छवि घुमाएं | Allimgtools"

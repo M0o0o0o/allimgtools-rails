@@ -4,6 +4,7 @@ es:
     compress: "Comprimir imagen"
     resize: "Redimensionar imagen"
     rotate: "Rotar imagen"
+    crop: "Recortar imagen"
     exif: "Eliminar EXIF"
     convert: "Convertir imagen"
     image_converter: "Conversor de imágenes"
@@ -30,6 +31,7 @@ es:
     compress_desc: "Reduce el tamaño del archivo manteniendo la calidad."
     resize_desc: "Ajusta las imágenes a las dimensiones deseadas."
     rotate_desc: "Rota tu imagen a la izquierda o a la derecha."
+    crop_desc: "Recorta y ajusta tus imágenes a cualquier tamaño."
     exif_desc: "Elimina GPS, información de cámara y todos los metadatos."
     convert_desc: "Convierte entre formatos JPEG, PNG y WebP."
     meta_title: "Allimgtools — Herramientas de imagen en línea gratuitas"
@@ -84,6 +86,17 @@ es:
     start: "Eliminar EXIF"
     title: "Eliminador de EXIF"
     description: "Elimina GPS, info de cámara y todos los metadatos de tus imágenes."
+
+  crop:
+    page_title: "Recorte de imagen gratuito — Online | Allimgtools"
+    page_description: "Recorta imágenes JPEG, PNG, WebP y GIF online gratis. Selecciona cualquier área y descarga al instante. Sin registro necesario."
+    sidebar_title: "Recortar"
+    settings: "Ajustes de recorte"
+    aspect_ratio: "Proporción"
+    free: "Libre"
+    start: "Aplicar recorte"
+    title: "Recortar imagen"
+    description: "Sube una imagen y selecciona el área a recortar."
 
   rotate:
     page_title: "Rotador de imágenes gratuito — Rota imágenes en línea | Allimgtools"

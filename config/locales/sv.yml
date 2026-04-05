@@ -4,6 +4,7 @@ sv:
     compress: "Komprimera bild"
     resize: "Ändra bildstorlek"
     rotate: "Rotera bild"
+    crop: "Beskär bild"
     exif: "Ta bort EXIF"
     convert: "Konvertera bild"
     image_converter: "Bildkonverterare"
@@ -30,6 +31,7 @@ sv:
     compress_desc: "Minska filstorleken med bibehållen kvalitet."
     resize_desc: "Anpassa bilder till önskade mått."
     rotate_desc: "Rotera bilden åt vänster eller höger."
+    crop_desc: "Beskär dina bilder till valfri storlek."
     exif_desc: "Ta bort GPS, kamerainfo och all metadata."
     convert_desc: "Konvertera mellan JPEG, PNG och WebP."
     meta_title: "Allimgtools — Gratis online bildverktyg"
@@ -84,6 +86,17 @@ sv:
     start: "Ta bort EXIF"
     title: "Ta bort EXIF"
     description: "Ta bort GPS, kamerainfo och all metadata från dina bilder."
+
+  crop:
+    page_title: "Gratis bildbeskärning — Online | Allimgtools"
+    page_description: "Beskär JPEG, PNG, WebP och GIF-bilder online gratis. Välj valfritt område och ladda ner direkt. Ingen registrering krävs."
+    sidebar_title: "Beskär"
+    settings: "Beskärningsinställningar"
+    aspect_ratio: "Bildförhållande"
+    free: "Fri"
+    start: "Tillämpa beskärning"
+    title: "Beskär bild"
+    description: "Ladda upp en bild och välj området att beskära."
 
   rotate:
     page_title: "Gratis bildrotering online | Allimgtools"

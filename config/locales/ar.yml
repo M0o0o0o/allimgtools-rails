@@ -4,6 +4,7 @@ ar:
     compress: "ضغط الصورة"
     resize: "تغيير حجم الصورة"
     rotate: "تدوير الصورة"
+    crop: "قص الصورة"
     exif: "إزالة EXIF"
     convert: "تحويل الصورة"
     image_converter: "محوّل الصور"
@@ -30,6 +31,7 @@ ar:
     compress_desc: "تقليل حجم الملف مع الحفاظ على الجودة."
     resize_desc: "ضبط الصور على الأبعاد المطلوبة."
     rotate_desc: "تدوير الصورة يساراً أو يميناً."
+    crop_desc: "قص وضبط صورك بأي حجم."
     exif_desc: "إزالة GPS ومعلومات الكاميرا وجميع البيانات الوصفية."
     convert_desc: "التحويل بين صيغ JPEG وPNG وWebP."
     meta_title: "Allimgtools — أدوات صور مجانية عبر الإنترنت"
@@ -84,6 +86,17 @@ ar:
     start: "إزالة EXIF"
     title: "أداة إزالة EXIF"
     description: "إزالة GPS ومعلومات الكاميرا وجميع البيانات الوصفية من صورك."
+
+  crop:
+    page_title: "قص الصور مجاناً — أونلاين | Allimgtools"
+    page_description: "قص صور JPEG وPNG وWebP وGIF مجاناً عبر الإنترنت. اختر أي منطقة وحمّل فوراً. لا تسجيل مطلوب."
+    sidebar_title: "قص"
+    settings: "إعدادات القص"
+    aspect_ratio: "نسبة الأبعاد"
+    free: "حر"
+    start: "تطبيق القص"
+    title: "قص الصورة"
+    description: "ارفع صورة واختر المنطقة المراد قصها."
 
   rotate:
     page_title: "أداة تدوير الصور المجانية — تدوير الصور عبر الإنترنت | Allimgtools"

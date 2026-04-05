@@ -4,6 +4,7 @@ en:
     compress: "Image Compress"
     resize: "Image Resize"
     rotate: "Image Rotate"
+    crop: "Image Crop"
     exif: "EXIF Remover"
     convert: "Image Convert"
     image_converter: "Image Converter"
@@ -40,6 +41,7 @@ en:
     compress_desc: "Reduce file size while maintaining quality."
     resize_desc: "Adjust images to your desired dimensions."
     rotate_desc: "Rotate your image left or right."
+    crop_desc: "Crop and trim your images to any size."
     exif_desc: "Strip GPS, camera info, and all metadata."
     convert_desc: "Convert between JPEG, PNG, and WebP formats."
     meta_title: "Allimgtools — Free Online Image Tools"
@@ -94,6 +96,17 @@ en:
     start: "Remove EXIF"
     title: "EXIF Remover"
     description: "Strip GPS, camera info, and all metadata from your images."
+
+  crop:
+    page_title: "Free Image Cropper — Crop Images Online | Allimgtools"
+    page_description: "Crop JPEG, PNG, WebP, and GIF images online for free. Select any area and download instantly. No signup required."
+    sidebar_title: "Crop"
+    settings: "Crop Settings"
+    aspect_ratio: "Aspect Ratio"
+    free: "Free"
+    start: "Apply Crop"
+    title: "Image Crop"
+    description: "Upload an image and select the area to crop."
 
   rotate:
     page_title: "Free Image Rotator — Rotate Images Online | Allimgtools"

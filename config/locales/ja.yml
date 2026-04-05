@@ -4,6 +4,7 @@ ja:
     compress: "画像圧縮"
     resize: "画像リサイズ"
     rotate: "画像回転"
+    crop: "画像トリミング"
     exif: "EXIF削除"
     convert: "画像変換"
     image_converter: "画像コンバーター"
@@ -30,6 +31,7 @@ ja:
     compress_desc: "画質を維持しながらファイルサイズを削減。"
     resize_desc: "画像を希望のサイズに調整。"
     rotate_desc: "画像を左右に回転。"
+    crop_desc: "画像を自由なサイズにトリミングできます。"
     exif_desc: "GPS、カメラ情報、すべてのメタデータを削除。"
     convert_desc: "JPEG、PNG、WebP形式間で変換。"
     meta_title: "Allimgtools — 無料オンライン画像ツール"
@@ -84,6 +86,17 @@ ja:
     start: "EXIFを削除"
     title: "EXIFリムーバー"
     description: "画像からGPS、カメラ情報、すべてのメタデータを削除。"
+
+  crop:
+    page_title: "無料画像トリミング — オンラインで切り抜き | Allimgtools"
+    page_description: "JPEG、PNG、WebP、GIF画像をオンラインで無料トリミング。任意のエリアを選択してすぐにダウンロード。登録不要。"
+    sidebar_title: "トリミング"
+    settings: "トリミング設定"
+    aspect_ratio: "アスペクト比"
+    free: "フリー"
+    start: "トリミングを適用"
+    title: "画像トリミング"
+    description: "画像をアップロードしてトリミングするエリアを選択してください。"
 
   rotate:
     page_title: "無料画像回転ツール — オンラインで画像を回転 | Allimgtools"

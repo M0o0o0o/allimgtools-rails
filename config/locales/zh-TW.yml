@@ -4,6 +4,7 @@
     compress: "圖片壓縮"
     resize: "圖片調整大小"
     rotate: "圖片旋轉"
+    crop: "裁剪圖片"
     exif: "刪除EXIF"
     convert: "圖片轉換"
     image_converter: "圖片轉換器"
@@ -30,6 +31,7 @@
     compress_desc: "在保持品質的同時減小檔案大小。"
     resize_desc: "將圖片調整為所需尺寸。"
     rotate_desc: "向左或向右旋轉圖片。"
+    crop_desc: "將圖片裁剪為任意尺寸。"
     exif_desc: "刪除GPS、相機資訊和所有中繼資料。"
     convert_desc: "在JPEG、PNG和WebP格式之間轉換。"
     meta_title: "Allimgtools — 免費線上圖片工具"
@@ -84,6 +86,17 @@
     start: "刪除EXIF"
     title: "EXIF刪除工具"
     description: "刪除圖片中的GPS、相機資訊和所有中繼資料。"
+
+  crop:
+    page_title: "免費在線裁剪圖片 | Allimgtools"
+    page_description: "在線免費裁剪JPEG、PNG、WebP和GIF圖片。選擇任意區域，立即下載。無需註冊。"
+    sidebar_title: "裁剪"
+    settings: "裁剪設定"
+    aspect_ratio: "寬高比"
+    free: "自由"
+    start: "套用裁剪"
+    title: "裁剪圖片"
+    description: "上傳圖片並選擇要裁剪的區域。"
 
   rotate:
     page_title: "免費圖片旋轉工具 — 線上旋轉圖片 | Allimgtools"

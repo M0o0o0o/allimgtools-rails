@@ -4,6 +4,7 @@ ms:
     compress: "Mampat Imej"
     resize: "Ubah Saiz Imej"
     rotate: "Putar Imej"
+    crop: "Potong Gambar"
     exif: "Buang EXIF"
     convert: "Tukar Imej"
     image_converter: "Penukar Imej"
@@ -30,6 +31,7 @@ ms:
     compress_desc: "Kurangkan saiz fail sambil mengekalkan kualiti."
     resize_desc: "Laraskan imej kepada dimensi yang dikehendaki."
     rotate_desc: "Putar imej ke kiri atau kanan."
+    crop_desc: "Potong dan pangkas gambar anda ke mana-mana saiz."
     exif_desc: "Buang GPS, maklumat kamera dan semua metadata."
     convert_desc: "Tukar antara format JPEG, PNG dan WebP."
     meta_title: "Allimgtools — Alat Imej Dalam Talian Percuma"
@@ -84,6 +86,17 @@ ms:
     start: "Buang EXIF"
     title: "Pembuang EXIF"
     description: "Buang GPS, maklumat kamera dan semua metadata dari imej anda."
+
+  crop:
+    page_title: "Pemotong Gambar Percuma — Potong Dalam Talian | Allimgtools"
+    page_description: "Potong gambar JPEG, PNG, WebP dan GIF dalam talian secara percuma. Pilih mana-mana kawasan dan muat turun serta-merta. Tanpa pendaftaran."
+    sidebar_title: "Potong"
+    settings: "Tetapan Pemotongan"
+    aspect_ratio: "Nisbah Aspek"
+    free: "Bebas"
+    start: "Guna Pemotongan"
+    title: "Potong Gambar"
+    description: "Muat naik gambar dan pilih kawasan untuk dipotong."
 
   rotate:
     page_title: "Alat Putar Imej Percuma — Putar Imej Dalam Talian | Allimgtools"

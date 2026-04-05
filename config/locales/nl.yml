@@ -4,6 +4,7 @@ nl:
     compress: "Afbeelding comprimeren"
     resize: "Afbeelding vergroten/verkleinen"
     rotate: "Afbeelding roteren"
+    crop: "Afbeelding bijsnijden"
     exif: "EXIF verwijderen"
     convert: "Afbeelding converteren"
     image_converter: "Afbeeldingsconverter"
@@ -30,6 +31,7 @@ nl:
     compress_desc: "Verklein de bestandsgrootte met behoud van kwaliteit."
     resize_desc: "Pas afbeeldingen aan naar gewenste afmetingen."
     rotate_desc: "Roteer uw afbeelding naar links of rechts."
+    crop_desc: "Snijd afbeeldingen bij tot elk gewenst formaat."
     exif_desc: "Verwijder GPS, camera-info en alle metadata."
     convert_desc: "Converteer tussen JPEG, PNG en WebP formaten."
     meta_title: "Allimgtools — Gratis online afbeeldingstools"
@@ -84,6 +86,17 @@ nl:
     start: "EXIF verwijderen"
     title: "EXIF verwijderen"
     description: "Verwijder GPS, camera-info en alle metadata uit uw afbeeldingen."
+
+  crop:
+    page_title: "Gratis afbeelding bijsnijden — Online | Allimgtools"
+    page_description: "Snijd JPEG, PNG, WebP en GIF afbeeldingen gratis online bij. Selecteer elk gebied en download direct. Geen registratie vereist."
+    sidebar_title: "Bijsnijden"
+    settings: "Bijsnij-instellingen"
+    aspect_ratio: "Beeldverhouding"
+    free: "Vrij"
+    start: "Bijsnijden toepassen"
+    title: "Afbeelding bijsnijden"
+    description: "Upload een afbeelding en selecteer het gebied om bij te snijden."
 
   rotate:
     page_title: "Gratis afbeeldingsrotator — Afbeeldingen online roteren | Allimgtools"

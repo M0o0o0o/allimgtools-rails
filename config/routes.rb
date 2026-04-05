@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   constraints subdomain: "admin" do
     resource :session
+    resource :password, only: [ :new, :edit, :update ]
 
     scope module: :admin, as: :admin do
       root "dashboard#index"
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   post "convert/start",  to: "convert#start",  as: :start_convert
   post "exif/start",     to: "exif#start",     as: :start_exif
   post "rotate/start",   to: "rotate#start",   as: :start_rotate
+  post "crop/start",     to: "crop#start",     as: :start_crop
 
   # Download routes (no locale prefix — task_id is the identifier)
   get "download/:task_id",     to: "downloads#show", as: :download
@@ -43,6 +45,7 @@ Rails.application.routes.draw do
 
     get "exif",   to: "exif#new",   as: :new_exif
     get "rotate", to: "rotate#new", as: :new_rotate
+    get "crop",   to: "crop#new",   as: :new_crop
 
     root "pages#home"
   end

@@ -4,6 +4,7 @@ pl:
     compress: "Kompresja obrazu"
     resize: "Zmiana rozmiaru obrazu"
     rotate: "Obracanie obrazu"
+    crop: "Przytnij obraz"
     exif: "Usuń EXIF"
     convert: "Konwersja obrazu"
     image_converter: "Konwerter obrazów"
@@ -30,6 +31,7 @@ pl:
     compress_desc: "Zmniejsz rozmiar pliku zachowując jakość."
     resize_desc: "Dostosuj obrazy do pożądanych wymiarów."
     rotate_desc: "Obróć obraz w lewo lub w prawo."
+    crop_desc: "Przytnij obrazy do dowolnego rozmiaru."
     exif_desc: "Usuń GPS, informacje o aparacie i wszystkie metadane."
     convert_desc: "Konwertuj między formatami JPEG, PNG i WebP."
     meta_title: "Allimgtools — Darmowe narzędzia obrazu online"
@@ -84,6 +86,17 @@ pl:
     start: "Usuń EXIF"
     title: "Usuwanie EXIF"
     description: "Usuń GPS, informacje o aparacie i wszystkie metadane ze swoich obrazów."
+
+  crop:
+    page_title: "Darmowe przycinanie obrazów — Online | Allimgtools"
+    page_description: "Przycinaj obrazy JPEG, PNG, WebP i GIF online za darmo. Wybierz dowolny obszar i pobierz natychmiast. Bez rejestracji."
+    sidebar_title: "Przytnij"
+    settings: "Ustawienia przycinania"
+    aspect_ratio: "Proporcje"
+    free: "Dowolne"
+    start: "Zastosuj przycinanie"
+    title: "Przytnij obraz"
+    description: "Prześlij obraz i wybierz obszar do przycięcia."
 
   rotate:
     page_title: "Darmowe obracanie obrazów online | Allimgtools"

@@ -4,6 +4,7 @@
     compress: "图片压缩"
     resize: "图片调整大小"
     rotate: "图片旋转"
+    crop: "裁剪图片"
     exif: "删除EXIF"
     convert: "图片转换"
     image_converter: "图片转换器"
@@ -30,6 +31,7 @@
     compress_desc: "在保持质量的同时减小文件大小。"
     resize_desc: "将图片调整为所需尺寸。"
     rotate_desc: "向左或向右旋转图片。"
+    crop_desc: "将图片裁剪为任意尺寸。"
     exif_desc: "删除GPS、相机信息和所有元数据。"
     convert_desc: "在JPEG、PNG和WebP格式之间转换。"
     meta_title: "Allimgtools — 免费在线图片工具"
@@ -84,6 +86,17 @@
     start: "删除EXIF"
     title: "EXIF删除工具"
     description: "删除图片中的GPS、相机信息和所有元数据。"
+
+  crop:
+    page_title: "免费在线裁剪图片 | Allimgtools"
+    page_description: "在线免费裁剪JPEG、PNG、WebP和GIF图片。选择任意区域，立即下载。无需注册。"
+    sidebar_title: "裁剪"
+    settings: "裁剪设置"
+    aspect_ratio: "宽高比"
+    free: "自由"
+    start: "应用裁剪"
+    title: "裁剪图片"
+    description: "上传图片并选择要裁剪的区域。"
 
   rotate:
     page_title: "免费图片旋转工具 — 在线旋转图片 | Allimgtools"

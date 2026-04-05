@@ -34,6 +34,7 @@ SitemapGenerator::Sitemap.create(include_root: false) do
     { path: "convert",     priority: 0.9, changefreq: "monthly" },
     { path: "exif",        priority: 0.9, changefreq: "monthly" },
     { path: "rotate",      priority: 0.9, changefreq: "monthly" },
+    { path: "crop",        priority: 0.9, changefreq: "monthly" },
     { path: "jpg-to-png",  priority: 0.8, changefreq: "monthly" },
     { path: "jpg-to-webp", priority: 0.8, changefreq: "monthly" },
     { path: "png-to-jpg",  priority: 0.8, changefreq: "monthly" },

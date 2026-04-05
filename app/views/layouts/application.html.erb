@@ -82,7 +82,7 @@
                 <%= yield %>
             </main>
 
-            <% unless controller_name.in?(%w[compress resize convert exif rotate downloads]) %>
+            <% unless controller_name.in?(%w[compress resize convert exif rotate crop downloads]) %>
             <footer class="bg-base-100 border-t border-base-200 mt-auto">
                 <div class="container mx-auto px-4 pt-10 pb-8 max-w-5xl">
                     <%# Top row: brand + links %>
@@ -101,9 +101,6 @@
                         <%# Links %>
                         <nav class="flex items-center gap-6 text-sm">
                             <%= link_to t("nav.blog"), posts_path, class: "text-base-content/50 hover:text-primary transition-colors font-medium #{controller_name == 'posts' ? 'text-primary' : ''}" %>
-                            <%= link_to t("nav.compress"), new_compress_path, class: "text-base-content/50 hover:text-primary transition-colors" %>
-                            <%= link_to t("nav.resize"), new_resize_path, class: "text-base-content/50 hover:text-primary transition-colors" %>
-                            <%= link_to t("nav.convert"), new_convert_path, class: "text-base-content/50 hover:text-primary transition-colors" %>
                         </nav>
                     </div>
 
@@ -155,6 +152,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                         </svg>
                         <%= t("nav.rotate") %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to new_crop_path, class: "#{controller_name == 'crop' ? 'active' : ''}" do %>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4V3m14 14h-4v7M3 10l18 11M3 10L21 3"/>
+                        </svg>
+                        <%= t("nav.crop") %>
                         <% end %>
                     </li>
                     <li>

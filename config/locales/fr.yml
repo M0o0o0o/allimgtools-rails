@@ -4,6 +4,7 @@ fr:
     compress: "Compresser l'image"
     resize: "Redimensionner l'image"
     rotate: "Faire pivoter l'image"
+    crop: "Recadrer l'image"
     exif: "Supprimer EXIF"
     convert: "Convertir l'image"
     image_converter: "Convertisseur d'images"
@@ -30,6 +31,7 @@ fr:
     compress_desc: "Réduisez la taille du fichier tout en maintenant la qualité."
     resize_desc: "Ajustez les images aux dimensions souhaitées."
     rotate_desc: "Faites pivoter votre image vers la gauche ou la droite."
+    crop_desc: "Recadrez et rognez vos images à n'importe quelle taille."
     exif_desc: "Supprimez le GPS, les infos de l'appareil et toutes les métadonnées."
     convert_desc: "Convertissez entre les formats JPEG, PNG et WebP."
     meta_title: "Allimgtools — Outils image en ligne gratuits"
@@ -84,6 +86,17 @@ fr:
     start: "Supprimer EXIF"
     title: "Suppresseur EXIF"
     description: "Supprimez le GPS, les infos appareil et toutes les métadonnées de vos images."
+
+  crop:
+    page_title: "Recadrage d'image gratuit — Rogner en ligne | Allimgtools"
+    page_description: "Recadrez des images JPEG, PNG, WebP et GIF en ligne gratuitement. Sélectionnez n'importe quelle zone et téléchargez instantanément. Sans inscription."
+    sidebar_title: "Recadrer"
+    settings: "Paramètres de recadrage"
+    aspect_ratio: "Format"
+    free: "Libre"
+    start: "Appliquer le recadrage"
+    title: "Recadrage d'image"
+    description: "Importez une image et sélectionnez la zone à recadrer."
 
   rotate:
     page_title: "Rotateur d'images gratuit — Faire pivoter en ligne | Allimgtools"

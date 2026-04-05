@@ -4,6 +4,7 @@ de:
     compress: "Bild komprimieren"
     resize: "Bild skalieren"
     rotate: "Bild drehen"
+    crop: "Bild zuschneiden"
     exif: "EXIF entfernen"
     convert: "Bild konvertieren"
     image_converter: "Bildkonverter"
@@ -30,6 +31,7 @@ de:
     compress_desc: "Dateigröße reduzieren bei gleichbleibender Qualität."
     resize_desc: "Bilder auf gewünschte Abmessungen anpassen."
     rotate_desc: "Bild nach links oder rechts drehen."
+    crop_desc: "Bilder auf jede beliebige Größe zuschneiden."
     exif_desc: "GPS, Kamerainfos und alle Metadaten entfernen."
     convert_desc: "Zwischen JPEG, PNG und WebP konvertieren."
     meta_title: "Allimgtools — Kostenlose Online-Bildwerkzeuge"
@@ -84,6 +86,17 @@ de:
     start: "EXIF entfernen"
     title: "EXIF-Entferner"
     description: "GPS, Kamerainfos und alle Metadaten aus Ihren Bildern entfernen."
+
+  crop:
+    page_title: "Kostenloser Bild-Beschneider — Online zuschneiden | Allimgtools"
+    page_description: "JPEG, PNG, WebP und GIF Bilder kostenlos online zuschneiden. Bereich auswählen und sofort herunterladen. Keine Anmeldung erforderlich."
+    sidebar_title: "Zuschneiden"
+    settings: "Zuschnitt-Einstellungen"
+    aspect_ratio: "Seitenverhältnis"
+    free: "Frei"
+    start: "Zuschnitt anwenden"
+    title: "Bild zuschneiden"
+    description: "Bild hochladen und den Bereich zum Zuschneiden auswählen."
 
   rotate:
     page_title: "Kostenloser Bilddreher — Bilder online drehen | Allimgtools"

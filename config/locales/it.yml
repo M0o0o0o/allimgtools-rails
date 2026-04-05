@@ -4,6 +4,7 @@ it:
     compress: "Comprimi immagine"
     resize: "Ridimensiona immagine"
     rotate: "Ruota immagine"
+    crop: "Ritaglia immagine"
     exif: "Rimuovi EXIF"
     convert: "Converti immagine"
     image_converter: "Convertitore di immagini"
@@ -30,6 +31,7 @@ it:
     compress_desc: "Riduci le dimensioni del file mantenendo la qualità."
     resize_desc: "Regola le immagini alle dimensioni desiderate."
     rotate_desc: "Ruota l'immagine a sinistra o a destra."
+    crop_desc: "Ritaglia le tue immagini a qualsiasi dimensione."
     exif_desc: "Rimuovi GPS, info fotocamera e tutti i metadati."
     convert_desc: "Converti tra i formati JPEG, PNG e WebP."
     meta_title: "Allimgtools — Strumenti immagine online gratuiti"
@@ -84,6 +86,17 @@ it:
     start: "Rimuovi EXIF"
     title: "Rimuovi EXIF"
     description: "Rimuovi GPS, info fotocamera e tutti i metadati dalle tue immagini."
+
+  crop:
+    page_title: "Ritaglia immagini gratis — Online | Allimgtools"
+    page_description: "Ritaglia immagini JPEG, PNG, WebP e GIF online gratuitamente. Seleziona qualsiasi area e scarica subito. Nessuna registrazione richiesta."
+    sidebar_title: "Ritaglia"
+    settings: "Impostazioni ritaglio"
+    aspect_ratio: "Proporzioni"
+    free: "Libero"
+    start: "Applica ritaglio"
+    title: "Ritaglia immagine"
+    description: "Carica un'immagine e seleziona l'area da ritagliare."
 
   rotate:
     page_title: "Rotatore di immagini gratuito — Ruota immagini online | Allimgtools"

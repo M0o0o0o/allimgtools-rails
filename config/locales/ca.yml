@@ -4,6 +4,7 @@ ca:
     compress: "Comprimir imatge"
     resize: "Redimensionar imatge"
     rotate: "Girar imatge"
+    crop: "Retallar imatge"
     exif: "Eliminar EXIF"
     convert: "Convertir imatge"
     image_converter: "Convertidor d'imatges"
@@ -30,6 +31,7 @@ ca:
     compress_desc: "Redueix la mida del fitxer mantenint la qualitat."
     resize_desc: "Ajusta les imatges a les dimensions desitjades."
     rotate_desc: "Gira la teva imatge cap a l'esquerra o la dreta."
+    crop_desc: "Retalla les teves imatges a qualsevol mida."
     exif_desc: "Elimina GPS, informació de la càmera i totes les metadades."
     convert_desc: "Converteix entre els formats JPEG, PNG i WebP."
     meta_title: "Allimgtools — Eines d'imatge en línia gratuïtes"
@@ -84,6 +86,17 @@ ca:
     start: "Eliminar EXIF"
     title: "Eliminador EXIF"
     description: "Elimina GPS, informació de la càmera i totes les metadades de les teves imatges."
+
+  crop:
+    page_title: "Retalla imatges gratuïtament — En línia | Allimgtools"
+    page_description: "Retalla imatges JPEG, PNG, WebP i GIF en línia gratuïtament. Selecciona qualsevol àrea i descarrega immediatament. Sense registre."
+    sidebar_title: "Retallar"
+    settings: "Configuració de retall"
+    aspect_ratio: "Proporció"
+    free: "Lliure"
+    start: "Aplicar retall"
+    title: "Retallar imatge"
+    description: "Puja una imatge i selecciona l'àrea a retallar."
 
   rotate:
     page_title: "Rotador d'imatges gratuït — Girar imatges en línia | Allimgtools"

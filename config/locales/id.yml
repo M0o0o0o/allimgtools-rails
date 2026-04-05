@@ -4,6 +4,7 @@ id:
     compress: "Kompresi Gambar"
     resize: "Ubah Ukuran Gambar"
     rotate: "Putar Gambar"
+    crop: "Potong Gambar"
     exif: "Hapus EXIF"
     convert: "Konversi Gambar"
     image_converter: "Konverter Gambar"
@@ -30,6 +31,7 @@ id:
     compress_desc: "Kurangi ukuran file sambil mempertahankan kualitas."
     resize_desc: "Sesuaikan gambar ke dimensi yang diinginkan."
     rotate_desc: "Putar gambar ke kiri atau kanan."
+    crop_desc: "Potong dan pangkas gambar Anda ke ukuran apa pun."
     exif_desc: "Hapus GPS, info kamera, dan semua metadata."
     convert_desc: "Konversi antara format JPEG, PNG, dan WebP."
     meta_title: "Allimgtools — Alat Gambar Online Gratis"
@@ -84,6 +86,17 @@ id:
     start: "Hapus EXIF"
     title: "Penghapus EXIF"
     description: "Hapus GPS, info kamera, dan semua metadata dari gambar Anda."
+
+  crop:
+    page_title: "Pemotong Gambar Gratis — Potong Online | Allimgtools"
+    page_description: "Potong gambar JPEG, PNG, WebP, dan GIF secara online gratis. Pilih area mana saja dan unduh seketika. Tanpa pendaftaran."
+    sidebar_title: "Potong"
+    settings: "Pengaturan Pemotongan"
+    aspect_ratio: "Rasio Aspek"
+    free: "Bebas"
+    start: "Terapkan Pemotongan"
+    title: "Potong Gambar"
+    description: "Unggah gambar dan pilih area yang akan dipotong."
 
   rotate:
     page_title: "Alat Putar Gambar Gratis — Putar Gambar Online | Allimgtools"

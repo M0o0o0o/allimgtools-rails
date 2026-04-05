@@ -4,6 +4,7 @@ vi:
     compress: "Nén ảnh"
     resize: "Thay đổi kích thước ảnh"
     rotate: "Xoay ảnh"
+    crop: "Cắt ảnh"
     exif: "Xóa EXIF"
     convert: "Chuyển đổi ảnh"
     image_converter: "Công cụ chuyển đổi ảnh"
@@ -30,6 +31,7 @@ vi:
     compress_desc: "Giảm kích thước tệp trong khi duy trì chất lượng."
     resize_desc: "Điều chỉnh ảnh theo kích thước mong muốn."
     rotate_desc: "Xoay ảnh sang trái hoặc phải."
+    crop_desc: "Cắt và chỉnh ảnh của bạn theo bất kỳ kích thước nào."
     exif_desc: "Xóa GPS, thông tin máy ảnh và tất cả siêu dữ liệu."
     convert_desc: "Chuyển đổi giữa các định dạng JPEG, PNG và WebP."
     meta_title: "Allimgtools — Công cụ ảnh trực tuyến miễn phí"
@@ -84,6 +86,17 @@ vi:
     start: "Xóa EXIF"
     title: "Xóa EXIF"
     description: "Xóa GPS, thông tin máy ảnh và tất cả siêu dữ liệu khỏi ảnh của bạn."
+
+  crop:
+    page_title: "Cắt ảnh miễn phí — Trực tuyến | Allimgtools"
+    page_description: "Cắt ảnh JPEG, PNG, WebP và GIF trực tuyến miễn phí. Chọn bất kỳ vùng nào và tải xuống ngay lập tức. Không cần đăng ký."
+    sidebar_title: "Cắt"
+    settings: "Cài đặt cắt"
+    aspect_ratio: "Tỉ lệ khung hình"
+    free: "Tự do"
+    start: "Áp dụng cắt"
+    title: "Cắt ảnh"
+    description: "Tải lên ảnh và chọn vùng cần cắt."
 
   rotate:
     page_title: "Công cụ xoay ảnh miễn phí — Xoay ảnh trực tuyến | Allimgtools"

@@ -4,6 +4,7 @@ tr:
     compress: "Resim Sıkıştır"
     resize: "Resim Boyutlandır"
     rotate: "Resim Döndür"
+    crop: "Resim Kırp"
     exif: "EXIF Kaldır"
     convert: "Resim Dönüştür"
     image_converter: "Resim Dönüştürücü"
@@ -30,6 +31,7 @@ tr:
     compress_desc: "Kaliteyi koruyarak dosya boyutunu küçültün."
     resize_desc: "Resimleri istediğiniz boyutlara ayarlayın."
     rotate_desc: "Resmi sola veya sağa döndürün."
+    crop_desc: "Resimlerinizi istediğiniz boyuta kırpın."
     exif_desc: "GPS, kamera bilgilerini ve tüm meta verileri kaldırın."
     convert_desc: "JPEG, PNG ve WebP formatları arasında dönüştürün."
     meta_title: "Allimgtools — Ücretsiz Çevrimiçi Resim Araçları"
@@ -84,6 +86,17 @@ tr:
     start: "EXIF Kaldır"
     title: "EXIF Kaldır"
     description: "Resimlerinizdeki GPS, kamera bilgilerini ve tüm meta verileri kaldırın."
+
+  crop:
+    page_title: "Ücretsiz Resim Kırpma — Çevrimiçi | Allimgtools"
+    page_description: "JPEG, PNG, WebP ve GIF resimlerini çevrimiçi ücretsiz kırpın. Herhangi bir alanı seçin ve anında indirin. Kayıt gerekmez."
+    sidebar_title: "Kırp"
+    settings: "Kırpma Ayarları"
+    aspect_ratio: "En-Boy Oranı"
+    free: "Serbest"
+    start: "Kırpmayı Uygula"
+    title: "Resim Kırp"
+    description: "Bir resim yükleyin ve kırpılacak alanı seçin."
 
   rotate:
     page_title: "Ücretsiz Resim Döndürücü — Çevrimiçi Döndür | Allimgtools"
