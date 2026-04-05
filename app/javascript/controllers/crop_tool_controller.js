@@ -168,18 +168,21 @@ export default class extends Controller {
     }
 
     // Convert canvas-space selection coords → original image pixel coords.
-    // CropperImage.$matrix = [a, b, c, d, e, f] (2D CSS transform matrix).
-    // With image pan/zoom disabled: a = d = scale, e = translateX, f = translateY.
+    // CSS transform-origin is 50% 50%, so with matrix [scaleX,0,0,scaleY,tx,ty]:
+    //   canvas_x = scaleX * (px - natW/2) + tx + natW/2
+    // Solving for px:
+    //   px = (canvas_x - tx - natW/2) / scaleX + natW/2
+    // This handles initial state, zoom, and pan correctly.
     const cropperImg = this.#cropper.getCropperImage();
     const [scaleX, , , scaleY, tx, ty] = cropperImg.$matrix;
 
     const natW = this.cropperImgTarget.naturalWidth;
     const natH = this.cropperImgTarget.naturalHeight;
 
-    const cropX = Math.max(0, Math.round((sel.x - tx) / scaleX));
-    const cropY = Math.max(0, Math.round((sel.y - ty) / scaleY));
-    const cropW = Math.min(Math.max(1, Math.round(sel.width / scaleX)), natW - cropX);
-    const cropH = Math.min(Math.max(1, Math.round(sel.height / scaleY)), natH - cropY);
+    const cropX = Math.max(0, Math.round((sel.x - tx - natW / 2) / scaleX + natW / 2));
+    const cropY = Math.max(0, Math.round((sel.y - ty - natH / 2) / scaleY + natH / 2));
+    const cropW = Math.max(1, Math.min(Math.round(sel.width / scaleX), natW - cropX));
+    const cropH = Math.max(1, Math.min(Math.round(sel.height / scaleY), natH - cropY));
 
     this.#startRequested = false;
     this.#hideWaitOverlay();
