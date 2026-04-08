@@ -2,8 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [
-    "topicInput",
-    "searchQueryInput",
+    "goalInput",
     "topicsList",
     "emptyState",
     "form",
@@ -23,23 +22,16 @@ export default class extends Controller {
     if (event.type === "keydown" && event.key !== "Enter") return
     event.preventDefault()
 
-    const topic = this.topicInputTarget.value.trim()
-    const searchQuery = this.searchQueryInputTarget.value.trim()
+    const goal = this.goalInputTarget.value.trim()
 
-    if (!topic) {
-      alert("주제를 입력해주세요.")
+    if (!goal) {
+      alert("글 목표를 입력해주세요.")
       return
     }
 
-    if (!searchQuery) {
-      alert("영어 검색어를 입력해주세요.")
-      return
-    }
-
-    this.topics.push({ id: this.nextId++, topic, searchQuery })
-    this.topicInputTarget.value = ""
-    this.searchQueryInputTarget.value = ""
-    this.topicInputTarget.focus()
+    this.topics.push({ id: this.nextId++, goal })
+    this.goalInputTarget.value = ""
+    this.goalInputTarget.focus()
     this.updateUI()
   }
 
@@ -53,23 +45,21 @@ export default class extends Controller {
     this.topicsListTarget.innerHTML = this.topics.map(t => this.topicTemplate(t)).join("")
 
     this.hiddenInputsTarget.innerHTML = this.topics.map((t, index) => `
-      <input type="hidden" name="topics[${index}][topic]" value="${this.escapeHtml(t.topic)}">
-      <input type="hidden" name="topics[${index}][search_query]" value="${this.escapeHtml(t.searchQuery)}">
+      <input type="hidden" name="goals[${index}]" value="${this.escapeHtml(t.goal)}">
     `).join("")
 
     const hasTopic = this.topics.length > 0
     this.emptyStateTarget.classList.toggle("hidden", hasTopic)
     this.topicsListTarget.classList.toggle("hidden", !hasTopic)
     this.generateBtnTarget.disabled = !hasTopic
-    this.topicCountTarget.textContent = `${this.topics.length}개의 주제`
+    this.topicCountTarget.textContent = `${this.topics.length}개의 목표`
   }
 
   topicTemplate(topic) {
     return `
       <div class="flex items-center justify-between p-3 bg-base-200 rounded-lg">
         <div class="flex-1">
-          <p class="font-medium">${this.escapeHtml(topic.topic)}</p>
-          <p class="text-sm text-base-content/60 mt-0.5">${this.escapeHtml(topic.searchQuery)}</p>
+          <p class="font-medium">${this.escapeHtml(topic.goal)}</p>
         </div>
         <button type="button"
                 data-id="${topic.id}"
