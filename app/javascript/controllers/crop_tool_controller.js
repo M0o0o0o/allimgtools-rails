@@ -240,6 +240,28 @@ export default class extends Controller {
     ].join("");
     this.#cropper = new Cropper(this.cropperImgTarget, { template });
 
+    // Confine the selection within the canvas bounds.
+    // Cropper.js v2 has no built-in "confined" option, so we intercept the
+    // `change` event, clamp the values, and re-issue $change if needed.
+    const sel = this.#cropper.getCropperSelection();
+    if (sel) {
+      sel.addEventListener("change", (event) => {
+        const cnv = sel.$canvas;
+        if (!cnv) return;
+        const { x, y, width, height } = event.detail;
+        const maxW = cnv.offsetWidth;
+        const maxH = cnv.offsetHeight;
+        const cx = Math.max(0, Math.min(x, maxW - width));
+        const cy = Math.max(0, Math.min(y, maxH - height));
+        const cw = Math.min(width, maxW - cx);
+        const ch = Math.min(height, maxH - cy);
+        if (cx !== x || cy !== y || cw !== width || ch !== height) {
+          event.preventDefault();
+          sel.$change(cx, cy, cw, ch);
+        }
+      });
+    }
+
     // Blob URLs load near-instantly so CropperImage calls $center("contain") before
     // the flex layout resolves — the canvas is still at its CSS min-height (100px).
     // Use ResizeObserver to re-centre only after the canvas has its real dimensions.
@@ -250,34 +272,40 @@ export default class extends Controller {
       const cropperImg = this.#cropper?.getCropperImage();
       if (!cropperImg) return;
 
-      // 1. Scale image to fit within the current (full-size) canvas.
-      cropperImg.$center("contain");
+      // Wait for the internal <img> inside <cropper-image> to fully load before
+      // reading $matrix. If it hasn't loaded yet, getBoundingClientRect() returns
+      // 0×0, causing $center("contain") to compute scale=Infinity which breaks
+      // the selection size.
+      cropperImg.$ready().then(() => {
+        // 1. Scale image to fit within the current (full-size) canvas.
+        cropperImg.$center("contain");
 
-      // 2. Shrink canvas to the exact rendered image size so the selection
-      //    cannot leave the image area (no letterbox).
-      const [scale] = cropperImg.$matrix;
-      const natW = this.cropperImgTarget.naturalWidth;
-      const natH = this.cropperImgTarget.naturalHeight;
-      const renderedW = Math.round(natW * scale);
-      const renderedH = Math.round(natH * scale);
+        // 2. Shrink canvas to the exact rendered image size so the selection
+        //    cannot leave the image area (no letterbox).
+        const [scale] = cropperImg.$matrix;
+        const natW = this.cropperImgTarget.naturalWidth;
+        const natH = this.cropperImgTarget.naturalHeight;
+        const renderedW = Math.round(natW * scale);
+        const renderedH = Math.round(natH * scale);
 
-      canvas.style.width = `${renderedW}px`;
-      canvas.style.height = `${renderedH}px`;
+        canvas.style.width = `${renderedW}px`;
+        canvas.style.height = `${renderedH}px`;
 
-      // 3. Re-centre to remove letterbox offset (tx/ty → 0).
-      cropperImg.$center("contain");
+        // 3. Re-centre to remove letterbox offset (tx/ty → 0).
+        cropperImg.$center("contain");
 
-      // 4. Reset selection to 80 % of the now image-sized canvas.
-      const sel = this.#cropper?.getCropperSelection();
-      if (sel) {
-        const cov = 0.8;
-        sel.$change(
-          (renderedW * (1 - cov)) / 2,
-          (renderedH * (1 - cov)) / 2,
-          renderedW * cov,
-          renderedH * cov,
-        );
-      }
+        // 4. Reset selection to 80 % of the now image-sized canvas.
+        const sel = this.#cropper?.getCropperSelection();
+        if (sel) {
+          const cov = 0.8;
+          sel.$change(
+            (renderedW * (1 - cov)) / 2,
+            (renderedH * (1 - cov)) / 2,
+            renderedW * cov,
+            renderedH * cov,
+          );
+        }
+      }).catch(() => {});
     };
 
     if (canvas.offsetHeight > 100) {
