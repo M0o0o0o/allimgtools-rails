@@ -12,41 +12,41 @@ class AiPostGeneratorJob < ApplicationJob
     Rails.logger.info "[AiPostGenerator] Starting for goal: #{goal}"
     openai = AiServices::OpenaiService.new
 
-    # Step 1: 검색어 생성
-    Rails.logger.info "[AiPostGenerator] Step 1: Generating search queries..."
-    search_queries = openai.generate_search_queries(goal: goal)
-    Rails.logger.info "[AiPostGenerator] Queries: #{search_queries.join(' / ')}"
+    # # Step 1: 검색어 생성
+    # Rails.logger.info "[AiPostGenerator] Step 1: Generating search queries..."
+    # search_queries = openai.generate_search_queries(goal: goal)
+    # Rails.logger.info "[AiPostGenerator] Queries: #{search_queries.join(' / ')}"
 
-    # Step 2: Google 검색
-    Rails.logger.info "[AiPostGenerator] Step 2: Searching Google..."
-    google_results = Crawlers::GoogleSearch.new.search(query: search_queries.first, num: 10) || []
+    # # Step 2: Google 검색
+    # Rails.logger.info "[AiPostGenerator] Step 2: Searching Google..."
+    # google_results = Crawlers::GoogleSearch.new.search(query: search_queries.first, num: 10) || []
 
-    if google_results.empty?
-      Rails.logger.error "[AiPostGenerator] No search results found"
-      return
-    end
+    # if google_results.empty?
+    #   Rails.logger.error "[AiPostGenerator] No search results found"
+    #   return
+    # end
 
-    Rails.logger.info "[AiPostGenerator] Found #{google_results.size} results"
+    # Rails.logger.info "[AiPostGenerator] Found #{google_results.size} results"
 
-    # Step 3: 크롤링
-    Rails.logger.info "[AiPostGenerator] Step 3: Fetching articles (limit: #{FETCH_LIMIT})..."
-    fetcher = Crawlers::ContentFetcher.new
-    articles = fetch_articles(fetcher, google_results, FETCH_LIMIT)
+    # # Step 3: 크롤링
+    # Rails.logger.info "[AiPostGenerator] Step 3: Fetching articles (limit: #{FETCH_LIMIT})..."
+    # fetcher = Crawlers::ContentFetcher.new
+    # articles = fetch_articles(fetcher, google_results, FETCH_LIMIT)
 
-    if articles.empty?
-      Rails.logger.error "[AiPostGenerator] Failed to fetch any articles"
-      return
-    end
+    # if articles.empty?
+    #   Rails.logger.error "[AiPostGenerator] Failed to fetch any articles"
+    #   return
+    # end
 
-    Rails.logger.info "[AiPostGenerator] Fetched #{articles.size} articles"
+    # Rails.logger.info "[AiPostGenerator] Fetched #{articles.size} articles"
 
-    # Step 4: 기사 분석 (병렬)
-    Rails.logger.info "[AiPostGenerator] Step 4: Analyzing articles..."
-    analyses = openai.analyze_articles(articles.map { |a| a[:content] }, goal: goal)
+    # # Step 4: 기사 분석 (병렬)
+    # Rails.logger.info "[AiPostGenerator] Step 4: Analyzing articles..."
+    # analyses = openai.analyze_articles(articles.map { |a| a[:content] }, goal: goal)
 
     # Step 5: 본문 → 메타 순서로 글 작성
     Rails.logger.info "[AiPostGenerator] Step 5: Generating post (body → meta)..."
-    content = openai.generate_post(goal: goal, analyses: analyses)
+    content = openai.generate_post(goal: goal, analyses: [])
 
     # 고유 slug 생성
     base_slug = content[:slug].presence || goal.parameterize
