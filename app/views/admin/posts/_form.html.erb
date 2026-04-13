@@ -58,6 +58,24 @@
               class: "min-h-64",
               placeholder: t.object.locale == "ko" ? "내용을 입력하세요..." : "Write your content..." %>
         </div>
+
+        <div class="divider text-xs text-base-content/40">CTA 버튼 (선택)</div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="form-control">
+            <%= t.label :cta_text, "버튼 텍스트", class: "label label-text font-medium" %>
+            <%= t.text_field :cta_text,
+                class: "input input-bordered w-full",
+                placeholder: t.object.locale == "ko" ? "지금 무료로 시작하기" : "Try it for free" %>
+          </div>
+          <div class="form-control">
+            <%= t.label :cta_url, "버튼 URL", class: "label label-text font-medium" %>
+            <%= t.text_field :cta_url,
+                class: "input input-bordered w-full",
+                placeholder: "/compress" %>
+            <p class="label label-text-alt text-base-content/50">locale 없이 입력 (예: /compress)</p>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

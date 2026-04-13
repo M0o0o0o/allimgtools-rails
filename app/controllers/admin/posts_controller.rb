@@ -52,7 +52,7 @@ module Admin
       params.require(:post).permit(
         :slug, :status, :published_at,
         translations_attributes: [
-          :id, :locale, :title, :description, :body, :_destroy
+          :id, :locale, :title, :description, :body, :cta_text, :cta_url, :_destroy
         ]
       )
     end

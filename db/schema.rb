@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_31_075041) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_13_233032) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -51,6 +51,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_31_075041) do
 
   create_table "post_translations", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.string "cta_text"
+    t.string "cta_url"
     t.text "description"
     t.string "locale", null: false
     t.integer "post_id", null: false

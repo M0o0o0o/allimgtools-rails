@@ -262,14 +262,22 @@ module AiServices
       meta.merge(body: body)
     end
 
-    def translate_content(title:, description:, body:, target_locale:)
+    def translate_content(title:, description:, body:, target_locale:, cta_text: nil)
       locale_name = SUPPORTED_LOCALES[target_locale.to_sym]&.dig(:name) || target_locale.to_s.upcase
       prompt = +"#{TRANSLATION_PROMPT}\n\n"
       prompt << "## Target Language: #{locale_name}\nYou MUST write ALL output in #{locale_name}.\n\n"
       prompt << "## Content to Translate\n"
       prompt << "Title: #{title}\n"
       prompt << "Description: #{description}\n"
+      prompt << "CTA Button Text: #{cta_text}\n" if cta_text.present?
       prompt << "Body:\n#{body}\n"
+
+      schema_properties = {
+        title:       { type: "string" },
+        description: { type: "string" },
+        body:        { type: "string" },
+        cta_text:    { type: "string" }
+      }
 
       response = @client.chat(
         parameters: {
@@ -284,12 +292,8 @@ module AiServices
               strict: true,
               schema: {
                 type: "object",
-                properties: {
-                  title:       { type: "string" },
-                  description: { type: "string" },
-                  body:        { type: "string" }
-                },
-                required: [ "title", "description", "body" ],
+                properties: schema_properties,
+                required: [ "title", "description", "body", "cta_text" ],
                 additionalProperties: false
               }
             }
@@ -418,7 +422,7 @@ module AiServices
 
     def parse_translation(response_text)
       parsed = JSON.parse(response_text)
-      { title: parsed["title"], description: parsed["description"], body: parsed["body"] }
+      { title: parsed["title"], description: parsed["description"], body: parsed["body"], cta_text: parsed["cta_text"] }
     rescue JSON::ParserError => e
       Rails.logger.error "[OpenaiService] Failed to parse translation: #{e.message}"
       raise "Failed to parse AI translation response"

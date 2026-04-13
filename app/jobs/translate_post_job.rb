@@ -25,6 +25,7 @@ class TranslatePostJob < ApplicationJob
       title: source.title,
       description: source.description,
       body: source.body.to_s,
+      cta_text: source.cta_text,
       target_locale: TARGET_LOCALE
     )
 
@@ -33,6 +34,8 @@ class TranslatePostJob < ApplicationJob
     translation.title       = translated[:title]
     translation.description = translated[:description]
     translation.body        = translated[:body] if source.body.present?
+    translation.cta_text    = translated[:cta_text] if source.cta_text.present?
+    translation.cta_url     = source.cta_url
     translation.save!
 
     Rails.logger.info "[TranslatePostJob] Successfully translated post #{post_id} to en"

@@ -76,6 +76,20 @@
     <%= @translation.body %>
   </article>
 
+  <%# CTA 버튼 %>
+  <% if @translation.cta_text.present? && @translation.cta_url.present? %>
+    <% locale_prefix = I18n.locale == I18n.default_locale ? "" : "/#{I18n.locale}" %>
+    <% cta_full_url = "#{locale_prefix}#{@translation.cta_url}" %>
+    <div class="mt-12 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 p-8 text-center">
+      <%= link_to cta_full_url, class: "btn btn-primary btn-lg gap-2" do %>
+        <%= @translation.cta_text %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      <% end %>
+    </div>
+  <% end %>
+
   <%# Bottom separator %>
   <div class="divider mt-16 mb-10"></div>
 
