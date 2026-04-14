@@ -72,13 +72,6 @@ volumes:
 # version inside the asset_path.
 asset_path: /rails/public/assets
 
-# Run db:migrate before each deploy.
-boot:
-  limit: 10
-  wait: 2
-
-hooks_path: .kamal/hooks
-
 # Configure the image builder.
 builder:
   arch: amd64
