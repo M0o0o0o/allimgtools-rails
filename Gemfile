@@ -70,6 +70,10 @@ group :test do
 end
 
 gem "kaminari", "~> 1.2"
+
+# Google OAuth
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
 gem "ruby-openai", "~> 7.0"
 
 # Web scraping for AI post generation

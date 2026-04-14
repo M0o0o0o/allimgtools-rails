@@ -132,3 +132,10 @@ en:
     failed: "Processing Failed"
     error: "An error occurred. Please try again."
     try_again: "Try Again"
+
+
+  auth:
+    login_with_google: "Sign in with Google"
+    logout: "Sign out"
+    login_success: "Welcome, %{name}!"
+    login_failed: "Sign in failed. Please try again."

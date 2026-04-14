@@ -101,6 +101,8 @@
                         <%# Links %>
                         <nav class="flex items-center gap-6 text-sm">
                             <%= link_to t("nav.blog"), posts_path, class: "text-base-content/50 hover:text-primary transition-colors font-medium #{controller_name == 'posts' ? 'text-primary' : ''}" %>
+                            <%= link_to "Terms", terms_path, class: "text-base-content/50 hover:text-primary transition-colors font-medium #{controller_name == 'pages' && action_name == 'terms' ? 'text-primary' : ''}" %>
+                            <%= link_to "Privacy", privacy_path, class: "text-base-content/50 hover:text-primary transition-colors font-medium #{controller_name == 'pages' && action_name == 'privacy' ? 'text-primary' : ''}" %>
                         </nav>
                     </div>
 

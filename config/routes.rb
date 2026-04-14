@@ -28,6 +28,12 @@ Rails.application.routes.draw do
   get "download/:task_id",     to: "downloads#show", as: :download
   get "download/:task_id/zip", to: "downloads#zip",  as: :download_zip
 
+  # Auth routes
+  get    "/login",                         to: "auth#login",           as: :login
+  get    "/auth/google_oauth2/callback",   to: "auth#google_callback"
+  post   "/auth/failure",                  to: "auth#failure"
+  delete "/logout",                        to: "auth#destroy",         as: :logout
+
   # Localized page routes
   scope "(:locale)", locale: PUBLIC_LOCALE_PATTERN do
     resources :posts, only: [ :index, :show ], param: :slug
@@ -46,6 +52,11 @@ Rails.application.routes.draw do
     get "exif",   to: "exif#new",   as: :new_exif
     get "rotate", to: "rotate#new", as: :new_rotate
     get "crop",   to: "crop#new",   as: :new_crop
+
+    get    "my-page", to: "pages#my_page",        as: :my_page
+    delete "my-page", to: "pages#destroy_account", as: :destroy_account
+    get "terms",   to: "pages#terms",   as: :terms
+    get "privacy", to: "pages#privacy", as: :privacy
 
     root "pages#home"
   end

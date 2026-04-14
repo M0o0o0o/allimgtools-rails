@@ -1,6 +1,8 @@
 <header class="navbar bg-base-100 shadow-sm sticky top-0 z-50">
+
+  <%# Start — logo + mobile hamburger %>
   <div class="navbar-start">
-    <label for="nav-drawer" class="btn btn-ghost btn-sm drawer-button md:hidden mr-1" aria-label="Open menu">
+    <label for="nav-drawer" class="btn btn-ghost btn-sm drawer-button lg:hidden mr-1" aria-label="Open menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -13,18 +15,18 @@
     <% end %>
   </div>
 
-  <div class="navbar-end">
-    <nav class="hidden md:flex gap-1 items-center">
+  <%# Center — tool nav %>
+  <div class="navbar-center hidden lg:flex">
+    <nav class="flex gap-0.5 items-center">
       <%= link_to t("nav.compress"), new_compress_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'compress' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
-      <%= link_to t("nav.resize"), new_resize_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'resize' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
-      <%= link_to t("nav.exif"), new_exif_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'exif' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
-      <%= link_to t("nav.rotate"), new_rotate_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'rotate' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
-      <%= link_to t("nav.crop"), new_crop_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'crop' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
+      <%= link_to t("nav.resize"),   new_resize_path,   class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'resize'   ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
+      <%= link_to t("nav.exif"),     new_exif_path,     class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'exif'     ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
+      <%= link_to t("nav.rotate"),   new_rotate_path,   class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'rotate'   ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
+      <%= link_to t("nav.crop"),     new_crop_path,     class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'crop'     ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
 
-      <%# Image Convert dropdown %>
-      <div class="dropdown dropdown-end">
-        <label tabindex="0"
-               class="px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 cursor-pointer flex items-center gap-1 <%= controller_name == 'convert' ? 'text-primary' : 'text-base-content/60 hover:text-base-content' %>">
+      <%# Convert dropdown %>
+      <div class="dropdown dropdown-bottom">
+        <label tabindex="0" class="px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 cursor-pointer flex items-center gap-1 <%= controller_name == 'convert' ? 'text-primary' : 'text-base-content/60 hover:text-base-content' %>">
           <%= t("nav.convert") %>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
@@ -43,32 +45,54 @@
           <li><%= link_to "WebP → PNG", webp_to_png_path %></li>
         </ul>
       </div>
+    </nav>
+  </div>
 
-      <%# Language switcher dropdown %>
-      <div class="dropdown dropdown-end">
-        <label tabindex="0"
-               class="btn btn-ghost btn-sm btn-circle text-base-content/60 hover:text-base-content"
-               aria-label="Change language">
+  <%# End — language + auth %>
+  <div class="navbar-end gap-1">
+
+    <%# Language switcher %>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-sm btn-circle text-base-content/60 hover:text-base-content" aria-label="Change language">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+      </label>
+      <ul tabindex="0" class="dropdown-content menu menu-sm bg-base-100 rounded-xl shadow-lg z-50 w-48 p-1.5 mt-1 border border-base-200 max-h-80 overflow-y-auto">
+        <% SUPPORTED_LOCALES.each do |locale, info| %>
+          <li>
+            <%= link_to url_for(locale: locale.to_s == I18n.default_locale.to_s ? nil : locale),
+                  class: "flex items-center justify-between #{I18n.locale.to_s == locale.to_s ? 'font-semibold text-primary' : ''}" do %>
+              <%= info[:native] %>
+              <% if I18n.locale.to_s == locale.to_s %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# Auth %>
+    <% if authenticated? %>
+      <div class="dropdown dropdown-end dropdown-hover">
+        <label tabindex="0" class="btn btn-ghost btn-sm btn-circle text-base-content/60 hover:text-base-content">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         </label>
-        <ul tabindex="0" class="dropdown-content menu menu-sm bg-base-100 rounded-xl shadow-lg z-50 w-48 p-1.5 mt-1 border border-base-200 max-h-80 overflow-y-auto">
-          <% SUPPORTED_LOCALES.each do |locale, info| %>
-            <li>
-              <%= link_to url_for(locale: locale.to_s == I18n.default_locale.to_s ? nil : locale),
-                    class: "flex items-center justify-between #{I18n.locale.to_s == locale.to_s ? 'font-semibold text-primary' : ''}" do %>
-                <%= info[:native] %>
-                <% if I18n.locale.to_s == locale.to_s %>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                  </svg>
-                <% end %>
-              <% end %>
-            </li>
-          <% end %>
+        <ul tabindex="0" class="dropdown-content menu menu-sm bg-base-100 rounded-xl shadow-lg z-50 w-40 p-1.5 mt-1 border border-base-200">
+          <li><%= link_to "My Page", my_page_path %></li>
+          <li>
+            <%= button_to t("auth.logout"), logout_path, method: :delete, class: "text-left w-full text-error hover:bg-error/10 rounded-lg" %>
+          </li>
         </ul>
       </div>
-    </nav>
+    <% else %>
+      <%= link_to "Sign in", login_path(return_to: request.path), class: "btn btn-primary btn-sm" %>
+    <% end %>
+
   </div>
 </header>
