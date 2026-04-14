@@ -21,6 +21,7 @@ class AuthController < ApplicationController
   end
 
   def destroy
+    resume_session
     terminate_session
     redirect_to root_path, status: :see_other
   end
