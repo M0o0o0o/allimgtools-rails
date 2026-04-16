@@ -217,11 +217,25 @@ export default class extends Controller {
 
   #initCropper() {
     this.#destroyCropper();
+
+    // Size the container to the image's display size before the cropper is
+    // created so the canvas (width:100%; height:100%) has the right dimensions
+    // from the very first frame.
+    const container = this.cropperImgTarget.parentElement;
+    const scrollable = this.contentAreaTarget.parentElement;
+    const natW = this.cropperImgTarget.naturalWidth;
+    const natH = this.cropperImgTarget.naturalHeight;
+    const maxW = Math.max(100, scrollable.clientWidth - 48);
+    const maxH = Math.max(100, Math.round(window.innerHeight * 0.7));
+    const scale = Math.min(1, maxW / natW, maxH / natH);
+    container.style.width  = `${Math.round(natW * scale)}px`;
+    container.style.height = `${Math.round(natH * scale)}px`;
+
     // scalable + translatable are required for $center("contain") to work.
     // rotatable/skewable intentionally omitted so the matrix stays [scale,0,0,scale,tx,ty].
     const template = [
       "<cropper-canvas background>",
-      "<cropper-image translatable></cropper-image>",
+      "<cropper-image scalable translatable></cropper-image>",
       '<cropper-handle action="select" plain></cropper-handle>',
       '<cropper-selection initial-coverage="0.8" movable resizable>',
       '<cropper-grid role="grid" bordered covered></cropper-grid>',
@@ -262,6 +276,18 @@ export default class extends Controller {
       });
     }
 
+    // Block user-initiated zoom (wheel / pinch) while keeping $center("contain")
+    // working. $center() sets the transform directly without firing "transform"
+    // events, so only user gestures are blocked here.
+    const cropperImgEl = canvas?.querySelector("cropper-image");
+    if (cropperImgEl) {
+      cropperImgEl.addEventListener("transform", (event) => {
+        const newScale = event.detail.matrix[0];
+        const curScale = cropperImgEl.$matrix[0];
+        if (newScale !== curScale) event.preventDefault();
+      });
+    }
+
     // Blob URLs load near-instantly so CropperImage calls $center("contain") before
     // the flex layout resolves — the canvas is still at its CSS min-height (100px).
     // Use ResizeObserver to re-centre only after the canvas has its real dimensions.
@@ -272,29 +298,12 @@ export default class extends Controller {
       const cropperImg = this.#cropper?.getCropperImage();
       if (!cropperImg) return;
 
-      // Wait for the internal <img> inside <cropper-image> to fully load before
-      // reading $matrix. If it hasn't loaded yet, getBoundingClientRect() returns
-      // 0×0, causing $center("contain") to compute scale=Infinity which breaks
-      // the selection size.
       cropperImg.$ready().then(() => {
-        // 1. Scale image to fit within the current (full-size) canvas.
         cropperImg.$center("contain");
 
-        // 2. Shrink canvas to the exact rendered image size so the selection
-        //    cannot leave the image area (no letterbox).
-        const [scale] = cropperImg.$matrix;
-        const natW = this.cropperImgTarget.naturalWidth;
-        const natH = this.cropperImgTarget.naturalHeight;
-        const renderedW = Math.round(natW * scale);
-        const renderedH = Math.round(natH * scale);
+        const renderedW = canvas.offsetWidth;
+        const renderedH = canvas.offsetHeight;
 
-        canvas.style.width = `${renderedW}px`;
-        canvas.style.height = `${renderedH}px`;
-
-        // 3. Re-centre to remove letterbox offset (tx/ty → 0).
-        cropperImg.$center("contain");
-
-        // 4. Reset selection to 80 % of the now image-sized canvas.
         const sel = this.#cropper?.getCropperSelection();
         if (sel) {
           const cov = 0.8;
