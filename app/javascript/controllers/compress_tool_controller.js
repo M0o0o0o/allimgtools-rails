@@ -1,7 +1,7 @@
 import ImageToolController from "lib/image_tool_controller";
 
 export default class extends ImageToolController {
-  static targets = ["qualitySlider", "qualityDisplay"];
+  static targets = ["qualitySlider", "qualityDisplay", "stripExifCheckbox"];
 
   static values = {
     quality: { type: Number, default: 80 },
@@ -13,6 +13,8 @@ export default class extends ImageToolController {
 
   buildFormData(formData) {
     formData.append("quality", this.qualityValue);
+    const stripExif = this.stripExifCheckboxTargets.some((el) => el.checked);
+    formData.append("strip_exif", stripExif);
   }
 
   // ── Settings ────────────────────────────────────────────────────

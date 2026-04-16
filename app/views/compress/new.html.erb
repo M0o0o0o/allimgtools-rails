@@ -67,6 +67,19 @@
         <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
           <%= t("compress.tip") %>
         </div>
+
+        <%# EXIF 제거 옵션 %>
+        <div class="form-control">
+          <label class="label cursor-pointer gap-3 items-start">
+            <input type="checkbox"
+                   class="checkbox checkbox-primary mt-0.5 shrink-0"
+                   data-compress-tool-target="stripExifCheckbox">
+            <span class="label-text font-medium"><%= t("compress.strip_exif") %></span>
+          </label>
+          <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
+            <%= t("compress.strip_exif_description") %>
+          </div>
+        </div>
       </div>
 
       <%# Start button %>
@@ -173,7 +186,7 @@
     <div class="modal-box rounded-t-2xl sm:rounded-2xl">
       <h3 class="font-bold text-lg mb-5"><%= t("compress.settings") %></h3>
 
-      <div class="form-control mb-6">
+      <div class="form-control mb-4">
         <label class="label pb-1">
           <span class="label-text font-medium"><%= t("compress.quality") %></span>
           <span class="label-text-alt text-primary font-bold text-base"
@@ -186,6 +199,23 @@
         <div class="flex justify-between text-xs text-base-content/50 mt-1.5 px-0.5">
           <span><%= t("compress.smaller_file") %></span>
           <span><%= t("compress.higher_quality") %></span>
+        </div>
+      </div>
+
+      <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3 mb-4">
+        <%= t("compress.tip") %>
+      </div>
+
+      <%# EXIF 제거 옵션 (모바일 모달) %>
+      <div class="form-control mb-6">
+        <label class="label cursor-pointer gap-3 items-start mb-2">
+          <input type="checkbox"
+                 class="checkbox checkbox-primary mt-0.5 shrink-0"
+                 data-compress-tool-target="stripExifCheckbox">
+          <span class="label-text font-medium"><%= t("compress.strip_exif") %></span>
+        </label>
+        <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
+          <%= t("compress.strip_exif_description") %>
         </div>
       </div>
 

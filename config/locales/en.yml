@@ -58,6 +58,8 @@ en:
     start: "Start Compression"
     title: "Image Compress"
     description: "Upload images to reduce file size by adjusting quality."
+    strip_exif: "Remove EXIF metadata"
+    strip_exif_description: "Removes hidden data embedded in the image — such as shooting date, camera model, and GPS location. Useful when sharing images publicly for privacy."
 
   resize:
     page_title: "Free Image Resizer — Resize Images Online | Allimgtools"

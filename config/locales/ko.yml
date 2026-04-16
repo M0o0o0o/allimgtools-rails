@@ -58,6 +58,8 @@ ko:
     start: "압축 시작"
     title: "이미지 압축"
     description: "품질을 조정하여 파일 크기를 줄일 이미지를 업로드하세요."
+    strip_exif: "EXIF 메타데이터 제거"
+    strip_exif_description: "이미지에 숨겨진 정보(촬영 날짜, 카메라 기종, GPS 위치 등)를 삭제합니다. 이미지를 공개적으로 공유할 때 개인정보 보호를 위해 사용하세요."
 
   resize:
     page_title: "무료 이미지 크기 조정기 — 온라인 이미지 리사이즈 | Allimgtools"

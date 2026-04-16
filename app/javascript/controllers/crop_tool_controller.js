@@ -221,7 +221,7 @@ export default class extends Controller {
     // rotatable/skewable intentionally omitted so the matrix stays [scale,0,0,scale,tx,ty].
     const template = [
       "<cropper-canvas background>",
-      "<cropper-image scalable translatable></cropper-image>",
+      "<cropper-image translatable></cropper-image>",
       '<cropper-handle action="select" plain></cropper-handle>',
       '<cropper-selection initial-coverage="0.8" movable resizable>',
       '<cropper-grid role="grid" bordered covered></cropper-grid>',

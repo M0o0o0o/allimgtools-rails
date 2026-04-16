@@ -1,8 +1,8 @@
 class ConvertImagesJob < ApplicationJob
   queue_as :default
 
-  EXTENSION_MAP = { "jpeg" => "jpg", "png" => "png", "webp" => "webp" }.freeze
-  CONTENT_TYPE_MAP = { "jpeg" => "image/jpeg", "png" => "image/png", "webp" => "image/webp" }.freeze
+  EXTENSION_MAP    = { "jpeg" => "jpg", "png" => "png", "webp" => "webp", "avif" => "avif" }.freeze
+  CONTENT_TYPE_MAP = { "jpeg" => "image/jpeg", "png" => "image/png", "webp" => "image/webp", "avif" => "image/avif" }.freeze
 
   def perform(task_id, to_format:, upload_ids: nil)
     task = Task.find_by!(task_id: task_id)
@@ -22,11 +22,13 @@ class ConvertImagesJob < ApplicationJob
   private
 
   def convert_upload(upload, to_format:)
+    return if upload.normalized_extension == to_format
+
     result = upload.file.open do |source|
-      ImageProcessing::Vips
-        .source(source)
-        .convert(to_format)
-        .call
+      pipeline = ImageProcessing::Vips.source(source)
+      pipeline = pipeline.colourspace("srgb")
+      pipeline = pipeline.flatten(background: [ 255, 255, 255 ]) if to_format == "jpeg"
+      pipeline.convert(to_format).call
     end
 
     ext          = EXTENSION_MAP.fetch(to_format, to_format)

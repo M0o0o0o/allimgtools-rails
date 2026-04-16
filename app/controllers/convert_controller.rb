@@ -1,7 +1,7 @@
 class ConvertController < ApplicationController
   include ToolController
 
-  VALID_FORMATS = %w[jpeg png webp].freeze
+  VALID_FORMATS = %w[jpeg png webp avif].freeze
 
   def new
     @task        = create_task
