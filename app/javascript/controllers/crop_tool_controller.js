@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { uploadFiles, MAX_FILE_SIZE } from "lib/chunk_uploader";
+import { uploadFiles } from "lib/chunk_uploader";
 import { showToast } from "lib/toast";
 import Cropper from "cropperjs";
 
@@ -20,6 +20,7 @@ export default class extends Controller {
   static values = {
     taskId: String,
     startUrl: String,
+    maxFileSize: { type: Number, default: 10 * 1024 * 1024 },
   };
 
   #uploadId = null;
@@ -78,8 +79,10 @@ export default class extends Controller {
   #handleFile(file) {
     if (this.#state === "processing") return;
 
-    if (file.size > MAX_FILE_SIZE) {
-      showToast(`${file.name} exceeds the 5MB limit.`, "warning");
+    const maxSize = this.maxFileSizeValue;
+    if (file.size > maxSize) {
+      const limitMB = Math.round(maxSize / (1024 * 1024));
+      showToast(`${file.name} exceeds the ${limitMB}MB limit.`, "warning");
       return;
     }
 
@@ -276,10 +279,16 @@ export default class extends Controller {
       });
     }
 
+    // Blob URLs load near-instantly so CropperImage calls $center("contain") before
+    // the flex layout resolves — the canvas is still at its CSS min-height (100px).
+    // Use ResizeObserver to re-centre only after the canvas has its real dimensions.
+    const canvas = this.element.querySelector("cropper-canvas");
+    if (!canvas) return;
+
     // Block user-initiated zoom (wheel / pinch) while keeping $center("contain")
     // working. $center() sets the transform directly without firing "transform"
     // events, so only user gestures are blocked here.
-    const cropperImgEl = canvas?.querySelector("cropper-image");
+    const cropperImgEl = canvas.querySelector("cropper-image");
     if (cropperImgEl) {
       cropperImgEl.addEventListener("transform", (event) => {
         const newScale = event.detail.matrix[0];
@@ -287,12 +296,6 @@ export default class extends Controller {
         if (newScale !== curScale) event.preventDefault();
       });
     }
-
-    // Blob URLs load near-instantly so CropperImage calls $center("contain") before
-    // the flex layout resolves — the canvas is still at its CSS min-height (100px).
-    // Use ResizeObserver to re-centre only after the canvas has its real dimensions.
-    const canvas = this.element.querySelector("cropper-canvas");
-    if (!canvas) return;
 
     const tryCenter = () => {
       const cropperImg = this.#cropper?.getCropperImage();

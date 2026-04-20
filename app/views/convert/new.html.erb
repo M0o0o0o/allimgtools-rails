@@ -49,6 +49,8 @@
 <div data-controller="convert-tool"
      data-convert-tool-task-id-value="<%= @task.task_id %>"
      data-convert-tool-start-url-value="<%= start_convert_path %>"
+     data-convert-tool-max-file-size-value="<%= user_max_file_size %>"
+     data-convert-tool-max-files-value="<%= user_max_batch_size %>"
      data-convert-tool-to-format-value="<%= @to_format || 'jpeg' %>"
      data-convert-tool-locked-value="<%= specific ? 'true' : 'false' %>"
      class="flex-1 flex flex-col min-h-0 relative"

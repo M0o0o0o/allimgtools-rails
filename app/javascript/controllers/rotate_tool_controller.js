@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { uploadFiles, MAX_FILE_SIZE } from "lib/chunk_uploader";
+import { uploadFiles } from "lib/chunk_uploader";
 import { showToast } from "lib/toast";
 
 export default class extends Controller {
@@ -17,6 +17,7 @@ export default class extends Controller {
   static values = {
     taskId: String,
     startUrl: String,
+    maxFileSize: { type: Number, default: 10 * 1024 * 1024 },
     rotate: { type: Number, default: 0 },
   };
 
@@ -70,8 +71,10 @@ export default class extends Controller {
   #handleFile(file) {
     if (this.#state === "processing") return;
 
-    if (file.size > MAX_FILE_SIZE) {
-      showToast(`${file.name} exceeds the 5MB limit.`, "warning");
+    const maxSize = this.maxFileSizeValue;
+    if (file.size > maxSize) {
+      const limitMB = Math.round(maxSize / (1024 * 1024));
+      showToast(`${file.name} exceeds the ${limitMB}MB limit.`, "warning");
       return;
     }
 

@@ -1,7 +1,19 @@
 module ToolController
   extend ActiveSupport::Concern
 
+  included do
+    helper_method :user_max_file_size, :user_max_batch_size
+  end
+
   private
+
+  def user_max_file_size
+    Upload.max_size_for(Current.user)
+  end
+
+  def user_max_batch_size
+    Task.batch_limit_for(Current.user)
+  end
 
   def create_task
     task = Task.create!(

@@ -1,6 +1,7 @@
 class UploadsController < ApplicationController
   MAX_FILENAME_LENGTH = 255
-  MAX_CHUNKS = (Upload::MAX_FILE_SIZE.to_f / (2 * 1024 * 1024)).ceil + 1
+  MAX_CHUNK_SIZE      = 2 * 1024 * 1024 + 1.kilobyte  # 2MB + 1KB 여유
+  MAX_CHUNKS          = (Upload::MAX_FILE_SIZE_PRO.to_f / (2 * 1024 * 1024)).ceil + 1
 
   def chunk
     upload_id    = params.require(:upload_id)
@@ -26,15 +27,21 @@ class UploadsController < ApplicationController
       return render json: { error: "Invalid filename." }, status: :bad_request
     end
 
+    max_size = Upload.max_size_for(Current.user)
+
     # 4. Validate actual chunk size (do not trust client-reported file_size)
-    if chunk_data.size > Upload::MAX_FILE_SIZE
-      return render json: { error: "File size exceeds 5MB." }, status: :unprocessable_entity
+    if chunk_data.size > MAX_CHUNK_SIZE
+      return render json: { error: "File size exceeds the limit." }, status: :unprocessable_entity
     end
 
     upload = Upload.find_by(upload_id: upload_id)
 
     if upload.nil?
-      return render json: { error: "Daily upload limit (#{Task::DAILY_UPLOAD_LIMIT} files) exceeded." }, status: :too_many_requests if Task.limit_reached?(ip_address)
+      batch_limit = Task.batch_limit_for(Current.user)
+      batch_count = Upload.where(task_id: task_id).where.not(status: "failed").count
+      if batch_count >= batch_limit
+        return render json: { error: "Batch limit (#{batch_limit} files) reached." }, status: :too_many_requests
+      end
 
       upload = Upload.create!(
         upload_id:    upload_id,
@@ -53,7 +60,7 @@ class UploadsController < ApplicationController
     saved_count = Dir.glob(upload.tmp_dir.join("*.chunk")).count
 
     if saved_count == total_chunks
-      upload.assemble!
+      upload.assemble!(max_size: max_size)
       render json: { status: "done", upload_id: upload_id, task_id: task_id }
     else
       render json: { status: "pending", received: saved_count, total: total_chunks }

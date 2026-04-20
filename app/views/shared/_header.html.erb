@@ -77,18 +77,46 @@
 
     <%# Auth %>
     <% if authenticated? %>
-      <div class="dropdown dropdown-end dropdown-hover">
+      <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-sm btn-circle text-base-content/60 hover:text-base-content">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         </label>
-        <ul tabindex="0" class="dropdown-content menu menu-sm bg-base-100 rounded-xl shadow-lg z-50 w-40 p-1.5 mt-1 border border-base-200">
-          <li><%= link_to "My Page", my_page_path %></li>
-          <li>
-            <%= button_to t("auth.logout"), logout_path, method: :delete, class: "text-left w-full text-error hover:bg-error/10 rounded-lg" %>
-          </li>
-        </ul>
+        <div tabindex="0" class="dropdown-content bg-base-100 rounded-2xl shadow-xl z-50 w-60 mt-2 border border-base-200 overflow-hidden">
+          <%# User info header %>
+          <div class="px-4 py-3.5 border-b border-base-200 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-base-200 text-base-content/60 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <p class="font-semibold text-sm text-base-content truncate"><%= Current.user.name %></p>
+              <p class="text-xs text-base-content/50 truncate"><%= Current.user.email_address %></p>
+              <% if Current.user.subscribed? %>
+                <span class="badge badge-primary badge-xs mt-1 font-semibold">Pro</span>
+              <% end %>
+            </div>
+          </div>
+          <%# Menu items %>
+          <div class="p-2 flex flex-col text-sm">
+            <%= link_to my_page_path, class: "flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-base-200 transition-colors w-full" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              My Page
+            <% end %>
+            <%= button_to logout_path, method: :delete,
+                  form_class: "w-full",
+                  class: "flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-error hover:bg-error/10 transition-colors w-full" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              <%= t("auth.logout") %>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% else %>
       <%= link_to "Sign in", login_path(return_to: request.path), class: "btn btn-primary btn-sm" %>

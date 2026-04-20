@@ -1,0 +1,171 @@
+<% content_for :title, t("pricing.meta_title") %>
+<% content_for :description, t("pricing.meta_description") %>
+<% if authenticated? && !Current.user.subscribed? %>
+  <% content_for :head do %>
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <% end %>
+<% end %>
+
+<div class="max-w-4xl mx-auto px-4 py-16">
+
+  <%# Header %>
+  <div class="text-center mb-16">
+    <div class="inline-flex items-center gap-2 bg-primary/8 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+      </svg>
+      Simple pricing
+    </div>
+    <h1 class="text-4xl font-bold mb-4 tracking-tight"><%= t("pricing.title") %></h1>
+    <p class="text-base-content/50 text-lg"><%= t("pricing.subtitle") %></p>
+  </div>
+
+  <%# Cards %>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl mx-auto mb-24">
+
+    <%# Free card %>
+    <div class="bg-base-100 rounded-2xl border border-base-200 p-8 flex flex-col shadow-sm">
+      <div class="mb-8">
+        <p class="text-xs font-bold text-base-content/40 uppercase tracking-widest mb-4"><%= t("pricing.free.label") %></p>
+        <div class="flex items-end gap-1.5 mb-2">
+          <span class="text-5xl font-extrabold tracking-tight text-base-content"><%= t("pricing.free.price") %></span>
+          <span class="text-base-content/40 mb-2 text-sm"><%= t("pricing.free.per_month") %></span>
+        </div>
+        <p class="text-sm text-base-content/45"><%= t("pricing.free.tagline") %></p>
+      </div>
+
+      <ul class="flex flex-col gap-3.5 flex-1 mb-8">
+        <li class="flex items-center gap-3 text-sm text-base-content/70">
+          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
+          <%= t("pricing.free.feature_tools") %>
+        </li>
+        <li class="flex items-center gap-3 text-sm text-base-content/70">
+          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
+          <%= t("pricing.free.feature_files") %>
+        </li>
+        <li class="flex items-center gap-3 text-sm text-base-content/70">
+          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
+          <%= t("pricing.free.feature_size") %>
+        </li>
+        <li class="flex items-center gap-3 text-sm text-base-content/70">
+          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
+          <%= t("pricing.free.feature_account") %>
+        </li>
+      </ul>
+
+      <div class="btn btn-ghost w-full cursor-default text-base-content/40 border border-base-200">
+        <% if authenticated? && Current.user.subscribed? %>
+          <%= t("pricing.free.button_downgrade") %>
+        <% else %>
+          <%= t("pricing.free.button_current") %>
+        <% end %>
+      </div>
+    </div>
+
+    <%# Pro card %>
+    <div class="relative flex flex-col rounded-2xl shadow-lg shadow-primary/10 overflow-hidden border-2 border-primary">
+
+      <%# Gradient header %>
+      <div class="bg-gradient-to-br from-primary to-primary/70 px-8 pt-8 pb-7 relative overflow-hidden">
+        <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-white/10"></div>
+        <div class="absolute right-6 bottom-0 h-12 w-12 rounded-full bg-white/5"></div>
+
+        <div class="relative">
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-xs font-bold text-white/70 uppercase tracking-widest"><%= t("pricing.pro.label") %></p>
+            <span class="bg-white/20 text-white text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm"><%= t("pricing.pro.badge") %></span>
+          </div>
+          <div class="flex items-end gap-1.5 mb-2">
+            <span class="text-5xl font-extrabold tracking-tight text-white"><%= t("pricing.pro.price") %></span>
+            <span class="text-white/60 mb-2 text-sm"><%= t("pricing.pro.per_month") %></span>
+          </div>
+          <p class="text-sm text-white/60"><%= t("pricing.pro.tagline") %></p>
+        </div>
+      </div>
+
+      <%# Features %>
+      <div class="bg-base-100 px-8 pt-7 pb-8 flex flex-col flex-1">
+        <ul class="flex flex-col gap-3.5 flex-1 mb-8">
+          <li class="flex items-center gap-3 text-sm font-medium text-base-content">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <%= t("pricing.pro.feature_tools") %>
+          </li>
+          <li class="flex items-center gap-3 text-sm font-medium text-base-content">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <span><%= t("pricing.pro.feature_files_html").html_safe %></span>
+          </li>
+          <li class="flex items-center gap-3 text-sm font-medium text-base-content">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <span><%= t("pricing.pro.feature_size_html").html_safe %></span>
+          </li>
+          <li class="flex items-center gap-3 text-sm font-medium text-base-content">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <%= t("pricing.pro.feature_support") %>
+          </li>
+        </ul>
+
+        <% if authenticated? && Current.user.subscribed? %>
+          <%= link_to my_page_path, class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
+            <%= t("pricing.pro.button_current") %>
+          <% end %>
+        <% elsif authenticated? %>
+          <div data-controller="paddle"
+               data-paddle-client-token-value="<%= Rails.application.credentials.paddle&.dig(:client_token) %>"
+               data-paddle-price-id-value="<%= Rails.application.credentials.paddle&.dig(:pro_price_id) %>"
+               data-paddle-email-value="<%= Current.user.email_address %>"
+               data-paddle-checkout-complete-url-value="<%= subscription_checkout_complete_path %>"
+               data-paddle-sandbox-value="<%= Rails.application.credentials.paddle&.dig(:sandbox) %>"
+               data-paddle-auto-open-value="<%= params[:checkout] == '1' %>">
+            <button class="btn btn-primary w-full shadow-sm shadow-primary/20"
+                    data-action="click->paddle#openCheckout">
+              <%= t("pricing.pro.button_get") %>
+            </button>
+          </div>
+        <% else %>
+          <%= link_to login_path(return_to: pricing_path(checkout: "1")), class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
+            <%= t("pricing.pro.button_get") %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <%# FAQ %>
+  <div class="px-4">
+    <%= render "faq" %>
+  </div>
+
+</div>

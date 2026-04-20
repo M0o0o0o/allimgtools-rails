@@ -20,11 +20,16 @@ class Upload < ApplicationRecord
     tmp_dir.join("#{index}.chunk")
   end
 
-  MAX_FILE_SIZE = 5.megabytes
+  MAX_FILE_SIZE     = 10.megabytes
+  MAX_FILE_SIZE_PRO = 30.megabytes
 
-  def assemble!
+  def self.max_size_for(user)
+    user&.subscribed? ? MAX_FILE_SIZE_PRO : MAX_FILE_SIZE
+  end
+
+  def assemble!(max_size: MAX_FILE_SIZE)
     total_size = total_chunks.times.sum { |i| File.size(chunk_path(i)) }
-    raise "File size exceeds 5MB." if total_size > MAX_FILE_SIZE
+    raise "File size exceeds limit." if total_size > max_size
 
     update!(status: "assembling")
 

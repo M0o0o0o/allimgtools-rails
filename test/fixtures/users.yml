@@ -1,9 +1,44 @@
-<% password_digest = BCrypt::Password.create("password") %>
+<%
+  password_digest = BCrypt::Password.create("password")
+  future          = 1.month.from_now.iso8601
+  past            = 1.day.ago.iso8601
+%>
 
+# Admin users (password auth for admin panel)
 one:
   email_address: one@example.com
   password_digest: <%= password_digest %>
+  name: Admin One
+  admin: true
 
 two:
   email_address: two@example.com
   password_digest: <%= password_digest %>
+  name: Admin Two
+
+# OAuth users (Google)
+free_user:
+  email_address: free@example.com
+  name: Free User
+  provider: google
+  uid: "google_free_123"
+
+pro_user:
+  email_address: pro@example.com
+  name: Pro User
+  provider: google
+  uid: "google_pro_456"
+  subscribed_until: <%= future %>
+  subscription_plan: pro
+  customer_id: ctm_pro123
+  subscription_id: sub_pro123
+
+expired_user:
+  email_address: expired@example.com
+  name: Expired User
+  provider: google
+  uid: "google_expired_789"
+  subscribed_until: <%= past %>
+  subscription_plan: pro
+  customer_id: ctm_expired
+  subscription_id: sub_expired

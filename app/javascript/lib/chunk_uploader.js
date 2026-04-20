@@ -1,5 +1,4 @@
-export const CHUNK_SIZE = 5 * 1024 * 1024; // 5MB
-export const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+export const CHUNK_SIZE = 2 * 1024 * 1024; // 2MB (matches server MAX_CHUNK_SIZE)
 
 // Uploads files in parallel using chunked upload protocol.
 //

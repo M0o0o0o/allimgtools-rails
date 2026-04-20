@@ -136,8 +136,102 @@ ko:
     try_again: "다시 시도"
 
 
+  my_page:
+    title: "마이 페이지 — Allimgtools"
+    upgrade_banner:
+      title: "Pro로 업그레이드"
+      button: "업그레이드"
+    verify_subscription: "이미 결제하셨나요? 구독 확인"
+    profile:
+      heading: "프로필"
+      plan_pro: "Pro"
+      plan_free: "무료"
+      renews: "갱신일"
+      manage_billing: "구독 관리"
+      connected_account: "연결된 계정"
+      connected: "연결됨"
+    account:
+      heading: "계정"
+      member_since: "가입일"
+      delete_account: "계정 삭제"
+    delete_modal:
+      title: "계정을 삭제하시겠습니까?"
+      description: "계정과 모든 관련 데이터가 Allimgtools에서 영구적으로 삭제됩니다."
+      cancel: "취소"
+      confirm: "계정 삭제"
+
   auth:
     login_with_google: "구글로 로그인"
     logout: "로그아웃"
     login_success: "환영합니다, %{name}님!"
     login_failed: "로그인에 실패했습니다. 다시 시도해 주세요."
+
+  pricing:
+    meta_title: "요금제 — Allimgtools"
+    meta_description: "회원가입 없이 무료로 이미지 도구를 사용하세요. Pro로 업그레이드하면 더 큰 파일과 더 많은 배치 처리가 가능합니다."
+    title: "요금제"
+    subtitle: "무료로 시작하세요. 더 필요할 때 업그레이드하세요."
+    free:
+      label: "무료"
+      price: "$0"
+      per_month: "/월"
+      tagline: "도구 사용에 회원가입 불필요"
+      feature_tools: "6가지 이미지 도구 모두 사용"
+      feature_files: "배치당 최대 10개 파일"
+      feature_size: "파일당 최대 10MB"
+      feature_account: "계정 불필요"
+      button_current: "무료 플랜"
+      button_downgrade: "무료 플랜으로 다운그레이드"
+    pro:
+      label: "Pro"
+      badge: "인기"
+      price: "$5"
+      per_month: "/월"
+      tagline: "언제든지 취소 가능"
+      feature_tools: "6가지 이미지 도구 모두 사용"
+      feature_files_html: "배치당 <strong>최대 30개</strong> 파일"
+      feature_size_html: "파일당 <strong>최대 30MB</strong>"
+      feature_support: "우선 지원"
+      button_current: "Pro 플랜"
+      button_get: "Pro 시작하기 — $5/월"
+
+  faq:
+    meta_title: "자주 묻는 질문 — Allimgtools"
+    meta_description: "Allimgtools에 대한 자주 묻는 질문 — 무료 이미지 도구, Pro 플랜, 개인정보 보호 등."
+    title: "자주 묻는 질문"
+    contact: "더 궁금한 점이 있으신가요?"
+    contact_link: "문의하기"
+    general:
+      heading: "일반"
+      q1: "Allimgtools는 무료인가요?"
+      a1: "네. 6가지 이미지 도구 모두 계정 없이 완전 무료로 사용할 수 있습니다. 무료 사용자는 한 번에 최대 10개 파일을, 파일당 최대 10MB까지 처리할 수 있습니다."
+      q2: "계정을 만들어야 하나요?"
+      a2: "아니요. 회원가입 없이 모든 도구를 사용할 수 있습니다. 계정은 Pro로 업그레이드할 때만 필요합니다."
+      q3: "어떤 파일 형식을 지원하나요?"
+      a3: "JPEG, PNG, GIF, WebP, AVIF를 지원합니다."
+    pro_plan:
+      heading: "Pro 플랜"
+      q1: "Pro 플랜에 무엇이 포함되나요?"
+      a1: "Pro 사용자는 배치당 최대 30개 파일(무료는 10개)을 업로드하고 파일당 최대 30MB(무료는 10MB)까지 처리할 수 있습니다. 그 외 모든 기능은 동일합니다."
+      q2: "결제는 어떻게 하나요?"
+      a2: "결제는 Paddle을 통해 안전하게 처리됩니다. 주요 신용카드 및 직불카드를 모두 사용할 수 있습니다."
+      q3: "언제든지 취소할 수 있나요?"
+      a3_html: "네. <a href=\"/my-page\" class=\"underline hover:text-primary transition-colors\">마이 페이지</a>에서 언제든지 취소할 수 있습니다. 별도의 사유 확인 없이 가능합니다."
+      q4: "취소하면 어떻게 되나요?"
+      a4: "현재 결제 기간이 끝날 때까지 Pro 기능을 계속 사용할 수 있습니다. 이후에는 추가 청구가 없습니다."
+      q5: "환불을 받을 수 있나요?"
+      a5_html: "<a href=\"mailto:support@allimgtools.com\" class=\"underline hover:text-primary transition-colors\">support@allimgtools.com</a>으로 문의해 주시면 최선을 다해 도와드리겠습니다."
+      q6: "구독했는데 Pro 기능을 사용할 수 없어요."
+      a6_html: "<a href=\"/my-page\" class=\"underline hover:text-primary transition-colors\">마이 페이지</a>에서 &ldquo;이미 결제하셨나요? 구독 확인&rdquo; 버튼을 클릭하세요. 이렇게 하면 구독 상태가 수동으로 동기화됩니다. 문제가 계속되면 <a href=\"mailto:support@allimgtools.com\" class=\"underline hover:text-primary transition-colors\">support@allimgtools.com</a>으로 문의해 주세요."
+    privacy:
+      heading: "개인정보 및 파일"
+      q1: "업로드한 파일이 저장되나요?"
+      a1: "아니요. 파일은 즉시 처리되며 3시간 이내에 자동 삭제됩니다. 이미지를 저장, 분석 또는 공유하지 않습니다."
+      q2: "처리된 파일은 얼마나 오래 다운로드할 수 있나요?"
+      a2: "처리 후 3시간 동안 다운로드 링크를 사용할 수 있습니다."
+    account:
+      heading: "계정"
+      q1: "어떻게 로그인하나요?"
+      a1: "구글 로그인을 사용합니다. &ldquo;로그인&rdquo;을 클릭하고 Google 계정으로 로그인하세요. 비밀번호가 필요 없습니다."
+      q2: "계정을 삭제하면 어떻게 되나요?"
+      a2: "계정과 모든 관련 데이터가 Allimgtools에서 영구적으로 삭제됩니다. 활성 Pro 구독이 있는 경우 마이 페이지에서 먼저 취소해 주세요."

@@ -14,6 +14,12 @@ class PagesController < ApplicationController
     redirect_to root_path, notice: "Your account has been deleted."
   end
 
+  def pricing
+  end
+
+  def faq
+  end
+
   def terms
   end
 

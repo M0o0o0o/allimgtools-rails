@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   end
   get "sitemap.xml", to: "sitemaps#show"
 
+  # Paddle webhook
+  post "webhooks/paddle", to: "paddle_webhooks#receive", as: :paddle_webhook
+
   # API endpoints — no locale prefix needed
   post "uploads/chunk",  to: "uploads#chunk",  as: :upload_chunk
   post "compress/start", to: "compress#start", as: :start_compress
@@ -27,6 +30,11 @@ Rails.application.routes.draw do
   # Download routes (no locale prefix — task_id is the identifier)
   get "download/:task_id",     to: "downloads#show", as: :download
   get "download/:task_id/zip", to: "downloads#zip",  as: :download_zip
+
+  # Subscription
+  post "subscription/checkout_complete", to: "subscriptions#checkout_complete", as: :subscription_checkout_complete
+  post "subscription/sync",             to: "subscriptions#sync",             as: :subscription_sync
+  get  "subscription/portal",           to: "subscriptions#portal",           as: :subscription_portal
 
   # Auth routes
   get    "/login",                         to: "auth#login",           as: :login
@@ -55,6 +63,8 @@ Rails.application.routes.draw do
 
     get    "my-page", to: "pages#my_page",        as: :my_page
     delete "my-page", to: "pages#destroy_account", as: :destroy_account
+    get "pricing", to: "pages#pricing", as: :pricing
+    get "faq",     to: "pages#faq",     as: :faq
     get "terms",   to: "pages#terms",   as: :terms
     get "privacy", to: "pages#privacy", as: :privacy
 

@@ -136,8 +136,102 @@ en:
     try_again: "Try Again"
 
 
+  my_page:
+    title: "My Page — Allimgtools"
+    upgrade_banner:
+      title: "Upgrade to Pro"
+      button: "Upgrade"
+    verify_subscription: "Already paid? Verify subscription"
+    profile:
+      heading: "Profile"
+      plan_pro: "Pro"
+      plan_free: "Free"
+      renews: "Renews"
+      manage_billing: "Manage subscription"
+      connected_account: "Connected account"
+      connected: "Connected"
+    account:
+      heading: "Account"
+      member_since: "Member since"
+      delete_account: "Delete account"
+    delete_modal:
+      title: "Delete account?"
+      description: "Your account and all associated data will be permanently removed from Allimgtools."
+      cancel: "Cancel"
+      confirm: "Delete account"
+
   auth:
     login_with_google: "Sign in with Google"
     logout: "Sign out"
     login_success: "Welcome, %{name}!"
     login_failed: "Sign in failed. Please try again."
+
+  pricing:
+    meta_title: "Pricing — Allimgtools"
+    meta_description: "Free image tools with no signup required. Upgrade to Pro for larger files and bigger batches."
+    title: "Pricing"
+    subtitle: "Start for free. Upgrade when you need more."
+    free:
+      label: "Free"
+      price: "$0"
+      per_month: "/mo"
+      tagline: "No signup required for tools"
+      feature_tools: "All 6 image tools"
+      feature_files: "Up to 10 files per batch"
+      feature_size: "Up to 10MB per file"
+      feature_account: "No account needed"
+      button_current: "Free plan"
+      button_downgrade: "Downgrade to Free"
+    pro:
+      label: "Pro"
+      badge: "Most Popular"
+      price: "$5"
+      per_month: "/mo"
+      tagline: "Cancel anytime"
+      feature_tools: "All 6 image tools"
+      feature_files_html: "<strong>Up to 30 files</strong> per batch"
+      feature_size_html: "<strong>Up to 30MB</strong> per file"
+      feature_support: "Priority support"
+      button_current: "Pro plan"
+      button_get: "Get Pro — $5/mo"
+
+  faq:
+    meta_title: "FAQ — Allimgtools"
+    meta_description: "Frequently asked questions about Allimgtools — free image tools, Pro plan, privacy, and more."
+    title: "Frequently Asked Questions"
+    contact: "Still have questions?"
+    contact_link: "Contact us"
+    general:
+      heading: "General"
+      q1: "Is Allimgtools free to use?"
+      a1: "Yes. All 6 image tools are completely free with no account required. Free users can process up to 10 files at a time, with a maximum of 10MB per file."
+      q2: "Do I need to create an account?"
+      a2: "No. You can use all tools without signing up. An account is only needed if you want to upgrade to Pro."
+      q3: "What file formats are supported?"
+      a3: "We support JPEG, PNG, GIF, WebP, and AVIF."
+    pro_plan:
+      heading: "Pro Plan"
+      q1: "What does the Pro plan include?"
+      a1: "Pro users can upload up to 30 files per batch (vs. 10 on Free) and process files up to 30MB each (vs. 10MB on Free). Everything else is the same."
+      q2: "How do I pay?"
+      a2: "Payments are processed securely by Paddle. We accept all major credit and debit cards."
+      q3: "Can I cancel anytime?"
+      a3_html: "Yes. You can cancel at any time from your <a href=\"/my-page\" class=\"underline hover:text-primary transition-colors\">My Page</a>. No questions asked."
+      q4: "What happens when I cancel?"
+      a4: "Your Pro access continues until the end of your current billing period. You won't be charged again after that."
+      q5: "Can I get a refund?"
+      a5_html: "Please contact us at <a href=\"mailto:support@allimgtools.com\" class=\"underline hover:text-primary transition-colors\">support@allimgtools.com</a> and we'll do our best to help."
+      q6: "I subscribed but Pro features aren't available."
+      a6_html: "Go to <a href=\"/my-page\" class=\"underline hover:text-primary transition-colors\">My Page</a> and click &ldquo;Already paid? Verify subscription&rdquo;. This manually syncs your subscription status. If the issue persists, contact <a href=\"mailto:support@allimgtools.com\" class=\"underline hover:text-primary transition-colors\">support@allimgtools.com</a>."
+    privacy:
+      heading: "Privacy & Files"
+      q1: "Are my uploaded files stored?"
+      a1: "No. Files are processed immediately and automatically deleted within 3 hours. We never store, analyze, or share your images."
+      q2: "How long are processed files available for download?"
+      a2: "Download links are available for 3 hours after processing."
+    account:
+      heading: "Account"
+      q1: "How do I log in?"
+      a1: "We use Google Sign-In. Click &ldquo;Log in&rdquo; and sign in with your Google account — no password required."
+      q2: "What happens if I delete my account?"
+      a2: "Your account and all associated data are permanently removed from Allimgtools. If you have an active Pro subscription, please cancel it first from My Page."

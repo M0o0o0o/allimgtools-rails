@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { uploadFiles, MAX_FILE_SIZE } from "lib/chunk_uploader";
+import { uploadFiles } from "lib/chunk_uploader";
 import { showToast } from "lib/toast";
 
 // Base controller shared by all image tool pages (compress, resize, …).
@@ -22,6 +22,8 @@ export default class extends Controller {
   static values = {
     taskId: String,
     startUrl: String,
+    maxFileSize: { type: Number, default: 10 * 1024 * 1024 },
+    maxFiles: { type: Number, default: 10 },
   };
 
   #files = [];
@@ -105,14 +107,28 @@ export default class extends Controller {
   #handleNewFiles(files) {
     if (this.#state === "processing") return;
 
-    const valid = files.filter((f) => f.size <= MAX_FILE_SIZE);
-    const oversized = files.filter((f) => f.size > MAX_FILE_SIZE);
+    const maxSize  = this.maxFileSizeValue;
+    const maxFiles = this.maxFilesValue;
+    const limitMB  = Math.round(maxSize / (1024 * 1024));
 
+    const oversized = files.filter((f) => f.size > maxSize);
     if (oversized.length > 0) {
       showToast(
-        `${oversized.map((f) => f.name).join(", ")} exceed${oversized.length === 1 ? "s" : ""} the 5MB limit.`,
+        `${oversized.map((f) => f.name).join(", ")} exceed${oversized.length === 1 ? "s" : ""} the ${limitMB}MB limit.`,
         "warning",
       );
+    }
+
+    let valid = files.filter((f) => f.size <= maxSize);
+
+    const remaining = maxFiles - this.#files.length;
+    if (remaining <= 0) {
+      showToast(`You can upload up to ${maxFiles} files at once.`, "warning");
+      return;
+    }
+    if (valid.length > remaining) {
+      showToast(`Only ${remaining} more file${remaining !== 1 ? "s" : ""} allowed (limit: ${maxFiles}).`, "warning");
+      valid = valid.slice(0, remaining);
     }
 
     if (valid.length === 0) return;
