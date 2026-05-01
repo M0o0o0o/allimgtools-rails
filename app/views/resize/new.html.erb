@@ -18,7 +18,7 @@
 
 <div data-controller="resize-tool"
      data-resize-tool-task-id-value="<%= @task.task_id %>"
-     data-resize-tool-start-url-value="<%= start_resize_path %>"
+     data-resize-tool-start-url-value="<%= start_resize_path(locale: nil) %>"
      data-resize-tool-max-file-size-value="<%= user_max_file_size %>"
      data-resize-tool-max-files-value="<%= user_max_batch_size %>"
      class="flex-1 flex flex-col min-h-0 relative"

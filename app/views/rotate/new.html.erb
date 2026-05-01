@@ -18,7 +18,7 @@
 
 <div data-controller="rotate-tool"
      data-rotate-tool-task-id-value="<%= @task.task_id %>"
-     data-rotate-tool-start-url-value="<%= start_rotate_path %>"
+     data-rotate-tool-start-url-value="<%= start_rotate_path(locale: nil) %>"
      data-rotate-tool-max-file-size-value="<%= user_max_file_size %>"
      data-rotate-tool-max-files-value="<%= user_max_batch_size %>"
      class="flex-1 flex flex-col min-h-0 relative"

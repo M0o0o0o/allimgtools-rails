@@ -21,7 +21,7 @@
 
 <div data-controller="crop-tool"
      data-crop-tool-task-id-value="<%= @task.task_id %>"
-     data-crop-tool-start-url-value="<%= start_crop_path %>"
+     data-crop-tool-start-url-value="<%= start_crop_path(locale: nil) %>"
      data-crop-tool-max-file-size-value="<%= user_max_file_size %>"
      class="flex-1 flex flex-col min-h-0 relative"
      data-action="dragenter->crop-tool#onDragEnter

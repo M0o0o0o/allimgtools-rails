@@ -1,0 +1,171 @@
+<% content_for :title, t("exif_edit.page_title") %>
+<% content_for :description, t("exif_edit.page_description") %>
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "EXIF Editor",
+    "url": "https://allimgtools.com/exif-edit",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Edit EXIF metadata from images online for free."
+  }
+  </script>
+<% end %>
+<% content_for :main_class, "flex-1 flex flex-col min-h-0" %>
+
+<%
+  i18n_keys = %w[
+    edited_badge apply_all apply_all_confirm
+    section_datetime section_location section_author section_description
+    section_camera section_exposure section_other
+    field_DateTimeOriginal field_DateTime field_DateTimeDigitized
+    field_GPSLatitude field_GPSLongitude field_GPSAltitude
+    field_Creator field_Artist field_Credit field_Source field_Copyright field_Rights
+    field_Title field_ImageDescription field_Keywords field_Make field_Model field_Software
+    field_ExposureTime field_FNumber field_ISO field_FocalLength field_Flash field_WhiteBalance
+    field_Orientation field_LensModel field_SerialNumber
+    clear_field gps_hint datetime_hint keywords_hint
+    no_exif select_image start
+  ]
+  i18n_keys_extra = ["field_Caption-Abstract"]
+  i18n_data = i18n_keys.each_with_object({}) do |k, h|
+    translation = t("exif_edit.#{k}", default: nil)
+    h[k] = translation if translation
+  end
+  i18n_keys_extra.each { |k| i18n_data[k] = t("exif_edit.#{k}", default: nil) }
+%>
+
+<div data-controller="exif-edit-tool"
+     data-exif-edit-tool-task-id-value="<%= @task.task_id %>"
+     data-exif-edit-tool-start-url-value="<%= start_exif_edit_path(locale: nil) %>"
+     data-exif-edit-tool-read-url-value="<%= read_exif_edit_path(locale: nil) %>"
+     data-exif-edit-tool-max-file-size-value="<%= user_max_file_size %>"
+     data-exif-edit-tool-max-files-value="<%= user_max_batch_size %>"
+     data-exif-edit-tool-i18n-value="<%= i18n_data.to_json %>"
+     class="flex-1 flex flex-col min-h-0 relative"
+     data-action="dragenter->exif-edit-tool#onDragEnter
+                  dragover->exif-edit-tool#onDragOver
+                  dragleave->exif-edit-tool#onDragLeave
+                  drop->exif-edit-tool#onDrop">
+
+  <%# ─── Drag overlay ───────────────────────────────────────────── %>
+  <div class="hidden absolute inset-0 z-20 m-3 border-2 border-dashed border-primary rounded-2xl
+              bg-primary/5 flex items-center justify-center pointer-events-none"
+       data-exif-edit-tool-target="dragOverlay">
+    <div class="text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <p class="text-base font-semibold text-primary"><%= t("common.drop_images") %></p>
+    </div>
+  </div>
+
+  <%# ─── Idle: dropzone ─────────────────────────────────────────── %>
+  <div class="flex flex-col min-h-full" data-exif-edit-tool-target="dropzoneArea">
+    <div class="flex-1 m-4 sm:m-6 border-2 border-dashed border-base-300 rounded-2xl cursor-pointer
+                flex flex-col items-center justify-center text-center
+                transition-colors hover:border-primary hover:bg-primary/5"
+         data-exif-edit-tool-target="dropzone"
+         data-action="click->exif-edit-tool#openFilePicker">
+      <div class="flex flex-col items-center gap-4 p-10 pointer-events-none">
+        <h1 class="text-2xl font-bold"><%= t("exif_edit.title") %></h1>
+        <p class="text-sm text-base-content/60"><%= t("exif_edit.description") %></p>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-base-content/25 mt-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+        </svg>
+        <div>
+          <p class="text-base font-semibold text-base-content"><%= t("common.drag_click") %></p>
+          <p class="text-sm text-base-content/50 mt-1"><%= t("common.file_types") %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# ─── Active: three-column layout ───────────────────────────── %>
+  <div class="hidden flex-1 flex flex-col lg:flex-row min-h-0" data-exif-edit-tool-target="contentArea">
+
+    <%# ── Left: image list (horizontal strip on mobile, vertical sidebar on desktop) ── %>
+    <aside class="flex flex-col bg-base-100 border-b border-base-200 lg:border-b-0 lg:border-r lg:w-64 shrink-0 sticky top-16 z-10 lg:static lg:z-auto">
+      <div class="px-4 py-2.5 lg:py-3 border-b border-base-200 flex items-center justify-between">
+        <h2 class="text-sm font-bold text-base-content/70"><%= t("exif_edit.sidebar_title") %></h2>
+        <button class="btn btn-ghost btn-xs gap-1.5"
+                data-action="click->exif-edit-tool#openFilePicker">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+          <%= t("common.add_more") %>
+        </button>
+      </div>
+      <ul class="flex flex-row overflow-x-auto gap-2 p-2 lg:flex-col lg:flex-1 lg:overflow-y-auto lg:gap-0.5"
+          data-exif-edit-tool-target="imageList"></ul>
+    </aside>
+
+    <%# ── Center: EXIF editor ── %>
+    <div class="flex-1 flex flex-col min-h-0 overflow-hidden">
+      <div class="flex-1 overflow-y-auto p-4 lg:p-6 pb-24 lg:pb-6">
+
+        <%# Placeholder (no image selected) %>
+        <div class="h-full flex flex-col items-center justify-center text-center text-base-content/40 gap-3"
+             data-exif-edit-tool-target="editorPlaceholder">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+          </svg>
+          <p class="text-sm max-w-xs"><%= t("exif_edit.select_image") %></p>
+        </div>
+
+        <%# Editor form (rendered by JS) %>
+        <div data-exif-edit-tool-target="editorPanel"></div>
+      </div>
+
+      <%# Processing overlay %>
+      <div class="hidden absolute inset-0 z-30 bg-base-100/80 backdrop-blur-sm flex flex-col items-center justify-center gap-3"
+           data-exif-edit-tool-target="processingOverlay">
+        <span class="loading loading-spinner loading-lg text-primary"></span>
+        <p class="text-sm text-base-content/60"><%= t("common.processing") %></p>
+      </div>
+    </div>
+
+    <%# ── Right: action panel (desktop) ── %>
+    <aside class="hidden lg:flex flex-col w-56 bg-base-100 border-l border-base-200 p-5 shrink-0">
+      <div class="flex-1 flex flex-col gap-3">
+        <div class="text-xs text-base-content/50 bg-base-200 rounded-xl p-3 leading-relaxed">
+          <%= t("exif_edit.select_image") %>
+        </div>
+      </div>
+      <button class="btn btn-primary w-full mt-4 gap-2"
+              data-exif-edit-tool-target="startBtn"
+              data-action="click->exif-edit-tool#startTool"
+              disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        <%= t("exif_edit.start") %>
+      </button>
+    </aside>
+  </div>
+
+  <%# ─── Fixed bottom (mobile) ──────────────────────────────────── %>
+  <div class="hidden fixed bottom-6 left-6 right-6 z-10 flex gap-2 lg:hidden"
+       data-exif-edit-tool-target="fixedActions">
+    <button class="btn btn-primary flex-1 gap-2 shadow-lg"
+            data-exif-edit-tool-target="startBtn"
+            data-action="click->exif-edit-tool#startTool"
+            disabled>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+      </svg>
+      <%= t("exif_edit.start") %>
+    </button>
+  </div>
+
+  <%# Hidden file input %>
+  <input type="file"
+         accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
+         multiple
+         class="hidden"
+         data-exif-edit-tool-target="input"
+         data-action="change->exif-edit-tool#onFileChange">
+</div>

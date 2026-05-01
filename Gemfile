@@ -42,6 +42,7 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 gem "zip_tricks", "~> 5.0"
+gem "mini_exiftool", "~> 2.12"
 gem "sitemap_generator"
 
 group :development, :test do

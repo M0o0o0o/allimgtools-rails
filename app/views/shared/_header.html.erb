@@ -20,7 +20,8 @@
     <nav class="flex gap-0.5 items-center">
       <%= link_to t("nav.compress"), new_compress_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'compress' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
       <%= link_to t("nav.resize"),   new_resize_path,   class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'resize'   ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
-      <%= link_to t("nav.exif"),     new_exif_path,     class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'exif'     ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
+      <%= link_to t("nav.exif"),      new_exif_path,      class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'exif'      ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
+      <%= link_to t("nav.exif_edit"), new_exif_edit_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'exif_edit' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
       <%= link_to t("nav.rotate"),   new_rotate_path,   class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'rotate'   ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
       <%= link_to t("nav.crop"),     new_crop_path,     class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'crop'     ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
 

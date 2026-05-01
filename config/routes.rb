@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   post "compress/start", to: "compress#start", as: :start_compress
   post "resize/start",   to: "resize#start",   as: :start_resize
   post "convert/start",  to: "convert#start",  as: :start_convert
-  post "exif/start",     to: "exif#start",     as: :start_exif
+  post "exif/start",      to: "exif#start",      as: :start_exif
+  get  "exif-edit/read",  to: "exif_edit#read",  as: :read_exif_edit
+  post "exif-edit/start", to: "exif_edit#start", as: :start_exif_edit
   post "rotate/start",   to: "rotate#start",   as: :start_rotate
   post "crop/start",     to: "crop#start",     as: :start_crop
 
@@ -57,7 +59,8 @@ Rails.application.routes.draw do
     get "webp-to-jpg", to: "convert#new", defaults: { from_format: "webp", to_format: "jpeg" }, as: :webp_to_jpg
     get "webp-to-png", to: "convert#new", defaults: { from_format: "webp", to_format: "png"  }, as: :webp_to_png
 
-    get "exif",   to: "exif#new",   as: :new_exif
+    get "exif",      to: "exif#new",      as: :new_exif
+    get "exif-edit", to: "exif_edit#new", as: :new_exif_edit
     get "rotate", to: "rotate#new", as: :new_rotate
     get "crop",   to: "crop#new",   as: :new_crop
 

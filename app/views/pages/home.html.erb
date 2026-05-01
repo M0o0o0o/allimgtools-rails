@@ -103,6 +103,22 @@
         </div>
         <% end %>
 
+        <%= link_to new_exif_edit_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
+        <div class="card-body">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-primary/10 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="card-title text-lg"><%= t("nav.exif_edit") %></h2>
+                    <p class="text-base-content/60 text-sm"><%= t("home.exif_edit_desc") %></p>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
         <%= link_to new_convert_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
         <div class="card-body">
             <div class="flex items-center gap-4">
