@@ -1,10 +1,12 @@
 <% content_for :title, t("pricing.meta_title") %>
 <% content_for :description, t("pricing.meta_description") %>
+<%# Paddle JS — uncomment when domain is approved
 <% if authenticated? && !Current.user.subscribed? %>
   <% content_for :head do %>
     <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <% end %>
 <% end %>
+%>
 
 <div class="max-w-4xl mx-auto px-4 py-16">
 
@@ -136,6 +138,7 @@
           </li>
         </ul>
 
+        <%# Checkout buttons — uncomment when Paddle domain is approved
         <% if authenticated? && Current.user.subscribed? %>
           <%= link_to my_page_path, class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
             <%= t("pricing.pro.button_current") %>
@@ -158,6 +161,7 @@
             <%= t("pricing.pro.button_get") %>
           <% end %>
         <% end %>
+        %>
       </div>
     </div>
 

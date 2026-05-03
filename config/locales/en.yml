@@ -35,6 +35,7 @@ en:
     close: "Close"
     replace: "Replace"
     related_conversions: "Related conversions"
+    faq_title: "Frequently Asked Questions"
 
   home:
     title: "Image Tools"
@@ -62,6 +63,13 @@ en:
     description: "Upload images to reduce file size by adjusting quality."
     strip_exif: "Remove EXIF metadata"
     strip_exif_description: "Removes hidden data embedded in the image — such as shooting date, camera model, and GPS location. Useful when sharing images publicly for privacy."
+    faq:
+      - q: "What image formats can I compress?"
+        a: "JPEG, PNG, WebP, GIF, and AVIF formats are all supported."
+      - q: "Will compression reduce image quality?"
+        a: "At quality 70–85% the visual difference is minimal while file size drops significantly."
+      - q: "Does compressing change image dimensions?"
+        a: "No. Only the file size is reduced — the width and height stay the same."
 
   resize:
     page_title: "Free Image Resizer — Resize Images Online | Allimgtools"
@@ -75,6 +83,13 @@ en:
     start: "Start Resize"
     title: "Image Resize"
     description: "Upload images and set your desired dimensions."
+    faq:
+      - q: "What image formats can I resize?"
+        a: "JPEG, PNG, WebP, GIF, and AVIF formats are supported."
+      - q: "Can I resize multiple images at once?"
+        a: "Yes, you can upload and resize a batch of images in one go."
+      - q: "Will resizing maintain the original aspect ratio?"
+        a: "By default, aspect ratio is maintained. Uncheck the option to set custom width and height independently."
 
   convert:
     page_title_generic: "Free Image Converter Online | Allimgtools"
@@ -90,6 +105,13 @@ en:
     format_fixed: "Format is fixed for this page."
     tip: "Tip: WebP offers the best compression with high quality for web images."
     start: "Start Convert"
+    faq:
+      - q: "What formats can I convert between?"
+        a: "You can convert between JPEG, PNG, and WebP formats."
+      - q: "Will converting change image quality?"
+        a: "Converting to a lossy format like JPEG or WebP may slightly reduce quality. PNG is lossless."
+      - q: "Can I batch convert multiple images?"
+        a: "Yes, upload multiple images and they will all be converted at once."
 
   exif_edit:
     page_title: "Free EXIF Editor — Edit Image Metadata Online | Allimgtools"
@@ -143,6 +165,15 @@ en:
     gps_hint: "Decimal degrees (e.g. 37.5665)"
     datetime_hint: "Format: YYYY:MM:DD HH:MM:SS"
     keywords_hint: "Separate multiple with commas"
+    faq:
+      - q: "What EXIF fields can I edit?"
+        a: "You can edit GPS coordinates, date and time, camera info, copyright, keywords, and more."
+      - q: "What image formats support EXIF editing?"
+        a: "JPEG images have full EXIF support. PNG and WebP have limited metadata support."
+      - q: "Can I edit multiple images at once?"
+        a: "Yes. Upload multiple images and edit them individually, or use \"Apply to all\" to copy edits across all images."
+      - q: "Does editing EXIF data change the image?"
+        a: "No. Only the metadata is modified — the image pixels and quality remain unchanged."
 
   exif:
     page_title: "Free EXIF Remover — Strip Image Metadata Online | Allimgtools"
@@ -153,6 +184,13 @@ en:
     start: "Remove EXIF"
     title: "EXIF Remover"
     description: "Strip GPS, camera info, and all metadata from your images."
+    faq:
+      - q: "What is EXIF data?"
+        a: "EXIF data is hidden metadata embedded in image files — including GPS location, camera model, and date taken."
+      - q: "Why should I remove EXIF data?"
+        a: "To protect your privacy. EXIF data can reveal your exact location when a photo was taken."
+      - q: "Does removing EXIF data affect image quality?"
+        a: "No. Image pixels, dimensions, and visual quality are completely preserved."
 
   crop:
     page_title: "Free Image Cropper — Crop Images Online | Allimgtools"
@@ -164,6 +202,13 @@ en:
     start: "Apply Crop"
     title: "Image Crop"
     description: "Upload an image and select the area to crop."
+    faq:
+      - q: "Can I crop to specific dimensions?"
+        a: "You can select any area freely or choose a fixed aspect ratio like 1:1, 4:3, or 16:9."
+      - q: "What image formats are supported?"
+        a: "JPEG, PNG, WebP, GIF, and AVIF images are supported."
+      - q: "Does cropping reduce image quality?"
+        a: "No. The cropped area is saved at the original image quality."
 
   rotate:
     page_title: "Free Image Rotator — Rotate Images Online | Allimgtools"
@@ -175,6 +220,13 @@ en:
     start: "Apply Rotation"
     title: "Image Rotate"
     description: "Rotate your image. Upload a single image to get started."
+    faq:
+      - q: "What rotation options are available?"
+        a: "You can rotate images 90° to the left or right."
+      - q: "What image formats are supported?"
+        a: "JPEG, PNG, WebP, GIF, and AVIF images are supported."
+      - q: "Does rotation affect image quality?"
+        a: "No. The image is saved at its original quality after rotation."
 
   downloads:
     processing: "Processing..."

@@ -1,11 +1,14 @@
 <% content_for :title, t("my_page.title") %>
+<%# Paddle JS — uncomment when domain is approved
 <% unless Current.user.subscribed? %>
   <% content_for :head do %>
     <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <% end %>
 <% end %>
+%>
 
 <div class="max-w-lg mx-auto px-4 py-12 space-y-4"
+     <%# Paddle controller attrs — uncomment when domain is approved
      <% unless Current.user.subscribed? %>
        data-controller="paddle"
        data-paddle-client-token-value="<%= Rails.application.credentials.paddle[:client_token] %>"
@@ -13,9 +16,10 @@
        data-paddle-email-value="<%= Current.user.email_address %>"
        data-paddle-checkout-complete-url-value="<%= subscription_checkout_complete_path %>"
        data-paddle-sandbox-value="<%= Rails.application.credentials.paddle[:sandbox] %>"
-     <% end %>>
+     <% end %>
+     %>>
 
-  <%# Upgrade banner (free users only) %>
+  <%# Upgrade banner — uncomment when Paddle domain is approved
   <% unless Current.user.subscribed? %>
     <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-5 shadow-md">
       <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10"></div>
@@ -37,6 +41,7 @@
             class: "text-xs text-base-content/30 hover:text-primary transition-colors bg-transparent border-none cursor-pointer" %>
     </div>
   <% end %>
+  %>
 
   <%# Profile card %>
   <div class="bg-base-100 rounded-2xl border border-base-200 overflow-hidden shadow-sm">
