@@ -1,12 +1,12 @@
 <% content_for :title, t("pricing.meta_title") %>
 <% content_for :description, t("pricing.meta_description") %>
-<%# Paddle JS — uncomment when domain is approved
-<% if authenticated? && !Current.user.subscribed? %>
-  <% content_for :head do %>
-    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<% if false # TODO: enable after Paddle domain approval %>
+  <% if authenticated? && !Current.user.subscribed? %>
+    <% content_for :head do %>
+      <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <% end %>
   <% end %>
 <% end %>
-%>
 
 <div class="max-w-4xl mx-auto px-4 py-16">
 
@@ -138,30 +138,30 @@
           </li>
         </ul>
 
-        <%# Checkout buttons — uncomment when Paddle domain is approved
-        <% if authenticated? && Current.user.subscribed? %>
-          <%= link_to my_page_path, class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
-            <%= t("pricing.pro.button_current") %>
-          <% end %>
-        <% elsif authenticated? %>
-          <div data-controller="paddle"
-               data-paddle-client-token-value="<%= Rails.application.credentials.paddle&.dig(:client_token) %>"
-               data-paddle-price-id-value="<%= Rails.application.credentials.paddle&.dig(:pro_price_id) %>"
-               data-paddle-email-value="<%= Current.user.email_address %>"
-               data-paddle-checkout-complete-url-value="<%= subscription_checkout_complete_path %>"
-               data-paddle-sandbox-value="<%= Rails.application.credentials.paddle&.dig(:sandbox) %>"
-               data-paddle-auto-open-value="<%= params[:checkout] == '1' %>">
-            <button class="btn btn-primary w-full shadow-sm shadow-primary/20"
-                    data-action="click->paddle#openCheckout">
+        <% if false # TODO: enable after Paddle domain approval %>
+          <% if authenticated? && Current.user.subscribed? %>
+            <%= link_to my_page_path, class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
+              <%= t("pricing.pro.button_current") %>
+            <% end %>
+          <% elsif authenticated? %>
+            <div data-controller="paddle"
+                 data-paddle-client-token-value="<%= Rails.application.credentials.paddle&.dig(:client_token) %>"
+                 data-paddle-price-id-value="<%= Rails.application.credentials.paddle&.dig(:pro_price_id) %>"
+                 data-paddle-email-value="<%= Current.user.email_address %>"
+                 data-paddle-checkout-complete-url-value="<%= subscription_checkout_complete_path %>"
+                 data-paddle-sandbox-value="<%= Rails.application.credentials.paddle&.dig(:sandbox) %>"
+                 data-paddle-auto-open-value="<%= params[:checkout] == '1' %>">
+              <button class="btn btn-primary w-full shadow-sm shadow-primary/20"
+                      data-action="click->paddle#openCheckout">
+                <%= t("pricing.pro.button_get") %>
+              </button>
+            </div>
+          <% else %>
+            <%= link_to login_path(return_to: pricing_path(checkout: "1")), class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
               <%= t("pricing.pro.button_get") %>
-            </button>
-          </div>
-        <% else %>
-          <%= link_to login_path(return_to: pricing_path(checkout: "1")), class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
-            <%= t("pricing.pro.button_get") %>
+            <% end %>
           <% end %>
         <% end %>
-        %>
       </div>
     </div>
 
