@@ -1,17 +1,15 @@
 <% content_for :title, t("pricing.meta_title") %>
 <% content_for :description, t("pricing.meta_description") %>
-<% if false # TODO: enable after Paddle domain approval %>
-  <% if authenticated? && !Current.user.subscribed? %>
-    <% content_for :head do %>
-      <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-    <% end %>
+<% if authenticated? && !Current.user.subscribed? %>
+  <% content_for :head do %>
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <% end %>
 <% end %>
 
-<div class="max-w-4xl mx-auto px-4 py-16">
+<div class="max-w-4xl mx-auto px-4 py-16" data-controller="pricing">
 
   <%# Header %>
-  <div class="text-center mb-16">
+  <div class="text-center mb-10">
     <div class="inline-flex items-center gap-2 bg-primary/8 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -20,6 +18,17 @@
     </div>
     <h1 class="text-4xl font-bold mb-4 tracking-tight"><%= t("pricing.title") %></h1>
     <p class="text-base-content/50 text-lg"><%= t("pricing.subtitle") %></p>
+  </div>
+
+  <%# Monthly / Yearly toggle %>
+  <div class="flex items-center justify-center gap-3 mb-12">
+    <span class="text-sm font-medium text-base-content"><%= t("pricing.toggle_monthly") %></span>
+    <input type="checkbox" class="toggle toggle-primary"
+           data-action="change->pricing#toggle">
+    <span class="text-sm font-medium text-base-content flex items-center gap-2">
+      <%= t("pricing.toggle_yearly") %>
+      <span class="badge badge-primary badge-sm font-bold"><%= t("pricing.save_badge") %></span>
+    </span>
   </div>
 
   <%# Cards %>
@@ -37,38 +46,22 @@
       </div>
 
       <ul class="flex flex-col gap-3.5 flex-1 mb-8">
-        <li class="flex items-center gap-3 text-sm text-base-content/70">
-          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-            </svg>
-          </span>
-          <%= t("pricing.free.feature_tools") %>
-        </li>
-        <li class="flex items-center gap-3 text-sm text-base-content/70">
-          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-            </svg>
-          </span>
-          <%= t("pricing.free.feature_files") %>
-        </li>
-        <li class="flex items-center gap-3 text-sm text-base-content/70">
-          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-            </svg>
-          </span>
-          <%= t("pricing.free.feature_size") %>
-        </li>
-        <li class="flex items-center gap-3 text-sm text-base-content/70">
-          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-            </svg>
-          </span>
-          <%= t("pricing.free.feature_account") %>
-        </li>
+        <% [
+          t("pricing.free.feature_tools"),
+          t("pricing.free.feature_files"),
+          t("pricing.free.feature_size"),
+          t("pricing.free.feature_account"),
+          t("pricing.free.feature_privacy"),
+        ].each do |feature| %>
+          <li class="flex items-center gap-3 text-sm text-base-content/70">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <%= feature %>
+          </li>
+        <% end %>
       </ul>
 
       <div class="btn btn-ghost w-full cursor-default text-base-content/40 border border-base-200">
@@ -93,11 +86,24 @@
             <p class="text-xs font-bold text-white/70 uppercase tracking-widest"><%= t("pricing.pro.label") %></p>
             <span class="bg-white/20 text-white text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm"><%= t("pricing.pro.badge") %></span>
           </div>
-          <div class="flex items-end gap-1.5 mb-2">
-            <span class="text-5xl font-extrabold tracking-tight text-white"><%= t("pricing.pro.price") %></span>
-            <span class="text-white/60 mb-2 text-sm"><%= t("pricing.pro.per_month") %></span>
+
+          <%# Monthly price %>
+          <div data-pricing-target="monthly">
+            <div class="flex items-end gap-1.5 mb-2">
+              <span class="text-5xl font-extrabold tracking-tight text-white"><%= t("pricing.pro.price") %></span>
+              <span class="text-white/60 mb-2 text-sm"><%= t("pricing.pro.per_month") %></span>
+            </div>
+            <p class="text-sm text-white/60"><%= t("pricing.pro.tagline") %></p>
           </div>
-          <p class="text-sm text-white/60"><%= t("pricing.pro.tagline") %></p>
+
+          <%# Yearly price %>
+          <div class="hidden" data-pricing-target="yearly">
+            <div class="flex items-end gap-1.5 mb-2">
+              <span class="text-5xl font-extrabold tracking-tight text-white"><%= t("pricing.pro.price_yearly") %></span>
+              <span class="text-white/60 mb-2 text-sm"><%= t("pricing.pro.per_year") %></span>
+            </div>
+            <p class="text-sm text-white/60"><%= t("pricing.pro.tagline_yearly") %></p>
+          </div>
         </div>
       </div>
 
@@ -112,13 +118,13 @@
             </span>
             <%= t("pricing.pro.feature_tools") %>
           </li>
-          <li class="flex items-center gap-3 text-sm font-medium text-base-content">
-            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
+          <li class="flex items-start gap-3 text-sm font-medium text-base-content">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
               </svg>
             </span>
-            <span><%= t("pricing.pro.feature_files_html").html_safe %></span>
+            <span><%= t("pricing.pro.feature_batch_html").html_safe %></span>
           </li>
           <li class="flex items-center gap-3 text-sm font-medium text-base-content">
             <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
@@ -138,29 +144,52 @@
           </li>
         </ul>
 
-        <% if false # TODO: enable after Paddle domain approval %>
-          <% if authenticated? && Current.user.subscribed? %>
-            <%= link_to my_page_path, class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
-              <%= t("pricing.pro.button_current") %>
-            <% end %>
-          <% elsif authenticated? %>
-            <div data-controller="paddle"
-                 data-paddle-client-token-value="<%= Rails.application.credentials.paddle&.dig(:client_token) %>"
-                 data-paddle-price-id-value="<%= Rails.application.credentials.paddle&.dig(:pro_price_id) %>"
-                 data-paddle-email-value="<%= Current.user.email_address %>"
-                 data-paddle-checkout-complete-url-value="<%= subscription_checkout_complete_path %>"
-                 data-paddle-sandbox-value="<%= Rails.application.credentials.paddle&.dig(:sandbox) %>"
-                 data-paddle-auto-open-value="<%= params[:checkout] == '1' %>">
-              <button class="btn btn-primary w-full shadow-sm shadow-primary/20"
-                      data-action="click->paddle#openCheckout">
-                <%= t("pricing.pro.button_get") %>
-              </button>
-            </div>
-          <% else %>
+        <% if authenticated? && Current.user.subscribed? %>
+          <%= link_to my_page_path, class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
+            <%= t("pricing.pro.button_current") %>
+          <% end %>
+        <% elsif authenticated? %>
+          <%# Monthly checkout %>
+          <div data-pricing-target="monthly"
+               data-controller="paddle"
+               data-paddle-client-token-value="<%= Rails.application.credentials.paddle&.dig(:client_token) %>"
+               data-paddle-price-id-value="<%= Rails.application.credentials.paddle&.dig(:pro_price_id) %>"
+               data-paddle-email-value="<%= Current.user.email_address %>"
+               data-paddle-checkout-complete-url-value="<%= subscription_checkout_complete_path %>"
+               data-paddle-sandbox-value="<%= Rails.application.credentials.paddle&.dig(:sandbox) %>"
+               data-paddle-auto-open-value="<%= params[:checkout] == '1' %>">
+            <button class="btn btn-primary w-full shadow-sm shadow-primary/20"
+                    data-action="click->paddle#openCheckout">
+              <%= t("pricing.pro.button_get") %>
+            </button>
+          </div>
+          <%# Yearly checkout %>
+          <div class="hidden" data-pricing-target="yearly"
+               data-controller="paddle"
+               data-paddle-client-token-value="<%= Rails.application.credentials.paddle&.dig(:client_token) %>"
+               data-paddle-price-id-value="<%= Rails.application.credentials.paddle&.dig(:pro_yearly_price_id) %>"
+               data-paddle-email-value="<%= Current.user.email_address %>"
+               data-paddle-checkout-complete-url-value="<%= subscription_checkout_complete_path %>"
+               data-paddle-sandbox-value="<%= Rails.application.credentials.paddle&.dig(:sandbox) %>"
+               data-paddle-auto-open-value="false">
+            <button class="btn btn-primary w-full shadow-sm shadow-primary/20"
+                    data-action="click->paddle#openCheckout">
+              <%= t("pricing.pro.button_get_yearly") %>
+            </button>
+          </div>
+        <% else %>
+          <%# Monthly login link %>
+          <div data-pricing-target="monthly">
             <%= link_to login_path(return_to: pricing_path(checkout: "1")), class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
               <%= t("pricing.pro.button_get") %>
             <% end %>
-          <% end %>
+          </div>
+          <%# Yearly login link %>
+          <div class="hidden" data-pricing-target="yearly">
+            <%= link_to login_path(return_to: pricing_path(checkout: "1", billing: "yearly")), class: "btn btn-primary w-full shadow-sm shadow-primary/20" do %>
+              <%= t("pricing.pro.button_get_yearly") %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>

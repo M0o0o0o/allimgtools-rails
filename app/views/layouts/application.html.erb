@@ -11,9 +11,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# Canonical URL — always points to English (default) version %>
+    <%# Canonical URL — each locale page points to itself (self-referencing canonical) %>
     <% canonical_path = request.path.sub(%r{\A/(#{PUBLIC_LOCALE_PATTERN})(/|\z)}, '/') %>
-    <link rel="canonical" href="https://allimgtools.com<%= canonical_path == '/' ? '' : canonical_path %>">
+    <link rel="canonical" href="https://allimgtools.com<%= request.path == '/' ? '' : request.path %>">
 
     <%# hreflang tags for SEO %>
     <%# Blog is English-only — only declare en + x-default to avoid duplicate content signals %>

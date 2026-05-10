@@ -1,0 +1,233 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Compress Images Online —<br class="hidden sm:block"> Free, Fast &amp; No Quality Loss
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Reduce the file size of your images instantly — no software, no sign-up required. Our free online image compressor uses smart compression algorithms to shrink your JPEG, PNG, GIF, WebP, and AVIF files while preserving visual quality. Use the quality slider to find the perfect balance between file size and image clarity. Whether you're optimizing photos for a website, preparing images for email, or freeing up storage space, you'll get smaller files in seconds.
+      </p>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Step by step</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">How to Compress an Image Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Upload your image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Drag and drop or click to select a JPEG, JPG, PNG, GIF, WebP, or AVIF file.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Adjust the quality slider</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Move the slider to control the compression level. Lower values produce smaller files; higher values preserve more detail.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Download your compressed image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Click download and save your optimized file instantly.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        No account required. Your files are never stored on our servers.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formats</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Compress JPEG, PNG, WebP &amp; More</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "The most common format for photos. Ideal for high-resolution images with natural colors and gradients." },
+          { name: "PNG",        desc: "Supports transparency. Great for logos, screenshots, and graphics." },
+          { name: "GIF",        desc: "Compress animated or static GIFs without losing animation frames." },
+          { name: "WebP",       desc: "Google's modern format. Compresses significantly smaller than JPEG at equivalent quality." },
+          { name: "AVIF",       desc: "Next-generation format with excellent compression efficiency for modern browsers." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Reference</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Compress an Image to a Specific File Size</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Need your image under a certain size — like 100KB, 200KB, or 50KB? Use the quality slider to fine-tune compression until you hit your target. Here's a quick reference:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Target Size</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Recommended Quality Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Under 20 KB",  "10 – 25%"],
+              ["Under 50 KB",  "25 – 40%"],
+              ["Under 100 KB", "40 – 60%"],
+              ["Under 200 KB", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Results vary depending on original image content and dimensions. Adjust the slider and preview before downloading.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Web Performance</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Optimize Images for Your Website or WordPress</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Page load speed is one of Google's ranking factors — and images are usually the biggest culprit. Unoptimized images slow down your site, increase bounce rates, and hurt your SEO. Before uploading images to your website, compress them to:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Improve Core Web Vitals",       "Lower LCP (Largest Contentful Paint) scores by reducing image file sizes."],
+          ["Reduce bandwidth usage",        "Smaller images mean faster page loads, especially on mobile."],
+          ["Pass Google PageSpeed Insights","Most audits flag uncompressed images as a top issue."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPress tip:</strong> Compress your images here before uploading to the media library. This avoids relying on server-side plugins and gives you full control over output quality.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro Feature</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bulk Image Compression</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Need to compress multiple images at once? Our bulk compression tool lets you upload and process several files in one go — perfect for:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-commerce",    "Compress dozens of product images before publishing."],
+          ["Blog posts",    "Optimize featured images and inline photos in one batch."],
+          ["Deliverables",  "Send compressed photo sets via email or cloud storage."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Bulk processing is available on Pro</p>
+          <p class="text-white/60 text-sm">Process multiple files in one click.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Start free →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Use Cases</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Why Compress Images?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Websites & blogs",   "Large images are the #1 cause of slow-loading pages. Compressing before uploading reduces page weight and improves user experience across all devices."],
+          ["Email attachments",  "Most email clients have a 25 MB attachment limit. Compressing photos makes it easy to send multiple images without hitting size restrictions."],
+          ["Social media",       "Platforms like Instagram and Facebook recompress your uploads, often degrading quality. Pre-compress to maintain more control over how your photos appear."],
+          ["Storage & backup",   "Archiving large photo collections? Compressing images can cut storage requirements significantly without noticeable quality loss at normal viewing sizes."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Does compressing an image reduce its quality?",
+           "It depends on the compression level. Lossy compression (JPEG, WebP) removes some image data — at moderate settings, the difference is barely visible to the human eye. Use the quality slider to preview results before downloading."],
+          ["How do I compress an image to under 100 KB?",
+           "Upload your image, set the quality slider to around 40–60%, and check the output file size. Adjust down if needed. For very large originals, you may need to go lower."],
+          ["Is it safe to compress images online?",
+           "Yes. Your images are processed directly and are not stored, shared, or used for any other purpose. We do not retain your files after processing."],
+          ["What's the best format for compressed web images?",
+           "WebP offers the best balance of file size and quality for most web use cases and is supported by all major modern browsers. AVIF is even more efficient but has slightly lower browser support. JPEG remains the safest choice for maximum compatibility."],
+          ["Can I compress a PNG without losing transparency?",
+           "Yes. PNG compression preserves the alpha channel (transparency). Your compressed PNG will retain any transparent areas from the original file."],
+          ["What's the difference between lossy and lossless compression?",
+           "Lossy compression (JPEG, WebP) permanently removes some data to achieve smaller files. Lossless compression (PNG) reduces file size without removing any image data — but the reduction is usually smaller. For photos, lossy is almost always the better choice."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Last updated: May 2026</p>
+
+  </div>
+</section>
