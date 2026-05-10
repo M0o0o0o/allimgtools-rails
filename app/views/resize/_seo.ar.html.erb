@@ -1,0 +1,235 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        تغيير حجم الصور عبر الإنترنت —<br class="hidden sm:block"> مجاني، فوري وبدون فقدان للجودة
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        غيّر أبعاد صورك فورًا — لا حاجة لبرامج أو تسجيل. يتيح لك مُغيّر حجم الصور المجاني عبر الإنترنت تحديد عرض وارتفاع دقيقين بالبكسل، أو التكبير/التصغير بنسبة مئوية، أو قفل نسبة العرض إلى الارتفاع لتجنب التشويه. يعمل مع صيغ JPEG، PNG، WebP، GIF، وAVIF. سواء كنت تُعد صورًا لوسائل التواصل الاجتماعي، أو تُغيّر حجم صور المنتجات لمتجرك الإلكتروني، أو تُقص صورًا مصغرة لمدونة، ستحصل على صور بالحجم المثالي في ثوانٍ.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "مُغيّر حجم الصور عبر الإنترنت — غيّر حجم صور JPEG، PNG، WebP إلى أبعاد بكسل دقيقة فورًا", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">خطوة بخطوة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">كيفية تغيير حجم صورة عبر الإنترنت</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حمّل صورتك</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اسحب وأفلت أو انقر لتحديد ملف JPEG، JPG، PNG، GIF، WebP، أو AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حدد الأبعاد المستهدفة</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">أدخل العرض والارتفاع بالبكسل، أو قم بالتكبير/التصغير بنسبة مئوية. قم بتبديل "الحفاظ على نسبة العرض إلى الارتفاع" لمنع التمدد.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حمّل صورتك بعد تغيير حجمها</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">انقر على "تحميل" واحفظ ملفك بالحجم المثالي فورًا.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        لا يلزم وجود حساب. ملفاتك لا تُخزّن أبدًا على خوادمنا.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">الصيغ المدعومة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">غيّر حجم صور JPEG، PNG، WebP والمزيد</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "الصيغة الأكثر شيوعًا للصور. غيّر حجم الصور عالية الدقة مع الحفاظ على الألوان والتدرجات الطبيعية." },
+          { name: "PNG",        desc: "تدعم الشفافية. غيّر حجم الشعارات ولقطات الشاشة والرسومات دون فقدان قناة ألفا." },
+          { name: "GIF",        desc: "غيّر حجم صور GIF الثابتة بسهولة. يحافظ تغيير حجم صور GIF المتحركة على جميع الإطارات." },
+          { name: "WebP",       desc: "صيغة جوجل الحديثة. غيّر حجم صور WebP وحافظ على أحجام الملفات صغيرة." },
+          { name: "AVIF",       desc: "صيغة الجيل التالي بجودة ممتازة وأحجام ملفات صغيرة. دعم كامل لتغيير الحجم." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">مرجع</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">الأبعاد الشائعة للصور لوسائل التواصل الاجتماعي</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        لكل منصة حجم صور موصى به خاص بها. استخدم هذا الجدول المرجعي لتغيير حجم صورك إلى الأبعاد الدقيقة التي تحتاجها:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">المنصة / الاستخدام</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">الحجم الموصى به</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["منشور إنستغرام (مربع)",  "1080 × 1080 بكسل"],
+              ["صورة غلاف فيسبوك",     "820 × 312 بكسل"],
+              ["رأس تويتر / X",       "1500 × 500 بكسل"],
+              ["لافتة لينكد إن",          "1584 × 396 بكسل"],
+              ["صورة مصغرة يوتيوب",        "1280 × 720 بكسل"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">تتغير إرشادات المنصات بمرور الوقت. تحقق دائمًا من أحدث الوثائق الرسمية قبل النشر.</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">الويب والتجارة الإلكترونية</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">غيّر حجم صور المنتجات وصور الويب</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        تُضفي الأبعاد المتناسقة للصور على موقعك مظهرًا احترافيًا وتجعله يحمّل بشكل أسرع. قبل التحميل إلى موقعك أو متجرك، غيّر حجم الصور لتكون:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["مطابقة لتصميمك تمامًا",       "حدد عرض بكسل دقيقًا لتناسب الصور شبكتك دون تشويه CSS."],
+          ["تسريع تحميل الصفحات",             "الأبعاد الأصغر تعني أحجام ملفات أصغر، مما يقلل من استهلاك النطاق الترددي ويحسن مؤشرات Core Web Vitals."],
+          ["توحيد الصور المصغرة للمنتجات",  "الأحجام الموحدة عبر شبكات المنتجات تبدو احترافية وتقلل من تحولات التخطيط."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">نصيحة للتجارة الإلكترونية:</strong> غيّر حجم جميع صور المنتجات إلى نفس الأبعاد قبل تحميلها إلى متجرك. توصي معظم المنصات (Shopify، WooCommerce، Etsy) بصور مربعة بحجم 1000 × 1000 بكسل أو أكبر لوظيفة التكبير.
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ميزة احترافية</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">تغيير حجم الصور دفعة واحدة</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        هل تحتاج إلى تغيير حجم صور متعددة إلى نفس الأبعاد دفعة واحدة؟ تتيح لك أداة تغيير الحجم بالجملة لدينا تحميل ومعالجة عدة ملفات في آن واحد — مثالية لـ:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["كتالوجات المنتجات",  "توحيد مئات صور المنتجات قبل تحميلها إلى متجرك."],
+          ["معارض الصور",   "تغيير حجم مجموعة كاملة من الصور إلى أبعاد متناسقة في دفعة واحدة."],
+          ["مجموعات وسائل التواصل الاجتماعي", "إعداد صور متعددة وفقًا لمواصفات المنصة دون تكرار العملية."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">المعالجة بالجملة متاحة في الإصدار الاحترافي</p>
+          <p class="text-white/60 text-sm">غيّر حجم ملفات متعددة إلى نفس الأبعاد بنقرة واحدة.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          ابدأ مجانًا ←
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">حالات الاستخدام</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">لماذا نُغيّر حجم الصور؟</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["وسائل التواصل الاجتماعي",       "لكل منصة متطلبات حجم صارمة. غيّر الحجم إلى الأبعاد الصحيحة لتجنب الاقتصاص، أو ظهور الأشرطة السوداء، أو التكبير الضبابي من قبل المنصة."],
+          ["متاجر التجارة الإلكترونية",  "اتساق صور المنتجات يبني الثقة. الأبعاد الموحدة عبر كتالوجك تُنشئ تخطيط شبكة احترافي على أي جهاز."],
+          ["النشرات الإخبارية عبر البريد الإلكتروني",  "الصور العريضة يمكن أن تُفسد تخطيطات البريد الإلكتروني على الهاتف المحمول. غيّر حجم صور الرأس إلى 600 بكسل عرضًا لعرض موثوق به عبر جميع عملاء البريد الإلكتروني."],
+          ["الطباعة والمستندات",  "غيّر حجم الصور إلى أبعاد البكسل الدقيقة المطلوبة بواسطة قالب الطباعة الخاص بك، أو العرض التقديمي، أو تخطيط المستند لتجنب فقدان الجودة عند التصدير."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">الأسئلة الشائعة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">الأسئلة المتكررة</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["كيف أحافظ على نسبة العرض إلى الارتفاع عند تغيير الحجم؟",
+           "قم بتمكين مفتاح 'الحفاظ على نسبة العرض إلى الارتفاع' قبل إدخال أبعادك. عندما يكون نشطًا، يؤدي إدخال العرض إلى حساب الارتفاع الصحيح تلقائيًا (والعكس صحيح)، لذلك لن تظهر صورتك ممتدة أو مضغوطة."],
+          ["هل سيؤدي تغيير الحجم إلى تقليل جودة الصورة؟",
+           "تقليل حجم الصورة (جعلها أصغر) له تأثير ضئيل على الجودة. أما تكبيرها (جعلها أكبر من الأصل) فقد يؤدي إلى ضبابية بسبب استيفاء البكسلات. للحصول على أفضل النتائج، ابدأ دائمًا من أعلى دقة أصلية لديك."],
+          ["ما هي صيغ الصور التي يمكنني تغيير حجمها؟",
+           "تدعم أداتنا صيغ JPEG، JPG، PNG، GIF، WebP، وAVIF. تتطابق صيغة الإخراج مع الإدخال — تبقى صورة PNG بصيغة PNG بعد تغيير الحجم، مع الحفاظ على أي شفافية."],
+          ["كيف أُغيّر حجم صورة لإنستغرام؟",
+           "يوصي إنستغرام بـ 1080 × 1080 بكسل للمنشورات المربعة، و1080 × 1350 بكسل للصور العمودية، و1080 × 566 بكسل للصور الأفقية. أدخل أبعادك المستهدفة، وفعّل قفل نسبة العرض إلى الارتفاع، ثم حمّل صورتك بعد تغيير حجمها لتكون جاهزة للتحميل."],
+          ["ما الفرق بين تغيير الحجم والاقتصاص؟",
+           "يُغيّر تغيير الحجم الأبعاد الكلية للصورة بأكملها، مع تغيير حجم كل المحتوى بشكل متناسب (أو غير متناسب). أما الاقتصاص فيزيل أجزاء من الصورة لتغيير الإطار. استخدم تغيير الحجم عندما تحتاج إلى حجم بكسل محدد؛ استخدم الاقتصاص عندما تحتاج إلى قص منطقة معينة."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">آخر تحديث: مايو 2026</p>
+
+  </div>
+</section>

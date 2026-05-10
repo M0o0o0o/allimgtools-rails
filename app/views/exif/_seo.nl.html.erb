@@ -1,0 +1,203 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Verwijder EXIF-gegevens Online —<br class="hidden sm:block"> Bescherm Uw Privacy Direct
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Verwijder direct alle metadata van uw foto's — geen software, geen aanmelding vereist. Onze gratis online EXIF-verwijderaar verwijdert permanent GPS-locatie, cameramodel, opnamedatum, lensinformatie, belichtingsinstellingen en alle IPTC/XMP-metadata van JPEG-, PNG-, WebP- en GIF-bestanden. Of u nu online artikelen verkoopt, foto's openbaar deelt of afbeeldingen voorbereidt voor sociale media, uw persoonlijke informatie blijft privé.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "Online EXIF-verwijderaar — verwijder GPS, camera-informatie en metadata van foto's om privacy te beschermen", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Stap voor stap</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Hoe EXIF-gegevens Online te Verwijderen</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Upload uw afbeelding</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Sleep en plaats of klik om een JPEG-, PNG-, WebP- of GIF-bestand te selecteren. U kunt meerdere afbeeldingen tegelijk uploaden.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Verwijder alle metadata</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klik op de verwijderknop en alle EXIF-, IPTC- en XMP-metadata worden direct van uw afbeelding verwijderd.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Download uw schone afbeelding</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Download uw metadata-vrije afbeelding. De visuele inhoud van uw foto blijft volledig ongewijzigd.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 0 002-2v-6a2 0 00-2-2H6a2 0 00-2 2v6a2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Geen account vereist. Uw bestanden worden nooit op onze servers opgeslagen.
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referentie</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Wat EXIF-gegevens Over U Onthullen</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Elke foto gemaakt met een smartphone of digitale camera bevat verborgen metadata. Dit is wat die gegevens kunnen onthullen wanneer u een niet-gestripte afbeelding deelt:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF-veld</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Wat het Onthult</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS Breedtegraad / Lengtegraad", "Exacte locatie waar de foto is genomen"],
+              ["DateTimeOriginal",         "De precieze datum en tijd waarop de foto is gemaakt"],
+              ["Merk / Model",             "Cameramerk en -model (bijv. Apple iPhone 15 Pro)"],
+              ["Software",                 "Gebruikte bewerkingssoftware (bijv. Adobe Lightroom, Snapseed)"],
+              ["Artiest / Auteursrecht",       "Naam en identiteit van de fotograaf"],
+              ["Lensmodel",                "Gebruikte lens — wijst op professionele apparatuur"],
+              ["Belichtingstijd / ISO",       "Camera-instellingen die uw fotografiestijl kunnen identificeren"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Alle bovenstaande velden — en meer — worden verwijderd wanneer u deze tool gebruikt.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Gebruiksscenario's</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Waarom EXIF-gegevens Verwijderen?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Online artikelen verkopen",     "Foto's van te koop staande artikelen bevatten vaak de GPS-coördinaten van uw huis. Verwijder metadata voordat u ze plaatst op marktplaatsen zoals eBay, Craigslist of Facebook Marketplace."],
+          ["Foto's openbaar delen",  "Uploaden naar forums, Discord of openbare galerijen? Uw foto kan uw huisadres uitzenden. Verwijder EXIF voordat u deelt op plaatsen die u niet beheert."],
+          ["Professioneel delen",     "Leveringen aan klanten mogen uw camera-uitrusting, opnamedatum of persoonlijke gegevens niet bevatten. Verwijder metadata voor een schone, professionele overdracht."],
+          ["Veiligheid op sociale media",      "Hoewel de meeste platforms EXIF verwijderen bij het uploaden, doen sommige dat niet — en sommige gebruikers downloaden originelen. Verwijder zelf metadata voordat u uploadt om zeker te zijn."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── What's removed ────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Dekking</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Alle Metadata Verwijderd met Eén Klik</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Deze tool verwijdert elke metadatalaag die in uw afbeelding is ingebed — niet alleen basis-EXIF, maar ook IPTC- en XMP-gegevens die worden gebruikt in professionele workflows:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["GPS- & locatiegegevens",        "Breedtegraad, lengtegraad, hoogte en kaartrichting — alles verdwenen."],
+          ["Camera- & lensinformatie",         "Merk, model, lensmodel, firmwareversie en serienummer volledig verwijderd."],
+          ["Datum- & tijdstempels",         "DateTimeOriginal, DateTimeDigitized en alle gerelateerde tijdstempels verwijderd."],
+          ["Belichtingsinstellingen",          "ISO, diafragma, sluitertijd, witbalans, flitsmodus — alles gewist."],
+          ["IPTC / XMP metadata",        "Auteursrechtvermeldingen, trefwoorden, bijschriften, makerinformatie en rechtenverklaringen van professionele software."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── Bulk removal ───────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro-functie</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bulk EXIF-verwijdering</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Moet u metadata van tientallen foto's tegelijk verwijderen? Batch EXIF-verwijdering is beschikbaar in Pro — perfect voor:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-commerce verkopers",   "Reinig complete productfotosets voordat u ze op een marktplaats plaatst."],
+          ["Fotografen",        "Lever klantengalerijen zonder uw uitrusting of opnameschema te onthullen."],
+          ["Contentmakers",     "Verwijder metadata van alle afbeeldingen in een bericht of campagne in één keer."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Batchverwijdering is beschikbaar in Pro</p>
+          <p class="text-white/60 text-sm">Verwijder metadata van meerdere bestanden met één klik.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Begin gratis →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Veelgestelde vragen</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Veelgestelde Vragen</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Wat zijn EXIF-gegevens?",
+           "EXIF (Exchangeable Image File Format) is metadata die automatisch in foto's wordt ingebed door digitale camera's en smartphones. Het registreert technische details zoals camera-instellingen, lensinformatie, datum en tijd, en — het meest cruciaal — GPS-locatie. Deze gegevens zijn verborgen in het afbeeldingsbestand en onzichtbaar wanneer u de foto normaal bekijkt."],
+          ["Is EXIF-verwijdering permanent?",
+           "Ja. Eenmaal verwijderd, zijn de metadata verdwenen uit uw gedownloade bestand. Het originele bestand op uw apparaat wordt niet aangeraakt, dus u kunt er altijd op terugvallen. Onze tool verwerkt een kopie — uw geüploade bestand wordt nooit op onze servers opgeslagen."],
+          ["Verandert het verwijderen van EXIF de afbeelding?",
+           "Nee. De visuele inhoud van uw foto blijft volledig ongewijzigd. Het verwijderen van metadata beïnvloedt alleen de verborgen datalaag, niet de pixels. Uw afbeelding zal er voor en na identiek uitzien."],
+          ["Welke gegevens worden er precies verwijderd?",
+           "Alles: GPS-coördinaten, cameramerk en -model, lensinformatie, belichtingsinstellingen (ISO, diafragma, sluitertijd), datum- en tijdstempels, gebruikte software, artiestennaam, auteursrechtvermeldingen en alle IPTC/XMP-velden. In wezen worden alle niet-pixelgegevens verwijderd."],
+          ["Waarom EXIF verwijderen voordat u online deelt?",
+           "Zelfs als u een platform vertrouwt, kunnen andere gebruikers uw afbeelding downloaden en de volledige metadata extraheren met behulp van gratis tools. Als GPS-gegevens aanwezig zijn, kan iedereen precies bepalen waar u de foto hebt genomen — wat uw huis, werkplek of dagelijkse routine kan onthullen."],
+          ["Verwijderen sociale media EXIF automatisch?",
+           "De meeste grote platforms (Instagram, Facebook, Twitter/X) verwijderen EXIF wel bij het uploaden, maar dit gedrag kan zonder kennisgeving veranderen, is niet van toepassing op alle bestandstypen en beschermt u niet als iemand het bestand downloadt voordat u het via het platform deelt. Zelf metadata verwijderen voordat u uploadt, is de enige gegarandeerde aanpak."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse

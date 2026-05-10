@@ -1,0 +1,149 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Modifier les métadonnées EXIF en ligne —<br class="hidden sm:block"> Éditeur de données d'image gratuit
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Visualisez et modifiez les métadonnées cachées de vos images — aucun logiciel ni inscription requis. Notre éditeur EXIF en ligne gratuit vous permet de modifier les coordonnées GPS, de corriger les horodatages, d'ajouter des informations de droit d'auteur et d'auteur, de mettre à jour des mots-clés, et bien plus encore. Fonctionne avec les fichiers JPEG et PNG. Parfait pour les photographes, les contributeurs de banques d'images et toute personne ayant besoin d'un contrôle précis sur les données de leurs images.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_edit_hero.png", alt: "Éditeur EXIF en ligne — modifiez les champs GPS, date, droit d'auteur et métadonnées dans les fichiers JPEG et PNG", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Étape par étape</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Comment modifier les métadonnées EXIF en ligne</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Téléchargez votre image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Glissez-déposez ou cliquez pour sélectionner un fichier JPEG ou PNG. Vous pouvez télécharger plusieurs images et les modifier une par une.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Modifiez les champs de métadonnées</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Mettez à jour n'importe quel champ EXIF — coordonnées GPS, date de prise de vue, informations sur l'appareil photo, droit d'auteur, nom de l'artiste, mots-clés ou description. Laissez les champs vides pour les supprimer.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Appliquer et télécharger</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Cliquez sur Enregistrer pour appliquer vos modifications, puis téléchargez l'image mise à jour. Utilisez « Appliquer à toutes les images » pour copier les mêmes modifications sur tous les fichiers que vous avez téléchargés.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Aucun compte requis. Vos fichiers ne sont jamais stockés sur nos serveurs.
+      </p>
+    </div>
+
+    <%# ── Editable fields table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Référence</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Champs EXIF modifiables</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Chaque champ listé ci-dessous peut être lu, modifié ou effacé directement dans l'éditeur. Les modifications sont réécrites dans le fichier image lors du téléchargement — le contenu visuel de votre photo n'est jamais altéré.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Champ EXIF</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Ce que vous pouvez définir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Latitude / Longitude GPS", "Ajouter, modifier ou supprimer l'emplacement où la photo a été prise"],
+              ["DateTimeOriginal",         "Corriger une date de prise de vue incorrecte ou un fuseau horaire erroné"],
+              ["Artiste / Créateur",         "Ajoutez votre nom pour que votre paternité accompagne le fichier"],
+              ["Droit d'auteur",               "Intégrer une déclaration de droit d'auteur (ex: © 2026 Jane Smith)"],
+              ["Mots-clés",                "Ajouter des balises de recherche pour les banques d'images ou la gestion d'actifs"],
+              ["ImageDescription",        "Rédiger une légende ou une description alt-text pour l'image"],
+              ["Marque / Modèle",            "Mettre à jour ou effacer les champs de marque et de modèle de l'appareil photo"],
+            ].each do |field, purpose| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= purpose %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Des champs supplémentaires peuvent être visibles en mode lecture seule en fonction des données intégrées au fichier.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Cas d'utilisation</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Pourquoi modifier les métadonnées EXIF ?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Ajouter le droit d'auteur et les crédits",     "Intégrez votre nom, votre déclaration de droit d'auteur et vos coordonnées directement dans le fichier afin que les informations de propriété restent avec l'image, peu importe où elle voyage."],
+          ["Corriger une date ou une heure erronée",      "Les horloges des appareils photo dérivent, voyagent à travers les fuseaux horaires ou sont réinitialisées après un changement de batterie. Corrigez la date de prise de vue pour que votre bibliothèque de photos reste triée avec précision."],
+          ["Ajouter le GPS aux photos non taguées",  "Prise avec un appareil photo sans GPS ? Ajoutez manuellement les coordonnées de localisation pour que la photo apparaisse correctement sur les cartes et dans les recherches basées sur la localisation."],
+          ["Préparation de photos de stock",     "Les banques d'images exigent des droits d'auteur, des mots-clés et des descriptions précis intégrés au fichier. Modifiez tous les champs requis avant la soumission pour accélérer le processus de révision."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Apply to all feature ───────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Édition en masse</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Appliquer les modifications à plusieurs images</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        L'éditeur fonctionne sur une image à la fois, mais vous pouvez télécharger plusieurs fichiers en une seule session. Après avoir modifié la première image, utilisez le bouton <strong class="text-base-content font-semibold">« Appliquer à toutes les images »</strong> pour copier vos modifications de métadonnées actuelles sur tous les autres fichiers téléchargés — vous évitant ainsi de répéter les mêmes modifications une par une.
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Droit d'auteur cohérent pour une séance photo",  "Appliquez votre déclaration de droit d'auteur et le nom de l'artiste à chaque image d'une session en un seul clic."],
+          ["Mots-clés partagés pour un ensemble de photos",       "Définissez les mêmes mots-clés descriptifs pour toutes les images destinées à une banque d'images ou à un dossier client."],
+          ["Balises GPS uniformes",                   "Attribuez le même emplacement à toutes les photos prises au même endroit ou événement."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Foire aux questions</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Quelles données EXIF peuvent être modifiées ?",
+           "Vous pouvez modifier les coordonnées GPS, la date et l'heure (DateTimeOriginal), le nom de l'artiste/créateur, la déclaration de droit d'auteur, les mots-clés, la description/légende de l'image

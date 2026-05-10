@@ -1,0 +1,174 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Görselleri Çevrimiçi Kırpın —<br class="hidden sm:block"> Ücretsiz, Hassas &amp; Anında
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Görsellerinizi saniyeler içinde kırpın, yeniden çerçeveleyin ve kesin — yazılım veya kayıt gerekmez. Ücretsiz çevrimiçi görsel kırpma aracımız JPEG, PNG, WebP, GIF ve AVIF dosyalarını destekler. Serbest kırpma seçeneğini kullanın veya standart bir en boy oranına kilitleyin — profil resimleri için 1:1, YouTube küçük resimleri için 16:9, Hikayeler için 9:16 ve daha fazlası. İstenmeyen kenarlıkları kaldırın, konuya odaklanın ve görselinizi anında herhangi bir platforma hazırlayın.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Çevrimiçi görsel kırpıcı — JPEG, PNG, WebP dosyalarını serbest veya sabit en boy oranıyla kırpın", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Adım adım</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bir Görseli Çevrimiçi Nasıl Kırpılır</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Görselinizi yükleyin</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Cihazınızdan bir JPEG, PNG, WebP, GIF veya AVIF dosyasını sürükleyip bırakın veya seçmek için tıklayın.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Bir kırpma alanı seçin</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Kırpma tutamaçlarını sürükleyerek alanınızı serbestçe tanımlayın veya oranları kilitlemek için önceden ayarlanmış bir oran seçin — 1:1, 4:3, 16:9, 3:2 veya 9:16.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Kırpılmış görselinizi indirin</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">İndir'e tıklayın ve kırpılmış dosyanızı anında orijinal formatında kaydedin.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Hesap gerekmez. Dosyalarınız sunucularımızda asla saklanmaz.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formatlar</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP &amp; Daha Fazlasını Kırpın</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "En yaygın fotoğraf formatı. Doğal renkleri ve geçişleri korurken temiz bir şekilde kırpar." },
+          { name: "PNG",        desc: "Şeffaflığı destekler. Kırpma, alfa kanalını koruyarak şeffaf alanları bozulmadan tutar." },
+          { name: "WebP",       desc: "Google'ın modern formatı. Tam doğrulukla kırpar — web için optimize edilmiş görseller için harika." },
+          { name: "GIF",        desc: "Statik GIF'leri renk paletlerini veya şeffaflığı etkilemeden kırpın." },
+          { name: "AVIF",       desc: "Mükemmel kalitede yeni nesil format. Kırpın ve tüm detayları koruyun." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referans</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Hangi En Boy Oranını Kullanmalısınız?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Farklı platformlar ve kullanım durumları farklı oranlar gerektirir. Doğru oranı seçin ve görseliniz her zaman mükemmel bir şekilde çerçevelenmiş görünecektir:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Oran</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">En İyisi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Instagram gönderileri, profil resimleri, avatarlar, uygulama simgeleri"],
+              ["16:9", "YouTube küçük resimleri, geniş ekran video kapakları, blog başlıkları"],
+              ["4:3",  "Standart fotoğrafçılık, sunumlar, klasik fotoğraf baskıları"],
+              ["9:16", "Instagram Hikayeleri, TikTok videoları, Reels, Shorts kapakları"],
+              ["3:2",  "DSLR standardı, manzara fotoğrafçılığı, baskı albümleri"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Herhangi bir orana kilitlemeden de serbestçe kırpabilirsiniz — sadece istediğiniz alana sürükleyin.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kullanım Alanları</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Görselinizi Neden Kırpmalısınız?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Profil resimleri",         "1:1 oranına kilitleyin ve LinkedIn, Twitter, GitHub veya dairesel ya da kare avatarlar gösteren herhangi bir platform için herhangi bir fotoğrafı mükemmel bir kareye kırpın."],
+          ["Küçük Resimler &amp; Kapaklar",  "YouTube küçük resimleri, blog başlıkları veya sosyal medya önizleme kartları için bir görselin en ilgi çekici kısmını çerçeveleyin."],
+          ["İstenmeyen alanları kaldırın",    "Dikkat dağıtıcı arka planları, kenarlıkları, filigranları veya boş alanları ortadan kaldırın — ve sadece önemli olanı saklayın."],
+          ["Platforma hazır görseller",    "Her platformun tercih ettiği boyutları vardır. Yüklemeden önce doğru orana kırpın, böylece görseliniz asla garip bir şekilde otomatik olarak kırpılmaz."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">İpuçları</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Kırpma Yaparken En İyi Sonuçları Alın</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Yüksek çözünürlüklü bir orijinalle başlayın", "Kırpma, sakladığınız piksel alanını azaltır. Yüksek çözünürlüklü bir kaynak, size daha fazla çalışma alanı sağlar ve kırpılmış sonucun keskin kalmasını garanti eder."],
+          ["Platformlar için en boy oranı kilidini kullanın",   "Belirli bir platform için görseller hazırlarken, her zaman önce oranı kilitleyin. Bu, sonucun gerekli boyutlarla tahmin yürütmeden eşleşmesini garanti eder."],
+          ["Sıkıştırmadan önce kırpın",               "Önce kırpın, sonra sıkıştırın. İstenmeyen pikselleri kaldırmak, sıkıştırmanız gereken dosya boyutunu azaltır — aynı çıktı boyutunda daha iyi kalite elde etmenizi sağlar."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">SSS</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Sıkça Sorulan Sorular</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Belirli bir piksel boyutuna kırpabilir miyim?",
+           "Evet. Serbest kırpma modunu kullanın ve tutamaçları istediğiniz alanı hedeflemek için sürükleyin. Kırpma aracı sürüklerken mevcut piksel boyutlarını gösterir, böylece tam bir boyuta ulaşabilirsiniz. Sabit oranlar için (Instagram için 1080×1080 gibi), 1:1 oranını kilitleyin ve gerekirse kırptıktan sonra yeniden boyutlandırın."],
+          ["Kırpma görsel kalitesini düşürür mü?",
+           "Hayır — kırpma, kalan pikseller üzerinde yıkıcı olmayan bir işlemdir. Seçiminizin dışındaki alanları, sakladığınız piksel verilerini değiştirmeden basitçe kaldırır. Kaydedilen dosya, kırpılan bölge içinde tam kalitededir."],
+          ["Kırpma ve yeniden boyutlandırma arasındaki fark nedir?",
+           "Kırpma, görselin bölümlerini kaldırır — tuval alanını değiştirir ve ölçeklendirme yapmadan toplam piksel sayısını azaltır. Yeniden boyutlandırma, tüm görseli büyütür veya küçültür, boyutları değiştirir ancak tüm içeriği korur. Yeniden çerçevelemek için kırpmayı; çıktı boyutlarını değiştirmek için yeniden boyutlandırmayı kullanın."],
+          ["En boy oranı ne anlama gelir?",
+           "En boy oranı, bir görselin genişliği ile yüksekliği arasındaki orantısal ilişkidir ve iki sayının iki nokta üst üste (örneğin, 16:9) ile ayrılmasıyla ifade edilir. Görselin şeklini tanımlar. 16:9 bir görsel, yüksekliğinden daha geniştir; 1:1 bir görsel ise mükemmel bir karedir. Kırpma sırasında en boy oranını kilitlemek, kırpma alanını ayarlarken oranların sabit kalmasını sağlar."],
+          ["Hangi formatlar destekleniyor?",
+           "JPEG, JPG, PNG, WebP, GIF ve AVIF dosyalarını kırpabilirsiniz. Çıkt

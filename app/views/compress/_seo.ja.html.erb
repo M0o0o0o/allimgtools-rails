@@ -1,0 +1,218 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        オンラインで画像を圧縮 —<br class="hidden sm:block"> 無料、高速、品質劣化なし
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        ソフトウェアのインストールやサインアップは不要。画像を瞬時にファイルサイズを削減します。当社の無料オンライン画像圧縮ツールは、スマートな圧縮アルゴリズムを使用して、JPEG、PNG、GIF、WebP、AVIFファイルを視覚的な品質を保ちながら縮小します。品質スライダーを使って、ファイルサイズと画像の鮮明さの完璧なバランスを見つけてください。ウェブサイト用の写真を最適化する場合でも、メール用に画像を準備する場合でも、ストレージ容量を解放する場合でも、数秒でより小さなファイルが得られます。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "オンライン画像圧縮ツール — JPEG、PNG、WebPのファイルサイズを品質を保ちながら削減", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ステップバイステップ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">画像をオンラインで圧縮する方法</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">画像をアップロード</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">JPEG、JPG、PNG、GIF、WebP、またはAVIFファイルをドラッグ＆ドロップするか、クリックして選択します。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">品質スライダーを調整</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">スライダーを動かして圧縮レベルを調整します。値が低いほどファイルサイズは小さくなり、値が高いほど詳細が保持されます。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">圧縮された画像をダウンロード</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">ダウンロードをクリックして、最適化されたファイルをすぐに保存します。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        アカウント不要。ファイルが当社のサーバーに保存されることはありません。
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">対応フォーマット</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG、PNG、WebPなどを圧縮</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "写真で最も一般的なフォーマット。自然な色とグラデーションを持つ高解像度画像に最適です。" },
+          { name: "PNG",        desc: "透明度をサポート。ロゴ、スクリーンショット、グラフィックに最適です。" },
+          { name: "GIF",        desc: "アニメーションフレームを失うことなく、アニメーションGIFまたは静止GIFを圧縮します。" },
+          { name: "WebP",       desc: "Googleの最新フォーマット。同等の品質でJPEGよりも大幅に小さく圧縮されます。" },
+          { name: "AVIF",       desc: "最新のブラウザ向けに優れた圧縮効率を持つ次世代フォーマットです。" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">参考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">画像を特定のファイルサイズに圧縮</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        画像を100KB、200KB、50KBなどの特定のサイズ以下にする必要がありますか？品質スライダーを使用して、目標に達するまで圧縮を微調整してください。以下に簡単な目安を示します。
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">目標サイズ</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">推奨品質範囲</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["20 KB未満",  "10 – 25%"],
+              ["50 KB未満",  "25 – 40%"],
+              ["100 KB未満", "40 – 60%"],
+              ["200 KB未満", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">結果は元の画像の内容と寸法によって異なります。ダウンロードする前にスライダーを調整し、プレビューを確認してください。</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ウェブパフォーマンス</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ウェブサイトやWordPress向けに画像を最適化</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        ページの読み込み速度はGoogleのランキング要因の一つであり、画像は通常、その最大の原因です。最適化されていない画像はサイトを遅くし、直帰率を上げ、SEOに悪影響を与えます。画像をウェブサイトにアップロードする前に、以下のように圧縮してください：
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Core Web Vitalsを改善",       "画像ファイルサイズを削減することでLCP（Largest Contentful Paint）スコアを改善します。"],
+          ["帯域幅の使用量を削減",        "画像が小さいほどページの読み込みが速くなり、特にモバイルで顕著です。"],
+          ["Google PageSpeed Insightsの監査に合格","ほとんどの監査で、未圧縮の画像が主要な問題として指摘されます。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPressのヒント：</strong> メディアライブラリにアップロードする前に、ここで画像を圧縮してください。これにより、サーバーサイドのプラグインに依存することなく、出力品質を完全に制御できます。
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro機能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">一括画像圧縮</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        複数の画像を一度に圧縮する必要がありますか？当社の画像一括圧縮ツールを使用すると、複数のファイルを一度にアップロードして処理できます。以下のような場合に最適です：
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Eコマース",    "公開前に何十枚もの商品画像を圧縮します。"],
+          ["ブログ記事",    "アイキャッチ画像や記事内の写真を一括で最適化します。"],
+          ["成果物",  "圧縮された写真セットをメールやクラウドストレージで送信します。"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">一括処理はProプランで利用可能です</p>
+          <p class="text-white/60 text-sm">ワンクリックで複数のファイルを処理します。</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          無料で始める →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ユースケース</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">なぜ画像を圧縮するのか？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["ウェブサイトとブログ",   "大きな画像はページの読み込みが遅くなる最大の原因です。アップロード前に圧縮することで、ページサイズを削減し、すべてのデバイスでユーザーエクスペリエンスを向上させます。"],
+          ["メール添付ファイル",  "ほとんどのメールクライアントには25MBの添付ファイル制限があります。写真を圧縮することで、サイズ制限に達することなく複数の画像を簡単に送信できます。"],
+          ["ソーシャルメディア",       "InstagramやFacebookのようなプラットフォームはアップロードされた画像を再圧縮するため、品質が低下することがよくあります。事前に圧縮することで、写真の見え方をより細かく制御できます。"],
+          ["ストレージとバックアップ",   "大量の写真コレクションをアーカイブしていますか？画像を圧縮することで、通常の表示サイズでは目立った品質の低下なしに、ストレージ要件を大幅に削減できます。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">よくある質問</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">よくある質問</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["画像を圧縮すると品質は低下しますか？",
+           "圧縮レベルによります。非可逆圧縮（JPEG、WebP）は一部の画像データを削除しますが、中程度の設定では人間の目にはほとんど違いがわかりません。ダウンロードする前に品質スライダーを使用して結果をプレビューしてください。"],
+          ["画像を100KB未満に圧縮するにはどうすればよいですか？",
+           "画像をアップロードし、品質スライダーを40〜60%程度に設定して、出力ファイルサイズを確認します。必要に応じてさらに下げてください。非常に大きな元の画像の場合は、さらに低くする必要があるかもしれません。"],
+          ["画像をオンラインで圧縮するのは安全ですか？",
+           "はい、安全です。お客様の画像は直接処理され、保存、共有、またはその他の目的で使用されることはありません。処理後、お客様のファイルは保持しません。"],
+          ["圧縮されたウェブ画像に最適なフォーマットは何ですか？",
+           "WebPは、ほとんどのウェブユースケースにおいてファイルサイズと品質の最適なバランスを提供し、すべての主要なモダンブラウザでサポートされています。AVIFはさらに効率的ですが、ブラウザのサポートはわずかに低いです。JPEGは、最大の互換性のために最も安全な選択肢です。"],
+          ["透明度を失わずにPNGを圧縮できますか？",
+           "はい、できます。PNG圧縮はアルファチャンネル（透明度）を保持します。圧縮されたPNGは、元のファイルからの透明な領域を維持します。"],
+          ["非可逆圧縮と可逆圧縮の違いは何ですか

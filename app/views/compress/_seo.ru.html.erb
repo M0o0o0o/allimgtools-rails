@@ -1,0 +1,236 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Сжимайте изображения онлайн —<br class="hidden sm:block"> Бесплатно, быстро и без потери качества
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Мгновенно уменьшайте размер файлов ваших изображений — без программного обеспечения и регистрации. Наш бесплатный онлайн-компрессор изображений использует интеллектуальные алгоритмы сжатия для уменьшения файлов JPEG, PNG, GIF, WebP и AVIF, сохраняя при этом визуальное качество. Используйте ползунок качества, чтобы найти идеальный баланс между размером файла и четкостью изображения. Оптимизируете ли вы фотографии для веб-сайта, готовите изображения для электронной почты или освобождаете место для хранения, вы получите файлы меньшего размера за считанные секунды.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "Онлайн-компрессор изображений — уменьшайте размер файлов JPEG, PNG, WebP, сохраняя качество", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Пошагово</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Как сжать изображение онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Загрузите ваше изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перетащите или нажмите, чтобы выбрать файл JPEG, JPG, PNG, GIF, WebP или AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Отрегулируйте ползунок качества</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перемещайте ползунок, чтобы контролировать уровень сжатия. Меньшие значения создают файлы меньшего размера; большие значения сохраняют больше деталей.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Скачайте сжатое изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Нажмите «Скачать» и мгновенно сохраните оптимизированный файл.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Регистрация не требуется. Ваши файлы никогда не хранятся на наших серверах.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Форматы</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Сжимайте JPEG, PNG, WebP и другие</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Самый распространенный формат для фотографий. Идеально подходит для изображений высокого разрешения с естественными цветами и градиентами." },
+          { name: "PNG",        desc: "Поддерживает прозрачность. Отлично подходит для логотипов, скриншотов и графики." },
+          { name: "GIF",        desc: "Сжимайте анимированные или статические GIF-файлы без потери кадров анимации." },
+          { name: "WebP",       desc: "Современный формат Google. Сжимает значительно меньше, чем JPEG, при эквивалентном качестве." },
+          { name: "AVIF",       desc: "Формат нового поколения с превосходной эффективностью сжатия для современных браузеров." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Справка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Сжать изображение до определенного размера файла</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Нужно, чтобы ваше изображение было меньше определенного размера — например, 100 КБ, 200 КБ или 50 КБ? Используйте ползунок качества, чтобы точно настроить сжатие, пока не достигнете цели. Вот краткая справка:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Целевой размер</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Рекомендуемый диапазон качества</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Менее 20 КБ",  "10 – 25%"],
+              ["Менее 50 КБ",  "25 – 40%"],
+              ["Менее 100 КБ", "40 – 60%"],
+              ["Менее 200 КБ", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Результаты зависят от содержимого и размеров исходного изображения. Отрегулируйте ползунок и просмотрите результат перед загрузкой.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Производительность веб-сайта</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Оптимизируйте изображения для вашего веб-сайта или WordPress</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Скорость загрузки страницы является одним из факторов ранжирования Google — и изображения обычно являются главной причиной проблем. Неоптимизированные изображения замедляют ваш сайт, увеличивают показатель отказов и вредят вашему SEO. Перед загрузкой изображений на ваш веб-сайт, сожмите их, чтобы:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Улучшить Core Web Vitals",       "Снизить показатели LCP (Largest Contentful Paint) за счет уменьшения размеров файлов изображений."],
+          ["Сократить использование пропускной способности",        "Меньшие изображения означают более быструю загрузку страниц, особенно на мобильных устройствах."],
+          ["Пройти проверку Google PageSpeed Insights","Большинство проверок отмечают несжатые изображения как главную проблему."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Совет для WordPress:</strong> Сжимайте изображения здесь, прежде чем загружать их в медиатеку. Это позволяет избежать зависимости от серверных плагинов и дает вам полный контроль над качеством вывода.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Профессиональная функция</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Массовое сжатие изображений</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Нужно сжать несколько изображений одновременно? Наш инструмент массового сжатия позволяет загружать и обрабатывать несколько файлов за один раз — идеально подходит для:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Электронная коммерция",    "Сжимайте десятки изображений товаров перед публикацией."],
+          ["Записи в блоге",    "Оптимизируйте избранные изображения и встроенные фотографии за одну партию."],
+          ["Материалы для передачи",  "Отправляйте сжатые наборы фотографий по электронной почте или через облачное хранилище."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Массовая обработка доступна в Pro-версии</p>
+          <p class="text-white/60 text-sm">Обрабатывайте несколько файлов одним щелчком.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Начать бесплатно →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Варианты использования</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Зачем сжимать изображения?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Веб-сайты и блоги",   "Большие изображения — основная причина медленной загрузки страниц. Сжатие перед загрузкой уменьшает вес страницы и улучшает пользовательский опыт на всех устройствах."],
+          ["Вложения электронной почты",  "Большинство почтовых клиентов имеют ограничение на вложения в 25 МБ. Сжатие фотографий позволяет легко отправлять несколько изображений, не превышая ограничения по размеру."],
+          ["Социальные сети",       "Платформы, такие как Instagram и Facebook, повторно сжимают ваши загрузки, часто ухудшая качество. Предварительное сжатие позволяет лучше контролировать внешний вид ваших фотографий."],
+          ["Хранение и резервное копирование",   "Архивируете большие коллекции фотографий? Сжатие изображений может значительно сократить требования к хранилищу без заметной потери качества при обычных размерах просмотра."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Часто задаваемые вопросы</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Часто задаваемые вопросы</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Уменьшает ли сжатие изображения его качество?",
+           "Это зависит от уровня сжатия. Сжатие с потерями (JPEG, WebP) удаляет часть данных изображения — при умеренных настройках, разница едва заметна человеческому глазу. Используйте ползунок качества для предварительного просмотра результатов перед загрузкой."],
+          ["Как сжать изображение до менее 100 КБ?",
+           "Загрузите изображение, установите ползунок качества примерно на 40–60% и проверьте размер выходного файла. При необходимости уменьшите. Для очень больших оригиналов может потребоваться установить более низкое значение."],
+          ["Безопасно ли сжимать изображения онлайн?",
+           "Да. Ваши изображения обрабатываются напрямую и не хранятся, не передаются и не используются для каких-либо других целей. Мы не храним ваши файлы после обработки."],
+          ["Какой формат лучше всего подходит для сжатых веб-изображений?",
+           "WebP предлагает лучший баланс размера файла и качества для большинства случаев использования в Интернете и поддерживается всеми основными современными браузерами. AVIF еще более эффективен, но имеет немного меньшую поддержку браузерами. JPEG остается самым безопасным выбором для максимальной совместимости."],
+          ["Могу ли я сжать PNG без потери прозрачности?",
+           "Да. Сжатие PNG сохраняет альфа-канал (прозрачность). Ваш сжатый PNG сохранит все прозрачные области из исходного файла."],
+          ["В чем разница между сжатием с потерями и без потерь?",
+           "Сжатие с потерями (JPEG, WebP) безвозвратно удаляет часть данных для достижения меньших файлов. Сжатие без потерь (PNG) уменьшает размер файла без удаления каких-либо данных изображения — но уменьшение обычно меньше. Для фотографий сжатие с потерями почти всегда является лучшим выбором."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Последнее обновление: Май 2026</p>
+
+  </div>
+</section>

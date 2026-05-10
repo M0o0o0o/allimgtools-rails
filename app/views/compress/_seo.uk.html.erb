@@ -1,0 +1,173 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Стискайте зображення онлайн —<br class="hidden sm:block"> Безкоштовно, швидко та без втрати якості
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Миттєво зменшуйте розмір файлів ваших зображень — без програмного забезпечення та реєстрації. Наш безкоштовний онлайн-компресор зображень використовує розумні алгоритми стиснення, щоб зменшити ваші файли JPEG, PNG, GIF, WebP та AVIF, зберігаючи при цьому візуальну якість. Використовуйте повзунок якості, щоб знайти ідеальний баланс між розміром файлу та чіткістю зображення. Незалежно від того, чи оптимізуєте ви фотографії для веб-сайту, готуєте зображення для електронної пошти або звільняєте місце для зберігання, ви отримаєте менші файли за лічені секунди.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "Онлайн-компресор зображень — зменшуйте розмір файлів JPEG, PNG, WebP, зберігаючи якість", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Покроково</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Як стиснути зображення онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Завантажте своє зображення</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перетягніть файл JPEG, JPG, PNG, GIF, WebP або AVIF або натисніть, щоб вибрати його.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Налаштуйте повзунок якості</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перемістіть повзунок, щоб контролювати рівень стиснення. Нижчі значення створюють менші файли; вищі значення зберігають більше деталей.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Завантажте стиснуте зображення</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Натисніть «Завантажити» та миттєво збережіть оптимізований файл.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Обліковий запис не потрібен. Ваші файли ніколи не зберігаються на наших серверах.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Формати</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Стискайте JPEG, PNG, WebP та інші</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Найпоширеніший формат для фотографій. Ідеально підходить для зображень високої роздільної здатності з природними кольорами та градієнтами." },
+          { name: "PNG",        desc: "Підтримує прозорість. Чудово підходить для логотипів, скріншотів та графіки." },
+          { name: "GIF",        desc: "Стискайте анімовані або статичні GIF-файли без втрати кадрів анімації." },
+          { name: "WebP",       desc: "Сучасний формат Google. Стискає значно менше, ніж JPEG, при еквівалентній якості." },
+          { name: "AVIF",       desc: "Формат нового покоління з відмінною ефективністю стиснення для сучасних браузерів." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Довідка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Стиснути зображення до певного розміру файлу</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Потрібне зображення певного розміру — наприклад, менше 100 КБ, 200 КБ або 50 КБ? Використовуйте повзунок якості, щоб точно налаштувати стиснення, доки не досягнете своєї мети. Ось короткий довідник:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Цільовий розмір</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Рекомендований діапазон якості</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Менше 20 КБ",  "10 – 25%"],
+              ["Менше 50 КБ",  "25 – 40%"],
+              ["Менше 100 КБ", "40 – 60%"],
+              ["Менше 200 КБ", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Результати залежать від вмісту та розмірів оригінального зображення. Налаштуйте повзунок та перегляньте результат перед завантаженням.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Продуктивність веб-сайту</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Оптимізуйте зображення для вашого веб-сайту або WordPress</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Швидкість завантаження сторінки є одним із факторів ранжування Google — і зображення зазвичай є найбільшою проблемою. Неоптимізовані зображення уповільнюють ваш сайт, збільшують показники відмов та шкодять вашому SEO. Перед завантаженням зображень на ваш веб-сайт стисніть їх, щоб:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Покращити Core Web Vitals",       "Знизити показники LCP (Largest Contentful Paint), зменшивши розміри файлів зображень."],
+          ["Зменшити використання пропускної здатності",        "Менші зображення означають швидше завантаження сторінок, особливо на мобільних пристроях."],
+          ["Пройти Google PageSpeed Insights","Більшість аудитів позначають нестиснені зображення як головну проблему."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Порада для WordPress:</strong> Стискайте зображення тут, перш ніж завантажувати їх до медіатеки. Це дозволяє уникнути залежності від серверних плагінів і дає вам повний контроль над якістю вихідного зображення.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Професійна функція</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Масове стиснення зображень</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Потрібно стиснути кілька зображень одночасно? Наш інструмент масового стиснення дозволяє завантажувати та обробляти кілька файлів за один раз — ідеально підходить для:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Електронна комерція",    "Стискайте десятки зображень товарів перед публікацією."],
+          ["Дописи в блогах",    "Оптимізуйте головні зображення та вбудовані фотографії за один раз."],
+          ["Матеріали для доставки",  "Надсилайте стиснені набори фотографій електронною поштою або через хмарне сховище."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Масова обробка доступна в Pro</p>
+          <p class="text-white/60 text-sm">Обробляйте кілька файлів одним кліком.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-

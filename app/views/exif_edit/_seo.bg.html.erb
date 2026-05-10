@@ -1,0 +1,159 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Редактирайте EXIF метаданни онлайн —<br class="hidden sm:block"> Безплатен редактор на данни за изображения
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Преглеждайте и редактирайте скритите метаданни във вашите изображения — не е необходим софтуер или регистрация. Нашият безплатен онлайн EXIF редактор ви позволява да променяте GPS координати, да коригирате дати и часове, да добавяте информация за авторски права и автор, да актуализирате ключови думи и други. Работи с JPEG и PNG файлове. Идеален за фотографи, сътрудници на стокови агенции и всеки, който се нуждае от прецизен контрол върху данните на своите изображения.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_edit_hero.png", alt: "Онлайн EXIF редактор — редактиране на GPS, дата, авторски права и полета за метаданни в JPEG и PNG файлове", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Стъпка по стъпка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Как да редактирате EXIF метаданни онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Качете вашето изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Плъзнете и пуснете или щракнете, за да изберете JPEG или PNG файл. Можете да качите няколко изображения и да ги редактирате едно по едно.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Редактирайте полетата за метаданни</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Актуализирайте всяко EXIF поле — GPS координати, дата на заснемане, информация за камерата, авторски права, име на изпълнител, ключови думи или описание. Оставете полетата празни, за да ги премахнете.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Приложете и изтеглете</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Щракнете върху Запазване, за да запишете промените си, след което изтеглете актуализираното изображение. Използвайте „Приложи към всички изображения“, за да копирате същите редакции във всеки файл, който сте качили.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Не е необходим акаунт. Вашите файлове никога не се съхраняват на нашите сървъри.
+      </p>
+    </div>
+
+    <%# ── Editable fields table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Справка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Редактируеми EXIF полета</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Всяко поле, изброено по-долу, може да бъде прочетено, редактирано или изчистено директно в редактора. Промените се записват обратно във файла с изображението при изтегляне — визуалното съдържание на вашата снимка никога не се докосва.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF поле</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Какво можете да зададете</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS Ширина / Дължина", "Добавете, променете или премахнете местоположението, където е направена снимката"],
+              ["DateTimeOriginal",         "Коригирайте неправилна дата на заснемане или грешна часова зона"],
+              ["Изпълнител / Създател",         "Добавете вашето име, така че авторството ви да пътува с файла"],
+              ["Авторски права",               "Вградете декларация за авторски права (напр. © 2026 Джейн Смит)"],
+              ["Ключови думи",                "Добавете търсещи тагове за стокови библиотеки или управление на активи"],
+              ["Описание на изображението",        "Напишете надпис или алтернативен текст за изображението"],
+              ["Марка / Модел",            "Актуализирайте или изчистете полетата за марка и модел на камерата"],
+            ].each do |field, purpose| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= purpose %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Допълнителни полета може да са видими в режим само за четене в зависимост от вградените данни на файла.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Случаи на употреба</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Защо да редактирате EXIF метаданни?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Добавете авторски права и кредити",     "Вградете вашето име, декларация за авторски права и данни за контакт директно във файла, така че информацията за собственост да остане с изображението, независимо къде пътува."],
+          ["Коригирайте грешна дата или час",      "Часовниците на камерите се отклоняват, пътуват през часови зони или се нулират след смяна на батерията. Коригирайте датата на заснемане, така че вашата фото библиотека да остане точно сортирана."],
+          ["Добавете GPS към немаркирани снимки",  "Заснето с камера без GPS? Ръчно добавете координатите на местоположението, така че снимката да се показва правилно на карти и в търсения, базирани на местоположение."],
+          ["Подготовка на стокови снимки",     "Стоковите библиотеки изискват точни авторски права, ключови думи и описания, вградени във файла. Редактирайте всички необходими полета преди изпращане, за да ускорите процеса на преглед."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Apply to all feature ───────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Групово редактиране</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Приложете редакции към множество изображения</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Редакторът работи с едно изображение наведнъж, но можете да качите няколко файла в една сесия. След като редактирате първото изображение, използвайте бутона <strong class="text-base-content font-semibold">„Приложи към всички изображения“</strong>, за да копирате текущите си промени в метаданните към всеки друг качен файл — спестявайки ви повтарянето на едни и същи редакции една по една.
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Последователни авторски права за цяла фотосесия",  "Приложете вашата декларация за авторски права и име на изпълнител към всяко изображение от сесия с едно щракване."],
+          ["Споделени ключови думи за набор от снимки",       "Задайте едни и същи описателни ключови думи за всички изображения, предназначени за стокова библиотека или клиентска папка."],
+          ["Еднообразно GPS маркиране",                   "Присвоете едно и също местоположение на всички снимки, направени на едно и също място или събитие."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ЧЗВ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Често задавани въпроси</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Какви EXIF данни могат да бъдат редактирани?",
+           "Можете да редактирате GPS координати, дата и час (DateTimeOriginal), име на изпълнител/създател, декларация за авторски права, ключови думи, описание/надпис на изображението и марка/модел на камерата. Полетата, които оставите празни, се изчистват от файла. Допълнителни полета само за четене може да се показват в зависимост от това какво съдържа оригиналният файл."],
+          ["Променя ли редактирането на EXIF данни качеството на изображението?",
+           "Не. Редактирането на EXIF променя само слоя метаданни — пикселните данни, които съставляват вашата снимка, никога не се докосват. Вашето изображение ще изглежда идентично преди и след редактирането, а файловият формат остава същият."],
+          ["Кои файлови формати се поддържат?",
+           "JPEG и PNG са напълно поддържани за четене и запис на EXIF метаданни. JPEG е най-често срещаният формат за EXIF данни и поддържа най-широк набор от полета. PNG поддържа подмножество от полета за метаданни. WebP и GIF имат ограничена или никаква EXIF поддръжка в зависимост от това как са създадени."],
+          ["Как да добавя GPS координати към снимка?",
+           "Отворете изображението в редактора, намерете полетата GPS Ширина и Дължина и въведете десетичните координати за местоположението (напр. 48.8584, 2.2945 за Айфеловата кула). Можете да намерите координати за всяко местоположение с помощта на Google Maps — щракнете с десния бутон върху място и копирайте показаните координати."],
+          ["Как да добавя декларация за авторски права към моите снимки?",
+           "Качете вашето изображение, въведете текста за авторски права в полето Авторски права (например: © 2026 Вашето име. Всички права запазени.) и запазете. За да приложите същите авторски права към няколко качени изображения, щракнете върху „Приложи към всички изображения“ след редактиране на първото."],
+          ["Какво прави „Приложи към всички изображения“?",
+           "Когато

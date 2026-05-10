@@ -1,0 +1,98 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        온라인으로 EXIF 데이터 제거 —<br class="hidden sm:block"> 즉시 개인 정보 보호
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        소프트웨어 설치나 회원가입 없이 사진의 모든 메타데이터를 즉시 제거하세요. 저희의 무료 온라인 EXIF 제거 도구는 JPEG, PNG, WebP, GIF 파일에서 GPS 위치, 카메라 모델, 촬영 날짜, 렌즈 정보, 노출 설정, 그리고 모든 IPTC/XMP 메타데이터를 영구적으로 삭제합니다. 온라인으로 물품을 판매하거나, 사진을 공개적으로 공유하거나, 소셜 미디어용 이미지를 준비할 때에도 귀하의 개인 정보는 안전하게 보호됩니다.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "온라인 EXIF 제거 도구 — 사진에서 GPS, 카메라 정보 및 메타데이터를 제거하여 개인 정보 보호", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">단계별 안내</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">온라인으로 EXIF 데이터를 제거하는 방법</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">이미지 업로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">JPEG, PNG, WebP 또는 GIF 파일을 드래그 앤 드롭하거나 클릭하여 선택하세요. 여러 이미지를 한 번에 업로드할 수 있습니다.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">모든 메타데이터 제거</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">제거 버튼을 클릭하면 모든 EXIF, IPTC, XMP 메타데이터가 이미지에서 즉시 제거됩니다.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">정리된 이미지 다운로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">메타데이터가 제거된 이미지를 다운로드하세요. 사진의 시각적 내용은 완전히 변경되지 않습니다.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        계정 필요 없음. 귀하의 파일은 저희 서버에 절대 저장되지 않습니다.
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">참고 자료</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIF 데이터가 당신에 대해 드러내는 것</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        스마트폰이나 디지털 카메라로 찍은 모든 사진에는 숨겨진 메타데이터가 포함되어 있습니다. 메타데이터가 제거되지 않은 이미지를 공유할 때 이 데이터가 무엇을 노출할 수 있는지 알아보세요:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF 필드</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">드러내는 정보</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS 위도 / 경도", "사진이 촬영된 정확한 위치"],
+              ["DateTimeOriginal",         "사진이 촬영된 정확한 날짜와 시간"],
+              ["제조사 / 모델",             "카메라 브랜드 및 모델 (예: Apple iPhone 15 Pro)"],
+              ["소프트웨어",                 "사용된 편집 소프트웨어 (예: Adobe Lightroom, Snapseed)"],
+              ["작가 / 저작권",       "사진작가의 이름 및 신원"],
+              ["렌즈 모델",                "사용된 렌즈 — 전문 장비를 암시"],
+              ["노출 시간 / ISO",       "촬영 스타일을 식별할 수 있는 카메라 설정"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">이 도구를 사용하면 위에 나열된 모든 필드와 그 이상의 정보가 제거됩니다.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">사용 사례</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIF 데이터를 제거해야 하는 이유</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:

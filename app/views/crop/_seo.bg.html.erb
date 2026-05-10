@@ -1,0 +1,172 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Изрязване на изображения онлайн —<br class="hidden sm:block"> Безплатно, прецизно и моментално
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Изрязвайте, прекадрирайте и кадрирайте изображенията си за секунди — без софтуер, без регистрация. Нашият безплатен онлайн инструмент за изрязване на изображения поддържа JPEG, PNG, WebP, GIF и AVIF файлове. Изберете свободно изрязване или заключете към стандартно съотношение на страните — 1:1 за профилни снимки, 16:9 за миниатюри в YouTube, 9:16 за Истории и други. Премахнете нежелани рамки, фокусирайте се върху обекта и подгответе изображението си за всяка платформа моментално.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Онлайн инструмент за изрязване на изображения — изрязване на JPEG, PNG, WebP със свободна форма или фиксирано съотношение на страните", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Стъпка по стъпка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Как да изрежете изображение онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Качете вашето изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Плъзнете и пуснете или кликнете, за да изберете JPEG, PNG, WebP, GIF или AVIF файл от вашето устройство.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Изберете област за изрязване</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Плъзнете маркерите за изрязване, за да дефинирате свободно вашата област, или изберете предварително зададено съотношение — 1:1, 4:3, 16:9, 3:2 или 9:16 — за да заключите пропорциите.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Изтеглете вашето изрязано изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Кликнете върху изтегляне и запазете изрязания си файл моментално в оригиналния му формат.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Не е необходим акаунт. Вашите файлове никога не се съхраняват на нашите сървъри.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Формати</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Изрязване на JPEG, PNG, WebP и други</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Най-често срещаният фото формат. Изрязва чисто, запазвайки естествените цветове и градиенти." },
+          { name: "PNG",        desc: "Поддържа прозрачност. Изрязването запазва алфа канала, като запазва прозрачните области непокътнати." },
+          { name: "WebP",       desc: "Модерният формат на Google. Изрязва с пълна прецизност — чудесен за уеб-оптимизирани изображения." },
+          { name: "GIF",        desc: "Изрязвайте статични GIF файлове, без да засягате цветовите палитри или прозрачността." },
+          { name: "AVIF",       desc: "Формат от следващо поколение с отлично качество. Изрязвайте и запазвайте всички детайли." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Справка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Кое съотношение на страните трябва да използвате?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Различните платформи и случаи на употреба изискват различни пропорции. Изберете правилното съотношение и вашето изображение ще изглежда перфектно кадрирано всеки път:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Съотношение</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Най-добро за</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Публикации в Instagram, профилни снимки, аватари, икони на приложения"],
+              ["16:9", "Миниатюри в YouTube, корици за широкоекранни видеоклипове, заглавки на блогове"],
+              ["4:3",  "Стандартна фотография, презентации, класически фото разпечатки"],
+              ["9:16", "Истории в Instagram, TikTok видеоклипове, Reels, корици за Shorts"],
+              ["3:2",  "DSLR стандарт, пейзажна фотография, печатни албуми"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Можете също така да изрязвате свободно, без да заключвате към никакво съотношение — просто плъзнете до точната област, която желаете.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Случаи на употреба</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Защо да изрязвате вашето изображение?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Профилни снимки",         "Заключете към 1:1 и изрежете всяка снимка в идеален квадрат за LinkedIn, Twitter, GitHub или всяка платформа, която показва кръгли или квадратни аватари."],
+          ["Миниатюри &amp; корици",  "Кадрирайте най-завладяващата част от изображението за миниатюри в YouTube, заглавки на блогове или карти за предварителен преглед в социалните медии."],
+          ["Премахване на нежелани области",    "Елиминирайте разсейващи фонове, рамки, водни знаци или празно пространство — и запазете само това, което е от значение."],
+          ["Изображения, готови за платформа",    "Всяка платформа има свои предпочитани размери. Изрежете до правилното съотношение преди качване, така че вашето изображение никога да не бъде неудобно автоматично изрязано."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Съвети</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Получете най-добри резултати при изрязване</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Започнете с оригинал с висока резолюция", "Изрязването намалява пикселната област, която запазвате. Източник с висока резолюция ви дава повече пространство за работа и гарантира, че изрязаният резултат остава рязък."],
+          ["Използвайте заключване на съотношението на страните за платформи",   "Когато подготвяте изображения за конкретна платформа, винаги първо заключвайте съотношението. Това гарантира, че резултатът съответства на необходимите размери без догадки."],
+          ["Изрязвайте преди компресиране",               "Първо изрежете, след това компресирайте. Премахването на нежелани пиксели намалява размера на файла, който трябва да компресирате — което ви дава по-добро качество при същия изходен размер."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ЧЗВ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Често задавани въпроси</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Мога ли да изрежа до конкретен размер в пиксели?",
+           "Да. Използвайте режима за свободно изрязване и плъзнете маркерите, за да насочите към желаната област. Инструментът за изрязване показва текущите пикселни размери, докато плъзгате, така че можете да постигнете точен размер. За фиксирани съотношения (като 1080×1080 за Instagram), заключете съотношението 1:1 и преоразмерете след изрязване, ако е необходимо."],
+          ["Намалява ли изрязването качеството на изображението?",
+           "Не — изрязването е неразрушителна операция върху останалите пиксели. То просто премахва областите извън вашата селекция, без да променя пикселните данни на това, което запазвате. Запазеният файл е с пълно качество в изрязаната област."],
+          ["Каква е разликата между изрязване и преоразмеряване?",
+           "Изрязването премахва части от изображението — то променя областта на платното и намалява общия брой пиксели без мащабиране. Преоразмеряването мащабира цялото изображение нагоре или надолу, променяйки размерите, но запазвайки цялото съдържание. Използвайте изрязване за прекадриране; използвайте преоразмеряване за промяна на изходните размери."],
+          ["Какво означава съотношение на страните?",
+           "Съотношението на страните е пропорционалната връзка между ширината и височината на изображението, изразена като две числа, разделени с двоеточие (напр. 16:9). То описва формата на изображението. Изображение 16:9

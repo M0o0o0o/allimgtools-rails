@@ -1,0 +1,203 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Komprimera bilder online —<br class="hidden sm:block"> Gratis, snabbt &amp; utan kvalitetsförlust
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Minska filstorleken på dina bilder direkt — ingen programvara, ingen registrering krävs. Vår kostnadsfria online-bildkompressor använder smarta komprimeringsalgoritmer för att krympa dina JPEG-, PNG-, GIF-, WebP- och AVIF-filer samtidigt som den visuella kvaliteten bevaras. Använd kvalitetsreglaget för att hitta den perfekta balansen mellan filstorlek och bildskärpa. Oavsett om du optimerar foton för en webbplats, förbereder bilder för e-post eller frigör lagringsutrymme, får du mindre filer på några sekunder.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "Online bildkompressor — minska filstorleken på JPEG, PNG, WebP samtidigt som kvaliteten bevaras", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Steg för steg</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Så här komprimerar du en bild online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Ladda upp din bild</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Dra och släpp eller klicka för att välja en JPEG-, JPG-, PNG-, GIF-, WebP- eller AVIF-fil.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Justera kvalitetsreglaget</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Flytta reglaget för att styra komprimeringsnivån. Lägre värden ger mindre filer; högre värden bevarar mer detaljer.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Ladda ner din komprimerade bild</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klicka på ladda ner och spara din optimerade fil direkt.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Inget konto krävs. Dina filer lagras aldrig på våra servrar.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Format</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Komprimera JPEG, PNG, WebP &amp; mer</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Det vanligaste formatet för foton. Idealisk för högupplösta bilder med naturliga färger och övergångar." },
+          { name: "PNG",        desc: "Stöder transparens. Utmärkt för logotyper, skärmdumpar och grafik." },
+          { name: "GIF",        desc: "Komprimera animerade eller statiska GIF-bilder utan att förlora animationsramar." },
+          { name: "WebP",       desc: "Googles moderna format. Komprimerar betydligt mindre än JPEG vid motsvarande kvalitet." },
+          { name: "AVIF",       desc: "Nästa generations format med utmärkt komprimeringseffektivitet för moderna webbläsare." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referens</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Komprimera en bild till en specifik filstorlek</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Behöver du din bild under en viss storlek — som 100KB, 200KB eller 50KB? Använd kvalitetsreglaget för att finjustera komprimeringen tills du når ditt mål. Här är en snabb referens:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Målstorlek</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Rekommenderat kvalitetsintervall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Under 20 KB",  "10 – 25%"],
+              ["Under 50 KB",  "25 – 40%"],
+              ["Under 100 KB", "40 – 60%"],
+              ["Under 200 KB", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Resultaten varierar beroende på originalbildens innehåll och dimensioner. Justera reglaget och förhandsgranska innan du laddar ner.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Webbprestanda</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Optimera bilder för din webbplats eller WordPress</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Sidans laddningshastighet är en av Googles rankingfaktorer — och bilder är oftast den största boven. Ooptimerade bilder saktar ner din webbplats, ökar avvisningsfrekvensen och skadar din SEO. Innan du laddar upp bilder till din webbplats, komprimera dem för att:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Förbättra Core Web Vitals",       "Sänk LCP (Largest Contentful Paint) poäng genom att minska bildfilstorlekarna."],
+          ["Minska bandbreddsanvändningen",        "Mindre bilder innebär snabbare sidladdningar, särskilt på mobila enheter."],
+          ["Klara Google PageSpeed Insights","De flesta granskningar flaggar okomprimerade bilder som ett stort problem."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPress-tips:</strong> Komprimera dina bilder här innan du laddar upp dem till mediebiblioteket. Detta undviker att förlita sig på server-side plugins och ger dig full kontroll över utskriftskvaliteten.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro-funktion</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Masskomprimering av bilder</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Behöver du komprimera flera bilder samtidigt? Vårt masskomprimeringsverktyg låter dig ladda upp och bearbeta flera filer på en gång — perfekt för:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-handel",    "Komprimera dussintals produktbilder innan publicering."],
+          ["Blogginlägg",    "Optimera utvalda bilder och inbäddade foton i en sats."],
+          ["Leveranser",  "Skicka komprimerade fotouppsättningar via e-post eller molnlagring."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Massbearbetning är tillgänglig på Pro</p>
+          <p class="text-white/60 text-sm">Bearbeta flera filer med ett klick.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Börja gratis →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Användningsfall</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Varför komprimera bilder?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Webbplatser & bloggar",   "Stora bilder är den främsta orsaken till långsamma sidladdningar. Att komprimera före uppladdning minskar sidans vikt och förbättrar användarupplevelsen på alla enheter."],
+          ["E-postbilagor",  "De flesta e-postklienter har en bilagagräns på 25 MB. Att komprimera foton gör det enkelt att skicka flera bilder utan att överskrida storleksbegränsningarna."],
+          ["Sociala medier",       "Plattformar som Instagram och Facebook komprimerar om dina uppladdningar, vilket ofta försämrar kvaliteten. Förkomprimera för att behålla mer kontroll över hur dina foton visas."],
+          ["Lagring & säkerhetskopiering",   "Arkiverar du stora fotosamlingar? Att komprimera bilder kan minska lagringsbehovet avsevärt utan märkbar kvalitetsförlust vid normala visningsstorlekar."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-

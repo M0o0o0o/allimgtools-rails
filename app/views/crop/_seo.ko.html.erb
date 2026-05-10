@@ -1,0 +1,193 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        온라인 이미지 자르기 —<br class="hidden sm:block"> 무료, 정밀 &amp; 즉시
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        몇 초 만에 이미지를 다듬고, 재구성하고, 자르세요 — 소프트웨어 설치나 회원가입이 필요 없습니다. 저희의 무료 온라인 이미지 자르기 도구는 JPEG, PNG, WebP, GIF, AVIF 파일을 지원합니다. 자유형 자르기를 선택하거나, 프로필 사진을 위한 1:1, YouTube 썸네일을 위한 16:9, 스토리를 위한 9:16 등 표준 종횡비로 고정할 수 있습니다. 불필요한 테두리를 제거하고, 피사체에 초점을 맞추고, 어떤 플랫폼이든 즉시 이미지를 준비하세요.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "온라인 이미지 자르기 도구 — JPEG, PNG, WebP 파일을 자유형 또는 고정 종횡비로 자르기", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">단계별 안내</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">온라인에서 이미지 자르는 방법</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">이미지 업로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">장치에서 JPEG, PNG, WebP, GIF 또는 AVIF 파일을 드래그 앤 드롭하거나 클릭하여 선택하세요.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">자르기 영역 선택</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">자르기 핸들을 드래그하여 자유롭게 영역을 정의하거나, 1:1, 4:3, 16:9, 3:2, 9:16과 같은 사전 설정 비율을 선택하여 비율을 고정하세요.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">잘라낸 이미지 다운로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">다운로드를 클릭하고 잘라낸 파일을 원본 형식으로 즉시 저장하세요.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        계정 필요 없음. 귀하의 파일은 저희 서버에 절대 저장되지 않습니다.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">지원 형식</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP &amp; 기타 형식 자르기</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "가장 일반적인 사진 형식입니다. 자연스러운 색상과 그라데이션을 보존하면서 깔끔하게 잘라냅니다." },
+          { name: "PNG",        desc: "투명도를 지원합니다. 자르기 시 알파 채널이 유지되어 투명한 영역이 손상되지 않습니다." },
+          { name: "WebP",       desc: "Google의 최신 형식입니다. 완벽한 충실도로 잘라내어 웹 최적화 이미지에 적합합니다." },
+          { name: "GIF",        desc: "색상 팔레트나 투명도에 영향을 주지 않고 정적 GIF를 자릅니다." },
+          { name: "AVIF",       desc: "뛰어난 품질의 차세대 형식입니다. 모든 세부 사항을 유지하면서 자릅니다." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">참고</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">어떤 종횡비를 사용해야 할까요?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        다양한 플랫폼과 사용 사례에는 각기 다른 비율이 필요합니다. 올바른 비율을 선택하면 이미지가 항상 완벽하게 프레임에 맞춰 보일 것입니다:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">비율</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">최적 용도</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "인스타그램 게시물, 프로필 사진, 아바타, 앱 아이콘"],
+              ["16:9", "YouTube 썸네일, 와이드스크린 비디오 커버, 블로그 헤더"],
+              ["4:3",  "표준 사진, 프레젠테이션, 클래식 사진 인쇄물"],
+              ["9:16", "인스타그램 스토리, TikTok 비디오, 릴스, 쇼츠 커버"],
+              ["3:2",  "DSLR 표준, 풍경 사진, 인쇄 앨범"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">어떤 비율에도 고정하지 않고 자유롭게 자를 수도 있습니다 — 원하는 정확한 영역으로 드래그하기만 하면 됩니다.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">사용 사례</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">이미지를 잘라야 하는 이유</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["프로필 사진",         "1:1로 고정하여 LinkedIn, Twitter, GitHub 또는 원형이나 정사각형 아바타를 표시하는 모든 플랫폼에 완벽한 정사각형 사진으로 자르세요."],
+          ["썸네일 &amp; 커버",  "YouTube 썸네일, 블로그 헤더 또는 소셜 미디어 미리보기 카드에 가장 매력적인 이미지 부분을 프레임에 담으세요."],
+          ["불필요한 영역 제거",    "방해가 되는 배경, 테두리, 워터마크 또는 빈 공간을 제거하고 중요한 부분만 남기세요."],
+          ["플랫폼 맞춤 이미지",    "각 플랫폼에는 선호하는 크기가 있습니다. 업로드하기 전에 올바른 비율로 잘라내면 이미지가 어색하게 자동 잘림되는 것을 방지할 수 있습니다."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">팁</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">이미지 자르기 시 최상의 결과 얻기</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["고해상도 원본으로 시작", "자르기는 유지하는 픽셀 영역을 줄입니다. 고해상도 원본은 작업할 공간을 더 많이 제공하고 잘라낸 결과물이 선명하게 유지되도록 보장합니다."],
+          ["플랫폼에 맞는 종횡비 고정 사용",   "특정 플랫폼용 이미지를 준비할 때는 항상 먼저 비율을 고정하세요. 이렇게 하면 추측할 필요 없이 결과물이 필요한 크기와 일치하도록 보장됩니다."],
+          ["압축 전에 자르기",               "먼저 자르고, 그 다음 압축하세요. 불필요한 픽셀을 제거하면 압축해야 할 파일 크기가 줄어들어 동일한 출력 크기에서 더 나은 품질을 얻을 수 있습니다."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">자주 묻는 질문</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">자주 묻는 질문</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["특정 픽셀 크기로 자를 수 있나요?",
+           "네. 자유 자르기 모드를 사용하여 핸들을 드래그하여 원하는 영역을 지정할 수 있습니다. 자르기 도구는 드래그하는 동안 현재 픽셀 크기를 표시하므로 정확한 크기를 맞출 수 있습니다. 고정 비율(예: 인스타그램용 1080×1080)의 경우, 1:1 비율을 고정하고 필요한 경우 자른 후 크기를 조정하세요."],
+          ["자르기가 이미지 품질을 저하시키나요?",
+           "아니요 — 자르기는 남아있는 픽셀에 대한 비파괴적인 작업입니다. 선택 영역 외부의 영역을 제거할 뿐, 유지하는 픽셀 데이터는 변경하지 않습니다. 저장된 파일은 잘라낸 영역 내에서 원본 품질을 유지합니다."],
+          ["자르기와 크기 조정의 차이점은 무엇인가요?",
+           "자르기는 이미지의 일부를 제거하는 것으로, 캔버스 영역을 변경하고 스케일링 없이 총 픽셀 수를 줄입니다. 크기 조정은 전체 이미지를 확대 또는 축소하여 크기를 변경하지만 모든 내용을 유지합니다. 재구성을 위해 자르기를 사용하고, 출력 크기를 변경하기 위해 크기 조정을 사용하세요."],
+          ["종횡비는 무엇을 의미하나요?",
+           "종횡비는 이미지의 너비와 높이 사이의 비례 관계를 나타내며, 콜론으로 구분된 두 숫자로 표현됩니다(예: 16:9). 이는 이미지의 모양을 설명합니다. 16:9 이미지는 높이보다 너비가 넓고, 1:1 이미지는 완벽한 정사각형입니다. 자르기 시 종횡비를 고정하면 자르기 영역을 조정할 때 비율이 고정된 상태로 유지됩니다."],
+          ["어떤 형식이 지원되나요?",
+           "JPEG, JPG, PNG, WebP, GIF, AVIF 파일을 자를 수 있습니다. 출력은 원본과 동일한 형식으로 저장되며, 투명도(PNG) 및 기타 형식별 기능이 보존됩니다."],
+          ["PNG를 잘라도 투명한 배경이 유지되나요?",
+           "네. PNG를 자를 때, 자르기 선택 영역 외부의 투명한 영역은 제거되지만, 잘라낸 영역 내의 투명도는 완전히 보존됩니다. 다운로드된 파일은 알파 채널을 유지합니다."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">최종 업데이트: 2026년 5월</p>
+
+  </div>
+</section>

@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Beskär bilder online —<br class="hidden sm:block"> Gratis, Exakt &amp; Omedelbart
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Trimma, omforma och beskär dina bilder på sekunder — ingen programvara, ingen registrering krävs. Vårt kostnadsfria online-verktyg för bildbeskärning stöder JPEG-, PNG-, WebP-, GIF- och AVIF-filer. Välj en fri beskärning eller lås till ett standardbildförhållande — 1:1 för profilbilder, 16:9 för YouTube-miniatyrer, 9:16 för Stories och mer. Ta bort oönskade kanter, fokusera på motivet och förbered din bild för vilken plattform som helst omedelbart.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Online-verktyg för bildbeskärning — beskär JPEG, PNG, WebP med fri eller fast bildförhållande", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Steg för steg</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Så här beskär du en bild online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Ladda upp din bild</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Dra och släpp eller klicka för att välja en JPEG-, PNG-, WebP-, GIF- eller AVIF-fil från din enhet.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Välj ett beskärningsområde</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Dra i beskärningshandtagen för att fritt definiera ditt område, eller välj ett förinställt förhållande — 1:1, 4:3, 16:9, 3:2 eller 9:16 — för att låsa proportionerna.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Ladda ner din beskurna bild</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klicka på ladda ner och spara din beskurna fil omedelbart i dess originalformat.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Inget konto krävs. Dina filer lagras aldrig på våra servrar.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Format</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Beskär JPEG, PNG, WebP &amp; fler</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Det vanligaste fotoformatet. Beskärs rent samtidigt som naturliga färger och övergångar bevaras." },
+          { name: "PNG",        desc: "Stöder transparens. Beskärning behåller alfakanalen, vilket håller transparenta områden intakta." },
+          { name: "WebP",       desc: "Googles moderna format. Beskärs med full trohet — utmärkt för webboptimerade bilder." },
+          { name: "GIF",        desc: "Beskär statiska GIF-bilder utan att påverka färgpaletter eller transparens." },
+          { name: "AVIF",       desc: "Nästa generations format med utmärkt kvalitet. Beskär och behåll alla detaljer." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referens</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Vilket bildförhållande ska du använda?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Olika plattformar och användningsområden kräver olika proportioner. Välj rätt förhållande så kommer din bild att se perfekt inramad ut varje gång:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Förhållande</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Bäst för</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Instagram-inlägg, profilbilder, avatarer, appikoner"],
+              ["16:9", "YouTube-miniatyrer, bredbildsvideomomslag, blogghuvuden"],
+              ["4:3",  "Standardfotografi, presentationer, klassiska fotoutskrifter"],
+              ["9:16", "Instagram Stories, TikTok-videor, Reels, Shorts-omslag"],
+              ["3:2",  "DSLR-standard, landskapsfotografi, fotoalbum"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Du kan också beskära fritt utan att låsa till något förhållande — dra bara till det exakta område du vill ha.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Användningsområden</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Varför beskära din bild?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Profilbilder",         "Lås till 1:1 och beskär valfri bild till en perfekt kvadrat för LinkedIn, Twitter, GitHub, eller vilken plattform som helst som visar cirkulära eller kvadratiska avatarer."],
+          ["Miniatyrer &amp; omslag",  "Rama in den mest fängslande delen av en bild för YouTube-miniatyrer, blogghuvuden eller förhandsgranskningskort för sociala medier."],
+          ["Ta bort oönskade områden",    "Eliminera distraherande bakgrunder, kanter, vattenstämplar eller tomma utrymmen — och behåll bara det som är viktigt."],
+          ["Plattformsklara bilder",    "Varje plattform har sina föredragna dimensioner. Beskär till rätt förhållande innan du laddar upp så att din bild aldrig blir konstigt automatiskt beskuren."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Tips</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Få bästa resultat vid beskärning</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Börja med en högupplöst originalbild", "Beskärning minskar pixelområdet du behåller. En högupplöst källa ger dig mer utrymme att arbeta med och säkerställer att det beskurna resultatet förblir skarpt."],
+          ["Använd låst bildförhållande för plattformar",   "När du förbereder bilder för en specifik plattform, lås alltid förhållandet först. Detta garanterar att resultatet matchar de nödvändiga dimensionerna utan gissningar."],
+          ["Beskär före komprimering",               "Beskär först, komprimera sedan. Att ta bort oönskade pixlar minskar filstorleken du behöver komprimera — vilket ger dig bättre kvalitet vid samma utdatafilstorlek."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-

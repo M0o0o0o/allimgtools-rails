@@ -1,0 +1,176 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Edytuj metadane EXIF online —<br class="hidden sm:block"> Darmowy edytor danych obrazu
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Przeglądaj i edytuj ukryte metadane w swoich obrazach — bez oprogramowania, bez rejestracji. Nasz darmowy edytor EXIF online pozwala zmieniać współrzędne GPS, poprawiać znaczniki daty i czasu, dodawać informacje o prawach autorskich i autorze, aktualizować słowa kluczowe i wiele więcej. Działa z plikami JPEG i PNG. Idealny dla fotografów, twórców stockowych i każdego, kto potrzebuje precyzyjnej kontroli nad danymi swoich obrazów.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_edit_hero.png", alt: "Edytor EXIF online — edytuj pola GPS, daty, praw autorskich i metadanych w plikach JPEG i PNG", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Krok po kroku</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Jak edytować metadane EXIF online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Prześlij swój obraz</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Przeciągnij i upuść lub kliknij, aby wybrać plik JPEG lub PNG. Możesz przesłać wiele obrazów i edytować je pojedynczo.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Edytuj pola metadanych</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Zaktualizuj dowolne pole EXIF — współrzędne GPS, datę wykonania, informacje o aparacie, prawa autorskie, nazwisko artysty, słowa kluczowe lub opis. Pozostaw pola puste, aby je usunąć.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Zastosuj i pobierz</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Kliknij Zapisz, aby zapisać zmiany, a następnie pobierz zaktualizowany obraz. Użyj „Zastosuj do wszystkich obrazów”, aby skopiować te same edycje do każdego przesłanego pliku.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Konto nie jest wymagane. Twoje pliki nigdy nie są przechowywane na naszych serwerach.
+      </p>
+    </div>
+
+    <%# ── Editable fields table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referencje</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Edytowalne pola EXIF</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Każde pole wymienione poniżej można odczytać, edytować lub wyczyścić bezpośrednio w edytorze. Zmiany są zapisywane z powrotem w pliku obrazu podczas pobierania — wizualna zawartość Twojego zdjęcia nigdy nie jest zmieniana.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Pole EXIF</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Co możesz ustawić</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Szerokość / Długość geograficzna GPS", "Dodaj, zmień lub usuń lokalizację, w której zrobiono zdjęcie"],
+              ["DateTimeOriginal",         "Popraw nieprawidłową datę wykonania zdjęcia lub skoryguj błędną strefę czasową"],
+              ["Artysta / Twórca",         "Dodaj swoje imię, aby Twoje autorstwo podróżowało z plikiem"],
+              ["Prawa autorskie",               "Osadź oświadczenie o prawach autorskich (np. © 2026 Jan Kowalski)"],
+              ["Słowa kluczowe",                "Dodaj tagi do wyszukiwania dla bibliotek stockowych lub zarządzania zasobami"],
+              ["ImageDescription",        "Napisz podpis lub opis alt-text dla obrazu"],
+              ["Marka / Model",            "Zaktualizuj lub wyczyść pola marki i modelu aparatu"],
+            ].each do |field, purpose| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= purpose %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Dodatkowe pola mogą być widoczne w trybie tylko do odczytu, w zależności od osadzonych danych pliku.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Przypadki użycia</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Dlaczego edytować metadane EXIF?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Dodaj prawa autorskie i kredyty",     "Osadź swoje imię, oświadczenie o prawach autorskich i dane kontaktowe bezpośrednio w pliku, aby informacje o własności pozostały z obrazem, niezależnie od tego, gdzie się znajdzie."],
+          ["Popraw błędną datę lub godzinę",      "Zegary aparatów dryfują, podróżują przez strefy czasowe lub resetują się po wymianie baterii. Skoryguj datę wykonania zdjęcia, aby Twoja biblioteka zdjęć była dokładnie posortowana."],
+          ["Dodaj GPS do zdjęć bez tagów",  "Zrobione aparatem bez GPS? Ręcznie dodaj współrzędne lokalizacji, aby zdjęcie poprawnie wyświetlało się na mapach i w wyszukiwaniach opartych na lokalizacji."],
+          ["Przygotowanie zdjęć stockowych",     "Biblioteki stockowe wymagają dokładnych praw autorskich, słów kluczowych i opisów osadzonych w pliku. Edytuj wszystkie wymagane pola przed przesłaniem, aby przyspieszyć proces recenzji."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Apply to all feature ───────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Edycja masowa</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Zastosuj edycje do wielu obrazów</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Edytor działa na jednym obrazie naraz, ale możesz przesłać wiele plików w jednej sesji. Po edycji pierwszego obrazu użyj przycisku <strong class="text-base-content font-semibold">„Zastosuj do wszystkich obrazów”</strong>, aby skopiować bieżące zmiany metadanych do każdego innego przesłanego pliku — oszczędzając Ci powtarzania tych samych edycji pojedynczo.
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Spójne prawa autorskie w całej sesji zdjęciowej",  "Zastosuj swoje oświadczenie o prawach autorskich i nazwisko artysty do każdego obrazu z sesji jednym kliknięciem."],
+          ["Wspólne słowa kluczowe dla zestawu zdjęć",       "Ustaw te same słowa kluczowe opisowe dla wszystkich obrazów przeznaczonych do biblioteki stockowej lub folderu klienta."],
+          ["Jednolite tagowanie GPS",                   "Przypisz tę samą lokalizację do wszystkich zdjęć wykonanych w tym samym miejscu lub podczas tego samego wydarzenia."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Często zadawane pytania</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Jakie dane EXIF można edytować?",
+           "Możesz edytować współrzędne GPS, datę i godzinę (DateTimeOriginal), nazwisko artysty/twórcy, oświadczenie o prawach autorskich, słowa kluczowe, opis/podpis obrazu oraz markę/model aparatu. Pola, które pozostawisz puste, zostaną usunięte z pliku. Dodatkowe pola tylko do odczytu mogą być wyświetlane w zależności od zawartości oryginalnego pliku."],
+          ["Czy edycja danych EXIF zmienia jakość obrazu?",
+           "Nie. Edycja EXIF modyfikuje tylko warstwę metadanych — dane pikseli tworzące Twoje zdjęcie nigdy nie są zmieniane. Twój obraz będzie wyglądał identycznie przed i po edycji, a format pliku pozostaje ten sam."],
+          ["Jakie formaty plików są obsługiwane?",
+           "JPEG i PNG są w pełni obsługiwane do odczytu i zapisu metadanych EXIF. JPEG jest najpopularniejszym formatem dla danych EXIF i obsługuje najszerszy zakres pól. PNG obsługuje podzbiór pól metadanych. WebP i GIF mają ograniczone lub brak wsparcia EXIF, w zależności od sposobu ich utworzenia."],
+          ["Jak dodać współrzędne GPS do zdjęcia?",
+           "Otwórz obraz w edytorze, znajdź pola Szerokość i Długość geograficzna GPS i wprowadź współrzędne dziesiętne dla lokalizacji (np. 48.8584, 2.2945 dla Wieży Eiffla). Współrzędne dla dowolnej lokalizacji możesz znaleźć za pomocą Google Maps — kliknij prawym przyciskiem myszy na wybrane miejsce i skopiuj wyświetlone współrzędne."],
+          ["Jak dodać oświadczenie o prawach autorskich do moich zdjęć?",
+           "Prześlij swój obraz, wprowadź tekst praw autorskich w polu Prawa autorskie (na przykład: © 2026 Twoje Imię. Wszelkie prawa zastrzeżone.) i zapisz. Aby zastosować te same prawa autorskie do wielu przesłanych obrazów, kliknij „Zastosuj do wszystkich obrazów” po edycji pierwszego."],
+          ["Co robi „Zastosuj do wszystkich obrazów”?",
+           "Gdy masz wiele obrazów przesłanych w tej samej sesji, „Zastosuj do wszystkich obrazów” kopiuje pola metadanych, które edytowałeś w bieżącym obrazie, do każdego innego pliku w kolejce przesyłania. Jest to skrót do stosowania spójnych praw autorskich, słów kluczowych lub danych lokalizacyjnych w całym zestawie zdjęć bez ręcznego powtarzania edycji dla każdego pliku."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Ostatnia aktualizacja: Maj 2026</p>
+
+  </div>
+</section>

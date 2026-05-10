@@ -1,0 +1,235 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        在线调整图片大小 —<br class="hidden sm:block"> 免费、即时且无损画质
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        立即更改图片尺寸 — 无需软件，无需注册。我们的免费在线图片调整工具可让您设置精确的像素宽度和高度，按百分比缩放，或锁定宽高比以避免失真。支持 JPEG、PNG、WebP、GIF 和 AVIF 格式。无论您是为社交媒体准备照片、为在线商店调整产品图片，还是为博客裁剪缩略图，您都可以在几秒钟内获得尺寸完美的图片。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "在线图片调整工具 — 即时将 JPEG、PNG、WebP 图片调整为精确的像素尺寸", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">分步指南</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">如何在线调整图片大小</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">上传您的图片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖放或点击选择 JPEG、JPG、PNG、GIF、WebP 或 AVIF 文件。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">设置目标尺寸</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">输入像素宽度和高度，或按百分比缩放。切换“保持宽高比”以防止拉伸。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">下载调整后的图片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">点击下载并立即保存您尺寸完美的文件。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        无需账户。您的文件绝不会存储在我们的服务器上。
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">格式</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">调整 JPEG、PNG、WebP 等图片</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "最常见的照片格式。在保留自然色彩和渐变的同时调整高分辨率图片。" },
+          { name: "PNG",        desc: "支持透明度。调整徽标、截图和图形，而不会丢失 Alpha 通道。" },
+          { name: "GIF",        desc: "轻松调整静态 GIF。动画 GIF 调整大小会保留所有帧。" },
+          { name: "WebP",       desc: "谷歌的现代格式。调整 WebP 图片并保持文件大小紧凑。" },
+          { name: "AVIF",       desc: "下一代格式，在小文件大小下提供卓越质量。完全支持调整大小。" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">参考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">社交媒体常用图片尺寸</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        每个平台都有自己的推荐图片尺寸。使用此参考表将您的图片调整到您需要的精确尺寸：
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">平台/用途</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">推荐尺寸</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Instagram 帖子（方形）",  "1080 × 1080 px"],
+              ["Facebook 封面照片",     "820 × 312 px"],
+              ["Twitter / X 标题图",       "1500 × 500 px"],
+              ["LinkedIn 横幅",          "1584 × 396 px"],
+              ["YouTube 缩略图",        "1280 × 720 px"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">平台指南会随时间变化。发布前请务必查阅最新的官方文档。</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">网页与电商</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">调整产品照片和网页图片</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        一致的图片尺寸能让您的网站看起来更精致，加载速度更快。在上传到您的网站或商店之前，请将图片调整为：
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["精确匹配您的布局",       "设置精确的像素宽度，使图片完美适应您的网格，避免 CSS 变形。"],
+          ["加快页面加载速度",             "更小的尺寸意味着更小的文件大小，从而减少带宽并改善核心网页指标。"],
+          ["统一产品缩略图",  "产品网格中统一的尺寸看起来更专业，并减少布局偏移。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">电商小贴士：</strong> 在上传到您的商店之前，将所有产品图片调整为相同的尺寸。大多数平台（Shopify、WooCommerce、Etsy）建议使用 1000 × 1000 像素或更大的方形图片以支持缩放功能。
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">专业版功能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">批量图片调整</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        需要一次性将多张图片调整为相同尺寸吗？我们的批量调整工具可让您一次上传和处理多个文件 — 非常适合：
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["产品目录",  "在上传到您的商店之前，标准化数百张产品照片。"],
+          ["图片画廊",   "一次性将整个拍摄作品调整为一致的尺寸。"],
+          ["社交媒体图片集", "准备多张图片以符合平台规范，无需重复操作。"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">批量处理功能在专业版中可用</p>
+          <p class="text-white/60 text-sm">一键将多个文件调整为相同尺寸。</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          免费开始 →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">用途</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">为什么要调整图片大小？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["社交媒体",       "每个平台都有严格的尺寸要求。调整到正确的尺寸可以避免平台裁剪、黑边或模糊的放大。"],
+          ["电商商店",  "产品图片的一致性建立信任。目录中统一的尺寸可在任何设备上创建专业的网格布局。"],
+          ["电子邮件通讯",  "宽图片可能会在移动设备上破坏电子邮件布局。将标题图片调整为 600 像素宽，以确保在所有电子邮件客户端中可靠呈现。"],
+          ["打印与文档",  "将图片调整到您的打印模板、演示文稿或文档布局所需的精确像素尺寸，以避免导出时质量损失。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">常见问题</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">常见问题</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["调整大小时如何保持宽高比？",
+           "在输入尺寸之前，启用“保持宽高比”开关。启用后，输入宽度会自动计算正确的高度（反之亦然），这样您的图片就不会出现拉伸或挤压。"],
+          ["调整大小会降低图片质量吗？",
+           "缩小图片（使其变小）对质量影响最小。放大图片（使其大于原始图片）可能会导致模糊，因为像素正在被插值。为获得最佳效果，请始终从您拥有的最高分辨率原始图片开始。"],
+          ["我可以调整哪些图片格式？",
+           "我们的工具支持 JPEG、JPG、PNG、GIF、WebP 和 AVIF。输出格式与输入格式匹配 — PNG 在调整大小后仍为 PNG，并保留所有透明度。"],
+          ["如何为 Instagram 调整图片大小？",
+           "Instagram 建议方形帖子使用 1080 × 1080 像素，竖向帖子使用 1080 × 1350 像素，横向帖子使用 1080 × 566 像素。输入您的目标尺寸，启用宽高比锁定，然后下载您调整后的图片即可上传。"],
+          ["调整大小和裁剪有什么区别？",
+           "调整大小会改变整个图片的整体尺寸，按比例（或非比例）缩放所有内容。裁剪是移除图片的一部分以改变构图。当您需要特定的像素尺寸时使用调整大小；当您需要剪切某个区域时使用裁剪。"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">最后更新：2026 年 5 月</p>
+
+  </div>
+</section>

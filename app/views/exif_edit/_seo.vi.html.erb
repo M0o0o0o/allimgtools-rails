@@ -1,0 +1,143 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Chỉnh sửa siêu dữ liệu EXIF trực tuyến —<br class="hidden sm:block"> Trình chỉnh sửa dữ liệu hình ảnh miễn phí
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Xem và chỉnh sửa siêu dữ liệu ẩn bên trong hình ảnh của bạn — không cần phần mềm, không cần đăng ký. Trình chỉnh sửa EXIF trực tuyến miễn phí của chúng tôi cho phép bạn thay đổi tọa độ GPS, sửa dấu ngày và giờ, thêm thông tin bản quyền và tác giả, cập nhật từ khóa, v.v. Hoạt động với các tệp JPEG và PNG. Hoàn hảo cho các nhiếp ảnh gia, người đóng góp ảnh stock và bất kỳ ai cần kiểm soát chính xác dữ liệu hình ảnh của họ.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_edit_hero.png", alt: "Trình chỉnh sửa EXIF trực tuyến — chỉnh sửa các trường GPS, ngày, bản quyền và siêu dữ liệu trong các tệp JPEG và PNG", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Từng bước một</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cách chỉnh sửa siêu dữ liệu EXIF trực tuyến</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Tải ảnh của bạn lên</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Kéo và thả hoặc nhấp để chọn tệp JPEG hoặc PNG. Bạn có thể tải lên nhiều hình ảnh và chỉnh sửa chúng từng cái một.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Chỉnh sửa các trường siêu dữ liệu</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Cập nhật bất kỳ trường EXIF nào — tọa độ GPS, ngày chụp, thông tin máy ảnh, bản quyền, tên nghệ sĩ, từ khóa hoặc mô tả. Để trống các trường để xóa chúng.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Áp dụng và tải xuống</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Nhấp Lưu để ghi các thay đổi của bạn, sau đó tải xuống hình ảnh đã cập nhật. Sử dụng "Áp dụng cho tất cả hình ảnh" để sao chép các chỉnh sửa tương tự cho mọi tệp bạn đã tải lên.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Không cần tài khoản. Các tệp của bạn không bao giờ được lưu trữ trên máy chủ của chúng tôi.
+      </p>
+    </div>
+
+    <%# ── Editable fields table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Tham khảo</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Các trường EXIF có thể chỉnh sửa</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Mọi trường được liệt kê dưới đây đều có thể được đọc, chỉnh sửa hoặc xóa trực tiếp trong trình chỉnh sửa. Các thay đổi được ghi lại vào tệp hình ảnh khi tải xuống — nội dung hình ảnh của ảnh của bạn không bao giờ bị chạm đến.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Trường EXIF</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Những gì bạn có thể đặt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Vĩ độ / Kinh độ GPS", "Thêm, thay đổi hoặc xóa vị trí ảnh được chụp"],
+              ["DateTimeOriginal",         "Sửa ngày chụp không chính xác hoặc điều chỉnh múi giờ sai"],
+              ["Nghệ sĩ / Người tạo",         "Thêm tên của bạn để quyền tác giả của bạn đi kèm với tệp"],
+              ["Bản quyền",               "Nhúng tuyên bố bản quyền (ví dụ: © 2026 Jane Smith)"],
+              ["Từ khóa",                "Thêm các thẻ có thể tìm kiếm cho thư viện ảnh stock hoặc quản lý tài sản"],
+              ["ImageDescription",        "Viết chú thích hoặc mô tả văn bản thay thế cho hình ảnh"],
+              ["Hãng / Mẫu máy",            "Cập nhật hoặc xóa các trường nhãn hiệu và mẫu máy ảnh"],
+            ].each do |field, purpose| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= purpose %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Các trường bổ sung có thể hiển thị ở chế độ chỉ đọc tùy thuộc vào dữ liệu nhúng của tệp.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Trường hợp sử dụng</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Tại sao phải chỉnh sửa siêu dữ liệu EXIF?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Thêm bản quyền & thông tin tác giả",     "Nhúng tên, tuyên bố bản quyền và chi tiết liên hệ của bạn trực tiếp vào tệp để thông tin quyền sở hữu luôn đi kèm với hình ảnh dù nó được chia sẻ ở đâu."],
+          ["Sửa ngày hoặc giờ sai",      "Đồng hồ máy ảnh có thể bị lệch, di chuyển qua các múi giờ hoặc bị đặt lại sau khi thay pin. Sửa ngày chụp để thư viện ảnh của bạn được sắp xếp chính xác."],
+          ["Thêm GPS vào ảnh chưa gắn thẻ",  "Chụp bằng máy ảnh không có GPS? Thêm thủ công tọa độ vị trí để ảnh hiển thị chính xác trên bản đồ và trong các tìm kiếm dựa trên vị trí."],
+          ["Chuẩn bị ảnh stock",     "Các thư viện ảnh stock yêu cầu bản quyền, từ khóa và mô tả chính xác được nhúng trong tệp. Chỉnh sửa tất cả các trường bắt buộc trước khi gửi để tăng tốc quá trình xem xét."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Apply to all feature ───────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Chỉnh sửa hàng loạt</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Áp dụng chỉnh sửa cho nhiều hình ảnh</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Trình chỉnh sửa hoạt động trên từng hình ảnh một, nhưng bạn có thể tải lên nhiều tệp trong một phiên. Sau khi chỉnh sửa hình ảnh đầu tiên, hãy sử dụng nút <strong class="text-base-content font-semibold">"Áp dụng cho tất cả hình ảnh"</strong> để sao chép các thay đổi siêu dữ liệu hiện tại của bạn sang mọi tệp đã tải lên khác — giúp bạn không phải lặp lại các chỉnh sửa tương tự từng cái một.
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Bản quyền nhất quán cho toàn bộ buổi chụp",  "Áp dụng tuyên bố bản quyền và tên nghệ sĩ của bạn cho mọi hình ảnh từ một phiên chụp chỉ với một cú nhấp chuột."],
+          ["Từ khóa chung cho một bộ ảnh",       "Đặt cùng một từ khóa mô tả cho tất cả các hình ảnh dành cho thư viện ảnh stock hoặc thư mục khách hàng."],
+          ["Gắn thẻ GPS đồng nhất",                   "Gán cùng một vị trí cho tất cả các ảnh được chụp tại cùng một địa điểm hoặc sự kiện."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span

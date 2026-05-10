@@ -1,0 +1,176 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        線上編輯 EXIF 中繼資料 —<br class="hidden sm:block"> 免費圖片資料編輯器
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        檢視並編輯圖片中隱藏的中繼資料 — 無需軟體，無需註冊。我們的免費線上 EXIF 編輯器可讓您更改 GPS 座標、修正日期和時間戳記、新增版權和作者資訊、更新關鍵字等等。支援 JPEG 和 PNG 檔案。非常適合攝影師、圖庫投稿者以及任何需要精確控制其圖片資料的人。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_edit_hero.png", alt: "線上 EXIF 編輯器 — 編輯 JPEG 和 PNG 檔案中的 GPS、日期、版權和中繼資料欄位", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">逐步教學</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">如何線上編輯 EXIF 中繼資料</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">上傳您的圖片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖放或點擊以選擇 JPEG 或 PNG 檔案。您可以上傳多張圖片並逐一編輯。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">編輯中繼資料欄位</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">更新任何 EXIF 欄位 — GPS 座標、拍攝日期、相機資訊、版權、藝術家姓名、關鍵字或描述。將欄位留空以移除它們。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">應用並下載</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">點擊「儲存」以寫入您的更改，然後下載更新後的圖片。使用「應用於所有圖片」將相同的編輯複製到您上傳的每個檔案。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        無需帳戶。您的檔案絕不會儲存在我們的伺服器上。
+      </p>
+    </div>
+
+    <%# ── Editable fields table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">參考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">可編輯的 EXIF 欄位</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        下方列出的每個欄位都可以在編輯器中直接讀取、編輯或清除。更改會在下載時寫回圖片檔案 — 您的照片視覺內容絕不會被觸及。
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF 欄位</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">您可以設定的內容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS 緯度 / 經度", "新增、更改或移除照片拍攝地點"],
+              ["原始日期時間",         "修正錯誤的拍攝日期或糾正錯誤的時區"],
+              ["藝術家 / 創作者",         "新增您的姓名，讓您的著作權隨檔案傳播"],
+              ["版權",               "嵌入版權聲明（例如：© 2026 Jane Smith）"],
+              ["關鍵字",                "為圖庫或資產管理新增可搜尋的標籤"],
+              ["圖片描述",        "為圖片撰寫標題或替代文字描述"],
+              ["品牌 / 型號",            "更新或清除相機品牌和型號欄位"],
+            ].each do |field, purpose| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= purpose %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">根據檔案的嵌入資料，其他欄位可能以唯讀模式顯示。</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">使用案例</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">為何編輯 EXIF 中繼資料？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["新增版權與署名",     "將您的姓名、版權聲明和聯絡方式直接嵌入檔案中，無論圖片傳播到何處，所有權資訊都會隨之保留。"],
+          ["修正錯誤的日期或時間",      "相機時鐘會漂移、跨越時區，或在更換電池後重置。修正拍攝日期，讓您的照片庫保持準確排序。"],
+          ["為未標記的照片新增 GPS",  "使用沒有 GPS 的相機拍攝？手動新增位置座標，讓照片在地圖和基於位置的搜尋中正確顯示。"],
+          ["圖庫照片準備",     "圖庫要求檔案中嵌入準確的版權、關鍵字和描述。在提交前編輯所有必填欄位，以加快審核流程。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Apply to all feature ───────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">批次編輯</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">將編輯應用於多張圖片</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        編輯器一次處理一張圖片，但您可以在單一會話中上傳多個檔案。編輯第一張圖片後，使用 <strong class="text-base-content font-semibold">「應用於所有圖片」</strong> 按鈕將您目前的中繼資料更改複製到所有其他上傳的檔案 — 讓您無需逐一重複相同的編輯。
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["在一次拍攝中保持版權一致",  "一鍵將您的版權聲明和藝術家姓名應用於會話中的每張圖片。"],
+          ["為一組照片設定共享關鍵字",       "為所有用於圖庫或客戶資料夾的圖片設定相同的描述性關鍵字。"],
+          ["統一的 GPS 標記",                   "將相同的位置分配給在同一地點或活動中拍攝的所有照片。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">常見問題</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">常見問題</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["哪些 EXIF 資料可以編輯？",
+           "您可以編輯 GPS 座標、日期和時間（原始日期時間）、藝術家/創作者姓名、版權聲明、關鍵字、圖片描述/標題以及相機品牌/型號。您留空的欄位將從檔案中清除。根據原始檔案的內容，可能會顯示其他唯讀欄位。"],
+          ["編輯 EXIF 資料會改變圖片品質嗎？",
+           "不會。EXIF 編輯只會修改中繼資料層 — 構成您照片的像素資料絕不會被觸及。您的圖片在編輯前後看起來會完全相同，且檔案格式保持不變。"],
+          ["支援哪些檔案格式？",
+           "JPEG 和 PNG 完全支援讀取和寫入 EXIF 中繼資料。JPEG 是 EXIF 資料最常見的格式，支援最廣泛的欄位。PNG 支援部分中繼資料欄位。WebP 和 GIF 的 EXIF 支援有限或不支援，具體取決於它們的創建方式。"],
+          ["如何為照片新增 GPS 座標？",
+           "在編輯器中打開圖片，找到 GPS 緯度和經度欄位，然後輸入該位置的十進位座標（例如，艾菲爾鐵塔為 48.8584, 2.2945）。您可以使用 Google 地圖找到任何位置的座標 — 右鍵點擊一個地點並複製顯示的座標。"],
+          ["如何為我的照片新增版權聲明？",
+           "上傳您的圖片，在版權欄位中輸入您的版權文字（例如：© 2026 您的姓名。保留所有權利。），然後儲存。若要將相同的版權應用於多張上傳的圖片，請在編輯第一張圖片後點擊「應用於所有圖片」。"],
+          ["「應用於所有圖片」有什麼作用？",
+           "當您在同一個會話中上傳多張圖片時，「應用於所有圖片」會將您在當前圖片上編輯的中繼資料欄位複製到上傳佇列中的所有其他檔案。這是一種捷徑，用於在整個照片集中應用一致的版權、關鍵字或位置資料，而無需手動為每個檔案重複編輯。"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">最後更新：2026 年 5 月</p>
+
+  </div>
+</section>

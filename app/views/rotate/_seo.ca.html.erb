@@ -1,0 +1,142 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Gira Imatges en Línia —<br class="hidden sm:block"> Gratuït i Instantani
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Corregeix fotos de costat o cap per avall a l'instant — sense programari ni registre. El nostre rotador d'imatges en línia gratuït et permet girar qualsevol JPEG, PNG, WebP o GIF 90°, 180° o 270° amb un sol clic. Tant si estàs corregint una foto feta amb una orientació incorrecta, preparant una imatge per imprimir o redreçant un escaneig, obtindràs el fitxer amb l'orientació correcta en segons.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "Rotador d'imatges en línia — gira JPEG, PNG, WebP 90°, 180° o 270° a l'instant", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pas a pas</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Com Girar una Imatge en Línia</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Puja la teva imatge</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Arrossega i deixa anar o fes clic per seleccionar un fitxer JPEG, JPG, PNG, GIF o WebP.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Tria la teva rotació</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Selecciona 90° en sentit horari, 90° en sentit antihorari o 180° per capgirar. La previsualització s'actualitza a l'instant.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Descarrega la teva imatge girada</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Fes clic a descarregar i guarda el teu fitxer amb l'orientació correcta a l'instant.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        No cal compte. Els teus fitxers mai s'emmagatzemen als nostres servidors.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formats</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Gira JPEG, PNG, WebP i més</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "El format de foto més comú. Gira sense recodificar per preservar la qualitat sempre que sigui possible." },
+          { name: "PNG",        desc: "Admet transparència. La rotació preserva el canal alfa — logotips i gràfics romanen intactes." },
+          { name: "GIF",        desc: "Gira GIFs estàtics de manera neta. Els GIFs animats es giren fotograma a fotograma." },
+          { name: "WebP",       desc: "El format modern de Google. Suport complet de rotació sense pèrdua de qualitat." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Quan Utilitzar-lo</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Raons Comunes per Girar una Imatge</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Els problemes d'orientació són més comuns del que penses. Aquí tens les situacions en què girar una imatge és la solució més ràpida:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Corregir l'orientació de la càmera",       "Els telèfons intel·ligents i les càmeres de vegades guarden les fotos de costat quan es fan en mode horitzontal o vertical. Una rotació ràpida de 90° ho corregeix sense pèrdua de qualitat."],
+          ["Corregir documents escanejats",    "Els escàners sovint produeixen una sortida girada segons com es va col·locar l'original. Gira el teu escaneig a l'orientació de lectura correcta abans de compartir-lo o arxivar-lo."],
+          ["Preparar imatges per imprimir",     "Els dissenys d'impressió requereixen imatges en una orientació específica. Gira abans d'exportar per evitar sorpreses a la impressora."],
+          ["Redreçar contingut per a xarxes socials","Pujar una foto de costat a Instagram o a un blog sembla poc professional. Gira-la abans de pujar-la perquè la plataforma no la giri automàticament de manera inesperada."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">Sabies que?</strong> Els fitxers JPEG emmagatzemen metadades d'orientació (dades EXIF) per separat de les dades de píxels reals. Algunes aplicacions mostren la imatge correctament utilitzant aquestes metadades, mentre que altres les ignoren i mostren l'orientació original. Girar els píxels reals (com fa aquesta eina) assegura que la imatge aparegui correctament a tot arreu.
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Casos d'Ús</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Qui Utilitza un Rotador d'Imatges?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Fotògrafs",      "Corregir l'orientació en un lot de fotos després d'una sessió. Una orientació consistent en un àlbum fa que les galeries tinguin un aspecte polit i professional."],
+          ["Bloggers i escriptors", "Les fotos fetes amb una orientació incorrecta trenquen el flux visual d'un article. Gira-les abans de pujar-les al teu CMS per assegurar que les imatges apareguin correctament per a tots els lectors."],
+          ["Venedors de comerç electrònic", "Les fotos de productes fetes de costat semblen poc fiables. Corregeix l'orientació abans de pujar-les a la teva botiga per presentar els productes clarament."],
+          ["Oficina i documents", "Els contractes, rebuts o documents d'identitat escanejats sovint surten girats. Corregeix l'orientació abans d'adjuntar-los a correus electrònics o pujar-los a sistemes de gestió documental."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">PMF</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Preguntes Freqüents</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Girar una imatge redueix la seva qualitat?",
+           "Per a la majoria de formats, no. Girar exactament 90°, 180° o 270° és una operació sense pèrdua per a PNG i WebP. Per a JPEG, la imatge es torna a guardar després de la rotació, la qual cosa pot implicar un pas de qualitat molt petit si l'eina la recodifica — però amb configuracions d'alta qualitat això és imperceptible."],
+          ["Quins formats d'imatge admet el rotador?",
+           "L'eina admet JPEG, JPG, PNG, GIF i WebP. El format de sortida coincideix amb el teu fitxer d'entrada, de manera que un PNG segueix sent un PNG (amb la transparència intacta) després de la rotació."],
+          ["Com corregeixo una foto cap per avall?",
+           "Puja la teva foto i selecciona l'opció de rotació de 180°. Això capgira la imatge completament, corregint qualsevol orientació cap per avall amb un sol clic."],
+          ["Quina diferència hi ha entre la rotació automàtica i la manual?",
+           "La rotació automàtica utilitza les metadades d'orientació EXIF incrustades per la teva càmera o telèfon per mostrar les imatges correctament. La rotació manual canvia físicament les dades de píxels. Si trobes que les imatges es mostren de costat en algunes aplicacions (que ignoren EXIF), utilitza aquesta e

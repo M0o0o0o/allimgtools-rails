@@ -1,0 +1,194 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        온라인 이미지 변환 —<br class="hidden sm:block"> 무료 형식 변환기
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        이미지 형식을 즉시 변환하세요 — 소프트웨어 설치나 회원가입이 필요 없습니다. 저희의 무료 온라인 이미지 변환기는 JPEG, PNG, WebP, GIF, AVIF를 지원합니다. 더 빠른 웹사이트를 위해 WebP로 전환하거나, 더 작은 파일을 위해 PNG를 JPEG로 변환하거나, 플랫폼이 요구하는 정확한 형식으로 이미지를 준비하세요. 이미지를 업로드하고 몇 초 안에 변환된 파일을 다운로드하세요.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/convert_hero.png", alt: "온라인 이미지 형식 변환기 — JPEG, PNG, WebP, GIF, AVIF를 즉시 변환", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">단계별 안내</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">온라인으로 이미지를 변환하는 방법</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">이미지 업로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">장치에서 JPEG, PNG, WebP, GIF 또는 AVIF 파일을 드래그 앤 드롭하거나 클릭하여 선택하세요.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">출력 형식 선택</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">JPEG, PNG, WebP, GIF 또는 AVIF 중 원하는 대상 형식을 선택하세요. 변환기가 모든 기술적 세부 사항을 자동으로 처리합니다.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">변환된 이미지 다운로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">다운로드를 클릭하여 변환된 파일을 즉시 저장하고 어디서든 사용할 수 있습니다.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        계정 필요 없음. 파일은 저희 서버에 저장되지 않습니다.
+      </p>
+    </div>
+
+    <%# ── Format comparison table ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">참고 자료</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP, GIF &amp; AVIF — 어떤 형식이 적합할까요?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        각 이미지 형식은 고유한 장점을 가지고 있습니다. 이 표를 사용하여 필요에 맞는 올바른 출력 형식을 선택하세요:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">형식</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">최적 용도</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["JPEG",  "사진, 웹 이미지, 소셜 미디어 — 뛰어난 호환성, 자연 풍경에 적합한 작은 파일 크기"],
+              ["PNG",   "로고, 일러스트레이션, 스크린샷 — 완전한 투명도 지원과 무손실 품질"],
+              ["WebP",  "현대 웹 — 최고의 전반적인 압축률; 동일 품질에서 JPEG보다 작고 투명도 지원"],
+              ["GIF",   "간단한 애니메이션, 제한된 색상의 그래픽 — 애니메이션 콘텐츠에 대한 광범위한 플랫폼 지원"],
+              ["AVIF",  "차세대 웹 — 뛰어난 품질과 최고의 압축 효율성; 성능이 중요한 사이트에 이상적"],
+            ].each do |fmt, desc| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= fmt %></td>
+                <td class="text-sm text-base-content/60"><%= desc %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">확신이 없다면, 웹용으로는 WebP로 변환하고 투명도와 무손실 품질이 필요할 때는 PNG로 변환하세요.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">사용 사례</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">이미지 형식을 변환하는 이유?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["웹용으로 WebP로 변환",           "WebP 파일은 동일한 품질에서 JPEG보다 25~35% 더 작습니다. 사이트 이미지를 WebP로 전환하는 것은 페이지 속도 및 Core Web Vitals 점수를 높이는 가장 빠른 방법 중 하나입니다."],
+          ["더 작은 파일을 위해 PNG를 JPEG로",         "PNG 파일은 무손실이며 크기가 큽니다. 이미지에 투명도가 필요하지 않다면 JPEG 또는 WebP로 변환하면 파일 크기를 획기적으로 줄일 수 있습니다 — 종종 60~80%까지."],
+          ["품질 및 투명도를 위해 JPEG를 PNG로", "투명 배경을 추가하거나 픽셀 단위의 정확도가 필요한 이미지로 작업해야 하나요? 무손실 품질과 알파 채널 지원을 위해 PNG로 변환하세요."],
+          ["플랫폼 요구 형식",             "다양한 도구, CMS 플랫폼 및 디자인 워크플로우는 특정 파일 형식을 요구합니다. 여기에서 한 번 변환하고 매번 올바른 형식을 업로드하세요."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Web performance section ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">웹 성능</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">더 빠른 웹사이트를 위해 이미지를 WebP로 변환</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Google의 PageSpeed Insights 및 Lighthouse 감사에서는 '차세대 형식으로 이미지 제공'을 주요 최적화 요소로 정기적으로 지적합니다. 이미지를 업로드하기 전에 WebP 또는 AVIF로 변환하면 다음을 수행하는 데 도움이 됩니다:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Core Web Vitals 개선",        "더 작은 이미지 파일은 Google의 주요 순위 신호 중 하나인 LCP(Largest Contentful Paint)를 줄입니다."],
+          ["대역폭 및 호스팅 비용 절감", "현대적인 형식은 동일한 시각적 품질을 훨씬 작은 파일 크기로 제공하여 서버 부하와 데이터 전송을 줄입니다."],
+          ["Lighthouse 감사 통과",          "기존 JPEG 및 PNG 파일을 WebP 또는 AVIF로 변환하면 PageSpeed Insights의 가장 일반적인 경고 중 하나를 직접 해결할 수 있습니다."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPress 팁:</strong> 미디어 라이브러리에 업로드하기 전에 여기에서 이미지를 WebP로 변환하세요. 이렇게 하면 플러그인 종속성을 피하고 출력 품질 및 형식을 완벽하게 제어할 수 있습니다.
+      </div>
+    </div>
+
+    <%# ── Bulk conversion ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">프로 기능</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">대량 이미지 변환</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        여러 이미지를 한 번에 변환해야 하나요? 저희의 대량 변환 도구를 사용하면 여러 파일을 한 번에 업로드하고 처리할 수 있습니다 — 다음 경우에 완벽합니다:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["전자상거래",    "상점에 게시하기 전에 전체 제품 이미지 라이브러리를 WebP로 변환하세요."],
+          ["블로그 및 콘텐츠", "대표 이미지와 인라인 사진을 일관된 형식으로 한 번에 일괄 변환하세요."],
+          ["디자인 내보내기", "PNG 디자인 자산 폴더를 JPEG 또는 WebP로 변환하여 전달하거나 웹 게시하세요."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label.html_safe %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">대량 변환은 프로 플랜에서 이용 가능합니다</p>
+          <p class="text-white/60 text-sm">한 번의 클릭으로 여러 이미지를 어떤 형식으로든 변환하세요.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          무료로 시작하기 →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">자주 묻는 질문</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">자주 묻는 질문</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["손실 압축과 무손실 압축 변환의 차이점은 무엇인가요?",
+           "손실 압축 변환(예: PNG를 JPEG 또는 WebP로 변환)은 일부 데이터를 영구적으로 제거하여 이미지를 압축하므로, 약간의 품질 저하와 함께 더 작은 파일이 생성됩니다. 무손실 압축 변환(예: JPEG를 PNG로)은 모든 픽셀 데이터를 유지하지만 파일 크기를 줄이지 못할 수 있습니다. 웹용 사진의 경우 WebP와 같은 손실 압축 형식이 크기 대비 품질 균형이 가장 좋습니다."],
+          ["WebP는 모든 브라우저에서 지원되나요?",
+           "네. WebP는 Chrome, Firefox, Safari, Edge, Opera 등 모든 주요 최신 브라우저에서 완벽하게 지원되며, 전 세계 웹 사용자의 97% 이상을 커버합니다. 이제 웹 이미지에 권장되는 형식이며, 대부분의 프로젝트에서 대체 형식 없이 안전하게 사용할 수 있습니다."],
+          ["PNG를 JPEG로 변환할 때 투명도는 어떻게 되나요?",
+           "JPEG는 투명도를 지원하지 않습니다. 투명 배경을 가진 PNG를 JPEG로 변환하면 투명 영역이 단색(일반적으로 흰색)으로 채워집니다. 투명도를 유지하려면 대신 WebP 또는 PNG로 변환하세요 — 둘 다 알파 채널을 지원합니다."],
+          ["웹사이트에 가장 적합한 이미지 형식은 무엇인가요?",
+           "WebP는 2025년 대부분의 웹사이트에 가장 적합한 만능 형식입니다. 동일한 품질에서 JPEG보다 25~35% 더 작은 파일 크기를 제공하고, 투명도를 지원하며

@@ -1,0 +1,236 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        在线压缩图片 —<br class="hidden sm:block"> 免费、快速且无损画质
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        立即减小图片文件大小 — 无需软件，无需注册。我们的免费在线图片压缩工具采用智能压缩算法，在保留视觉质量的同时，缩小您的 JPEG、PNG、GIF、WebP 和 AVIF 文件。使用质量滑块找到文件大小和图像清晰度之间的完美平衡。无论您是为网站优化照片、准备电子邮件图片，还是释放存储空间，都可在几秒钟内获得更小的文件。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "在线图片压缩器 — 在保留质量的同时减小 JPEG、PNG、WebP 文件大小", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">分步指南</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">如何在线压缩图片</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">上传您的图片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖放或点击选择 JPEG、JPG、PNG、GIF、WebP 或 AVIF 文件。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">调整质量滑块</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">移动滑块以控制压缩级别。值越低，文件越小；值越高，保留的细节越多。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">下载您的压缩图片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">点击下载并立即保存您的优化文件。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        无需账户。您的文件绝不会存储在我们的服务器上。
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">支持格式</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">压缩 JPEG、PNG、WebP 及更多格式</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "最常见的照片格式。适用于具有自然色彩和渐变的高分辨率图像。" },
+          { name: "PNG",        desc: "支持透明度。非常适合标志、截图和图形。" },
+          { name: "GIF",        desc: "压缩动态或静态 GIF，不丢失动画帧。" },
+          { name: "WebP",       desc: "谷歌的现代格式。在同等质量下，压缩后比 JPEG 小得多。" },
+          { name: "AVIF",       desc: "适用于现代浏览器的下一代格式，具有出色的压缩效率。" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">参考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">将图片压缩到指定文件大小</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        需要将图片压缩到特定大小 — 例如 100KB、200KB 或 50KB？使用质量滑块微调压缩，直到达到目标。以下是快速参考：
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">目标大小</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">推荐质量范围</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["小于 20 KB",  "10 – 25%"],
+              ["小于 50 KB",  "25 – 40%"],
+              ["小于 100 KB", "40 – 60%"],
+              ["小于 200 KB", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">结果因原始图片内容和尺寸而异。请在下载前调整滑块并预览。</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">网页性能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">为您的网站或 WordPress 优化图片</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        页面加载速度是谷歌的排名因素之一 — 而图片通常是最大的罪魁祸首。未经优化的图片会拖慢您的网站，增加跳出率，并损害您的 SEO。在将图片上传到您的网站之前，请将其压缩以：
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["改善核心网页指标",       "通过减小图片文件大小来降低 LCP（最大内容绘制）分数。"],
+          ["减少带宽使用",        "更小的图片意味着更快的页面加载，尤其是在移动设备上。"],
+          ["通过 Google PageSpeed Insights 检查","大多数审计将未压缩的图片标记为首要问题。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPress 提示：</strong> 在上传到媒体库之前，请在此处压缩您的图片。这可以避免依赖服务器端插件，并让您完全控制输出质量。
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">专业版功能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">批量图片压缩</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        需要一次性压缩多张图片？我们的批量压缩工具可让您一次上传和处理多个文件 — 非常适合：
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["电子商务",    "在发布前压缩数十张产品图片。"],
+          ["博客文章",    "一次性优化特色图片和内嵌照片。"],
+          ["交付物",  "通过电子邮件或云存储发送压缩后的照片集。"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">批量处理功能在专业版中可用</p>
+          <p class="text-white/60 text-sm">一键处理多个文件。</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          免费开始 →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">用例</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">为什么要压缩图片？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["网站和博客",   "大图片是导致页面加载缓慢的首要原因。在上传前进行压缩可以减轻页面重量，并改善所有设备上的用户体验。"],
+          ["电子邮件附件",  "大多数电子邮件客户端都有 25 MB 的附件限制。压缩照片可以轻松发送多张图片，而不会达到大小限制。"],
+          ["社交媒体",       "Instagram 和 Facebook 等平台会重新压缩您的上传内容，通常会降低质量。预先压缩可以更好地控制照片的显示效果。"],
+          ["存储和备份",   "归档大量照片集？压缩图片可以显著减少存储需求，同时在正常查看尺寸下不会出现明显的质量损失。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">常见问题</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">常见问题</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["压缩图片会降低其质量吗？",
+           "这取决于压缩级别。有损压缩（JPEG、WebP）会删除部分图像数据 — 在适度设置下，人眼几乎无法察觉差异。请在下载前使用质量滑块预览结果。"],
+          ["如何将图片压缩到 100 KB 以下？",
+           "上传您的图片，将质量滑块设置为 40–60% 左右，然后检查输出文件大小。如果需要，可以进一步调低。对于非常大的原始图片，您可能需要设置更低的质量。"],
+          ["在线压缩图片安全吗？",
+           "是的。您的图片会直接处理，不会被存储、共享或用于任何其他目的。处理后我们不会保留您的文件。"],
+          ["哪种格式最适合压缩后的网页图片？",
+           "WebP 为大多数网页用例提供了文件大小和质量的最佳平衡，并受所有主流现代浏览器支持。AVIF 效率更高，但浏览器支持度略低。JPEG 仍然是实现最大兼容性的最安全选择。"],
+          ["我可以压缩 PNG 而不丢失透明度吗？",
+           "是的。PNG 压缩会保留 Alpha 通道（透明度）。您压缩后的 PNG 将保留原始文件中的任何透明区域。"],
+          ["有损压缩和无损压缩有什么区别？",
+           "有损压缩（JPEG、WebP）会永久删除部分数据以实现更小的文件。无损压缩（PNG）在不删除任何图像数据的情况下减小文件大小 — 但减小幅度通常较小。对于照片，有损压缩几乎总是更好的选择。"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">最后更新：2026 年 5 月</p>
+
+  </div>
+</section>

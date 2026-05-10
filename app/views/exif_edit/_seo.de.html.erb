@@ -1,0 +1,176 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        EXIF-Metadaten online bearbeiten —<br class="hidden sm:block"> Kostenloser Bilddaten-Editor
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Betrachten und bearbeiten Sie die versteckten Metadaten in Ihren Bildern – keine Software, keine Registrierung erforderlich. Unser kostenloser Online-EXIF-Editor ermöglicht es Ihnen, GPS-Koordinaten zu ändern, Datums- und Zeitstempel zu korrigieren, Copyright- und Autoreninformationen hinzuzufügen, Schlüsselwörter zu aktualisieren und vieles mehr. Funktioniert mit JPEG- und PNG-Dateien. Perfekt für Fotografen, Stock-Anbieter und alle, die präzise Kontrolle über ihre Bilddaten benötigen.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_edit_hero.png", alt: "Online EXIF-Editor — GPS, Datum, Copyright und Metadatenfelder in JPEG- und PNG-Dateien bearbeiten", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Schritt für Schritt</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">So bearbeiten Sie EXIF-Metadaten online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Laden Sie Ihr Bild hoch</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Ziehen Sie eine JPEG- oder PNG-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen. Sie können mehrere Bilder hochladen und nacheinander bearbeiten.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Bearbeiten Sie die Metadatenfelder</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Aktualisieren Sie beliebige EXIF-Felder – GPS-Koordinaten, Aufnahmedatum, Kamerainformationen, Copyright, Künstlername, Schlüsselwörter oder Beschreibung. Lassen Sie Felder leer, um sie zu entfernen.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Anwenden und herunterladen</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klicken Sie auf Speichern, um Ihre Änderungen zu übernehmen, und laden Sie dann das aktualisierte Bild herunter. Verwenden Sie „Auf alle Bilder anwenden“, um dieselben Bearbeitungen auf jede hochgeladene Datei zu kopieren.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Kein Konto erforderlich. Ihre Dateien werden niemals auf unseren Servern gespeichert.
+      </p>
+    </div>
+
+    <%# ── Editable fields table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referenz</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bearbeitbare EXIF-Felder</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Jedes unten aufgeführte Feld kann direkt im Editor gelesen, bearbeitet oder gelöscht werden. Änderungen werden beim Download in die Bilddatei zurückgeschrieben – der visuelle Inhalt Ihres Fotos wird niemals berührt.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF-Feld</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Was Sie einstellen können</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS-Breitengrad / Längengrad", "Hinzufügen, Ändern oder Entfernen des Aufnahmeorts des Fotos"],
+              ["DateTimeOriginal",         "Ein falsches Aufnahmedatum korrigieren oder eine falsche Zeitzone anpassen"],
+              ["Künstler / Urheber",         "Fügen Sie Ihren Namen hinzu, damit Ihre Urheberschaft mit der Datei reist"],
+              ["Copyright",               "Eine Copyright-Erklärung einbetten (z.B. © 2026 Jane Smith)"],
+              ["Schlüsselwörter",                "Durchsuchbare Tags für Stock-Bibliotheken oder Asset-Management hinzufügen"],
+              ["ImageDescription",        "Eine Bildunterschrift oder Alt-Text-Beschreibung für das Bild schreiben"],
+              ["Hersteller / Modell",            "Die Felder für Kameramarke und -modell aktualisieren oder löschen"],
+            ].each do |field, purpose| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= purpose %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Zusätzliche Felder können im schreibgeschützten Modus sichtbar sein, abhängig von den eingebetteten Daten der Datei.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Anwendungsfälle</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Warum EXIF-Metadaten bearbeiten?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Copyright & Credits hinzufügen",     "Betten Sie Ihren Namen, Ihre Copyright-Erklärung und Ihre Kontaktdaten direkt in die Datei ein, damit die Eigentumsinformationen mit dem Bild bleiben, egal wohin es gelangt."],
+          ["Falsches Datum oder falsche Uhrzeit korrigieren",      "Kamerauhren gehen falsch, reisen über Zeitzonen hinweg oder werden nach einem Batteriewechsel zurückgesetzt. Korrigieren Sie das Aufnahmedatum, damit Ihre Fotosammlung korrekt sortiert bleibt."],
+          ["GPS zu ungetaggten Fotos hinzufügen",  "Mit einer Kamera ohne GPS aufgenommen? Fügen Sie die Standortkoordinaten manuell hinzu, damit das Foto auf Karten und in standortbasierten Suchen korrekt angezeigt wird."],
+          ["Vorbereitung von Stockfotos",     "Stock-Bibliotheken erfordern genaue Copyrights, Schlüsselwörter und Beschreibungen, die in die Datei eingebettet sind. Bearbeiten Sie alle erforderlichen Felder vor der Einreichung, um den Überprüfungsprozess zu beschleunigen."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Apply to all feature ───────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Massenbearbeitung</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bearbeitungen auf mehrere Bilder anwenden</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Der Editor arbeitet jeweils an einem Bild, aber Sie können mehrere Dateien in einer einzigen Sitzung hochladen. Nach der Bearbeitung des ersten Bildes verwenden Sie die Schaltfläche <strong class="text-base-content font-semibold">„Auf alle Bilder anwenden“</strong>, um Ihre aktuellen Metadatenänderungen auf jede andere hochgeladene Datei zu kopieren – das erspart Ihnen, dieselben Bearbeitungen einzeln zu wiederholen.
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Konsistentes Copyright für eine Fotoserie",  "Wenden Sie Ihre Copyright-Erklärung und Ihren Künstlernamen mit einem Klick auf jedes Bild einer Sitzung an."],
+          ["Gemeinsame Schlüsselwörter für einen Fotosatz",       "Legen Sie dieselben beschreibenden Schlüsselwörter für alle Bilder fest, die für eine Stock-Bibliothek oder einen Kundenordner bestimmt sind."],
+          ["Einheitliche GPS-Tagging",                   "Weisen Sie allen Fotos, die am selben Ort oder bei derselben Veranstaltung aufgenommen wurden, denselben Standort zu."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Häufig gestellte Fragen</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Welche EXIF-Daten können bearbeitet werden?",
+           "Sie können GPS-Koordinaten, Datum und Uhrzeit (DateTimeOriginal), Künstler-/Urhebernamen, Copyright-Erklärung, Schlüsselwörter, Bildbeschreibung/-unterschrift und Kameramarke/-modell bearbeiten. Felder, die Sie leer lassen, werden aus der Datei gelöscht. Zusätzliche schreibgeschützte Felder können angezeigt werden, je nachdem, was die Originaldatei enthält."],
+          ["Ändert die Bearbeitung von EXIF-Daten die Bildqualität?",
+           "Nein. Die EXIF-Bearbeitung modifiziert nur die Metadatenebene – die Pixeldaten, aus denen Ihr Foto besteht, werden niemals berührt. Ihr Bild wird vor und nach der Bearbeitung identisch aussehen, und das Dateiformat bleibt dasselbe."],
+          ["Welche Dateiformate werden unterstützt?",
+           "JPEG und PNG werden vollständig für das Lesen und Schreiben von EXIF-Metadaten unterstützt. JPEG ist das gängigste Format für EXIF-Daten und unterstützt die größte Auswahl an Feldern. PNG unterstützt eine Untermenge von Metadatenfeldern. WebP und GIF haben je nach Erstellung nur begrenzte oder keine EXIF-Unterstützung."],
+          ["Wie füge ich GPS-Koordinaten zu einem Foto hinzu?",
+           "Öffnen Sie das Bild im Editor, suchen Sie die Felder für GPS-Breitengrad und -Längengrad und geben Sie die Dezimal-Koordinaten für den Standort ein (z.B. 48.8584, 2.2945 für den Eiffelturm). Sie können Koordinaten für jeden Standort mit Google Maps finden – klicken Sie mit der rechten Maustaste auf einen Punkt und kopieren Sie die angezeigten Koordinaten."],
+          ["Wie füge ich eine Copyright-Erklärung zu meinen Fotos hinzu?",
+           "Laden Sie Ihr Bild hoch, geben Sie Ihren Copyright-Text in das Feld Copyright ein (zum Beispiel: © 2026 Ihr Name. Alle Rechte vorbehalten.) und speichern Sie. Um dasselbe Copyright auf mehrere hochgeladene Bilder anzuwenden, klicken Sie nach der Bearbeitung des ersten Bildes auf „Auf alle Bilder anwenden“."],
+          ["Was bewirkt „Auf alle Bilder anwenden“?",
+           "Wenn Sie mehrere Bilder in derselben Sitzung hochgeladen haben, kopiert „Auf alle Bilder anwenden“ die Metadatenfelder, die Sie am aktuellen Bild bearbeitet haben, auf jede andere Datei in Ihrer Upload-Warteschlange. Es ist eine Abkürzung, um konsistente Copyright-, Schlüsselwort- oder Standortdaten auf einen gesamten Fotosatz anzuwenden, ohne die Bearbeitungen für jede Datei manuell zu wiederholen."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Zuletzt aktualisiert: Mai 2026</p>
+
+  </div>
+</section>

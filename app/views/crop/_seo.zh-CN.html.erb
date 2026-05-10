@@ -1,0 +1,193 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        在线裁剪图片 —<br class="hidden sm:block"> 免费、精准、即时
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        在几秒钟内修剪、重新构图和裁剪您的图片 — 无需软件，无需注册。我们的免费在线图片裁剪工具支持 JPEG、PNG、WebP、GIF 和 AVIF 文件。选择自由裁剪或锁定到标准宽高比 — 1:1 用于个人资料图片，16:9 用于 YouTube 缩略图，9:16 用于故事等。立即去除不需要的边框，聚焦主题，并为任何平台准备您的图片。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "在线图片裁剪工具 — 自由裁剪或按固定宽高比裁剪 JPEG、PNG、WebP 图片", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">分步指南</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">如何在线裁剪图片</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">上传您的图片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖放或点击从您的设备中选择一个 JPEG、PNG、WebP、GIF 或 AVIF 文件。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">选择裁剪区域</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖动裁剪手柄自由定义您的区域，或选择预设比例 — 1:1、4:3、16:9、3:2 或 9:16 — 以锁定比例。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">下载您裁剪后的图片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">点击下载并立即以原始格式保存您裁剪后的文件。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        无需账户。您的文件绝不会存储在我们的服务器上。
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">支持格式</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">裁剪 JPEG、PNG、WebP 及更多格式</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "最常见的图片格式。裁剪清晰，同时保留自然色彩和渐变。" },
+          { name: "PNG",        desc: "支持透明度。裁剪保留 Alpha 通道，保持透明区域完整。" },
+          { name: "WebP",       desc: "谷歌的现代格式。高保真裁剪 — 非常适合网络优化图片。" },
+          { name: "GIF",        desc: "裁剪静态 GIF，不影响调色板或透明度。" },
+          { name: "AVIF",       desc: "下一代格式，质量卓越。裁剪并保留所有细节。" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">参考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">您应该使用哪种宽高比？</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        不同的平台和使用场景需要不同的比例。选择正确的比例，您的图片每次都会看起来完美构图：
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">比例</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">最佳用途</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Instagram 帖子、个人资料图片、头像、应用图标"],
+              ["16:9", "YouTube 缩略图、宽屏视频封面、博客标题"],
+              ["4:3",  "标准摄影、演示文稿、经典照片打印"],
+              ["9:16", "Instagram 故事、TikTok 视频、Reels、Shorts 封面"],
+              ["3:2",  "单反标准、风景摄影、打印相册"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">您也可以自由裁剪，不锁定任何比例 — 只需拖动到您想要的精确区域。</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">使用场景</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">为什么要裁剪您的图片？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["个人资料图片",         "锁定到 1:1 比例，将任何照片裁剪成完美的正方形，适用于 LinkedIn、Twitter、GitHub 或任何显示圆形或方形头像的平台。"],
+          ["缩略图和封面",  "为 YouTube 缩略图、博客标题或社交媒体预览卡片框选图片中最引人注目的部分。"],
+          ["移除不需要的区域",    "消除分散注意力的背景、边框、水印或空白区域 — 只保留重要的部分。"],
+          ["平台就绪图片",    "每个平台都有其首选尺寸。在上传前裁剪到正确的比例，这样您的图片就不会被尴尬地自动裁剪。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">小贴士</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">裁剪时获得最佳效果</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["从高分辨率原图开始", "裁剪会减少您保留的像素区域。高分辨率源图为您提供了更大的操作空间，并确保裁剪结果保持清晰。"],
+          ["为平台使用宽高比锁定",   "为特定平台准备图片时，请务必先锁定宽高比。这可以确保结果与所需尺寸匹配，无需猜测。"],
+          ["先裁剪再压缩",               "先裁剪，再压缩。移除不需要的像素可以减少您需要压缩的文件大小 — 在相同的输出尺寸下为您提供更好的质量。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">常见问题</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">常见问题解答</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["我可以裁剪到特定的像素尺寸吗？",
+           "可以。使用自由裁剪模式并拖动手柄以定位您想要的区域。裁剪工具会在您拖动时显示当前的像素尺寸，因此您可以达到精确的尺寸。对于固定比例（如 Instagram 的 1080×1080），请锁定 1:1 比例，如果需要，在裁剪后调整大小。"],
+          ["裁剪会降低图片质量吗？",
+           "不会 — 裁剪是对保留像素的非破坏性操作。它只是移除选择区域之外的部分，而不会改变您保留的像素数据。保存的文件在裁剪区域内是全质量的。"],
+          ["裁剪和调整大小有什么区别？",
+           "裁剪是移除图片的一部分 — 它改变了画布区域并减少了总像素数，而没有进行缩放。调整大小是将整个图片放大或缩小，改变尺寸但保留所有内容。使用裁剪来重新构图；使用调整大小来改变输出尺寸。"],
+          ["宽高比是什么意思？",
+           "宽高比是图片宽度和高度之间的比例关系，表示为用冒号分隔的两个数字（例如，16:9）。它描述了图片的形状。16:9 的图片比其高度更宽；1:1 的图片是完美的正方形。在裁剪时锁定宽高比可确保在调整裁剪区域时比例保持固定。"],
+          ["支持哪些格式？",
+           "您可以裁剪 JPEG、JPG、PNG、WebP、GIF 和 AVIF 文件。输出将以与原始文件相同的格式保存，保留透明度（PNG）和其他特定格式的功能。"],
+          ["我可以裁剪 PNG 并保留其透明背景吗？",
+           "可以。当您裁剪 PNG 时，裁剪选择区域之外的透明区域将被移除，但裁剪区域内的透明度将完全保留。下载的文件将保留 Alpha 通道。"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">最后更新：2026 年 5 月</p>
+
+  </div>
+</section>

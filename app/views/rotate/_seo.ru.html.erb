@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Поворачивайте изображения онлайн —<br class="hidden sm:block"> Бесплатно и мгновенно
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Мгновенно исправляйте перевернутые или повернутые фотографии — без программного обеспечения и регистрации. Наш бесплатный онлайн-инструмент для поворота изображений позволяет повернуть любой файл JPEG, PNG, WebP или GIF на 90°, 180° или 270° одним щелчком мыши. Независимо от того, исправляете ли вы фотографию, сделанную в неправильной ориентации, готовите изображение к печати или выравниваете скан, вы получите файл с правильной ориентацией за считанные секунды.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "Онлайн-инструмент для поворота изображений — мгновенно поворачивайте JPEG, PNG, WebP на 90°, 180° или 270°", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Пошагово</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Как повернуть изображение онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Загрузите ваше изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перетащите файл или нажмите, чтобы выбрать файл JPEG, JPG, PNG, GIF или WebP.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Выберите угол поворота</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Выберите поворот на 90° по часовой стрелке, 90° против часовой стрелки или 180° для переворота. Предварительный просмотр обновляется мгновенно.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Скачайте повернутое изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Нажмите «Скачать» и мгновенно сохраните файл с правильной ориентацией.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Регистрация не требуется. Ваши файлы никогда не хранятся на наших серверах.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Форматы</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Поворачивайте JPEG, PNG, WebP и другие</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Самый распространенный формат фотографий. Поворачивайте без перекодирования, чтобы максимально сохранить качество." },
+          { name: "PNG",        desc: "Поддерживает прозрачность. Поворот сохраняет альфа-канал — логотипы и графика остаются нетронутыми." },
+          { name: "GIF",        desc: "Аккуратно поворачивайте статические GIF-файлы. Анимированные GIF-файлы поворачиваются покадрово." },
+          { name: "WebP",       desc: "Современный формат Google. Полная поддержка поворота без потери качества." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Когда это использовать</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Распространенные причины для поворота изображения</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Проблемы с ориентацией встречаются чаще, чем вы думаете. Вот ситуации, когда поворот изображения является самым быстрым решением:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Исправить ориентацию камеры",       "Смартфоны и камеры иногда сохраняют фотографии боком, если они были сделаны в альбомном или портретном режиме. Быстрый поворот на 90° исправляет это без потери качества."],
+          ["Исправить отсканированные документы",    "Сканеры часто выдают повернутые изображения в зависимости от того, как был размещен оригинал. Поверните скан в правильную ориентацию для чтения перед отправкой или архивированием."],
+          ["Подготовить изображения для печати",     "Макеты для печати требуют изображений в определенной ориентации. Поверните перед экспортом, чтобы избежать сюрпризов при печати."],
+          ["Выровнять контент для соцсетей","Загрузка повернутой фотографии в Instagram или блог выглядит непрофессионально. Поверните ее перед загрузкой, чтобы платформа не поворачивала ее автоматически неожиданным образом."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">Знаете ли вы?</strong> Файлы JPEG хранят метаданные ориентации (данные EXIF) отдельно от фактических пиксельных данных. Некоторые приложения отображают изображение правильно, используя эти метаданные, в то время как другие игнорируют их и показывают исходную ориентацию. Поворот фактических пикселей (как это делает этот инструмент) гарантирует, что изображение будет отображаться правильно везде.
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Случаи использования</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Кто использует инструмент для поворота изображений?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Фотографы",      "Исправьте ориентацию на серии снимков после фотосессии. Единообразная ориентация в альбоме делает галереи аккуратными и профессиональными."],
+          ["Блогеры и писатели", "Фотографии, сделанные в неправильной ориентации, нарушают визуальный поток статьи. Поверните их перед загрузкой в вашу CMS, чтобы изображения отображались правильно для всех читателей."],
+          ["Продавцы электронной коммерции", "Фотографии товаров, сделанные боком, выглядят ненадежно. Исправьте ориентацию перед загрузкой в ваш магазин, чтобы четко представить товары."],
+          ["Офис и документы", "Отсканированные контракты, квитанции или удостоверения личности часто получаются повернутыми. Исправьте ориентацию перед прикреплением к электронным письмам или загрузкой в системы управления документами."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Часто задаваемые вопросы</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Часто задаваемые вопросы</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Ухудшает ли поворот изображения его качество?",
+           "Для большинства форматов — нет. Поворот ровно на 90°, 180° или 270° является операцией без потерь для PNG и WebP. Для JPEG изображение сохраняется повторно после поворота, что может повлечь за собой очень небольшое снижение качества, если инструмент перекодирует его — но при высоких настройках качества это незаметно."],
+          ["Какие форматы изображений поддерживает инструмент для поворота?",
+           "Инструмент поддерживает JPEG, JPG, PNG, GIF и WebP. Выходной формат соответствует вашему входному файлу, поэтому PNG остается PNG (с сохранением прозрачности) после поворота."],
+          ["Как исправить перевернутую фотографию?",
+           "Загрузите свою фотографию и выберите опцию поворота на 180°. Это полностью переворачивает изображение, исправляя любую перевернутую ориентацию одним щелчком."],
+          ["В чем разница между автоповоротом и ручным поворотом?",
+           "Автоповорот использует метаданные ориентации EXIF, встроенные вашей камерой или телефоном, для правильного отображения изображений. Ручной поворот физически изменяет данные пикселей. Если вы обнаружите, что изображения отображаются боком в некоторых приложениях (которые игнорируют EXIF), используйте этот инструмент, чтобы вручную закрепить правильную ориентацию в самом файле."],
+          ["Сохранит ли повернутое изображение тот же формат файла и прозрачность?",
+           "Да. Выходной формат соответствует вашему входному. Файлы PNG сохраняют свою прозрачность (альфа-канал) после поворота. Преобразование не происходит, если вы явно не выберете другой формат."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Последнее обновление: Май 2026</p>
+
+  </div>
+</section>

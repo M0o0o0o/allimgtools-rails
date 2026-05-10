@@ -1,0 +1,199 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Supprimer les données EXIF en ligne —<br class="hidden sm:block"> Protégez votre vie privée instantanément
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Supprimez toutes les métadonnées de vos photos instantanément — aucun logiciel, aucune inscription requise. Notre outil gratuit de suppression EXIF en ligne efface définitivement la localisation GPS, le modèle d'appareil photo, la date de prise de vue, les informations sur l'objectif, les réglages d'exposition et toutes les métadonnées IPTC/XMP des fichiers JPEG, PNG, WebP et GIF. Que vous vendiez des articles en ligne, partagiez des photos publiquement ou prépariez des images pour les réseaux sociaux, vos informations personnelles restent privées.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "Suppresseur EXIF en ligne — supprimez le GPS, les informations de l'appareil photo et les métadonnées des photos pour protéger la vie privée", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Étape par étape</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Comment supprimer les données EXIF en ligne</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Téléchargez votre image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Glissez-déposez ou cliquez pour sélectionner un fichier JPEG, PNG, WebP ou GIF. Vous pouvez télécharger plusieurs images à la fois.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Supprimez toutes les métadonnées</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Cliquez sur le bouton de suppression et toutes les métadonnées EXIF, IPTC et XMP sont instantanément supprimées de votre image.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Téléchargez votre image nettoyée</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Téléchargez votre image sans métadonnées. Le contenu visuel de votre photo reste totalement inchangé.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Aucun compte requis. Vos fichiers ne sont jamais stockés sur nos serveurs.
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Référence</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Ce que les données EXIF révèlent sur vous</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Chaque photo prise avec un smartphone ou un appareil photo numérique intègre des métadonnées cachées. Voici ce que ces données peuvent révéler lorsque vous partagez une image non nettoyée :
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Champ EXIF</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Ce qu'il révèle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Latitude / Longitude GPS", "Lieu exact où la photo a été prise"],
+              ["DateTimeOriginal",         "La date et l'heure précises de la capture de la photo"],
+              ["Marque / Modèle",             "Marque et modèle de l'appareil photo (ex. Apple iPhone 15 Pro)"],
+              ["Logiciel",                 "Logiciel d'édition utilisé (ex. Adobe Lightroom, Snapseed)"],
+              ["Artiste / Droit d'auteur",       "Nom et identité du photographe"],
+              ["Modèle d'objectif",                "Objectif utilisé — indice d'équipement professionnel"],
+              ["Temps d'exposition / ISO",       "Réglages de l'appareil photo pouvant identifier votre style de prise de vue"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Tous les champs ci-dessus — et plus encore — sont supprimés lorsque vous utilisez cet outil.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Cas d'utilisation</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Pourquoi supprimer les données EXIF ?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Vendre des articles en ligne",     "Les photos d'articles à vendre contiennent souvent les coordonnées GPS de votre domicile. Supprimez les métadonnées avant de publier sur des plateformes comme eBay, Le Bon Coin ou Facebook Marketplace."],
+          ["Partager des photos publiquement",  "Vous téléchargez sur des forums, Discord ou des galeries publiques ? Votre photo pourrait diffuser votre adresse personnelle. Supprimez les données EXIF avant de partager partout où vous n'avez pas le contrôle."],
+          ["Partage professionnel",     "Les livrables clients ne devraient pas inclure votre équipement photo, la date de prise de vue ou vos informations personnelles. Supprimez les métadonnées pour une remise propre et professionnelle."],
+          ["Sécurité sur les réseaux sociaux",      "Même si la plupart des plateformes suppriment les données EXIF lors du téléchargement, certaines ne le font pas — et certains utilisateurs téléchargent les originaux. Supprimez vous-même les métadonnées avant de télécharger pour être certain."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── What's removed ────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Couverture</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Toutes les métadonnées supprimées en un clic</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Cet outil supprime chaque couche de métadonnées intégrée à votre image — pas seulement les données EXIF de base, mais aussi les données IPTC et XMP utilisées par les flux de travail professionnels :
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Données GPS et de localisation",        "Latitude, longitude, altitude et direction sur la carte — tout est supprimé."],
+          ["Infos appareil photo et objectif",         "Marque, modèle, modèle d'objectif, version du firmware et numéro de série entièrement supprimés."],
+          ["Horodatages",         "DateTimeOriginal, DateTimeDigitized et tous les horodatages associés supprimés."],
+          ["Réglages d'exposition",          "ISO, ouverture, vitesse d'obturation, balance des blancs, mode flash — tout est effacé."],
+          ["Métadonnées IPTC / XMP",        "Avis de droit d'auteur, mots-clés, légendes, informations sur le créateur et déclarations de droits provenant de logiciels professionnels."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── Bulk removal ───────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Fonctionnalité Pro</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Suppression EXIF en masse</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Besoin de supprimer les métadonnées de dizaines de photos à la fois ? La suppression EXIF par lot est disponible en version Pro — parfait pour :
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Vendeurs e-commerce",   "Nettoyez des ensembles complets de photos de produits avant de les lister sur n'importe quelle place de marché."],
+          ["Photographes",        "Livrez des galeries clients sans exposer votre équipement ou votre calendrier de prise de vue."],
+          ["Créateurs de contenu",     "Nettoyez les métadonnées de toutes les images d'une publication ou d'une campagne en une seule fois."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">La suppression par lot est disponible en version Pro</p>
+          <p class="text-white/60 text-sm">Supprimez les métadonnées de plusieurs fichiers en un clic.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Commencer gratuitement →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Foire aux questions</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Qu'est-ce que les données EXIF ?",
+           "EXIF (Exchangeable Image File Format) est un ensemble de métadonnées automatiquement intégrées aux photos par les appareils photo numériques et les smartphones. Il enregistre des détails techniques comme les réglages de l'appareil photo, les informations sur l'objectif, la date et l'heure, et — le plus important — la localisation GPS. Ces données sont cachées à l'intérieur du fichier image et invisibles lorsque vous visualisez la photo normalement."],
+          ["La suppression EXIF est-elle permanente ?",
+           "Oui. Une fois supprimées, les métadonnées disparaissent de votre fichier téléchargé. Le fichier original sur votre appareil n'est pas modifié, vous pouvez donc toujours y revenir. Notre outil traite une copie — votre fichier téléchargé n'est jamais stocké sur nos serveurs."],
+          ["La suppression des données EXIF modifie-t-elle l'image ?",
+           "Non. Le contenu visuel de votre photo reste totalement inchangé. La suppression des métadonnées n'affecte que la couche de données cachées, pas les pixels. Votre image aura un aspect identique avant et après."],
+          ["Quelles données sont réellement supprimées ?",
+           "Tout : coordonnées GPS, marque et modèle de l'appareil photo, informations sur l'objectif, réglages d'exposition (ISO, ouverture, vitesse d'obturation), horodatages, logiciel utilisé, nom de l'artiste, avis de droit d'auteur et tous les champs IPTC/XMP. Essentiellement toutes les données non-pixel sont supprimées."],
+          ["Pourquoi supprimer les données EXIF avant de partager en ligne ?",
+           "Même si vous faites confiance à une plateforme, d'autres utilisateurs peuvent télécharger votre image et en extraire toutes les métadonnées à l'aide d'outils gratuits. Si des données GPS sont présentes, n'importe qui peut localiser précisément l'endroit où vous avez pris la photo — ce qui pourrait révéler votre domicile, votre lieu de travail ou votre routine quotidienne."],
+          ["Les réseaux sociaux suppriment-ils automatiquement les données EXIF ?",
+           "La plupart des grandes plateformes (Instagram, Facebook, Twitter/X) suppriment les données

@@ -1,0 +1,94 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Конвертирайте изображения онлайн —<br class="hidden sm:block"> Безплатен конвертор на формати
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Конвертирайте вашите изображения между формати незабавно — без софтуер, без регистрация. Нашият безплатен онлайн конвертор на изображения поддържа JPEG, PNG, WebP, GIF и AVIF. Преминете към WebP за по-бързи уебсайтове, конвертирайте PNG в JPEG за по-малки файлове или подгответе изображения точно във формата, който дадена платформа изисква. Качете вашето изображение и изтеглете конвертирания файл за секунди.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/convert_hero.png", alt: "Онлайн конвертор на формати за изображения — конвертирайте JPEG, PNG, WebP, GIF и AVIF незабавно", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Стъпка по стъпка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Как да конвертирате изображение онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Качете вашето изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Плъзнете и пуснете или щракнете, за да изберете JPEG, PNG, WebP, GIF или AVIF файл от вашето устройство.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Изберете изходен формат</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Изберете желания формат — JPEG, PNG, WebP, GIF или AVIF. Конверторът обработва всички технически детайли автоматично.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Изтеглете вашето конвертирано изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Щракнете върху изтегляне и запазете конвертирания файл незабавно, готов за използване навсякъде.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Не е необходим акаунт. Вашите файлове никога не се съхраняват на нашите сървъри.
+      </p>
+    </div>
+
+    <%# ── Format comparison table ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Справка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP, GIF &amp; AVIF — Кой формат е подходящ?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Всеки формат на изображение има своите предимства. Използвайте тази таблица, за да изберете правилния изходен формат за вашите нужди:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Формат</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Най-добър за</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["JPEG",  "Снимки, уеб изображения, социални медии — отлична съвместимост, малки размери на файловете за естествени сцени"],
+              ["PNG",   "Логота, илюстрации, екранни снимки — качество без загуби с пълна поддръжка на прозрачност"],
+              ["WebP",  "Модерен уеб — най-добра обща компресия; по-малък от JPEG при същото качество, поддържа прозрачност"],
+              ["GIF",   "Прости анимации, графики с ограничени цветове — широка поддръжка на платформи за анимирано съдържание"],
+              ["AVIF",  "Уеб от следващо поколение — най-висока ефективност на компресия с отлично качество; идеален за сайтове, критични към производителността"],
+            ].each do |fmt, desc| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= fmt %></td>
+                <td class="text-sm text-base-content/60"><%= desc %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Когато се колебаете, конвертирайте към WebP за уеб употреба или PNG, когато се нуждаете от прозрачност и качество без загуби.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Случаи на употреба</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Защо да конвертира

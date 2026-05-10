@@ -1,0 +1,160 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Преоразмеряване на изображения онлайн —<br class="hidden sm:block"> Безплатно, незабавно и без загуба на качество
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Променяйте размерите на вашите изображения незабавно — без софтуер, без регистрация. Нашият безплатен онлайн инструмент за преоразмеряване на изображения ви позволява да зададете точна ширина и височина в пиксели, да мащабирате по процент или да заключите съотношението на страните, за да избегнете изкривяване. Работи с JPEG, PNG, WebP, GIF и AVIF. Независимо дали подготвяте снимки за социални медии, преоразмерявате продуктови изображения за вашия онлайн магазин или изрязвате миниатюри за блог, ще получите перфектно оразмерени изображения за секунди.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "Онлайн преоразмерител на изображения — преоразмеряване на JPEG, PNG, WebP до точни пикселни размери незабавно", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Стъпка по стъпка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Как да преоразмерите изображение онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Качете вашето изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Плъзнете и пуснете или кликнете, за да изберете файл JPEG, JPG, PNG, GIF, WebP или AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Задайте желаните размери</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Въведете ширина и височина в пиксели или мащабирайте по процент. Включете "Запазване на съотношението на страните", за да предотвратите разтягане.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Изтеглете вашето преоразмерено изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Кликнете върху изтегляне и запазете вашия перфектно оразмерен файл незабавно.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Не е необходим акаунт. Вашите файлове никога не се съхраняват на нашите сървъри.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Формати</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Преоразмеряване на JPEG, PNG, WebP и други</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Най-често срещаният формат за снимки. Преоразмерявайте изображения с висока разделителна способност, като запазвате естествените цветове и градиенти." },
+          { name: "PNG",        desc: "Поддържа прозрачност. Преоразмерявайте лога, екранни снимки и графики, без да губите алфа канала." },
+          { name: "GIF",        desc: "Преоразмерявайте статични GIF файлове с лекота. Преоразмеряването на анимирани GIF файлове запазва всички кадри." },
+          { name: "WebP",       desc: "Модерният формат на Google. Преоразмерявайте WebP изображения и запазвайте компактни размери на файловете." },
+          { name: "AVIF",       desc: "Формат от следващо поколение с отлично качество при малки размери на файловете. Пълна поддръжка за преоразмеряване." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Справка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Често срещани размери на изображения за социални медии</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Всяка платформа има свои собствени препоръчителни размери на изображения. Използвайте тази таблица за справка, за да преоразмерите вашите изображения до точните размери, от които се нуждаете:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Платформа / Употреба</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Препоръчителен размер</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Публикация в Instagram (квадратна)",  "1080 × 1080 px"],
+              ["Корица за Facebook",     "820 × 312 px"],
+              ["Заглавие за Twitter / X",       "1500 × 500 px"],
+              ["Банер за LinkedIn",          "1584 × 396 px"],
+              ["Миниатюра за YouTube",        "1280 × 720 px"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Насоките на платформите се променят с времето. Винаги проверявайте най-новата официална документация преди публикуване.</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Уеб и електронна търговия</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Преоразмеряване на продуктови снимки и уеб изображения</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Постоянните размери на изображенията правят уебсайта ви да изглежда по-изпипан и да се зарежда по-бързо. Преди да качите на вашия сайт или магазин, преоразмерете изображенията, за да:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Съответстват точно на вашето оформление",       "Задайте точна ширина в пиксели, така че изображенията да пасват на вашата мрежа без CSS изкривяване."],
+          ["Ускорят зареждането на страниците",             "По-малките размери означават по-малки файлове, намалявайки трафика и подобрявайки Core Web Vitals."],
+          ["Стандартизират миниатюрите на продуктите",  "Еднаквите размери в продуктовите мрежи изглеждат професионално и намаляват промените в оформлението."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Съвет за електронна търговия:</strong> Преоразмерете всички продуктови изображения до едни и същи размери, преди да ги качите в магазина си. Повечето платформи (Shopify, WooCommerce, Etsy) препоръчват квадратни изображения с размери 1000 × 1000 px или по-големи за функцията за увеличение.
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Професионална функция</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Групово преоразмеряване на изображения</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Трябва ли да преоразмерите няколко изображения до едни и същи размери наведнъж? Нашият инструмент за групово преоразмеряване ви позволява да качвате и обработвате няколко файла наведнъж — идеално за:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Продуктови каталози",  "Стандартизирайте стотици продуктови снимки, преди да ги качите в магазина си."],
+          ["Фото галерии",   "Преоразмерете цяла фотосесия до последователни размери в една партида."],
+          ["Комплекти за социални медии", "Подгответе множество изображения според спецификациите на платформата, без да повтаряте процеса."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width

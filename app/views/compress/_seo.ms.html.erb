@@ -1,0 +1,216 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Mampatkan Imej Dalam Talian —<br class="hidden sm:block"> Percuma, Pantas &amp; Tiada Kehilangan Kualiti
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Kurangkan saiz fail imej anda serta-merta — tiada perisian, tiada pendaftaran diperlukan. Pemampat imej dalam talian percuma kami menggunakan algoritma pemampatan pintar untuk mengecilkan fail JPEG, PNG, GIF, WebP, dan AVIF anda sambil mengekalkan kualiti visual. Gunakan peluncur kualiti untuk mencari keseimbangan sempurna antara saiz fail dan kejelasan imej. Sama ada anda mengoptimumkan foto untuk laman web, menyediakan imej untuk e-mel, atau mengosongkan ruang storan, anda akan mendapat fail yang lebih kecil dalam beberapa saat.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "Pemampat imej dalam talian — kurangkan saiz fail JPEG, PNG, WebP sambil mengekalkan kualiti", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Langkah demi langkah</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cara Memampatkan Imej Dalam Talian</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Muat naik imej anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Seret dan lepas atau klik untuk memilih fail JPEG, JPG, PNG, GIF, WebP, atau AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Laraskan peluncur kualiti</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Gerakkan peluncur untuk mengawal tahap pemampatan. Nilai yang lebih rendah menghasilkan fail yang lebih kecil; nilai yang lebih tinggi mengekalkan lebih banyak butiran.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Muat turun imej anda yang dimampatkan</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klik muat turun dan simpan fail anda yang dioptimumkan serta-merta.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Tiada akaun diperlukan. Fail anda tidak pernah disimpan di pelayan kami.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Format</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Mampatkan JPEG, PNG, WebP &amp; Lain-lain</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Format paling biasa untuk foto. Sesuai untuk imej resolusi tinggi dengan warna dan gradien semula jadi." },
+          { name: "PNG",        desc: "Menyokong ketelusan. Hebat untuk logo, tangkapan skrin, dan grafik." },
+          { name: "GIF",        desc: "Mampatkan GIF animasi atau statik tanpa kehilangan bingkai animasi." },
+          { name: "WebP",       desc: "Format moden Google. Memampatkan jauh lebih kecil daripada JPEG pada kualiti yang setara." },
+          { name: "AVIF",       desc: "Format generasi seterusnya dengan kecekapan pemampatan yang sangat baik untuk pelayar moden." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Rujukan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Mampatkan Imej kepada Saiz Fail Tertentu</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Perlukan imej anda di bawah saiz tertentu — seperti 100KB, 200KB, atau 50KB? Gunakan peluncur kualiti untuk melaraskan pemampatan sehingga anda mencapai sasaran anda. Berikut adalah rujukan pantas:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Saiz Sasaran</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Julat Kualiti Disyorkan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Bawah 20 KB",  "10 – 25%"],
+              ["Bawah 50 KB",  "25 – 40%"],
+              ["Bawah 100 KB", "40 – 60%"],
+              ["Bawah 200 KB", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Hasil berbeza bergantung pada kandungan dan dimensi imej asal. Laraskan peluncur dan pratonton sebelum memuat turun.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Prestasi Web</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Optimumkan Imej untuk Laman Web atau WordPress Anda</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Kelajuan muat halaman adalah salah satu faktor kedudukan Google — dan imej biasanya adalah punca terbesar. Imej yang tidak dioptimumkan melambatkan tapak anda, meningkatkan kadar lantunan, dan merosakkan SEO anda. Sebelum memuat naik imej ke laman web anda, mampatkannya untuk:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Perbaiki Core Web Vitals",       "Kurangkan skor LCP (Largest Contentful Paint) dengan mengurangkan saiz fail imej."],
+          ["Kurangkan penggunaan lebar jalur",        "Imej yang lebih kecil bermakna muat halaman yang lebih pantas, terutamanya pada peranti mudah alih."],
+          ["Lulus Google PageSpeed Insights","Kebanyakan audit menandakan imej yang tidak dimampatkan sebagai isu utama."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Petua WordPress:</strong> Mampatkan imej anda di sini sebelum memuat naik ke pustaka media. Ini mengelakkan pergantungan pada pemalam sisi pelayan dan memberi anda kawalan penuh ke atas kualiti output.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Ciri Pro</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Pemampatan Imej Pukal</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Perlu memampatkan beberapa imej sekaligus? Alat pemampatan pukal kami membolehkan anda memuat naik dan memproses beberapa fail dalam satu masa — sesuai untuk:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-dagang",    "Mampatkan berpuluh-puluh imej produk sebelum menerbitkan."],
+          ["Catatan blog",    "Optimumkan imej pilihan dan foto sebaris dalam satu kumpulan."],
+          ["Penghantaran",  "Hantar set foto yang dimampatkan melalui e-mel atau storan awan."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Pemprosesan pukal tersedia pada Pro</p>
+          <p class="text-white/60 text-sm">Proses beberapa fail dalam satu klik.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Mula percuma →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kes Penggunaan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Mengapa Memampatkan Imej?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Laman web & blog",   "Imej besar adalah punca #1 halaman lambat dimuat. Memampatkan sebelum memuat naik mengurangkan berat halaman dan meningkatkan pengalaman pengguna merentasi semua peranti."],
+          ["Lampiran e-mel",  "Kebanyakan klien e-mel mempunyai had lampiran 25 MB. Memampatkan foto memudahkan penghantaran beberapa imej tanpa mencapai had saiz."],
+          ["Media sosial",       "Platform seperti Instagram dan Facebook memampatkan semula muat naik anda, sering kali merosotkan kualiti. Pra-mampatkan untuk mengekalkan lebih banyak kawalan ke atas bagaimana foto anda muncul."],
+          ["Storan & sandaran",   "Mengarkibkan koleksi foto besar? Memampatkan imej boleh mengurangkan keperluan storan dengan ketara tanpa kehilangan kualiti yang ketara pada saiz tontonan biasa."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Soalan Lazim</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Soalan Lazim</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Adakah memampatkan imej mengurangkan kualitinya?",
+           "Ia bergantung pada tahap pemampatan. Pemampatan lossy (JPEG, WebP) membuang beberapa data imej — pada tetapan sederhana, perbezaannya hampir tidak kelihatan kepada mata manusia. Gunakan peluncur kualiti untuk pratonton hasil sebelum memuat turun."],
+          ["Bagaimana saya memampatkan imej kepada bawah 100 KB?",
+           "Muat naik imej anda, tetapkan peluncur kualiti kepada sekitar 40–60%, dan semak saiz fail output. Laraskan ke bawah jika perlu. Untuk imej asal yang sangat besar, anda mungkin perlu menurunkan lagi."],
+          ["Adakah selamat untuk memampatkan imej dalam talian?",
+           "Ya. Imej anda diproses secara langsung dan tidak disimpan, dikongsi, atau digunakan untuk tujuan lain. Kami tidak menyimpan fail anda selepas pemprosesan."],
+          ["Apakah format terbaik untuk imej web yang dimampatkan?",
+           "WebP menawarkan keseimbangan terbaik antara saiz fail dan kualiti untuk kebanyakan kes penggunaan web dan disokong oleh semua pelayar moden utama. AVIF lebih cekap tetapi mempunyai sokongan pelayar yang sedikit lebih rendah. JPEG kekal sebagai pilihan paling selamat untuk keserasian maksimum."],
+          

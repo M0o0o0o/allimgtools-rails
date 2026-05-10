@@ -1,0 +1,189 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Cắt Ảnh Trực Tuyến —<br class="hidden sm:block"> Miễn Phí, Chính Xác &amp; Nhanh Chóng
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Cắt, điều chỉnh khung và xén ảnh của bạn chỉ trong vài giây — không cần phần mềm, không cần đăng ký. Công cụ cắt ảnh trực tuyến miễn phí của chúng tôi hỗ trợ các tệp JPEG, PNG, WebP, GIF và AVIF. Chọn cắt tự do hoặc khóa theo tỷ lệ khung hình tiêu chuẩn — 1:1 cho ảnh đại diện, 16:9 cho hình thu nhỏ YouTube, 9:16 cho Stories, và nhiều hơn nữa. Loại bỏ các viền không mong muốn, tập trung vào chủ thể và chuẩn bị ảnh của bạn cho bất kỳ nền tảng nào ngay lập tức.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Công cụ cắt ảnh trực tuyến — cắt JPEG, PNG, WebP với tỷ lệ tự do hoặc cố định", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Từng bước một</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cách Cắt Ảnh Trực Tuyến</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Tải ảnh của bạn lên</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Kéo và thả hoặc nhấp để chọn tệp JPEG, PNG, WebP, GIF hoặc AVIF từ thiết bị của bạn.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Chọn vùng cắt</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Kéo các tay cầm cắt để xác định vùng của bạn một cách tự do, hoặc chọn tỷ lệ đặt trước — 1:1, 4:3, 16:9, 3:2, hoặc 9:16 — để khóa tỷ lệ.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Tải ảnh đã cắt của bạn xuống</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Nhấp tải xuống và lưu tệp đã cắt của bạn ngay lập tức ở định dạng gốc.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Không yêu cầu tài khoản. Tệp của bạn không bao giờ được lưu trữ trên máy chủ của chúng tôi.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Định dạng</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cắt JPEG, PNG, WebP &amp; Nhiều hơn nữa</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Định dạng ảnh phổ biến nhất. Cắt gọn gàng trong khi vẫn giữ màu sắc và độ chuyển màu tự nhiên." },
+          { name: "PNG",        desc: "Hỗ trợ độ trong suốt. Việc cắt giữ lại kênh alpha, giữ nguyên các vùng trong suốt." },
+          { name: "WebP",       desc: "Định dạng hiện đại của Google. Cắt với độ trung thực cao — tuyệt vời cho hình ảnh tối ưu hóa web." },
+          { name: "GIF",        desc: "Cắt ảnh GIF tĩnh mà không ảnh hưởng đến bảng màu hoặc độ trong suốt." },
+          { name: "AVIF",       desc: "Định dạng thế hệ tiếp theo với chất lượng tuyệt vời. Cắt và giữ lại tất cả chi tiết." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Tham khảo</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bạn Nên Sử Dụng Tỷ Lệ Khung Hình Nào?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Các nền tảng và trường hợp sử dụng khác nhau yêu cầu các tỷ lệ khác nhau. Chọn đúng tỷ lệ và hình ảnh của bạn sẽ luôn được đóng khung hoàn hảo:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Tỷ lệ</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Tốt nhất cho</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Bài đăng Instagram, ảnh đại diện, avatar, biểu tượng ứng dụng"],
+              ["16:9", "Hình thu nhỏ YouTube, ảnh bìa video màn hình rộng, tiêu đề blog"],
+              ["4:3",  "Nhiếp ảnh tiêu chuẩn, thuyết trình, in ảnh cổ điển"],
+              ["9:16", "Instagram Stories, video TikTok, Reels, ảnh bìa Shorts"],
+              ["3:2",  "Tiêu chuẩn DSLR, nhiếp ảnh phong cảnh, album in"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Bạn cũng có thể cắt tự do mà không cần khóa bất kỳ tỷ lệ nào — chỉ cần kéo đến vùng chính xác bạn muốn.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Trường hợp sử dụng</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Tại Sao Nên Cắt Ảnh Của Bạn?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Ảnh đại diện",         "Khóa tỷ lệ 1:1 và cắt bất kỳ ảnh nào thành hình vuông hoàn hảo cho LinkedIn, Twitter, GitHub hoặc bất kỳ nền tảng nào hiển thị avatar tròn hoặc vuông."],
+          ["Hình thu nhỏ &amp; ảnh bìa",  "Đóng khung phần hấp dẫn nhất của hình ảnh cho hình thu nhỏ YouTube, tiêu đề blog hoặc thẻ xem trước mạng xã hội."],
+          ["Loại bỏ các vùng không mong muốn",    "Loại bỏ các nền gây mất tập trung, viền, hình mờ hoặc không gian trống — và chỉ giữ lại những gì quan trọng."],
+          ["Ảnh sẵn sàng cho nền tảng",    "Mỗi nền tảng có kích thước ưu tiên riêng. Cắt theo tỷ lệ phù hợp trước khi tải lên để ảnh của bạn không bao giờ bị tự động cắt một cách khó coi."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Mẹo</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Đạt Được Kết Quả Tốt Nhất Khi Cắt Ảnh</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Bắt đầu với ảnh gốc có độ phân giải cao", "Cắt ảnh làm giảm vùng pixel bạn giữ lại. Một nguồn có độ phân giải cao cho phép bạn có nhiều không gian để làm việc hơn và đảm bảo kết quả cắt vẫn sắc nét."],
+          ["Sử dụng khóa tỷ lệ khung hình cho các nền tảng",   "Khi chuẩn bị hình ảnh cho một nền tảng cụ thể, hãy luôn khóa tỷ lệ trước. Điều này đảm bảo kết quả khớp với kích thước yêu cầu mà không cần phỏng đoán."],
+          ["Cắt trước khi nén",               "Cắt trước, sau đó nén. Việc loại bỏ các pixel không mong muốn làm giảm kích thước tệp bạn cần nén — mang lại cho bạn chất lượng tốt hơn ở cùng kích thước đầu ra."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Câu hỏi thường gặp</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Các Câu Hỏi Thường Gặp</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Tôi có thể cắt theo kích thước pixel cụ thể không?",
+           "Có. Sử dụng chế độ cắt tự do và kéo các tay cầm để nhắm mục tiêu vùng bạn muốn. Công cụ cắt hiển thị kích thước pixel hiện tại khi bạn kéo, vì vậy bạn có thể đạt được kích thước chính xác. Đối với các tỷ lệ cố định (như 1080×1080 cho Instagram), hãy khóa tỷ lệ 1:1 và thay đổi kích thước sau khi cắt nếu cần."],
+          ["Cắt ảnh có làm giảm chất lượng hình ảnh không?",
+           "Không — cắt ảnh là một thao tác không phá hủy đối với các pixel còn lại. Nó chỉ đơn giản là loại bỏ các vùng bên ngoài vùng chọn của bạn mà không làm thay đổi dữ liệu pixel của những gì bạn giữ lại. Tệp đã lưu có chất lượng đầy đủ trong vùng đã cắt."],
+          ["Sự khác biệt giữa cắt và thay đổi kích thước là gì?",
+           "Cắt ảnh loại bỏ các phần của hình ảnh — nó thay đổi vùng canvas và giảm tổng số pixel mà không thay đổi tỷ lệ. Thay đổi kích thước điều chỉnh toàn bộ hình ảnh lớn hơn hoặc nhỏ hơn, thay đổi kích thước nhưng giữ lại tất cả nội dung. Sử dụng cắt để điều chỉnh khung; sử dụng thay đổi kích thước để thay đổi kích thước đầu ra."],
+          ["Tỷ lệ khung hình có nghĩa là gì?",
+           "Tỷ lệ khung hình là mối quan hệ tỷ lệ giữa chiều rộng và chiều cao của hình ảnh, được biểu thị bằng hai số được phân tách bằng dấu hai chấm (ví dụ: 16:9). Nó mô tả hình dạng của hình ảnh. Một hình ảnh 16:9 rộng hơn chiều cao của nó; một hình ảnh 1:1 là một hình vuông hoàn hảo. Khóa tỷ lệ khung hình khi cắt đảm bảo các tỷ lệ vẫn cố định khi bạn điều chỉnh vùng cắt."],
+          ["Những định dạng nào được hỗ trợ?",
+           "Bạn có thể cắt các tệp JPEG, JPG, PNG, WebP, GIF và AVIF. Đầu ra được lưu ở cùng định dạng với tệp gốc của bạn, giữ nguyên độ trong suốt (PNG) và các tính năng đặc trưng khác của định dạng."],
+          ["Tôi có thể cắt ảnh PNG và giữ nền trong suốt của nó không?",
+           "Có. Khi bạn cắt ảnh PNG, các vùng trong suốt bên ngoài vùng chọn cắt sẽ bị loại bỏ nhưng độ trong suốt bên trong vùng đã cắt được bảo toàn hoàn toàn. Tệp tải xuống sẽ giữ lại kênh alpha."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer

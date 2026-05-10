@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        หมุนรูปภาพออนไลน์ —<br class="hidden sm:block"> ฟรี &amp; ทันใจ
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        แก้ไขรูปภาพที่ถ่ายมาผิดด้านหรือกลับหัวได้ทันที — ไม่ต้องใช้ซอฟต์แวร์ ไม่ต้องลงทะเบียน เครื่องมือหมุนรูปภาพออนไลน์ฟรีของเราช่วยให้คุณหมุนรูปภาพ JPEG, PNG, WebP หรือ GIF ได้ 90°, 180° หรือ 270° ด้วยการคลิกเพียงครั้งเดียว ไม่ว่าคุณจะแก้ไขรูปภาพที่ถ่ายมาผิดทิศทาง เตรียมรูปภาพสำหรับพิมพ์ หรือปรับภาพสแกนให้ตรง คุณจะได้รับไฟล์ที่จัดวางอย่างถูกต้องภายในไม่กี่วินาที
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "เครื่องมือหมุนรูปภาพออนไลน์ — หมุน JPEG, PNG, WebP ได้ 90°, 180° หรือ 270° ทันที", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ทีละขั้นตอน</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">วิธีหมุนรูปภาพออนไลน์</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">อัปโหลดรูปภาพของคุณ</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">ลากและวาง หรือคลิกเพื่อเลือกไฟล์ JPEG, JPG, PNG, GIF หรือ WebP</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">เลือกการหมุนของคุณ</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">เลือกหมุนตามเข็มนาฬิกา 90°, ทวนเข็มนาฬิกา 90° หรือ 180° เพื่อพลิกกลับหัว ดูตัวอย่างการเปลี่ยนแปลงได้ทันที</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">ดาวน์โหลดรูปภาพที่หมุนแล้วของคุณ</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">คลิกดาวน์โหลดและบันทึกไฟล์ที่จัดวางอย่างถูกต้องของคุณได้ทันที</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        ไม่ต้องมีบัญชี ไฟล์ของคุณจะไม่ถูกจัดเก็บไว้บนเซิร์ฟเวอร์ของเรา
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">รูปแบบ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">หมุน JPEG, PNG, WebP &amp; อื่นๆ</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "รูปแบบรูปภาพที่พบบ่อยที่สุด หมุนโดยไม่ต้องเข้ารหัสใหม่เพื่อรักษาคุณภาพให้มากที่สุดเท่าที่จะทำได้" },
+          { name: "PNG",        desc: "รองรับความโปร่งใส การหมุนจะรักษาส่วนอัลฟ่าแชนเนลไว้ — โลโก้และกราฟิกยังคงสมบูรณ์" },
+          { name: "GIF",        desc: "หมุน GIF แบบภาพนิ่งได้อย่างสะอาดตา GIF แบบเคลื่อนไหวจะถูกหมุนทีละเฟรม" },
+          { name: "WebP",       desc: "รูปแบบที่ทันสมัยของ Google รองรับการหมุนเต็มรูปแบบโดยไม่ลดทอนคุณภาพ" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">เมื่อไหร่ที่ควรใช้</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">เหตุผลทั่วไปในการหมุนรูปภาพ</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        ปัญหาการวางแนวรูปภาพนั้นพบได้บ่อยกว่าที่คุณคิด นี่คือสถานการณ์ที่การหมุนรูปภาพเป็นการแก้ไขที่รวดเร็วที่สุด:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["แก้ไขการวางแนวกล้อง",       "สมาร์ทโฟนและกล้องบางครั้งบันทึกรูปภาพในแนวนอนเมื่อถ่ายในโหมดแนวนอนหรือแนวตั้ง การหมุน 90° อย่างรวดเร็วจะแก้ไขได้โดยไม่สูญเสียคุณภาพ"],
+          ["แก้ไขเอกสารที่สแกน",    "เครื่องสแกนมักจะสร้างผลลัพธ์ที่หมุนไปตามการวางต้นฉบับ หมุนไฟล์สแกนของคุณให้อยู่ในทิศทางการอ่านที่ถูกต้องก่อนที่จะแชร์หรือจัดเก็บ"],
+          ["เตรียมรูปภาพสำหรับพิมพ์",     "เค้าโครงงานพิมพ์ต้องการรูปภาพในทิศทางที่เฉพาะเจาะจง หมุนก่อนส่งออกเพื่อหลีกเลี่ยงความผิดพลาดที่เครื่องพิมพ์"],
+          ["ปรับเนื้อหาให้ตรงสำหรับโซเชียล","การอัปโหลดรูปภาพที่เอียงไปด้านข้างบน Instagram หรือบล็อกดูไม่เป็นมืออาชีพ หมุนก่อนอัปโหลดเพื่อให้แพลตฟอร์มไม่หมุนอัตโนมัติโดยไม่คาดคิด"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">คุณรู้หรือไม่?</strong> ไฟล์ JPEG จัดเก็บข้อมูลเมตาการวางแนว (ข้อมูล EXIF) แยกต่างหากจากข้อมูลพิกเซลจริง แอปบางตัวแสดงรูปภาพได้อย่างถูกต้องโดยใช้ข้อมูลเมตานี้ ในขณะที่บางแอปละเลยและแสดงการวางแนวแบบดิบ การหมุนพิกเซลจริง (ตามที่เครื่องมือนี้ทำ) ช่วยให้มั่นใจได้ว่ารูปภาพจะแสดงผลได้อย่างถูกต้องในทุกที่
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">กรณีการใช้งาน</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ใครบ้างที่ใช้เครื่องมือหมุนรูปภาพ?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["ช่างภาพ",      "แก้ไขการวางแนวของรูปภาพจำนวนมากหลังจากการถ่ายภาพ การวางแนวที่สอดคล้องกันทั่วทั้งอัลบั้มทำให้แกลเลอรีดูสวยงามและเป็นมืออาชีพ"],
+          ["บล็อกเกอร์ & นักเขียน", "รูปภาพที่ถ่ายมาผิดทิศทางจะขัดขวางการไหลของภาพในบทความ หมุนก่อนอัปโหลดไปยัง CMS ของคุณเพื่อให้แน่ใจว่ารูปภาพจะแสดงผลได้อย่างถูกต้องสำหรับผู้อ่านทุกคน"],
+          ["ผู้ขายอีคอมเมิร์ซ", "รูปภาพสินค้าที่ถ่ายมาผิดด้านดูไม่น่าเชื่อถือ แก้ไขการวางแนวก่อนอัปโหลดไปยังร้านค้าของคุณเพื่อนำเสนอสินค้าให้ชัดเจน"],
+          ["สำนักงาน & เอกสาร", "สัญญาที่สแกน ใบเสร็จ หรือเอกสารประจำตัวมักจะออกมาในลักษณะที่หมุนไป แก้ไขการวางแนวก่อนแนบไปกับอีเมลหรืออัปโหลดไปยังระบบจัดการเอกสาร"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">คำถามที่พบบ่อย</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">คำถามที่พบบ่อย</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["การหมุนรูปภาพจะลดคุณภาพลงหรือไม่?",
+           "สำหรับรูปแบบส่วนใหญ่ ไม่ การหมุนที่ 90°, 180° หรือ 270° เป็นการดำเนินการแบบไม่สูญเสียคุณภาพสำหรับ PNG และ WebP สำหรับ JPEG รูปภาพจะถูกบันทึกใหม่หลังจากการหมุน ซึ่งอาจเกี่ยวข้องกับการลดคุณภาพเพียงเล็กน้อยหากเครื่องมือเข้ารหัสใหม่ — แต่ในการตั้งค่าคุณภาพสูง สิ่งนี้จะมองไม่เห็น"],
+          ["เครื่องมือหมุนรองรับรูปแบบรูปภาพใดบ้าง?",
+           "เครื่องมือนี้รองรับ JPEG, JPG, PNG, GIF และ WebP รูปแบบผลลัพธ์จะตรงกับไฟล์อินพุตของคุณ ดังนั้น PNG จะยังคงเป็น PNG (พร้อมความโปร่งใสที่สมบูรณ์) หลังจากการหมุน"],
+          ["ฉันจะแก้ไขรูปภาพที่กลับหัวได้อย่างไร?",
+           "อัปโหลดรูปภาพของคุณและเลือกตัวเลือกการหมุน 180° ซึ่งจะพลิกรูปภาพทั้งหมด แก้ไขการวางแนวที่กลับหัวได้ในคลิกเดียว"],
+          ["ความแตกต่างระหว่างการหมุนอัตโนมัติและการหมุนด้วยตนเองคืออะไร?",
+           "การหมุนอัตโนมัติใช้ข้อมูลเมตาการวางแนว EXIF ที่ฝังโดยกล้องหรือโทรศัพท์ของคุณเพื่อแสดงรูปภาพได้อย่างถูกต้อง การหมุนด้วยตนเองจะเปลี่ยนข้อมูลพิกเซลทางกายภาพ หากคุณพบว่ารูปภาพแสดงผลในแนวนอนในบางแอป (ซึ่งละเลย EXIF) ให้ใช้เครื่องมือนี้เพื่อฝังการวางแนวที่ถูกต้องลงในไฟล์ด้วยตนเอง"],
+          ["รูปภาพที่หมุนแล้วของฉันจะยังคงรูปแบบไฟล์และความโปร่งใสเดิมหรือไม่?",
+           "ใช่ รูปแบบผลลัพธ์จะตรงกับอินพุตของคุณ ไฟล์ PNG จะยังคงความโปร่งใส (อัลฟ่าแชนเนล) ไว้หลังจากการหมุน จะไม่มีการแปลงเกิดขึ้นเว้นแต่คุณจะเลือกรูปแบบอื่นอย่างชัดเจน"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">อัปเดตล่าสุด: พฤษภาคม 2026</p>
+
+  </div>
+</section>

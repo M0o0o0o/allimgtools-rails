@@ -1,0 +1,193 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Recortar Imágenes Online —<br class="hidden sm:block"> Gratis, Preciso e Instantáneo
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Recorta, reencuadra y ajusta tus imágenes en segundos — sin software ni registro. Nuestro recortador de imágenes online gratuito soporta archivos JPEG, PNG, WebP, GIF y AVIF. Elige un recorte de forma libre o bloquéalo a una relación de aspecto estándar — 1:1 para fotos de perfil, 16:9 para miniaturas de YouTube, 9:16 para Stories, y más. Elimina bordes no deseados, enfócate en el sujeto y prepara tu imagen para cualquier plataforma al instante.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Recortador de imágenes online — recorta JPEG, PNG, WebP con forma libre o relación de aspecto fija", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Paso a paso</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">¿Cómo Recortar una Imagen Online?</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Sube tu imagen</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Arrastra y suelta o haz clic para seleccionar un archivo JPEG, PNG, WebP, GIF o AVIF desde tu dispositivo.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Selecciona un área de recorte</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Arrastra los controladores de recorte para definir tu área libremente, o elige una relación preestablecida — 1:1, 4:3, 16:9, 3:2 o 9:16 — para bloquear las proporciones.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Descarga tu imagen recortada</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Haz clic en descargar y guarda tu archivo recortado al instante en su formato original.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        No se requiere cuenta. Tus archivos nunca se almacenan en nuestros servidores.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formatos</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Recorta JPEG, PNG, WebP y Más</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "El formato de foto más común. Recorta limpiamente mientras preserva los colores y degradados naturales." },
+          { name: "PNG",        desc: "Soporta transparencia. El recorte mantiene el canal alfa, conservando intactas las áreas transparentes." },
+          { name: "WebP",       desc: "El formato moderno de Google. Recorta con total fidelidad — ideal para imágenes optimizadas para la web." },
+          { name: "GIF",        desc: "Recorta GIFs estáticos sin afectar las paletas de colores ni la transparencia." },
+          { name: "AVIF",       desc: "Formato de próxima generación con excelente calidad. Recorta y conserva todos los detalles." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referencia</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">¿Qué Relación de Aspecto Deberías Usar?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Diferentes plataformas y casos de uso requieren proporciones distintas. Elige la relación correcta y tu imagen lucirá perfectamente encuadrada en todo momento:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Relación</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Ideal Para</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Publicaciones de Instagram, fotos de perfil, avatares, iconos de aplicaciones"],
+              ["16:9", "Miniaturas de YouTube, portadas de vídeo panorámicas, cabeceras de blog"],
+              ["4:3",  "Fotografía estándar, presentaciones, impresiones fotográficas clásicas"],
+              ["9:16", "Historias de Instagram, vídeos de TikTok, Reels, portadas de Shorts"],
+              ["3:2",  "Estándar DSLR, fotografía de paisaje, álbumes impresos"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">También puedes recortar libremente sin bloquear ninguna relación — simplemente arrastra hasta el área exacta que desees.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Casos de Uso</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">¿Por Qué Recortar Tu Imagen?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Fotos de perfil",         "Bloquea a 1:1 y recorta cualquier foto en un cuadrado perfecto para LinkedIn, Twitter, GitHub o cualquier plataforma que muestre avatares circulares o cuadrados."],
+          ["Miniaturas y portadas",  "Encuadra la parte más atractiva de una imagen para miniaturas de YouTube, cabeceras de blog o tarjetas de vista previa de redes sociales."],
+          ["Eliminar áreas no deseadas",    "Elimina fondos que distraen, bordes, marcas de agua o espacios vacíos — y conserva solo lo que importa."],
+          ["Imágenes listas para plataformas",    "Cada plataforma tiene sus dimensiones preferidas. Recorta a la relación correcta antes de subir para que tu imagen nunca sea auto-recortada de forma extraña."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Consejos</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Obtén los Mejores Resultados al Recortar</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Empieza con un original de alta resolución", "El recorte reduce el área de píxeles que conservas. Una fuente de alta resolución te da más espacio para trabajar y asegura que el resultado recortado se mantenga nítido."],
+          ["Usa el bloqueo de relación de aspecto para plataformas",   "Al preparar imágenes para una plataforma específica, bloquea siempre la relación primero. Esto garantiza que el resultado coincida con las dimensiones requeridas sin conjeturas."],
+          ["Recorta antes de comprimir",               "Recorta primero, luego comprime. Eliminar píxeles no deseados reduce el tamaño del archivo que necesitas comprimir — dándote mejor calidad con el mismo tamaño de salida."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Preguntas Frecuentes</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Preguntas Frecuentes</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["¿Puedo recortar a un tamaño de píxel específico?",
+           "Sí. Usa el modo de recorte libre y arrastra los controladores para apuntar al área que desees. La herramienta de recorte muestra las dimensiones de píxeles actuales mientras arrastras, para que puedas alcanzar un tamaño exacto. Para relaciones fijas (como 1080×1080 para Instagram), bloquea la relación 1:1 y redimensiona después de recortar si es necesario."],
+          ["¿El recorte reduce la calidad de la imagen?",
+           "No — el recorte es una operación no destructiva sobre los píxeles que permanecen. Simplemente elimina las áreas fuera de tu selección sin alterar los datos de píxeles de lo que conservas. El archivo guardado tiene calidad completa dentro de la región recortada."],
+          ["¿Cuál es la diferencia entre recortar y redimensionar?",
+           "Recortar elimina porciones de la imagen — cambia el área del lienzo y reduce el recuento total de píxeles sin escalar. Redimensionar escala la imagen completa hacia arriba o hacia abajo, cambiando las dimensiones pero manteniendo todo el contenido. Usa recortar para reencuadrar; usa redimensionar para cambiar las dimensiones de salida."],
+          ["¿Qué significa relación de aspecto?",
+           "La relación de aspecto es la relación proporcional entre el ancho y la altura de una imagen, expresada como dos números separados por dos puntos (por ejemplo, 16:9). Describe la forma de la imagen. Una imagen 16:9 es más ancha que alta; una imagen 1:1 es un cuadrado perfecto. Bloquear la relación de aspecto al recortar asegura que las proporciones se mantengan fijas mientras ajustas el área de recorte."],
+          ["¿Qué formatos son compatibles?",
+           "Puedes recortar archivos JPEG, JPG, PNG, WebP, GIF y AVIF. La salida se guarda en el mismo formato que el original, preservando la transparencia (PNG) y otras características específicas del formato."],
+          ["¿Puedo recortar un PNG y mantener su fondo transparente?",
+           "Sí. Cuando recortas un PNG, las áreas transparentes fuera de la selección de recorte se eliminan, pero la transparencia dentro de la región recortada se conserva completamente. El archivo descargado conservará el canal alfa."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Última actualización: Mayo de 2026</p>
+
+  </div>
+</section>

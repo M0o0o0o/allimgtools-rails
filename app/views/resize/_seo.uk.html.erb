@@ -1,0 +1,168 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Змінюйте розмір зображень онлайн —<br class="hidden sm:block"> Безкоштовно, Миттєво та Без Втрати Якості
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Миттєво змінюйте розміри ваших зображень — без програмного забезпечення та реєстрації. Наш безкоштовний онлайн-інструмент для зміни розміру зображень дозволяє встановити точну ширину та висоту в пікселях, масштабувати за відсотками або заблокувати співвідношення сторін, щоб уникнути спотворень. Працює з JPEG, PNG, WebP, GIF та AVIF. Незалежно від того, чи готуєте ви фотографії для соціальних мереж, змінюєте розмір зображень товарів для свого онлайн-магазину або обрізаєте мініатюри для блогу, ви отримаєте ідеально підігнані зображення за лічені секунди.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "Онлайн-інструмент для зміни розміру зображень — миттєво змінюйте розмір JPEG, PNG, WebP до точних розмірів у пікселях", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Покроково</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Як змінити розмір зображення онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Завантажте своє зображення</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перетягніть файл або натисніть, щоб вибрати файл JPEG, JPG, PNG, GIF, WebP або AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Встановіть цільові розміри</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Введіть ширину та висоту в пікселях або масштабуйте за відсотками. Увімкніть "Зберігати співвідношення сторін", щоб запобігти розтягуванню.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Завантажте змінене зображення</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Натисніть "Завантажити" та миттєво збережіть файл ідеального розміру.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Обліковий запис не потрібен. Ваші файли ніколи не зберігаються на наших серверах.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Формати</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Змінюйте розмір JPEG, PNG, WebP та інше</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Найпоширеніший формат для фотографій. Змінюйте розмір зображень високої роздільної здатності, зберігаючи природні кольори та градієнти." },
+          { name: "PNG",        desc: "Підтримує прозорість. Змінюйте розмір логотипів, скріншотів та графіки без втрати альфа-каналу." },
+          { name: "GIF",        desc: "З легкістю змінюйте розмір статичних GIF-файлів. Зміна розміру анімованих GIF-файлів зберігає всі кадри." },
+          { name: "WebP",       desc: "Сучасний формат від Google. Змінюйте розмір зображень WebP та зберігайте компактний розмір файлів." },
+          { name: "AVIF",       desc: "Формат нового покоління з відмінною якістю при невеликих розмірах файлів. Повна підтримка зміни розміру." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Довідка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Поширені розміри зображень для соціальних мереж</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Кожна платформа має свої рекомендовані розміри зображень. Використовуйте цю довідкову таблицю, щоб змінити розмір ваших зображень до потрібних розмірів:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Платформа / Використання</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Рекомендований розмір</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Instagram Post (square)",  "1080 × 1080 px"],
+              ["Facebook Cover Photo",     "820 × 312 px"],
+              ["Twitter / X Header",       "1500 × 500 px"],
+              ["LinkedIn Banner",          "1584 × 396 px"],
+              ["YouTube Thumbnail",        "1280 × 720 px"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Рекомендації платформ з часом змінюються. Завжди перевіряйте актуальну офіційну документацію перед публікацією.</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Веб та електронна комерція</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Змінюйте розмір фотографій товарів та веб-зображень</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Послідовні розміри зображень роблять ваш веб-сайт більш довершеним та прискорюють завантаження. Перед завантаженням на ваш сайт або в магазин, змініть розмір зображень, щоб:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Точно відповідати вашому макету",       "Встановіть точну ширину в пікселях, щоб зображення відповідали вашій сітці без спотворень CSS."],
+          ["Прискорити завантаження сторінок",             "Менші розміри означають менші розміри файлів, що зменшує пропускну здатність та покращує показники Core Web Vitals."],
+          ["Стандартизувати мініатюри товарів",  "Однакові розміри в товарних сітках виглядають професійно та зменшують зсуви макета."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Порада для електронної комерції:</strong> Змініть розмір усіх зображень товарів до однакових розмірів перед завантаженням у ваш магазин. Більшість платформ (Shopify, WooCommerce, Etsy) рекомендують квадратні зображення розміром 1000 × 1000 пікселів або більше для функції масштабування.
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Професійна функція</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Масова зміна розміру зображень</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Потрібно змінити розмір кількох зображень до однакових розмірів одночасно? Наш інструмент масової зміни розміру дозволяє завантажувати та обробляти кілька файлів за один раз — ідеально підходить для:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Каталоги товарів",  "Стандартизуйте сотні фотографій товарів перед завантаженням у ваш магазин."],
+          ["Фотогалереї",   "Змініть розмір усієї фотосесії до однакових розмірів за один раз."],
+          ["Набори для соціальних мереж", "Підготуйте кілька зображень відповідно до специфікацій платформи, не повторюючи процес."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w

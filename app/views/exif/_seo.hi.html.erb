@@ -1,0 +1,197 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        EXIF डेटा ऑनलाइन हटाएँ —<br class="hidden sm:block"> अपनी गोपनीयता तुरंत सुरक्षित करें
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        अपनी तस्वीरों से सभी मेटाडेटा तुरंत हटाएँ — किसी सॉफ़्टवेयर या साइन-अप की आवश्यकता नहीं है। हमारा मुफ़्त ऑनलाइन EXIF रिमूवर JPEG, PNG, WebP और GIF फ़ाइलों से GPS स्थान, कैमरा मॉडल, ली गई तारीख, लेंस जानकारी, एक्सपोज़र सेटिंग्स और सभी IPTC/XMP मेटाडेटा को स्थायी रूप से हटा देता है। चाहे आप ऑनलाइन सामान बेच रहे हों, सार्वजनिक रूप से तस्वीरें साझा कर रहे हों, या सोशल मीडिया के लिए छवियाँ तैयार कर रहे हों, आपकी व्यक्तिगत जानकारी निजी रहती है।
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "ऑनलाइन EXIF रिमूवर — गोपनीयता की रक्षा के लिए तस्वीरों से GPS, कैमरा जानकारी और मेटाडेटा हटाएँ", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">चरण-दर-चरण</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIF डेटा ऑनलाइन कैसे हटाएँ</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">अपनी छवि अपलोड करें</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">JPEG, PNG, WebP, या GIF फ़ाइल चुनने के लिए ड्रैग और ड्रॉप करें या क्लिक करें। आप एक साथ कई छवियाँ अपलोड कर सकते हैं।</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">सभी मेटाडेटा हटाएँ</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">रिमूव बटन पर क्लिक करें और सभी EXIF, IPTC, और XMP मेटाडेटा आपकी छवि से तुरंत हटा दिए जाएँगे।</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">अपनी साफ़ छवि डाउनलोड करें</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">अपनी मेटाडेटा-मुक्त छवि डाउनलोड करें। आपकी तस्वीर की दृश्य सामग्री पूरी तरह से अपरिवर्तित रहती है।</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        किसी खाते की आवश्यकता नहीं है। आपकी फ़ाइलें हमारे सर्वर पर कभी संग्रहीत नहीं की जाती हैं।
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">संदर्भ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIF डेटा आपके बारे में क्या बताता है</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        स्मार्टफोन या डिजिटल कैमरे से ली गई हर तस्वीर में छिपा हुआ मेटाडेटा एम्बेड होता है। यहाँ बताया गया है कि जब आप बिना हटाई गई छवि साझा करते हैं तो वह डेटा क्या उजागर कर सकता है:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF फ़ील्ड</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">यह क्या बताता है</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS अक्षांश / देशांतर", "वह सटीक स्थान जहाँ तस्वीर ली गई थी"],
+              ["DateTimeOriginal",         "तस्वीर लेने की सटीक तारीख और समय"],
+              ["मेक / मॉडल",             "कैमरा ब्रांड और मॉडल (जैसे Apple iPhone 15 Pro)"],
+              ["सॉफ़्टवेयर",                 "उपयोग किया गया संपादन सॉफ़्टवेयर (जैसे Adobe Lightroom, Snapseed)"],
+              ["कलाकार / कॉपीराइट",       "फोटोग्राफर का नाम और पहचान"],
+              ["लेंस मॉडल",                "उपयोग किया गया लेंस — पेशेवर उपकरण का संकेत देता है"],
+              ["एक्सपोज़र टाइम / ISO",       "कैमरा सेटिंग्स जो आपकी शूटिंग शैली को फ़िंगरप्रिंट कर सकती हैं"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">उपरोक्त सभी फ़ील्ड — और भी बहुत कुछ — इस टूल का उपयोग करने पर हटा दिए जाते हैं।</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">उपयोग के मामले</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIF डेटा क्यों हटाएँ?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["ऑनलाइन सामान बेचना",     "बिक्री के लिए वस्तुओं की तस्वीरों में अक्सर आपके घर के GPS निर्देशांक होते हैं। eBay, Craigslist, या Facebook Marketplace जैसे मार्केटप्लेस पर पोस्ट करने से पहले मेटाडेटा हटा दें।"],
+          ["सार्वजनिक रूप से तस्वीरें साझा करना",  "फ़ोरम, Discord, या सार्वजनिक गैलरी में अपलोड कर रहे हैं? आपकी तस्वीर आपके घर का पता प्रसारित कर सकती है। कहीं भी साझा करने से पहले EXIF हटा दें जहाँ आपका नियंत्रण नहीं है।"],
+          ["पेशेवर साझाकरण",     "क्लाइंट डिलिवरेबल्स में आपके कैमरा गियर, शूटिंग की तारीख, या व्यक्तिगत विवरण शामिल नहीं होने चाहिए। एक साफ़, पेशेवर हैंडऑफ़ के लिए मेटाडेटा हटा दें।"],
+          ["सोशल मीडिया सुरक्षा",      "भले ही अधिकांश प्लेटफ़ॉर्म अपलोड पर EXIF हटा देते हैं, कुछ नहीं करते — और कुछ उपयोगकर्ता मूल डाउनलोड करते हैं। सुनिश्चित होने के लिए अपलोड करने से पहले स्वयं मेटाडेटा हटा दें।"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── What's removed ────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">कवरेज</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">एक क्लिक में सभी मेटाडेटा हटा दिए गए</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        यह टूल आपकी छवि में एम्बेडेड हर मेटाडेटा परत को हटा देता है — न केवल मूल EXIF, बल्कि पेशेवर वर्कफ़्लो द्वारा उपयोग किए जाने वाले IPTC और XMP डेटा भी:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["GPS और स्थान डेटा",        "अक्षांश, देशांतर, ऊँचाई और मानचित्र दिशा — सब कुछ चला गया।"],
+          ["कैमरा और लेंस जानकारी",         "मेक, मॉडल, लेंस मॉडल, फ़र्मवेयर संस्करण और सीरियल नंबर पूरी तरह से हटा दिए गए।"],
+          ["दिनांक और समय स्टैम्प",         "DateTimeOriginal, DateTimeDigitized, और सभी संबंधित टाइमस्टैम्प हटा दिए गए।"],
+          ["एक्सपोज़र सेटिंग्स",          "ISO, अपर्चर, शटर स्पीड, व्हाइट बैलेंस, फ़्लैश मोड — सब कुछ साफ़ कर दिया गया।"],
+          ["IPTC / XMP मेटाडेटा",        "कॉपीराइट नोटिस, कीवर्ड, कैप्शन, निर्माता जानकारी, और पेशेवर सॉफ़्टवेयर से अधिकार विवरण।"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── Bulk removal ───────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">प्रो सुविधा</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">बल्क EXIF हटाना</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        एक साथ दर्जनों तस्वीरों से मेटाडेटा हटाने की आवश्यकता है? प्रो पर बैच EXIF हटाना उपलब्ध है — इसके लिए एकदम सही है:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["ई-कॉमर्स विक्रेता",   "किसी भी मार्केटप्लेस पर सूचीबद्ध करने से पहले पूरे उत्पाद फोटो सेट को साफ़ करें।"],
+          ["फोटोग्राफर",        "अपने गियर या शूटिंग शेड्यूल को उजागर किए बिना क्लाइंट गैलरी वितरित करें।"],
+          ["सामग्री निर्माता",     "एक पोस्ट या अभियान में सभी छवियों से मेटाडेटा को एक बार में हटा दें।"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">बैच हटाना प्रो पर उपलब्ध है</p>
+          <p class="text-white/60 text-sm">एक क्लिक में कई फ़ाइलों से मेटाडेटा हटाएँ।</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          मुफ़्त में शुरू करें →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">अक्सर पूछे जाने वाले प्रश्न</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">अक्सर पूछे जाने वाले प्रश्न</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["EXIF डेटा क्या है?",
+           "EXIF (एक्सचेंजेबल इमेज फाइल फॉर्मेट) मेटाडेटा है जो डिजिटल कैमरों और स्मार्टफोन द्वारा तस्वीरों में स्वचालित रूप से एम्बेड किया जाता है। यह कैमरा सेटिंग्स, लेंस जानकारी, तारीख और समय, और — सबसे महत्वपूर्ण रूप से — GPS स्थान जैसे तकनीकी विवरण रिकॉर्ड करता है। यह डेटा इमेज फ़ाइल के अंदर छिपा होता है और जब आप सामान्य रूप से तस्वीर देखते हैं तो अदृश्य होता है।"],
+          ["क्या EXIF हटाना स्थायी है?",
+           "हाँ। एक बार हटा दिए जाने के बाद, मेटाडेटा आपकी डाउनलोड की गई फ़ाइल से चला जाता है। आपके डिवाइस पर मूल फ़ाइल को छुआ नहीं जाता है, इसलिए आप हमेशा उस पर वापस जा सकते हैं। हमारा टूल एक कॉपी को प्रोसेस करता है — आपकी अपलोड की गई फ़ाइलें हमारे सर्वर पर कभी संग्रहीत नहीं की जाती हैं।"],
+          ["क्या EXIF हटाने से छवि बदल जाती है?",
+           "नहीं। आपकी तस्वीर की दृश्य सामग्री पूरी तरह से अपरिवर्तित रहती है। मेटाडेटा हटाने से केवल छिपी हुई डेटा परत प्रभावित होती है, पिक्सेल नहीं। आपकी छवि पहले और बाद में समान दिखेगी।"],
+          ["वास्तव में कौन सा डेटा हटाया जाता है?",
+           "सब कुछ: GPS निर्देशांक, कैमरा मेक और मॉडल, लेंस जानकारी, एक्सपोज़र सेटिंग्स (ISO, अपर्चर, शटर स्पीड), तारीख और समय स्टैम्प, उपयोग किया गया सॉफ़्टवेयर, कलाकार का नाम, कॉपीराइट नोटिस, और सभी IPTC/XMP फ़ील्ड। अनिवार्य रूप से सभी गैर-पिक्सेल डेटा हटा दिए जाते हैं।"],
+          ["ऑनलाइन साझा करने से पहले EXIF क्यों हटाएँ?",
+           "भले ही आप किसी प्लेटफ़ॉर्म पर भरोसा करते हों, अन्य उपयोगकर्ता आपकी छवि डाउनलोड कर सकते हैं और मुफ़्त टूल का उपयोग करके पूरा मेटाडेटा निकाल सकते हैं। यदि GPS डेटा मौजूद है, तो कोई भी सटीक रूप से पता

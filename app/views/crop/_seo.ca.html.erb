@@ -1,0 +1,193 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Retalla Imatges en Línia —<br class="hidden sm:block"> Gratuït, Precís i Instantani
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Retalla, reemmarca i ajusta les teves imatges en segons — sense programari ni registre. La nostra eina gratuïta de retall d'imatges en línia és compatible amb fitxers JPEG, PNG, WebP, GIF i AVIF. Tria un retall de forma lliure o bloqueja una relació d'aspecte estàndard — 1:1 per a fotos de perfil, 16:9 per a miniatures de YouTube, 9:16 per a Stories i més. Elimina vores no desitjades, centra't en el subjecte i prepara la teva imatge per a qualsevol plataforma a l'instant.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Retallador d'imatges en línia — retalla JPEG, PNG, WebP amb forma lliure o relació d'aspecte fixa", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pas a pas</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Com Retallar una Imatge en Línia</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Puja la teva imatge</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Arrossega i deixa anar o fes clic per seleccionar un fitxer JPEG, PNG, WebP, GIF o AVIF des del teu dispositiu.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Selecciona una àrea de retall</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Arrossega les nanses de retall per definir la teva àrea lliurement, o tria una relació preestablerta — 1:1, 4:3, 16:9, 3:2 o 9:16 — per bloquejar les proporcions.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Descarrega la teva imatge retallada</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Fes clic a descarregar i desa el teu fitxer retallat a l'instant en el seu format original.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        No es requereix compte. Els teus fitxers mai s'emmagatzemen als nostres servidors.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formats</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Retalla JPEG, PNG, WebP i Més</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "El format de foto més comú. Retalla netament conservant colors i degradats naturals." },
+          { name: "PNG",        desc: "Admet transparència. El retall conserva el canal alfa, mantenint les àrees transparents intactes." },
+          { name: "WebP",       desc: "El format modern de Google. Retalla amb total fidelitat — ideal per a imatges optimitzades per a la web." },
+          { name: "GIF",        desc: "Retalla GIFs estàtics sense afectar les paletes de colors ni la transparència." },
+          { name: "AVIF",       desc: "Format de nova generació amb una qualitat excel·lent. Retalla i conserva tots els detalls." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referència</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Quina Relació d'Aspecte Hauries d'Utilitzar?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Diferents plataformes i casos d'ús requereixen proporcions diferents. Tria la relació correcta i la teva imatge es veurà perfectament emmarcada cada vegada:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Relació</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Ideal per a</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Publicacions d'Instagram, fotos de perfil, avatars, icones d'aplicacions"],
+              ["16:9", "Miniatures de YouTube, portades de vídeo panoràmiques, capçaleres de blocs"],
+              ["4:3",  "Fotografia estàndard, presentacions, impressions de fotos clàssiques"],
+              ["9:16", "Stories d'Instagram, vídeos de TikTok, Reels, portades de Shorts"],
+              ["3:2",  "Estàndard DSLR, fotografia de paisatge, àlbums impresos"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">També pots retallar lliurement sense bloquejar cap relació — només arrossega a l'àrea exacta que desitgis.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Casos d'Ús</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Per què Retallar la teva Imatge?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Fotos de perfil",         "Bloqueja a 1:1 i retalla qualsevol foto en un quadrat perfecte per a LinkedIn, Twitter, GitHub o qualsevol plataforma que mostri avatars circulars o quadrats."],
+          ["Miniatures &amp; portades",  "Emmarca la part més atractiva d'una imatge per a miniatures de YouTube, capçaleres de blocs o targetes de previsualització de xarxes socials."],
+          ["Elimina àrees no desitjades",    "Elimina fons que distreuen, vores, filigranes o espais buits — i conserva només allò que importa."],
+          ["Imatges preparades per a plataformes",    "Cada plataforma té les seves dimensions preferides. Retalla a la relació correcta abans de pujar-la perquè la teva imatge mai es retalli automàticament de manera incòmoda."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Consells</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Obtén els Millors Resultats en Retallar</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Comença amb un original d'alta resolució", "El retall redueix l'àrea de píxels que conserves. Una font d'alta resolució et dona més marge per treballar i assegura que el resultat retallat es mantingui nítid."],
+          ["Utilitza el bloqueig de relació d'aspecte per a plataformes",   "Quan preparis imatges per a una plataforma específica, bloqueja sempre la relació primer. Això garanteix que el resultat coincideixi amb les dimensions requerides sense conjectures."],
+          ["Retalla abans de comprimir",               "Retalla primer, després comprimeix. Eliminar píxels no desitjats redueix la mida del fitxer que necessites comprimir — donant-te una millor qualitat amb la mateixa mida de sortida."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">PMF</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Preguntes Freqüents</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Puc retallar a una mida de píxel específica?",
+           "Sí. Utilitza el mode de retall lliure i arrossega les nanses per seleccionar l'àrea desitjada. L'eina de retall mostra les dimensions actuals en píxels mentre arrossegues, de manera que pots aconseguir una mida exacta. Per a relacions fixes (com 1080×1080 per a Instagram), bloqueja la relació 1:1 i redimensiona després de retallar si cal."],
+          ["El retall redueix la qualitat de la imatge?",
+           "No — el retall és una operació no destructiva sobre els píxels que romanen. Simplement elimina les àrees fora de la teva selecció sense alterar les dades de píxels del que conserves. El fitxer desat té la qualitat completa dins de la regió retallada."],
+          ["Quina diferència hi ha entre retallar i redimensionar?",
+           "Retallar elimina porcions de la imatge — canvia l'àrea del llenç i redueix el recompte total de píxels sense escalar. Redimensionar escala tota la imatge cap amunt o cap avall, canviant les dimensions però mantenint tot el contingut. Utilitza retallar per reemmarcar; utilitza redimensionar per canviar les dimensions de sortida."],
+          ["Què significa relació d'aspecte?",
+           "La relació d'aspecte és la relació proporcional entre l'amplada i l'alçada d'una imatge, expressada com dos nombres separats per dos punts (per exemple, 16:9). Descriu la forma de la imatge. Una imatge 16:9 és més ampla que alta; una imatge 1:1 és un quadrat perfecte. Bloquejar la relació d'aspecte mentre retalles assegura que les proporcions es mantinguin fixes mentre ajustes l'àrea de retall."],
+          ["Quins formats són compatibles?",
+           "Pots retallar fitxers JPEG, JPG, PNG, WebP, GIF i AVIF. La sortida es desa en el mateix format que l'original, conservant la transparència (PNG) i altres característiques específiques del format."],
+          ["Puc retallar un PNG i mantenir el seu fons transparent?",
+           "Sí. Quan retalles un PNG, les àrees transparents fora de la selecció de retall s'eliminen, però la transparència dins de la regió retallada es conserva completament. El fitxer descarregat conservarà el canal alfa."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Última actualització: maig de 2026</p>
+
+  </div>
+</section>

@@ -1,0 +1,215 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Convert Images Online —<br class="hidden sm:block"> Free Format Converter
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Convert your images between formats instantly — no software, no sign-up required. Our free online image converter supports JPEG, PNG, WebP, GIF, and AVIF. Switch to WebP for faster websites, convert PNG to JPEG for smaller files, or prepare images in exactly the format a platform requires. Upload your image and download the converted file in seconds.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/convert_hero.png", alt: "Online image format converter — convert JPEG, PNG, WebP, GIF and AVIF instantly", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Step by step</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">How to Convert an Image Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Upload your image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Drag and drop or click to select a JPEG, PNG, WebP, GIF, or AVIF file from your device.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Choose the output format</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Select your target format — JPEG, PNG, WebP, GIF, or AVIF. The converter handles all the technical details automatically.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Download your converted image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Click download and save your converted file instantly, ready to use anywhere.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        No account required. Your files are never stored on our servers.
+      </p>
+    </div>
+
+    <%# ── Format comparison table ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Reference</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP, GIF &amp; AVIF — Which Format Is Right?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Every image format has a different strength. Use this table to pick the right output format for your needs:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Format</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["JPEG",  "Photographs, web images, social media — great compatibility, small file sizes for natural scenes"],
+              ["PNG",   "Logos, illustrations, screenshots — lossless quality with full transparency support"],
+              ["WebP",  "Modern web — best overall compression; smaller than JPEG at the same quality, supports transparency"],
+              ["GIF",   "Simple animations, graphics with limited colors — wide platform support for animated content"],
+              ["AVIF",  "Next-gen web — highest compression efficiency with excellent quality; ideal for performance-critical sites"],
+            ].each do |fmt, desc| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= fmt %></td>
+                <td class="text-sm text-base-content/60"><%= desc %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">When in doubt, convert to WebP for web use or PNG when you need transparency and lossless quality.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Use Cases</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Why Convert Image Formats?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Convert to WebP for the web",           "WebP files are 25–35% smaller than JPEG at equivalent quality. Switching your site's images to WebP is one of the fastest wins for page speed and Core Web Vitals scores."],
+          ["PNG to JPEG for smaller files",         "PNG files are lossless and large. If your image doesn't need transparency, converting to JPEG or WebP dramatically reduces the file size — often by 60–80%."],
+          ["JPEG to PNG for quality &amp; transparency", "Need to add a transparent background or work with an image that requires pixel-perfect fidelity? Convert to PNG to get lossless quality and alpha channel support."],
+          ["Platform-required formats",             "Different tools, CMS platforms, and design workflows require specific file formats. Convert once here and upload the right format every time."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Web performance section ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Web Performance</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Convert Images to WebP for Faster Websites</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Google's PageSpeed Insights and Lighthouse audits regularly flag "serve images in next-gen formats" as a key optimization. Converting your images to WebP or AVIF before uploading helps you:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Improve Core Web Vitals",        "Smaller image files reduce LCP (Largest Contentful Paint), one of Google's primary ranking signals."],
+          ["Cut bandwidth and hosting costs", "Modern formats deliver the same visual quality at a fraction of the file size, reducing server load and data transfer."],
+          ["Pass Lighthouse audits",          "Converting legacy JPEG and PNG files to WebP or AVIF directly resolves one of the most common PageSpeed Insights warnings."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPress tip:</strong> Convert your images to WebP here before uploading to the media library. This avoids plugin dependencies and gives you full control over the output quality and format.
+      </div>
+    </div>
+
+    <%# ── Bulk conversion ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro Feature</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bulk Image Conversion</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Need to convert multiple images at once? Our bulk conversion tool lets you upload and process several files in one go — perfect for:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-commerce",    "Convert entire product image libraries to WebP before publishing to your store."],
+          ["Blog &amp; content", "Batch-convert featured images and inline photos to a consistent format in one shot."],
+          ["Design exports", "Convert a folder of PNG design assets to JPEG or WebP for delivery or web publishing."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label.html_safe %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Bulk conversion is available on Pro</p>
+          <p class="text-white/60 text-sm">Convert multiple images to any format in one click.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Start free →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["What is the difference between lossy and lossless conversion?",
+           "Lossy conversion (e.g., converting PNG to JPEG or WebP) compresses the image by permanently removing some data, resulting in smaller files with minor quality trade-offs. Lossless conversion (e.g., JPEG to PNG) retains all pixel data but may not reduce the file size. For photos destined for the web, lossy formats like WebP offer the best size-to-quality balance."],
+          ["Is WebP supported by all browsers?",
+           "Yes. WebP is fully supported by all major modern browsers — Chrome, Firefox, Safari, Edge, and Opera — covering over 97% of global web users. It is now the recommended format for web images and is safe to use without fallbacks for most projects."],
+          ["What happens to transparency when converting PNG to JPEG?",
+           "JPEG does not support transparency. When you convert a PNG with a transparent background to JPEG, the transparent areas are filled with a solid color (typically white). To preserve transparency, convert to WebP or PNG instead — both support the alpha channel."],
+          ["What is the best image format for websites?",
+           "WebP is the best all-around format for most websites in 2025. It offers 25–35% smaller file sizes than JPEG at equivalent quality, supports transparency, and is supported by all modern browsers. For maximum compression on cutting-edge browsers, AVIF goes even further — but WebP hits the sweet spot of compatibility and performance."],
+          ["What is the difference between image formats?",
+           "JPEG uses lossy compression and is ideal for photographs. PNG uses lossless compression and supports transparency, making it great for graphics and logos. WebP combines the best of both — lossy or lossless with smaller file sizes and transparency support. GIF supports simple animations but is limited to 256 colors. AVIF is the newest format with the best compression, though browser adoption is still growing."],
+          ["Can I batch convert multiple images at once?",
+           "Batch (bulk) conversion is available on the Pro plan. You can upload multiple images at once and convert them all to your chosen format in a single operation — saving significant time when processing large image sets."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Last updated: May 2026</p>
+
+  </div>
+</section>

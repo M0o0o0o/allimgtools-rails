@@ -1,0 +1,193 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Görselleri Online Sıkıştırın —<br class="hidden sm:block"> Ücretsiz, Hızlı &amp; Kalite Kaybı Yok
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Görsellerinizin dosya boyutunu anında küçültün — yazılım veya kayıt gerekmez. Ücretsiz online görsel sıkıştırıcımız, JPEG, PNG, GIF, WebP ve AVIF dosyalarınızı görsel kalitesini koruyarak küçültmek için akıllı sıkıştırma algoritmaları kullanır. Dosya boyutu ve görsel netliği arasında mükemmel dengeyi bulmak için kalite kaydırıcısını kullanın. İster bir web sitesi için fotoğrafları optimize ediyor, ister e-posta için görseller hazırlıyor, ister depolama alanı açıyor olun, saniyeler içinde daha küçük dosyalar elde edeceksiniz.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "Online görsel sıkıştırıcı — JPEG, PNG, WebP dosya boyutunu kaliteyi koruyarak küçültün", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Adım adım</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Görseli Online Nasıl Sıkıştırılır</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Görselinizi yükleyin</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Bir JPEG, JPG, PNG, GIF, WebP veya AVIF dosyasını sürükleyip bırakın veya seçmek için tıklayın.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Kalite kaydırıcısını ayarlayın</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Sıkıştırma seviyesini kontrol etmek için kaydırıcıyı hareket ettirin. Daha düşük değerler daha küçük dosyalar üretir; daha yüksek değerler daha fazla ayrıntıyı korur.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Sıkıştırılmış görselinizi indirin</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">İndir'e tıklayın ve optimize edilmiş dosyanızı anında kaydedin.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Hesap gerekmez. Dosyalarınız asla sunucularımızda saklanmaz.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formatlar</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP &amp; Daha Fazlasını Sıkıştırın</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Fotoğraflar için en yaygın format. Doğal renkler ve geçişlere sahip yüksek çözünürlüklü görseller için idealdir." },
+          { name: "PNG",        desc: "Şeffaflığı destekler. Logolar, ekran görüntüleri ve grafikler için harikadır." },
+          { name: "GIF",        desc: "Animasyon karelerini kaybetmeden hareketli veya statik GIF'leri sıkıştırın." },
+          { name: "WebP",       desc: "Google'ın modern formatı. Eşdeğer kalitede JPEG'den önemli ölçüde daha küçük sıkıştırır." },
+          { name: "AVIF",       desc: "Modern tarayıcılar için mükemmel sıkıştırma verimliliğine sahip yeni nesil format." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referans</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Görseli Belirli Bir Dosya Boyutuna Sıkıştırın</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Görselinizin belirli bir boyutun altında olmasını mı istiyorsunuz — örneğin 100KB, 200KB veya 50KB? Hedefinize ulaşana kadar sıkıştırmayı ince ayar yapmak için kalite kaydırıcısını kullanın. İşte hızlı bir referans:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Hedef Boyut</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Önerilen Kalite Aralığı</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["20 KB Altı",  "10 – 25%"],
+              ["50 KB Altı",  "25 – 40%"],
+              ["100 KB Altı", "40 – 60%"],
+              ["200 KB Altı", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Sonuçlar, orijinal görsel içeriğine ve boyutlarına göre değişir. İndirmeden önce kaydırıcıyı ayarlayın ve önizleyin.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Web Performansı</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Web Siteniz veya WordPress İçin Görselleri Optimize Edin</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Sayfa yükleme hızı Google'ın sıralama faktörlerinden biridir — ve görseller genellikle en büyük suçludur. Optimize edilmemiş görseller sitenizi yavaşlatır, hemen çıkma oranlarını artırır ve SEO'nuza zarar verir. Görselleri web sitenize yüklemeden önce şunlar için sıkıştırın:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Temel Web Verilerini İyileştirin",       "Görsel dosya boyutlarını küçülterek LCP (Largest Contentful Paint) puanlarını düşürün."],
+          ["Bant genişliği kullanımını azaltın",        "Daha küçük görseller, özellikle mobilde daha hızlı sayfa yüklemeleri anlamına gelir."],
+          ["Google PageSpeed Insights'ı Geçin","Çoğu denetim, sıkıştırılmamış görselleri önemli bir sorun olarak işaretler."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPress ipucu:</strong> Görsellerinizi medya kütüphanesine yüklemeden önce burada sıkıştırın. Bu, sunucu tarafı eklentilere güvenmekten kaçınır ve çıktı kalitesi üzerinde tam kontrol sağlar.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro Özelliği</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Toplu Görsel Sıkıştırma</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Birden fazla görseli aynı anda sıkıştırmanız mı gerekiyor? Toplu sıkıştırma aracımız, tek seferde birden fazla dosyayı yüklemenize ve işlemenize olanak tanır — şunlar için mükemmeldir:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-ticaret",    "Yayınlamadan önce düzinelerce ürün görselini sıkıştırın."],
+          ["Blog yazıları",    "Öne çıkan görselleri ve satır içi fotoğrafları tek bir toplu işlemde optimize edin."],
+          ["Teslimatlar",  "Sıkıştırılmış fotoğraf setlerini e-posta veya bulut depolama aracılığıyla gönderin."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Toplu işlem Pro sürümünde mevcuttur</p>
+          <p class="text-white/60 text-sm">Tek tıklamayla birden fazla dosyayı işleyin.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Ücretsiz Başlayın →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kullanım Alanları</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Görseller Neden Sıkıştırılmalı?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Web siteleri & bloglar",   "Büyük görseller, yavaş yüklenen sayfaların 1 numaralı nedenidir. Yüklemeden önce sıkıştırmak, sayfa ağırlığını azaltır ve tüm cihazlarda kullanıcı deneyimini iyileştirir."],
+          ["E-posta ekleri",  "Çoğu e-posta istemcisinin 25 MB ek sınırı vardır. Fotoğrafları sıkıştırmak, boyut kısıtlamalarına takılmadan birden fazla görseli kolayca göndermeyi sağlar."],
+          ["Sosyal medya",       "Instagram ve Facebook gibi platformlar yüklemelerinizi yeniden sıkıştırır, bu da genellikle kaliteyi düşürür. Fotoğraflarınızın nasıl göründüğü üzerinde daha fazla kontrol sahibi olmak için önceden sıkıştırın."],
+          ["Depolama & yedekleme",   "Büyük fotoğraf koleksiyonlarını arşivliyor musunuz? Görselleri sıkıştırmak, normal görüntüleme boyutlarında fark edilir kalite kaybı olmadan depolama gereksinimlerini önemli ölçüde azaltabilir."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold

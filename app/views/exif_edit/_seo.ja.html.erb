@@ -1,0 +1,176 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        オンラインでEXIFメタデータを編集 —<br class="hidden sm:block"> 無料の画像データエディター
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        画像に隠されたメタデータを表示・編集できます — ソフトウェアもサインアップも不要です。当社の無料オンラインEXIFエディターを使えば、GPS座標の変更、日時スタンプの修正、著作権・著者情報の追加、キーワードの更新などが可能です。JPEGおよびPNGファイルに対応。写真家、ストックフォト投稿者、そして画像データを正確に管理したいすべての人に最適です。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_edit_hero.png", alt: "オンラインEXIFエディター — JPEGおよびPNGファイルのGPS、日付、著作権、メタデータフィールドを編集", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ステップバイステップ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">オンラインでEXIFメタデータを編集する方法</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">画像をアップロード</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">JPEGまたはPNGファイルをドラッグ＆ドロップするか、クリックして選択します。複数の画像をアップロードし、一度に1つずつ編集できます。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">メタデータフィールドを編集</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">GPS座標、撮影日時、カメラ情報、著作権、アーティスト名、キーワード、説明など、任意のEXIFフィールドを更新します。フィールドを空白にすると削除されます。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">適用してダウンロード</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">保存をクリックして変更を書き込み、更新された画像をダウンロードします。「すべての画像に適用」を使用して、アップロードしたすべてのファイルに同じ編集をコピーします。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        アカウント不要。ファイルが当社のサーバーに保存されることはありません。
+      </p>
+    </div>
+
+    <%# ── Editable fields table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">リファレンス</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">編集可能なEXIFフィールド</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        以下にリストされているすべてのフィールドは、エディターで直接読み取り、編集、またはクリアできます。変更はダウンロード時に画像ファイルに書き戻され、写真の視覚的なコンテンツは一切変更されません。
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIFフィールド</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">設定できる内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS緯度 / 経度", "写真が撮影された場所を追加、変更、または削除"],
+              ["DateTimeOriginal",         "誤った撮影日を修正したり、間違ったタイムゾーンを訂正したりする"],
+              ["アーティスト / クリエイター",         "ファイルと一緒に著作権情報が移動するように名前を追加"],
+              ["著作権",               "著作権表示を埋め込む（例：© 2026 Jane Smith）"],
+              ["キーワード",                "ストックライブラリやアセット管理用の検索可能なタグを追加"],
+              ["ImageDescription",        "画像のキャプションまたは代替テキストの説明を記述"],
+              ["メーカー / モデル",            "カメラのブランドとモデルのフィールドを更新またはクリア"],
+            ].each do |field, purpose| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= purpose %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">ファイルの埋め込みデータによっては、追加のフィールドが読み取り専用モードで表示される場合があります。</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">使用例</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIFメタデータを編集する理由</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["著作権とクレジットを追加",     "あなたの名前、著作権表示、連絡先情報をファイルに直接埋め込むことで、どこに画像が移動しても所有者情報が保持されます。"],
+          ["間違った日付や時刻を修正",      "カメラの時計は狂ったり、タイムゾーンをまたいだり、バッテリー交換後にリセットされたりします。撮影日を修正して、写真ライブラリが正確に整理されるようにします。"],
+          ["タグ付けされていない写真にGPSを追加",  "GPS機能のないカメラで撮影しましたか？手動で位置座標を追加して、写真が地図や位置情報ベースの検索で正しく表示されるようにします。"],
+          ["ストックフォトの準備",     "ストックライブラリでは、ファイルに正確な著作権、キーワード、説明が埋め込まれている必要があります。提出前に必要なすべてのフィールドを編集して、審査プロセスを迅速化します。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Apply to all feature ───────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">一括編集</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">複数の画像に編集を適用</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        エディターは一度に1つの画像を処理しますが、1回のセッションで複数のファイルをアップロードできます。最初の画像を編集した後、<strong class="text-base-content font-semibold">「すべての画像に適用」</strong>ボタンを使用して、現在のメタデータ変更をアップロードした他のすべてのファイルにコピーできます — これにより、同じ編集を1つずつ繰り返す手間が省けます。
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["撮影全体で一貫した著作権",  "ワンクリックで、セッションのすべての画像に著作権表示とアーティスト名を適用します。"],
+          ["写真セットの共通キーワード",       "ストックライブラリやクライアントフォルダ向けのすべての画像に、同じ説明的なキーワードを設定します。"],
+          ["統一されたGPSタグ付け",                   "同じ場所やイベントで撮影されたすべての写真に、同じ位置情報を割り当てます。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">よくある質問</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">よくある質問</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["どのようなEXIFデータを編集できますか？",
+           "GPS座標、日時（DateTimeOriginal）、アーティスト/クリエイター名、著作権表示、キーワード、画像の説明/キャプション、カメラのメーカー/モデルを編集できます。空白のままにしたフィールドはファイルからクリアされます。元のファイルに含まれる内容によっては、追加の読み取り専用フィールドが表示される場合があります。"],
+          ["EXIFデータの編集で画質は変わりますか？",
+           "いいえ、変わりません。EXIF編集はメタデータレイヤーのみを変更し、写真を構成するピクセルデータには一切触れません。編集前後で画像は同じに見え、ファイル形式も変わりません。"],
+          ["どのファイル形式がサポートされていますか？",
+           "JPEGとPNGはEXIFメタデータの読み書きに完全にサポートされています。JPEGはEXIFデータで最も一般的な形式であり、最も広範囲のフィールドをサポートしています。PNGはメタデータフィールドのサブセットをサポートしています。WebPとGIFは、作成方法によってはEXIFサポートが限定的であるか、まったくない場合があります。"],
+          ["写真にGPS座標を追加するにはどうすればよいですか？",
+           "エディターで画像を開き、GPS緯度と経度フィールドを見つけて、場所の10進座標を入力します（例：エッフェル塔の場合は48.8584, 2.2945）。Googleマップを使用して任意の場所の座標を見つけることができます — 地図上の場所を右クリックして表示される座標をコピーしてください。"],
+          ["写真に著作権表示を追加するにはどうすればよいですか？",
+           "画像をアップロードし、著作権フィールドに著作権テキスト（例：© 2026 あなたの名前. All rights reserved.）を入力して保存します。複数のアップロードされた画像に同じ著作権を適用するには、最初の画像を編集した後、「すべての画像に適用」をクリックします。"],
+          ["「すべての画像に適用」は何をしますか？",
+           "同じセッションで複数の画像をアップロードしている場合、「すべての画像に適用」は、現在の画像で編集したメタデータフィールドをアップロードキュー内の他のすべてのファイルにコピーします。これは、各ファイルを手動で編集を繰り返すことなく、写真セット全体に一貫した著作権、キーワード、または位置データを適用するためのショートカットです。"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">最終更新日：2026年5月</p>
+
+  </div>
+</section>

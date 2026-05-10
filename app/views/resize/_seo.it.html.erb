@@ -1,0 +1,204 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Ridimensiona Immagini Online —<br class="hidden sm:block"> Gratuito, Istantaneo &amp; Senza Perdita di Qualità
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Modifica le dimensioni delle tue immagini istantaneamente — nessun software, nessuna registrazione richiesta. Il nostro ridimensionatore di immagini online gratuito ti permette di impostare una larghezza e altezza esatte in pixel, scalare per percentuale o bloccare il rapporto d'aspetto per evitare distorsioni. Funziona con JPEG, PNG, WebP, GIF e AVIF. Che tu stia preparando foto per i social media, ridimensionando immagini di prodotti per il tuo negozio online o ritagliando miniature per un blog, otterrai immagini perfettamente dimensionate in pochi secondi.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "Ridimensionatore di immagini online — ridimensiona JPEG, PNG, WebP a dimensioni esatte in pixel istantaneamente", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Passo dopo passo</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Come Ridimensionare un'Immagine Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Carica la tua immagine</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Trascina e rilascia o clicca per selezionare un file JPEG, JPG, PNG, GIF, WebP o AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Imposta le dimensioni desiderate</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Inserisci larghezza e altezza in pixel, o scala per percentuale. Attiva "Mantieni rapporto d'aspetto" per prevenire distorsioni.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Scarica la tua immagine ridimensionata</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Clicca su scarica e salva istantaneamente il tuo file perfettamente dimensionato.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Nessun account richiesto. I tuoi file non vengono mai archiviati sui nostri server.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formati</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Ridimensiona JPEG, PNG, WebP &amp; Altro</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Il formato più comune per le foto. Ridimensiona immagini ad alta risoluzione preservando colori e sfumature naturali." },
+          { name: "PNG",        desc: "Supporta la trasparenza. Ridimensiona loghi, screenshot e grafici senza perdere il canale alfa." },
+          { name: "GIF",        desc: "Ridimensiona GIF statiche con facilità. Il ridimensionamento di GIF animate mantiene tutti i fotogrammi." },
+          { name: "WebP",       desc: "Il formato moderno di Google. Ridimensiona immagini WebP e mantieni le dimensioni dei file compatte." },
+          { name: "AVIF",       desc: "Formato di nuova generazione con eccellente qualità a dimensioni di file ridotte. Supporto completo al ridimensionamento." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Riferimento</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Dimensioni Comuni delle Immagini per i Social Media</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Ogni piattaforma ha le sue dimensioni immagine raccomandate. Usa questa tabella di riferimento per ridimensionare le tue immagini alle dimensioni esatte di cui hai bisogno:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Piattaforma / Uso</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Dimensione Raccomandata</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Post Instagram (quadrato)",  "1080 × 1080 px"],
+              ["Foto Copertina Facebook",     "820 × 312 px"],
+              ["Intestazione Twitter / X",       "1500 × 500 px"],
+              ["LinkedIn Banner",          "1584 × 396 px"],
+              ["YouTube Thumbnail",        "1280 × 720 px"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Le linee guida delle piattaforme cambiano nel tempo. Verifica sempre con la documentazione ufficiale più recente prima di pubblicare.</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Web & E-commerce</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Ridimensiona Foto Prodotti &amp; Immagini Web</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Dimensioni immagine coerenti rendono il tuo sito web più curato e lo fanno caricare più velocemente. Prima di caricare sul tuo sito o negozio, ridimensiona le immagini per:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Corrispondere esattamente al tuo layout",       "Imposta una larghezza precisa in pixel in modo che le immagini si adattino alla tua griglia senza distorsioni CSS."],
+          ["Accelerare i caricamenti delle pagine",             "Dimensioni più piccole significano file di dimensioni ridotte, riducendo la larghezza di banda e migliorando i Core Web Vitals."],
+          ["Standardizzare le miniature dei prodotti",  "Dimensioni uniformi nelle griglie dei prodotti appaiono professionali e riducono gli spostamenti del layout."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Consiglio per l'e-commerce:</strong> Ridimensiona tutte le immagini dei prodotti alle stesse dimensioni prima di caricarle sul tuo negozio. La maggior parte delle piattaforme (Shopify, WooCommerce, Etsy) raccomanda immagini quadrate di 1000 × 1000 px o più grandi per la funzionalità di zoom.
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Funzionalità Pro</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Ridimensionamento Immagini in Blocco</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Hai bisogno di ridimensionare più immagini alle stesse dimensioni contemporaneamente? Il nostro strumento di ridimensionamento in blocco ti permette di caricare ed elaborare diversi file in una sola volta — perfetto per:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Cataloghi di prodotti",  "Standardizza centinaia di foto di prodotti prima di caricarle sul tuo negozio."],
+          ["Gallerie fotografiche",   "Ridimensiona un intero servizio fotografico a dimensioni coerenti in un'unica sessione."],
+          ["Set per social media", "Prepara più immagini secondo le specifiche della piattaforma senza ripetere il processo."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">L'elaborazione in blocco è disponibile su Pro</p>
+          <p class="text-white/60 text-sm">Ridimensiona più file alle stesse dimensioni con un solo clic.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Inizia gratis →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Casi d'Uso</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Perché Ridimensionare le Immagini?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Social media",       "Ogni piattaforma ha requisiti di dimensione rigorosi. Ridimensiona alle dimensioni corrette per evitare ritagli, bande nere o ingrandimenti sfocati da parte della piattaforma."],
+          ["Negozi e-commerce",  "La coerenza delle immagini dei prodotti crea fiducia. Dimensioni uniformi in tutto il tuo catalogo creano un layout a griglia professionale su qualsiasi dispositivo."],
+          ["Newsletter via email",  "Immagini troppo larghe possono rovinare i layout delle email su mobile. Ridimensiona le immagini di intestazione a 600 px di larghezza per una visualizzazione affidabile su tutti i client di posta elettronica."],
+          ["Stampa & documenti",  "Ridimensiona le immagini alle dimensioni esatte in pixel richieste dal tuo modello di stampa, presentazione o layout di documento per evitare perdite di qualità all'esportazione."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text

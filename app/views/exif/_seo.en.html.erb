@@ -1,0 +1,216 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Remove EXIF Data Online —<br class="hidden sm:block"> Protect Your Privacy Instantly
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Strip all metadata from your photos instantly — no software, no sign-up required. Our free online EXIF remover permanently deletes GPS location, camera model, date taken, lens info, exposure settings, and all IPTC/XMP metadata from JPEG, PNG, WebP, and GIF files. Whether you're selling items online, sharing photos publicly, or preparing images for social media, your personal information stays private.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "Online EXIF remover — strip GPS, camera info and metadata from photos to protect privacy", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Step by step</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">How to Remove EXIF Data Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Upload your image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Drag and drop or click to select a JPEG, PNG, WebP, or GIF file. You can upload multiple images at once.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Remove all metadata</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Click the remove button and all EXIF, IPTC, and XMP metadata is instantly stripped from your image.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Download your clean image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Download your metadata-free image. The visual content of your photo is completely unchanged.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        No account required. Your files are never stored on our servers.
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Reference</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">What EXIF Data Reveals About You</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Every photo taken with a smartphone or digital camera embeds hidden metadata. Here's what that data can expose when you share an unstripped image:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF Field</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">What It Reveals</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS Latitude / Longitude", "Exact location where the photo was taken"],
+              ["DateTimeOriginal",         "The precise date and time the photo was captured"],
+              ["Make / Model",             "Camera brand and model (e.g. Apple iPhone 15 Pro)"],
+              ["Software",                 "Editing software used (e.g. Adobe Lightroom, Snapseed)"],
+              ["Artist / Copyright",       "Photographer's name and identity"],
+              ["LensModel",                "Lens used — hints at professional equipment"],
+              ["ExposureTime / ISO",       "Camera settings that can fingerprint your shooting style"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">All of the above fields — and more — are removed when you use this tool.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Use Cases</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Why Remove EXIF Data?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Selling items online",     "Photos of items for sale often contain your home's GPS coordinates. Strip metadata before posting to marketplaces like eBay, Craigslist, or Facebook Marketplace."],
+          ["Sharing photos publicly",  "Uploading to forums, Discord, or public galleries? Your photo could broadcast your home address. Remove EXIF before sharing anywhere you don't control."],
+          ["Professional sharing",     "Client deliverables shouldn't include your camera gear, shooting date, or personal details. Strip metadata for a clean, professional handoff."],
+          ["Social media safety",      "Even though most platforms strip EXIF on upload, some don't — and some users download originals. Remove metadata yourself before uploading to be certain."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── What's removed ────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Coverage</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">All Metadata Removed in One Click</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        This tool removes every metadata layer embedded in your image — not just basic EXIF, but also IPTC and XMP data used by professional workflows:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["GPS & location data",        "Latitude, longitude, altitude, and map direction — all gone."],
+          ["Camera & lens info",         "Make, model, lens model, firmware version, and serial number stripped completely."],
+          ["Date & time stamps",         "DateTimeOriginal, DateTimeDigitized, and all related timestamps removed."],
+          ["Exposure settings",          "ISO, aperture, shutter speed, white balance, flash mode — all cleared."],
+          ["IPTC / XMP metadata",        "Copyright notices, keywords, captions, creator info, and rights statements from professional software."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── Bulk removal ───────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro Feature</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bulk EXIF Removal</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Need to strip metadata from dozens of photos at once? Batch EXIF removal is available on Pro — perfect for:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-commerce sellers",   "Clean entire product photo sets before listing on any marketplace."],
+          ["Photographers",        "Deliver client galleries without exposing your gear or shooting schedule."],
+          ["Content creators",     "Scrub metadata from all images in a post or campaign in one go."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Batch removal is available on Pro</p>
+          <p class="text-white/60 text-sm">Strip metadata from multiple files in one click.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Start free →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["What is EXIF data?",
+           "EXIF (Exchangeable Image File Format) is metadata automatically embedded in photos by digital cameras and smartphones. It records technical details like camera settings, lens info, date and time, and — most critically — GPS location. This data is hidden inside the image file and invisible when you view the photo normally."],
+          ["Is EXIF removal permanent?",
+           "Yes. Once removed, the metadata is gone from your downloaded file. The original file on your device is not touched, so you can always go back to it. Our tool processes a copy — your uploaded file is never stored on our servers."],
+          ["Does removing EXIF change the image?",
+           "No. The visual content of your photo is completely unchanged. Removing metadata only affects the hidden data layer, not the pixels. Your image will look identical before and after."],
+          ["What data is actually removed?",
+           "Everything: GPS coordinates, camera make and model, lens info, exposure settings (ISO, aperture, shutter speed), date and time stamps, software used, artist name, copyright notices, and all IPTC/XMP fields. Essentially all non-pixel data is stripped."],
+          ["Why remove EXIF before sharing online?",
+           "Even if you trust a platform, other users can download your image and extract the full metadata using free tools. If GPS data is present, anyone can pinpoint exactly where you took the photo — which could reveal your home, workplace, or daily routine."],
+          ["Does social media strip EXIF automatically?",
+           "Most major platforms (Instagram, Facebook, Twitter/X) do strip EXIF on upload, but this behavior can change without notice, doesn't apply to all file types, and doesn't protect you if someone downloads the file before you share it through the platform. Removing metadata yourself before uploading is the only guaranteed approach."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Last updated: May 2026</p>
+
+  </div>
+</section>

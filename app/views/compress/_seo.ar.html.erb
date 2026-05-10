@@ -1,0 +1,211 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        ضغط الصور عبر الإنترنت —<br class="hidden sm:block"> مجاني، سريع وبدون فقدان للجودة
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        قلل حجم ملفات صورك فورًا — لا حاجة لبرامج ولا تسجيل. يستخدم ضاغط الصور المجاني عبر الإنترنت خوارزميات ضغط ذكية لتقليص حجم ملفات JPEG وPNG وGIF وWebP وAVIF مع الحفاظ على الجودة البصرية. استخدم شريط تمرير الجودة للعثور على التوازن المثالي بين حجم الملف ووضوح الصورة. سواء كنت تقوم بتحسين الصور لموقع ويب، أو إعداد صور للبريد الإلكتروني، أو تحرير مساحة تخزين، ستحصل على ملفات أصغر في ثوانٍ.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "ضاغط صور عبر الإنترنت — يقلل حجم ملفات JPEG وPNG وWebP مع الحفاظ على الجودة", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">خطوة بخطوة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">كيفية ضغط صورة عبر الإنترنت</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">ارفع صورتك</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اسحب وأفلت أو انقر لتحديد ملف JPEG أو JPG أو PNG أو GIF أو WebP أو AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">اضبط شريط تمرير الجودة</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">حرك شريط التمرير للتحكم في مستوى الضغط. القيم الأقل تنتج ملفات أصغر؛ القيم الأعلى تحافظ على تفاصيل أكثر.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حمل صورتك المضغوطة</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">انقر على "تحميل" واحفظ ملفك المحسّن فورًا.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        لا يلزم حساب. ملفاتك لا تُخزّن أبدًا على خوادمنا.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">التنسيقات</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ضغط JPEG وPNG وWebP والمزيد</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "التنسيق الأكثر شيوعًا للصور. مثالي للصور عالية الدقة ذات الألوان والتدرجات الطبيعية." },
+          { name: "PNG",        desc: "يدعم الشفافية. رائع للشعارات ولقطات الشاشة والرسومات." },
+          { name: "GIF",        desc: "ضغط صور GIF المتحركة أو الثابتة دون فقدان إطارات الحركة." },
+          { name: "WebP",       desc: "تنسيق جوجل الحديث. يضغط بحجم أصغر بكثير من JPEG بنفس الجودة." },
+          { name: "AVIF",       desc: "تنسيق الجيل التالي بكفاءة ضغط ممتازة للمتصفحات الحديثة." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">مرجع</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ضغط صورة إلى حجم ملف محدد</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        هل تحتاج إلى أن تكون صورتك بحجم معين — مثل 100 كيلوبايت، 200 كيلوبايت، أو 50 كيلوبايت؟ استخدم شريط تمرير الجودة لضبط الضغط بدقة حتى تصل إلى هدفك. إليك مرجع سريع:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">الحجم المستهدف</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">نطاق الجودة الموصى به</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["أقل من 20 كيلوبايت",  "10 – 25%"],
+              ["أقل من 50 كيلوبايت",  "25 – 40%"],
+              ["أقل من 100 كيلوبايت", "40 – 60%"],
+              ["أقل من 200 كيلوبايت", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">تختلف النتائج حسب محتوى الصورة الأصلية وأبعادها. اضبط شريط التمرير وعاين قبل التحميل.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">أداء الويب</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">تحسين الصور لموقعك الإلكتروني أو ووردبريس</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        سرعة تحميل الصفحة هي أحد عوامل ترتيب جوجل — وعادة ما تكون الصور هي السبب الأكبر. الصور غير المحسّنة تبطئ موقعك، وتزيد من معدلات الارتداد، وتضر بتحسين محركات البحث (SEO) الخاصة بك. قبل تحميل الصور إلى موقعك، قم بضغطها من أجل:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["تحسين مؤشرات أداء الويب الأساسية",       "خفض درجات LCP (Largest Contentful Paint) عن طريق تقليل أحجام ملفات الصور."],
+          ["تقليل استهلاك النطاق الترددي",        "صور أصغر تعني تحميل صفحات أسرع، خاصة على الأجهزة المحمولة."],
+          ["اجتياز اختبار Google PageSpeed Insights","معظم عمليات التدقيق تشير إلى الصور غير المضغوطة كقضية رئيسية."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">نصيحة ووردبريس:</strong> اضغط صورك هنا قبل تحميلها إلى مكتبة الوسائط. هذا يتجنب الاعتماد على الإضافات من جانب الخادم ويمنحك تحكمًا كاملاً في جودة الإخراج.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ميزة احترافية</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ضغط الصور دفعة واحدة</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        هل تحتاج إلى ضغط صور متعددة في وقت واحد؟ تتيح لك أداة الضغط الجماعي لدينا تحميل ومعالجة عدة ملفات دفعة واحدة — مثالية لـ:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["التجارة الإلكترونية",    "ضغط عشرات صور المنتجات قبل النشر."],
+          ["منشورات المدونة",    "تحسين الصور المميزة والصور المضمنة في دفعة واحدة."],
+          ["التسليمات",  "إرسال مجموعات صور مضغوطة عبر البريد الإلكتروني أو التخزين السحابي."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">المعالجة الجماعية متاحة في الإصدار الاحترافي</p>
+          <p class="text-white/60 text-sm">معالجة ملفات متعددة بنقرة واحدة.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          ابدأ مجانًا ←
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">حالات الاستخدام</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">لماذا تضغط الصور؟</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["المواقع والمدونات",   "الصور الكبيرة هي السبب الأول لبطء تحميل الصفحات. الضغط قبل الرفع يقلل من حجم الصفحة ويحسن تجربة المستخدم عبر جميع الأجهزة."],
+          ["مرفقات البريد الإلكتروني",  "معظم عملاء البريد الإلكتروني لديهم حد مرفقات يبلغ 25 ميجابايت. ضغط الصور يسهل إرسال صور متعددة دون الوصول إلى قيود الحجم."],
+          ["وسائل التواصل الاجتماعي",       "تقوم منصات مثل إنستغرام وفيسبوك بإعادة ضغط ملفاتك المرفوعة، مما يؤدي غالبًا إلى تدهور الجودة. قم بالضغط المسبق للحفاظ على تحكم أكبر في كيفية ظهور صورك."],
+          ["التخزين والنسخ الاحتياطي",   "هل تقوم بأرشفة مجموعات صور كبيرة؟ يمكن لضغط الصور أن يقلل متطلبات التخزين بشكل كبير دون فقدان ملحوظ للجودة عند أحجام العرض العادية."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">الأسئلة الشائعة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">الأسئلة المتكررة</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["هل يقلل ضغط الصورة من جودتها؟",
+           "يعتمد ذلك على مستوى الضغط. الضغط الفاقد (JPEG, WebP) يزيل بعض بيانات الصورة — عند الإعدادات المعتدلة، يكون الفرق بالكاد مرئيًا للعين البشرية. استخدم شريط تمرير الجودة لمعاينة النتائج قبل التحميل."],
+          ["كيف أضغط صورة لتصبح أقل من 100 كيلوبايت؟",
+           "ارفع صورتك، اضبط شريط تمرير الجودة على حوالي 40-60%، وتحقق من حجم الملف الناتج. اضبطه للأسفل إذا لزم الأمر. بالنسبة للصور الأصلية الكبيرة

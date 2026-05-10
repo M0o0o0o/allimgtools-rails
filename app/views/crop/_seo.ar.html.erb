@@ -1,0 +1,193 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        قص الصور عبر الإنترنت —<br class="hidden sm:block"> مجاني، دقيق وفوري
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        قم بقص صورك وإعادة تأطيرها وتعديلها في ثوانٍ — لا حاجة لبرامج أو تسجيل. يدعم قاطع الصور المجاني عبر الإنترنت ملفات JPEG وPNG وWebP وGIF وAVIF. اختر قصًا حرًا أو التزم بنسبة عرض إلى ارتفاع قياسية — 1:1 لصور الملف الشخصي، 16:9 لصور مصغرة لـ YouTube، 9:16 للقصص، والمزيد. أزل الحدود غير المرغوب فيها، ركز على الموضوع، وجهّز صورتك لأي منصة على الفور.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "أداة قص الصور عبر الإنترنت — قص صور JPEG وPNG وWebP بنسبة عرض إلى ارتفاع حرة أو ثابتة", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">خطوة بخطوة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">كيفية قص صورة عبر الإنترنت</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حمّل صورتك</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اسحب وأفلت أو انقر لتحديد ملف JPEG أو PNG أو WebP أو GIF أو AVIF من جهازك.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حدد منطقة القص</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اسحب مقابض القص لتحديد منطقتك بحرية، أو اختر نسبة محددة مسبقًا — 1:1، 4:3، 16:9، 3:2، أو 9:16 — لتثبيت الأبعاد.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">نزّل صورتك المقصوصة</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">انقر على تنزيل واحفظ ملفك المقصوص على الفور بتنسيقه الأصلي.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        لا يلزم حساب. ملفاتك لا تُخزّن على خوادمنا أبدًا.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">التنسيقات</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">قص JPEG وPNG وWebP والمزيد</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "تنسيق الصور الأكثر شيوعًا. يقص بوضوح مع الحفاظ على الألوان والتدرجات الطبيعية." },
+          { name: "PNG",        desc: "يدعم الشفافية. يحافظ القص على قناة ألفا، مما يبقي المناطق الشفافة سليمة." },
+          { name: "WebP",       desc: "تنسيق جوجل الحديث. يقص بدقة كاملة — رائع للصور المحسّنة للويب." },
+          { name: "GIF",        desc: "قص صور GIF الثابتة دون التأثير على لوحات الألوان أو الشفافية." },
+          { name: "AVIF",       desc: "تنسيق الجيل التالي بجودة ممتازة. قص واحتفظ بجميع التفاصيل." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">مرجع</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ما هي نسبة العرض إلى الارتفاع التي يجب أن تستخدمها؟</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        تتطلب المنصات وحالات الاستخدام المختلفة نسبًا مختلفة. اختر النسبة الصحيحة وستبدو صورتك مؤطرة بشكل مثالي في كل مرة:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">النسبة</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">الأفضل لـ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "منشورات إنستغرام، صور الملف الشخصي، الأفاتار، أيقونات التطبيقات"],
+              ["16:9", "صور مصغرة لـ YouTube، أغلفة فيديو عريضة، رؤوس المدونات"],
+              ["4:3",  "التصوير الفوتوغرافي القياسي، العروض التقديمية، المطبوعات الكلاسيكية للصور"],
+              ["9:16", "قصص إنستغرام، فيديوهات تيك توك، ريلز، أغلفة شورتس"],
+              ["3:2",  "معيار كاميرات DSLR، تصوير المناظر الطبيعية، ألبومات الطباعة"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">يمكنك أيضًا القص بحرية دون الالتزام بأي نسبة — فقط اسحب لتحديد المنطقة الدقيقة التي تريدها.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">حالات الاستخدام</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">لماذا تقص صورتك؟</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["صور الملف الشخصي",         "ثبّت النسبة 1:1 واقص أي صورة لتصبح مربعًا مثاليًا لـ LinkedIn، Twitter، GitHub، أو أي منصة تعرض صورًا شخصية دائرية أو مربعة."],
+          ["صور مصغرة وأغلفة",  "أطّر الجزء الأكثر جاذبية من الصورة لصور YouTube المصغرة، رؤوس المدونات، أو بطاقات معاينة وسائل التواصل الاجتماعي."],
+          ["إزالة المناطق غير المرغوب فيها",    "تخلص من الخلفيات المشتتة، الحدود، العلامات المائية، أو المساحات الفارغة — واحتفظ فقط بما يهم."],
+          ["صور جاهزة للمنصات",    "لكل منصة أبعادها المفضلة. قص الصورة بالنسبة الصحيحة قبل التحميل حتى لا يتم قصها تلقائيًا بشكل غير لائق."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">نصائح</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">احصل على أفضل النتائج عند القص</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["ابدأ بأصل عالي الدقة", "القص يقلل من مساحة البكسل التي تحتفظ بها. يمنحك المصدر عالي الدقة مساحة أكبر للعمل ويضمن بقاء النتيجة المقصوصة حادة."],
+          ["استخدم قفل نسبة العرض إلى الارتفاع للمنصات",   "عند إعداد الصور لمنصة معينة، قم دائمًا بقفل النسبة أولاً. هذا يضمن تطابق النتيجة مع الأبعاد المطلوبة دون تخمين."],
+          ["قص قبل الضغط",               "قص أولاً، ثم اضغط. إزالة البكسلات غير المرغوب فيها يقلل من حجم الملف الذي تحتاج إلى ضغطه — مما يمنحك جودة أفضل بنفس حجم الإخراج."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">الأسئلة الشائعة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">الأسئلة المتكررة</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["هل يمكنني القص بحجم بكسل معين؟",
+           "نعم. استخدم وضع القص الحر واسحب المقابض لاستهداف المنطقة التي تريدها. تعرض أداة القص أبعاد البكسل الحالية أثناء السحب، حتى تتمكن من الوصول إلى حجم دقيق. بالنسبة للنسب الثابتة (مثل 1080×1080 لإنستغرام)، قم بقفل نسبة 1:1 وقم بتغيير الحجم بعد القص إذا لزم الأمر."],
+          ["هل يقلل القص من جودة الصورة؟",
+           "لا — القص هو عملية غير مدمرة على البكسلات المتبقية. إنه ببساطة يزيل المناطق خارج تحديدك دون تغيير بيانات البكسل لما تحتفظ به. الملف المحفوظ يكون بجودة كاملة ضمن المنطقة المقصوصة."],
+          ["ما الفرق بين القص وتغيير الحجم؟",
+           "القص يزيل أجزاء من الصورة — يغير مساحة اللوحة ويقلل العدد الإجمالي للبكسلات دون تغيير الحجم. تغيير الحجم يقوم بتكبير أو تصغير الصورة بأكملها، ويغير الأبعاد مع الاحتفاظ بكل المحتوى. استخدم القص لإعادة التأطير؛ استخدم تغيير الحجم لتغيير أبعاد الإخراج."],
+          ["ماذا تعني نسبة العرض إلى الارتفاع؟",
+           "نسبة العرض إلى الارتفاع هي العلاقة التناسبية بين عرض الصورة وارتفاعها، ويتم التعبير عنها برقمين مفصولين بنقطتين رأسيتين (مثال: 16:9). إنها تصف شكل الصورة. الصورة بنسبة 16:9 تكون أعرض من أن تكون طويلة؛ الصورة بنسبة 1:1 هي مربع مثالي. يضمن قفل نسبة العرض إلى الارتفاع أثناء القص بقاء الأبعاد ثابتة أثناء تعديل منطقة القص."],
+          ["ما هي التنسيقات المدعومة؟",
+           "يمكنك قص ملفات JPEG وJPG وPNG وWebP وGIF وAVIF. يتم حفظ الإخراج بنفس تنسيق ملفك الأصلي، مع الحفاظ على الشفافية (PNG) والميزات الأخرى الخاصة بالتنسيق."],
+          ["هل يمكنني قص صورة PNG والاحتفاظ بخلفيتها الشفافة؟",
+           "نعم. عند قص صورة PNG، تتم إزالة المناطق الشفافة خارج تحديد القص ولكن الشفافية داخل المنطقة المقصوصة تُحفظ بالكامل. سيحتفظ الملف الذي تم تنزيله بقناة ألفا."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">آخر تحديث: مايو 2026</p>
+
+  </div>
+</section>

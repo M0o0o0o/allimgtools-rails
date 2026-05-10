@@ -1,0 +1,205 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        온라인 이미지 압축 —<br class="hidden sm:block"> 무료, 빠르고 품질 손실 없음
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        소프트웨어 설치나 회원가입 없이 즉시 이미지 파일 크기를 줄이세요. 저희의 무료 온라인 이미지 압축기는 스마트 압축 알고리즘을 사용하여 JPEG, PNG, GIF, WebP, AVIF 파일을 시각적 품질을 유지하면서 축소합니다. 품질 슬라이더를 사용하여 파일 크기와 이미지 선명도 사이의 완벽한 균형을 찾으세요. 웹사이트용 사진을 최적화하거나, 이메일용 이미지를 준비하거나, 저장 공간을 확보할 때, 몇 초 만에 더 작은 파일을 얻을 수 있습니다.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "온라인 이미지 압축기 — JPEG, PNG, WebP 파일 크기를 품질 손실 없이 줄입니다", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">단계별 안내</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">온라인에서 이미지 압축하는 방법</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">이미지 업로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">JPEG, JPG, PNG, GIF, WebP 또는 AVIF 파일을 드래그 앤 드롭하거나 클릭하여 선택하세요.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">품질 슬라이더 조정</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">슬라이더를 움직여 압축 수준을 조절하세요. 값이 낮을수록 파일 크기가 작아지고, 값이 높을수록 세부 정보가 더 많이 보존됩니다.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">압축된 이미지 다운로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">다운로드를 클릭하여 최적화된 파일을 즉시 저장하세요.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        계정 불필요. 귀하의 파일은 저희 서버에 절대 저장되지 않습니다.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">지원 형식</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP 등 다양한 형식 압축</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "사진에 가장 일반적인 형식입니다. 자연스러운 색상과 그라데이션이 있는 고해상도 이미지에 이상적입니다." },
+          { name: "PNG",        desc: "투명도를 지원합니다. 로고, 스크린샷 및 그래픽에 적합합니다." },
+          { name: "GIF",        desc: "애니메이션 프레임 손실 없이 움직이는 GIF 또는 정적 GIF를 압축합니다." },
+          { name: "WebP",       desc: "Google의 최신 형식입니다. 동일한 품질에서 JPEG보다 훨씬 작게 압축됩니다." },
+          { name: "AVIF",       desc: "최신 브라우저를 위한 뛰어난 압축 효율성을 가진 차세대 형식입니다." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">참고</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">특정 파일 크기로 이미지 압축</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        이미지를 100KB, 200KB 또는 50KB와 같은 특정 크기 이하로 만들어야 하나요? 품질 슬라이더를 사용하여 목표에 도달할 때까지 압축을 미세 조정하세요. 다음은 빠른 참조입니다:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">목표 크기</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">권장 품질 범위</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["20KB 미만",  "10 – 25%"],
+              ["50KB 미만",  "25 – 40%"],
+              ["100KB 미만", "40 – 60%"],
+              ["200KB 미만", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">결과는 원본 이미지 내용 및 크기에 따라 달라집니다. 다운로드 전에 슬라이더를 조정하고 미리보기를 확인하세요.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">웹 성능</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">웹사이트 또는 워드프레스용 이미지 최적화</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        페이지 로드 속도는 Google의 순위 요소 중 하나이며, 이미지가 일반적으로 가장 큰 원인입니다. 최적화되지 않은 이미지는 사이트를 느리게 하고, 이탈률을 높이며, SEO에 해를 끼칩니다. 웹사이트에 이미지를 업로드하기 전에 다음을 위해 압축하세요:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["코어 웹 바이탈 개선",       "이미지 파일 크기를 줄여 LCP(Largest Contentful Paint) 점수를 낮춥니다."],
+          ["대역폭 사용량 감소",        "이미지 크기가 작을수록 특히 모바일에서 페이지 로드가 빨라집니다."],
+          ["Google PageSpeed Insights 통과","대부분의 감사에서 압축되지 않은 이미지를 주요 문제로 지적합니다."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">워드프레스 팁:</strong> 미디어 라이브러리에 업로드하기 전에 여기에서 이미지를 압축하세요. 이렇게 하면 서버 측 플러그인에 의존하지 않고 출력 품질을 완벽하게 제어할 수 있습니다.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">프로 기능</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">대량 이미지 압축</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        여러 이미지를 한 번에 압축해야 하나요? 저희의 대량 압축 도구를 사용하면 여러 파일을 한 번에 업로드하고 처리할 수 있습니다 — 다음 경우에 완벽합니다:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["전자상거래",    "게시하기 전에 수십 개의 제품 이미지를 압축합니다."],
+          ["블로그 게시물",    "특집 이미지와 인라인 사진을 한 번에 최적화합니다."],
+          ["납품물",  "압축된 사진 세트를 이메일 또는 클라우드 저장소를 통해 보냅니다."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">대량 처리는 Pro에서 이용 가능합니다</p>
+          <p class="text-white/60 text-sm">한 번의 클릭으로 여러 파일을 처리하세요.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          무료로 시작하기 →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">사용 사례</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">이미지를 압축하는 이유?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["웹사이트 및 블로그",   "큰 이미지는 페이지 로딩 속도를 늦추는 가장 큰 원인입니다. 업로드 전에 압축하면 페이지 무게를 줄이고 모든 장치에서 사용자 경험을 향상시킵니다."],
+          ["이메일 첨부 파일",  "대부분의 이메일 클라이언트는 25MB 첨부 파일 제한이 있습니다. 사진을 압축하면 크기 제한에 걸리지 않고 여러 이미지를 쉽게 보낼 수 있습니다."],
+          ["소셜 미디어",       "인스타그램 및 페이스북과 같은 플랫폼은 업로드된 파일을 재압축하여 종종 품질을 저하시킵니다. 사진이 어떻게 표시되는지에 대한 더 많은 제어권을 유지하려면 미리 압축하세요."],
+          ["저장 및 백업",   "대규모 사진 컬렉션을 보관하시나요? 이미지를 압축하면 일반적인 보기 크기에서 눈에 띄는 품질 손실 없이 저장 공간 요구 사항을 크게 줄일 수 있습니다."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">자주 묻는 질문</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">자주 묻는 질문</h2>
+      </div>

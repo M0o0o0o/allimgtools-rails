@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Rotate Images Online —<br class="hidden sm:block"> Free &amp; Instant
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Fix sideways or upside-down photos instantly — no software, no sign-up required. Our free online image rotator lets you rotate any JPEG, PNG, WebP, or GIF by 90°, 180°, or 270° with a single click. Whether you're correcting a photo taken in the wrong orientation, preparing an image for print, or straightening a scan, you'll get the correctly oriented file in seconds.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "Online image rotator — rotate JPEG, PNG, WebP by 90°, 180°, or 270° instantly", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Step by step</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">How to Rotate an Image Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Upload your image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Drag and drop or click to select a JPEG, JPG, PNG, GIF, or WebP file.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Choose your rotation</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Select 90° clockwise, 90° counter-clockwise, or 180° to flip upside-down. Preview updates instantly.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Download your rotated image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Click download and save your correctly oriented file instantly.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        No account required. Your files are never stored on our servers.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formats</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Rotate JPEG, PNG, WebP &amp; More</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "The most common photo format. Rotate without re-encoding to preserve quality where possible." },
+          { name: "PNG",        desc: "Supports transparency. Rotation preserves the alpha channel — logos and graphics stay intact." },
+          { name: "GIF",        desc: "Rotate static GIFs cleanly. Animated GIFs are rotated frame by frame." },
+          { name: "WebP",       desc: "Google's modern format. Full rotation support with no quality penalty." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">When to Use It</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Common Reasons to Rotate an Image</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Orientation issues are more common than you'd think. Here are the situations where rotating an image is the fastest fix:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Fix camera orientation",       "Smartphones and cameras sometimes save photos sideways when taken in landscape or portrait mode. A quick 90° rotation corrects it without any quality loss."],
+          ["Correct scanned documents",    "Scanners often produce rotated output depending on how the original was placed. Rotate your scan to the correct reading orientation before sharing or archiving."],
+          ["Prepare images for print",     "Print layouts require images in a specific orientation. Rotate before exporting to avoid surprises at the printer."],
+          ["Straighten content for social","Uploading a sideways photo to Instagram or a blog looks unprofessional. Rotate before uploading so the platform doesn't auto-rotate unexpectedly."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">Did you know?</strong> JPEG files store orientation metadata (EXIF data) separately from the actual pixel data. Some apps display the image correctly using this metadata, while others ignore it and show the raw orientation. Rotating the actual pixels (as this tool does) ensures the image appears correctly everywhere.
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Use Cases</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Who Uses an Image Rotator?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Photographers",      "Fix orientation on a batch of shots after a shoot. Consistent orientation across an album makes galleries look polished and professional."],
+          ["Bloggers & writers", "Photos taken in the wrong orientation break the visual flow of an article. Rotate before uploading to your CMS to ensure images appear correctly for all readers."],
+          ["E-commerce sellers", "Product photos taken sideways look untrustworthy. Correct the orientation before uploading to your store to present products clearly."],
+          ["Office & documents", "Scanned contracts, receipts, or ID documents often come out rotated. Fix orientation before attaching to emails or uploading to document management systems."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Does rotating an image reduce its quality?",
+           "For most formats, no. Rotating by exactly 90°, 180°, or 270° is a lossless operation for PNG and WebP. For JPEG, the image is re-saved after rotation, which may involve a very small quality step if the tool re-encodes it — but at high quality settings this is imperceptible."],
+          ["What image formats does the rotator support?",
+           "The tool supports JPEG, JPG, PNG, GIF, and WebP. The output format matches your input file, so a PNG remains a PNG (with transparency intact) after rotation."],
+          ["How do I fix an upside-down photo?",
+           "Upload your photo and select the 180° rotation option. This flips the image completely, correcting any upside-down orientation in one click."],
+          ["What's the difference between auto-rotate and manual rotation?",
+           "Auto-rotate uses EXIF orientation metadata embedded by your camera or phone to display images correctly. Manual rotation physically changes the pixel data. If you find images display sideways in some apps (which ignore EXIF), use this tool to manually bake the correct orientation into the file itself."],
+          ["Will my rotated image keep the same file format and transparency?",
+           "Yes. The output format matches your input. PNG files retain their transparency (alpha channel) after rotation. No conversion happens unless you explicitly choose a different format."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Last updated: May 2026</p>
+
+  </div>
+</section>

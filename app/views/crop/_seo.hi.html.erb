@@ -1,0 +1,193 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        ऑनलाइन इमेज क्रॉप करें —<br class="hidden sm:block"> मुफ्त, सटीक और तुरंत
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        अपनी इमेज को सेकंडों में ट्रिम, रीफ्रेम और क्रॉप करें — किसी सॉफ्टवेयर या साइन-अप की आवश्यकता नहीं है। हमारा मुफ्त ऑनलाइन इमेज क्रॉपर JPEG, PNG, WebP, GIF और AVIF फ़ाइलों को सपोर्ट करता है। फ्री-फॉर्म क्रॉप चुनें या एक मानक आस्पेक्ट रेशियो पर लॉक करें — प्रोफाइल पिक्चर के लिए 1:1, YouTube थंबनेल के लिए 16:9, स्टोरीज के लिए 9:16, और भी बहुत कुछ। अनावश्यक बॉर्डर हटाएँ, विषय पर ध्यान केंद्रित करें, और अपनी इमेज को किसी भी प्लेटफॉर्म के लिए तुरंत तैयार करें।
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "ऑनलाइन इमेज क्रॉपर — JPEG, PNG, WebP को फ्री-फॉर्म या निश्चित आस्पेक्ट रेशियो के साथ क्रॉप करें", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">चरण-दर-चरण</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">इमेज को ऑनलाइन कैसे क्रॉप करें</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">अपनी इमेज अपलोड करें</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">अपने डिवाइस से JPEG, PNG, WebP, GIF, या AVIF फ़ाइल को ड्रैग और ड्रॉप करें या क्लिक करके चुनें।</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">क्रॉप क्षेत्र चुनें</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">अपने क्षेत्र को स्वतंत्र रूप से परिभाषित करने के लिए क्रॉप हैंडल को खींचें, या अनुपात को लॉक करने के लिए एक प्रीसेट रेशियो — 1:1, 4:3, 16:9, 3:2, या 9:16 — चुनें।</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">अपनी क्रॉप की गई इमेज डाउनलोड करें</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">डाउनलोड पर क्लिक करें और अपनी क्रॉप की गई फ़ाइल को तुरंत उसके मूल फॉर्मेट में सहेजें।</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        किसी खाते की आवश्यकता नहीं है। आपकी फ़ाइलें हमारे सर्वर पर कभी संग्रहीत नहीं होती हैं।
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">फॉर्मेट</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP और अन्य को क्रॉप करें</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "सबसे सामान्य फोटो फॉर्मेट। प्राकृतिक रंगों और ग्रेडिएंट्स को बनाए रखते हुए साफ-सुथरा क्रॉप करता है।" },
+          { name: "PNG",        desc: "पारदर्शिता को सपोर्ट करता है। क्रॉपिंग अल्फा चैनल को बरकरार रखती है, जिससे पारदर्शी क्षेत्र अक्षुण्ण रहते हैं।" },
+          { name: "WebP",       desc: "Google का आधुनिक फॉर्मेट। पूरी निष्ठा के साथ क्रॉप करता है — वेब-ऑप्टिमाइज्ड इमेज के लिए बढ़िया।" },
+          { name: "GIF",        desc: "रंग पैलेट या पारदर्शिता को प्रभावित किए बिना स्थिर GIF को क्रॉप करें।" },
+          { name: "AVIF",       desc: "उत्कृष्ट गुणवत्ता वाला अगली पीढ़ी का फॉर्मेट। क्रॉप करें और सभी विवरणों को बनाए रखें।" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">संदर्भ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">आपको कौन सा आस्पेक्ट रेशियो इस्तेमाल करना चाहिए?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        विभिन्न प्लेटफॉर्म और उपयोग के मामलों के लिए अलग-अलग अनुपात की आवश्यकता होती है। सही अनुपात चुनें और आपकी इमेज हर बार पूरी तरह से फ्रेम की हुई दिखेगी:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">अनुपात</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">इसके लिए सबसे अच्छा</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "इंस्टाग्राम पोस्ट, प्रोफाइल पिक्चर, अवतार, ऐप आइकन"],
+              ["16:9", "YouTube थंबनेल, वाइडस्क्रीन वीडियो कवर, ब्लॉग हेडर"],
+              ["4:3",  "मानक फोटोग्राफी, प्रस्तुतियाँ, क्लासिक फोटो प्रिंट"],
+              ["9:16", "इंस्टाग्राम स्टोरीज, टिकटॉक वीडियो, रील्स, शॉर्ट्स कवर"],
+              ["3:2",  "DSLR मानक, लैंडस्केप फोटोग्राफी, प्रिंट एल्बम"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">आप किसी भी अनुपात पर लॉक किए बिना स्वतंत्र रूप से क्रॉप भी कर सकते हैं — बस अपनी इच्छित सटीक क्षेत्र तक खींचें।</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">उपयोग के मामले</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">अपनी इमेज को क्रॉप क्यों करें?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["प्रोफाइल पिक्चर",         "1:1 पर लॉक करें और किसी भी फोटो को LinkedIn, Twitter, GitHub, या किसी भी ऐसे प्लेटफॉर्म के लिए एक परफेक्ट स्क्वायर में क्रॉप करें जो गोलाकार या चौकोर अवतार प्रदर्शित करता है।"],
+          ["थंबनेल और कवर",  "YouTube थंबनेल, ब्लॉग हेडर, या सोशल मीडिया प्रीव्यू कार्ड के लिए इमेज के सबसे आकर्षक हिस्से को फ्रेम करें।"],
+          ["अनावश्यक क्षेत्रों को हटाएँ",    "विचलित करने वाली पृष्ठभूमि, बॉर्डर, वॉटरमार्क, या खाली जगह को हटाएँ — और केवल वही रखें जो महत्वपूर्ण है।"],
+          ["प्लेटफॉर्म-तैयार इमेज",    "प्रत्येक प्लेटफॉर्म के अपने पसंदीदा आयाम होते हैं। अपलोड करने से पहले सही अनुपात में क्रॉप करें ताकि आपकी इमेज कभी भी अजीब तरह से ऑटो-क्रॉप न हो।"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">टिप्स</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">क्रॉप करते समय सर्वोत्तम परिणाम प्राप्त करें</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["उच्च-रिज़ॉल्यूशन मूल के साथ शुरू करें", "क्रॉपिंग आपके द्वारा रखे गए पिक्सेल क्षेत्र को कम करती है। एक उच्च-रिज़ॉल्यूशन स्रोत आपको काम करने के लिए अधिक जगह देता है और सुनिश्चित करता है कि क्रॉप किया गया परिणाम तेज रहे।"],
+          ["प्लेटफॉर्म के लिए आस्पेक्ट रेशियो लॉक का उपयोग करें",   "किसी विशिष्ट प्लेटफॉर्म के लिए इमेज तैयार करते समय, हमेशा पहले अनुपात को लॉक करें। यह सुनिश्चित करता है कि परिणाम बिना किसी अनुमान के आवश्यक आयामों से मेल खाता है।"],
+          ["कंप्रेस करने से पहले क्रॉप करें",               "पहले क्रॉप करें, फिर कंप्रेस करें। अनावश्यक पिक्सेल हटाने से आपको कंप्रेस करने के लिए आवश्यक फ़ाइल का आकार कम हो जाता है — जिससे आपको समान आउटपुट आकार पर बेहतर गुणवत्ता मिलती है।"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">अक्सर पूछे जाने वाले प्रश्न</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">अक्सर पूछे जाने वाले प्रश्न</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["क्या मैं एक विशिष्ट पिक्सेल आकार में क्रॉप कर सकता हूँ?",
+           "हाँ। फ्री क्रॉप मोड का उपयोग करें और अपनी इच्छित क्षेत्र को लक्षित करने के लिए हैंडल को खींचें। क्रॉप टूल आपके खींचने पर वर्तमान पिक्सेल आयामों को प्रदर्शित करता है, ताकि आप एक सटीक आकार प्राप्त कर सकें। निश्चित अनुपातों (जैसे इंस्टाग्राम के लिए 1080×1080) के लिए, 1:1 अनुपात को लॉक करें और यदि आवश्यक हो तो क्रॉप करने के बाद आकार बदलें।"],
+          ["क्या क्रॉपिंग से इमेज की गुणवत्ता कम होती है?",
+           "नहीं — क्रॉपिंग शेष पिक्सेल पर एक गैर-विनाशकारी ऑपरेशन है। यह आपकी चयन के बाहर के क्षेत्रों को हटा देता है, बिना आपके द्वारा रखे गए पिक्सेल डेटा को बदले। सहेजी गई फ़ाइल क्रॉप किए गए क्षेत्र के भीतर पूरी गुणवत्ता वाली होती है।"],
+          ["क्रॉप और रीसाइज़ में क्या अंतर है?",
+           "क्रॉपिंग इमेज के हिस्सों को हटाती है — यह कैनवास क्षेत्र को बदलती है और स्केलिंग के बिना कुल पिक्सेल गणना को कम करती है। रीसाइज़िंग पूरी इमेज को ऊपर या नीचे स्केल करती है, आयामों को बदलती है लेकिन सभी सामग्री को बरकरार रखती है। रीफ्रेम करने के लिए क्रॉप का उपयोग करें; आउटपुट आयामों को बदलने के लिए रीसाइज़ का उपयोग करें।"],
+          ["आस्पेक्ट रेशियो का क्या मतलब है?",
+           "आस्पेक्ट रेशियो एक इमेज की चौड़ाई और ऊंचाई के बीच आनुपातिक संबंध है, जिसे एक कोलन (जैसे 16:9) द्वारा अलग किए गए दो संख्याओं के रूप में व्यक्त किया जाता है। यह इमेज के आकार का वर्णन करता है। एक 16:9 इमेज अपनी ऊंचाई से अधिक चौड़ी होती है; एक 1:1 इमेज एक पूर्ण वर्ग होती है। क्रॉप करते समय आस्पेक्ट रेशियो को लॉक करने से यह सुनिश्चित होता है कि आप क्रॉप क्षेत्र को समायोजित करते समय अनुपात स्थिर रहते हैं।"],
+          ["कौन से फॉर्मेट समर्थित हैं?",
+           "आप JPEG, JPG, PNG, WebP, GIF, और AVIF फ़ाइलों को क्रॉप कर सकते हैं। आउटपुट आपकी मूल फ़ाइल के समान फॉर्मेट में सहेजा जाता है, पारदर्शिता (PNG) और अन्य फॉर्मेट-विशिष्ट सुविधाओं को बनाए रखता है।"],
+          ["क्या मैं एक PNG को क्रॉप कर सकता हूँ और उसकी पारदर्शी पृष्ठभूमि को बरकरार रख सकता हूँ?",
+           "हाँ। जब आप एक PNG को क्रॉप करते हैं, तो क्रॉप चयन के बाहर के पारदर्शी क्षेत्र हटा दिए जाते हैं, लेकिन क्रॉप किए गए क्षेत्र के भीतर की पारदर्शिता पूरी तरह से बरकरार रहती है। डाउनलोड की गई फ़ाइल अल्फा चैनल को बनाए रखेगी।"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">अंतिम अपडेट: मई 2026</p>
+
+  </div>
+</section>

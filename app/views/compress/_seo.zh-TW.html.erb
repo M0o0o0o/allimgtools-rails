@@ -1,0 +1,236 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        線上壓縮圖片 —<br class="hidden sm:block"> 免費、快速且無損畫質
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        立即縮小圖片檔案大小 — 無需軟體，無需註冊。我們的免費線上圖片壓縮工具使用智慧壓縮演算法，在保留視覺品質的同時，縮小您的 JPEG、PNG、GIF、WebP 和 AVIF 檔案。使用品質滑桿找到檔案大小和圖片清晰度之間的完美平衡。無論您是為網站優化照片、準備電子郵件圖片，還是釋放儲存空間，您都將在幾秒鐘內獲得更小的檔案。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "線上圖片壓縮工具 — 在保留畫質的同時，縮小 JPEG、PNG、WebP 檔案大小", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">步驟說明</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">如何線上壓縮圖片</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">上傳您的圖片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖放或點擊選擇 JPEG、JPG、PNG、GIF、WebP 或 AVIF 檔案。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">調整品質滑桿</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">移動滑桿以控制壓縮程度。較低的值會產生較小的檔案；較高的值會保留更多細節。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">下載您壓縮後的圖片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">點擊下載並立即儲存您優化後的檔案。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        無需帳戶。您的檔案絕不會儲存在我們的伺服器上。
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">支援格式</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">壓縮 JPEG、PNG、WebP 及更多格式</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "最常見的照片格式。適用於具有自然色彩和漸變的高解析度圖片。" },
+          { name: "PNG",        desc: "支援透明度。非常適合標誌、螢幕截圖和圖形。" },
+          { name: "GIF",        desc: "壓縮動態或靜態 GIF，不損失動畫影格。" },
+          { name: "WebP",       desc: "Google 的現代格式。在相同畫質下，壓縮後檔案比 JPEG 小得多。" },
+          { name: "AVIF",       desc: "適用於現代瀏覽器的下一代格式，具有出色的壓縮效率。" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">參考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">將圖片壓縮到特定檔案大小</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        需要將圖片壓縮到特定大小 — 例如 100KB、200KB 或 50KB？使用品質滑桿微調壓縮，直到達到您的目標。以下是一個快速參考：
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">目標大小</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">建議品質範圍</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["小於 20 KB",  "10 – 25%"],
+              ["小於 50 KB",  "25 – 40%"],
+              ["小於 100 KB", "40 – 60%"],
+              ["小於 200 KB", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">結果會因原始圖片內容和尺寸而異。請在下載前調整滑桿並預覽。</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">網站效能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">為您的網站或 WordPress 優化圖片</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        頁面載入速度是 Google 的排名因素之一 — 而圖片通常是最大的罪魁禍首。未優化的圖片會拖慢您的網站速度，增加跳出率，並損害您的 SEO。在將圖片上傳到您的網站之前，請將它們壓縮以：
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["改善核心網路指標",       "透過減少圖片檔案大小來降低 LCP (最大內容繪製) 分數。"],
+          ["減少頻寬使用",        "較小的圖片意味著更快的頁面載入速度，尤其是在行動裝置上。"],
+          ["通過 Google PageSpeed Insights 檢測","大多數審核會將未壓縮的圖片標記為首要問題。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPress 提示：</strong> 在上傳到媒體庫之前，請在此處壓縮您的圖片。這可以避免依賴伺服器端外掛程式，並讓您完全控制輸出品質。
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">專業版功能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">批次圖片壓縮</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        需要一次壓縮多張圖片？我們的批次壓縮工具可讓您一次上傳和處理多個檔案 — 非常適合：
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["電子商務",    "在發布前壓縮數十張產品圖片。"],
+          ["部落格文章",    "一次性優化精選圖片和內嵌照片。"],
+          ["交付物",  "透過電子郵件或雲端儲存發送壓縮後的照片集。"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">批次處理功能適用於專業版</p>
+          <p class="text-white/60 text-sm">一鍵處理多個檔案。</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          免費開始 →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">使用情境</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">為何要壓縮圖片？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["網站與部落格",   "大型圖片是頁面載入緩慢的首要原因。在上傳前壓縮可以減輕頁面負擔，並改善所有裝置上的使用者體驗。"],
+          ["電子郵件附件",  "大多數電子郵件客戶端都有 25 MB 的附件限制。壓縮照片可以輕鬆發送多張圖片，而不會達到大小限制。"],
+          ["社群媒體",       "Instagram 和 Facebook 等平台會重新壓縮您的上傳內容，這通常會降低畫質。預先壓縮可以讓您更好地控制照片的呈現方式。"],
+          ["儲存與備份",   "正在歸檔大量照片集？壓縮圖片可以顯著減少儲存需求，而在正常觀看尺寸下不會有明顯的畫質損失。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">常見問題</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">常見問題</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["壓縮圖片會降低其畫質嗎？",
+           "這取決於壓縮程度。有損壓縮（JPEG、WebP）會移除部分圖片資料 — 在適度設定下，人眼幾乎無法察覺差異。請在下載前使用品質滑桿預覽結果。"],
+          ["如何將圖片壓縮到 100 KB 以下？",
+           "上傳您的圖片，將品質滑桿設定在大約 40–60%，然後檢查輸出檔案大小。如果需要，可以再調低。對於非常大的原始圖片，您可能需要設定更低。"],
+          ["線上壓縮圖片安全嗎？",
+           "是的。您的圖片會直接處理，不會儲存、分享或用於任何其他目的。我們在處理後不會保留您的檔案。"],
+          ["壓縮後的網路圖片最佳格式是什麼？",
+           "對於大多數網路使用情境，WebP 在檔案大小和畫質之間提供了最佳平衡，並受到所有主要現代瀏覽器的支援。AVIF 效率更高，但瀏覽器支援度稍低。JPEG 仍然是實現最大相容性的最安全選擇。"],
+          ["我可以壓縮 PNG 而不損失透明度嗎？",
+           "是的。PNG 壓縮會保留 Alpha 色版（透明度）。您壓縮後的 PNG 將保留原始檔案中的任何透明區域。"],
+          ["有損壓縮和無損壓縮有什麼區別？",
+           "有損壓縮（JPEG、WebP）會永久移除部分資料以實現更小的檔案。無損壓縮（PNG）在不移除任何圖片資料的情況下縮小檔案大小 — 但縮小程度通常較小。對於照片，有損壓縮幾乎總是更好的選擇。"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">最後更新：2026 年 5 月</p>
+
+  </div>
+</section>

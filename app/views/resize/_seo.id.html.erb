@@ -1,0 +1,205 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Ubah Ukuran Gambar Online —<br class="hidden sm:block"> Gratis, Instan &amp; Tanpa Kehilangan Kualitas
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Ubah dimensi gambar Anda secara instan — tanpa perangkat lunak, tanpa perlu mendaftar. Pengubah ukuran gambar online gratis kami memungkinkan Anda mengatur lebar dan tinggi yang tepat dalam piksel, menskalakan berdasarkan persentase, atau mengunci rasio aspek untuk menghindari distorsi. Berfungsi dengan JPEG, PNG, WebP, GIF, dan AVIF. Baik Anda menyiapkan foto untuk media sosial, mengubah ukuran gambar produk untuk toko online Anda, atau memotong thumbnail untuk blog, Anda akan mendapatkan gambar dengan ukuran sempurna dalam hitungan detik.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "Pengubah ukuran gambar online — ubah ukuran JPEG, PNG, WebP ke dimensi piksel yang tepat secara instan", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Langkah demi langkah</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cara Mengubah Ukuran Gambar Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Unggah gambar Anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Seret dan lepas atau klik untuk memilih file JPEG, JPG, PNG, GIF, WebP, atau AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Atur dimensi target Anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Masukkan lebar dan tinggi dalam piksel, atau skala berdasarkan persentase. Alihkan "Pertahankan rasio aspek" untuk mencegah peregangan.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Unduh gambar Anda yang sudah diubah ukurannya</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klik unduh dan simpan file Anda yang berukuran sempurna secara instan.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Tidak perlu akun. File Anda tidak pernah disimpan di server kami.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Format</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Ubah Ukuran JPEG, PNG, WebP &amp; Lainnya</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Format paling umum untuk foto. Ubah ukuran gambar resolusi tinggi sambil mempertahankan warna dan gradien alami." },
+          { name: "PNG",        desc: "Mendukung transparansi. Ubah ukuran logo, tangkapan layar, dan grafik tanpa kehilangan saluran alfa." },
+          { name: "GIF",        desc: "Ubah ukuran GIF statis dengan mudah. Pengubahan ukuran GIF animasi mempertahankan semua bingkai." },
+          { name: "WebP",       desc: "Format modern Google. Ubah ukuran gambar WebP dan jaga ukuran file tetap ringkas." },
+          { name: "AVIF",       desc: "Format generasi berikutnya dengan kualitas luar biasa pada ukuran file kecil. Dukungan pengubahan ukuran penuh." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referensi</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Dimensi Gambar Umum untuk Media Sosial</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Setiap platform memiliki ukuran gambar yang direkomendasikan sendiri. Gunakan tabel referensi ini untuk mengubah ukuran gambar Anda ke dimensi yang tepat yang Anda butuhkan:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Platform / Penggunaan</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Ukuran yang Direkomendasikan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Postingan Instagram (persegi)",  "1080 × 1080 px"],
+              ["Foto Sampul Facebook",     "820 × 312 px"],
+              ["Header Twitter / X",       "1500 × 500 px"],
+              ["Spanduk LinkedIn",          "1584 × 396 px"],
+              ["Thumbnail YouTube",        "1280 × 720 px"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Pedoman platform dapat berubah seiring waktu. Selalu verifikasi dengan dokumentasi resmi terbaru sebelum mempublikasikan.</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Web & E-commerce</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Ubah Ukuran Foto Produk &amp; Gambar Web</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Dimensi gambar yang konsisten membuat situs web Anda terlihat rapi dan memuat lebih cepat. Sebelum mengunggah ke situs atau toko Anda, ubah ukuran gambar untuk:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Sesuaikan tata letak Anda dengan tepat",       "Atur lebar piksel yang tepat agar gambar sesuai dengan kisi Anda tanpa distorsi CSS."],
+          ["Percepat pemuatan halaman",             "Dimensi yang lebih kecil berarti ukuran file yang lebih kecil, mengurangi bandwidth dan meningkatkan Core Web Vitals."],
+          ["Standarisasi thumbnail produk",  "Ukuran seragam di seluruh kisi produk terlihat profesional dan mengurangi pergeseran tata letak."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Tips E-commerce:</strong> Ubah ukuran semua gambar produk ke dimensi yang sama sebelum mengunggah ke toko Anda. Sebagian besar platform (Shopify, WooCommerce, Etsy) merekomendasikan gambar persegi dengan ukuran 1000 × 1000 px atau lebih besar untuk fungsionalitas zoom.
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Fitur Pro</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Pengubahan Ukuran Gambar Massal</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Perlu mengubah ukuran beberapa gambar ke dimensi yang sama sekaligus? Alat pengubah ukuran massal kami memungkinkan Anda mengunggah dan memproses beberapa file sekaligus — sempurna untuk:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Katalog produk",  "Standarisasi ratusan foto produk sebelum mengunggah ke toko Anda."],
+          ["Galeri foto",   "Ubah ukuran seluruh sesi pemotretan ke dimensi yang konsisten dalam satu batch."],
+          ["Set media sosial", "Siapkan beberapa gambar sesuai spesifikasi platform tanpa mengulang proses."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Pemrosesan massal tersedia di Pro</p>
+          <p class="text-white/60 text-sm">Ubah ukuran beberapa file ke dimensi yang sama dalam satu klik.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Mulai gratis →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kasus Penggunaan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Mengapa Mengubah Ukuran Gambar?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Media sosial",       "Setiap platform memiliki persyaratan ukuran yang ketat. Ubah ukuran ke dimensi yang benar untuk menghindari pemotongan, letterboxing, atau peningkatan skala yang buram oleh platform."],
+          ["Toko E-commerce",  "Konsistensi gambar produk membangun kepercayaan. Dimensi seragam di seluruh katalog Anda menciptakan tata letak kisi yang profesional di perangkat apa pun."],
+          ["Buletin email",  "Gambar lebar dapat merusak tata letak email di ponsel. Ubah ukuran gambar header menjadi lebar 600 px untuk rendering yang andal di semua klien email."],
+          ["Cetak & dokumen",  "Ubah ukuran gambar ke dimensi piksel yang tepat yang dibutuhkan oleh template cetak, presentasi, atau tata letak dokumen Anda untuk menghindari kehilangan kualitas saat ekspor."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold

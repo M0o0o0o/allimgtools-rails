@@ -1,0 +1,197 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        EXIF Verilerini Çevrimiçi Kaldırın —<br class="hidden sm:block"> Gizliliğinizi Anında Koruyun
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Tüm meta verileri fotoğraflarınızdan anında kaldırın — yazılım veya kayıt gerekmez. Ücretsiz çevrimiçi EXIF temizleyicimiz, JPEG, PNG, WebP ve GIF dosyalarından GPS konumunu, kamera modelini, çekim tarihini, lens bilgilerini, pozlama ayarlarını ve tüm IPTC/XMP meta verilerini kalıcı olarak siler. İster çevrimiçi ürün satıyor, ister fotoğrafları herkese açık paylaşıyor veya sosyal medya için görseller hazırlıyor olun, kişisel bilgileriniz gizli kalır.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "Çevrimiçi EXIF temizleyici — gizliliği korumak için fotoğraflardan GPS, kamera bilgisi ve meta verileri kaldırın", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Adım adım</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIF Verileri Çevrimiçi Nasıl Kaldırılır</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Görselinizi yükleyin</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Bir JPEG, PNG, WebP veya GIF dosyasını sürükleyip bırakın veya seçmek için tıklayın. Aynı anda birden fazla görsel yükleyebilirsiniz.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Tüm meta verileri kaldırın</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Kaldır düğmesine tıklayın ve tüm EXIF, IPTC ve XMP meta verileri görselinizden anında silinsin.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Temiz görselinizi indirin</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Meta verisiz görselinizi indirin. Fotoğrafınızın görsel içeriği tamamen değişmeden kalır.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Hesap gerekmez. Dosyalarınız sunucularımızda asla saklanmaz.
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referans</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIF Verileri Sizin Hakkınızda Neleri Ortaya Çıkarır</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Akıllı telefon veya dijital kamera ile çekilen her fotoğraf, gizli meta veriler içerir. İşte bu verilerin, meta verileri temizlenmemiş bir görseli paylaştığınızda neleri ifşa edebileceği:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF Alanı</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Neyi Ortaya Çıkarır</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS Enlem / Boylam", "Fotoğrafın çekildiği tam konum"],
+              ["DateTimeOriginal",         "Fotoğrafın çekildiği kesin tarih ve saat"],
+              ["Marka / Model",             "Kamera markası ve modeli (örn. Apple iPhone 15 Pro)"],
+              ["Yazılım",                 "Kullanılan düzenleme yazılımı (örn. Adobe Lightroom, Snapseed)"],
+              ["Sanatçı / Telif Hakkı",       "Fotoğrafçının adı ve kimliği"],
+              ["Lens Modeli",                "Kullanılan lens — profesyonel ekipmana işaret eder"],
+              ["Pozlama Süresi / ISO",       "Çekim tarzınızı parmak izi gibi belirleyebilecek kamera ayarları"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Yukarıdaki tüm alanlar — ve daha fazlası — bu aracı kullandığınızda kaldırılır.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kullanım Alanları</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Neden EXIF Verilerini Kaldırmalısınız?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Çevrimiçi ürün satışı",     "Satılık ürünlerin fotoğrafları genellikle evinizin GPS koordinatlarını içerir. eBay, Craigslist veya Facebook Marketplace gibi pazar yerlerine göndermeden önce meta verileri temizleyin."],
+          ["Fotoğrafları herkese açık paylaşma",  "Forumlar, Discord veya herkese açık galerilere mi yüklüyorsunuz? Fotoğrafınız ev adresinizi ifşa edebilir. Kontrolünüz olmayan herhangi bir yerde paylaşmadan önce EXIF'i kaldırın."],
+          ["Profesyonel paylaşım",     "Müşteri teslimatları kamera ekipmanınızı, çekim tarihinizi veya kişisel bilgilerinizi içermemelidir. Temiz, profesyonel bir teslimat için meta verileri temizleyin."],
+          ["Sosyal medya güvenliği",      "Çoğu platform yükleme sırasında EXIF'i temizlese de, bazıları temizlemez — ve bazı kullanıcılar orijinalleri indirir. Emin olmak için yüklemeden önce meta verileri kendiniz kaldırın."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── What's removed ────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kapsam</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Tüm Meta Veriler Tek Tıkla Kaldırılır</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Bu araç, görselinize gömülü her meta veri katmanını kaldırır — sadece temel EXIF değil, aynı zamanda profesyonel iş akışlarında kullanılan IPTC ve XMP verilerini de:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["GPS ve konum verileri",        "Enlem, boylam, rakım ve harita yönü — hepsi gider."],
+          ["Kamera ve lens bilgisi",         "Marka, model, lens modeli, ürün yazılımı sürümü ve seri numarası tamamen kaldırılır."],
+          ["Tarih ve saat damgaları",         "DateTimeOriginal, DateTimeDigitized ve ilgili tüm zaman damgaları kaldırılır."],
+          ["Pozlama ayarları",          "ISO, diyafram, enstantane hızı, beyaz dengesi, flaş modu — hepsi temizlenir."],
+          ["IPTC / XMP meta verileri",        "Telif hakkı bildirimleri, anahtar kelimeler, açıklamalar, yaratıcı bilgileri ve profesyonel yazılımlardan hak beyanları."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── Bulk removal ───────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro Özelliği</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Toplu EXIF Kaldırma</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Aynı anda düzinelerce fotoğraftan meta veri kaldırmanız mı gerekiyor? Toplu EXIF kaldırma Pro sürümünde mevcuttur — şunlar için mükemmeldir:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-ticaret satıcıları",   "Herhangi bir pazar yerine listelemeden önce tüm ürün fotoğraf setlerini temizleyin."],
+          ["Fotoğrafçılar",        "Ekipmanınızı veya çekim programınızı ifşa etmeden müşteri galerileri teslim edin."],
+          ["İçerik oluşturucular",     "Bir gönderi veya kampanyadaki tüm görsellerden meta verileri tek seferde temizleyin."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Toplu kaldırma Pro sürümünde mevcuttur</p>
+          <p class="text-white/60 text-sm">Birden fazla dosyadan meta verileri tek tıklamayla kaldırın.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Ücretsiz Başlayın →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">SSS</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Sıkça Sorulan Sorular</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["EXIF verileri nedir?",
+           "EXIF (Exchangeable Image File Format), dijital kameralar ve akıllı telefonlar tarafından fotoğraflara otomatik olarak gömülen meta verilerdir. Kamera ayarları, lens bilgisi, tarih ve saat gibi teknik detayları ve — en önemlisi — GPS konumunu kaydeder. Bu veriler görsel dosyasının içinde gizlidir ve fotoğrafı normalde görüntülerken görünmezdir."],
+          ["EXIF kaldırma kalıcı mıdır?",
+           "Evet. Kaldırıldıktan sonra meta veriler indirdiğiniz dosyadan silinir. Cihazınızdaki orijinal dosyaya dokunulmaz, böylece her zaman ona geri dönebilirsiniz. Aracımız bir kopyayı işler — yüklediğiniz dosya sunucularımızda asla saklanmaz."],
+          ["EXIF kaldırmak görseli değiştirir mi?",
+           "Hayır. Fotoğrafınızın görsel içeriği tamamen değişmeden kalır. Meta verileri kaldırmak sadece gizli veri katmanını etkiler, pikselleri değil. Görseliniz öncesi ve sonrası aynı görünecektir."],
+          ["Gerçekten hangi veriler kaldırılır?",
+           "Her şey: GPS koordinatları, kamera markası ve modeli, lens bilgisi, pozlama ayarları (ISO, diyafram, enstantane hızı), tarih ve saat damgaları, kullanılan yazılım, sanatçı adı, telif hakkı bildirimleri ve tüm IPTC/XMP alanları. Esasen tüm piksel dışı veriler temizlenir."],
+          ["Neden çevrimiçi paylaşmadan önce EXIF'i kaldırmalısınız?",
+           "Bir platforma güvenseniz bile, diğer kullanıcılar görselinizi indirebilir ve ücretsiz araç

@@ -1,0 +1,182 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Bilder online zuschneiden —<br class="hidden sm:block"> Kostenlos, präzise &amp; sofort
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Bilder in Sekundenschnelle zuschneiden, neu rahmen und beschneiden — keine Software, keine Registrierung erforderlich. Unser kostenloser Online-Bildzuschnitt unterstützt JPEG-, PNG-, WebP-, GIF- und AVIF-Dateien. Wählen Sie einen freien Zuschnitt oder sperren Sie ein Standard-Seitenverhältnis — 1:1 für Profilbilder, 16:9 für YouTube-Thumbnails, 9:16 für Stories und mehr. Entfernen Sie unerwünschte Ränder, konzentrieren Sie sich auf das Motiv und bereiten Sie Ihr Bild sofort für jede Plattform vor.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Online-Bildzuschnitt — JPEG, PNG, WebP mit freiem oder festem Seitenverhältnis zuschneiden", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Schritt für Schritt</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Wie man ein Bild online zuschneidet</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Bild hochladen</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Ziehen Sie eine JPEG-, PNG-, WebP-, GIF- oder AVIF-Datei per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Zuschneidebereich auswählen</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Ziehen Sie die Zuschneidegriffe, um Ihren Bereich frei zu definieren, oder wählen Sie ein voreingestelltes Verhältnis — 1:1, 4:3, 16:9, 3:2 oder 9:16 — um die Proportionen zu sperren.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Zugeschnittenes Bild herunterladen</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klicken Sie auf Herunterladen und speichern Sie Ihre zugeschnittene Datei sofort im Originalformat.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Kein Konto erforderlich. Ihre Dateien werden niemals auf unseren Servern gespeichert.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formate</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP &amp; mehr zuschneiden</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Das gängigste Fotoformat. Schneidet sauber zu und bewahrt natürliche Farben und Verläufe." },
+          { name: "PNG",        desc: "Unterstützt Transparenz. Der Zuschnitt behält den Alphakanal bei und hält transparente Bereiche intakt." },
+          { name: "WebP",       desc: "Googles modernes Format. Schneidet mit voller Wiedergabetreue zu — ideal für weboptimierte Bilder." },
+          { name: "GIF",        desc: "Statische GIFs zuschneiden, ohne Farbpaletten oder Transparenz zu beeinträchtigen." },
+          { name: "AVIF",       desc: "Format der nächsten Generation mit exzellenter Qualität. Zuschneiden und alle Details beibehalten." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referenz</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Welches Seitenverhältnis sollten Sie verwenden?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Verschiedene Plattformen und Anwendungsfälle erfordern unterschiedliche Proportionen. Wählen Sie das richtige Verhältnis, und Ihr Bild wird jedes Mal perfekt gerahmt aussehen:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Verhältnis</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Am besten für</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Instagram-Posts, Profilbilder, Avatare, App-Symbole"],
+              ["16:9", "YouTube-Thumbnails, Breitbild-Video-Cover, Blog-Header"],
+              ["4:3",  "Standardfotografie, Präsentationen, klassische Fotoabzüge"],
+              ["9:16", "Instagram Stories, TikTok-Videos, Reels, Shorts-Cover"],
+              ["3:2",  "DSLR-Standard, Landschaftsfotografie, Fotoalben"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Sie können auch frei zuschneiden, ohne ein Verhältnis zu sperren — ziehen Sie einfach den gewünschten Bereich.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Anwendungsfälle</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Warum Ihr Bild zuschneiden?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Profilbilder",         "Sperren Sie auf 1:1 und schneiden Sie jedes Foto in ein perfektes Quadrat für LinkedIn, Twitter, GitHub oder jede andere Plattform zu, die kreisförmige oder quadratische Avatare anzeigt."],
+          ["Thumbnails &amp; Cover",  "Rahmen Sie den fesselndsten Teil eines Bildes für YouTube-Thumbnails, Blog-Header oder Social-Media-Vorschaukarten."],
+          ["Unerwünschte Bereiche entfernen",    "Entfernen Sie störende Hintergründe, Ränder, Wasserzeichen oder leeren Raum — und behalten Sie nur das Wesentliche."],
+          ["Plattformbereite Bilder",    "Jede Plattform hat ihre bevorzugten Abmessungen. Schneiden Sie das Bild vor dem Hochladen auf das richtige Verhältnis zu, damit es niemals ungeschickt automatisch zugeschnitten wird."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Tipps</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Die besten Ergebnisse beim Zuschneiden erzielen</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Beginnen Sie mit einem hochauflösenden Original", "Das Zuschneiden reduziert den Pixelbereich, den Sie behalten. Eine hochauflösende Quelle gibt Ihnen mehr Spielraum und stellt sicher, dass das zugeschnittene Ergebnis scharf bleibt."],
+          ["Seitenverhältnis für Plattformen sperren",   "Wenn Sie Bilder für eine bestimmte Plattform vorbereiten, sperren Sie immer zuerst das Verhältnis. Dies garantiert, dass das Ergebnis ohne Rätselraten den erforderlichen Abmessungen entspricht."],
+          ["Vor dem Komprimieren zuschneiden",               "Zuerst zuschneiden, dann komprimieren. Das Entfernen unerwünschter Pixel reduziert die Dateigröße, die Sie komprimieren müssen — was Ihnen eine bessere Qualität bei gleicher Ausgabegröße ermöglicht."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Häufig gestellte Fragen</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Kann ich auf eine bestimmte Pixelgröße zuschneiden?",
+           "Ja. Verwenden Sie den freien Zuschneidemodus und ziehen Sie die Griffe, um den gewünschten Bereich anzuvisieren. Das Zuschneidewerkzeug zeigt die aktuellen Pixelabmessungen an, während Sie ziehen, sodass Sie eine exakte Größe treffen können. Für feste Verhältnisse (wie 1080×1080 für Instagram) sperren Sie das 1:1-Verhältnis und ändern Sie die Größe bei Bedarf nach dem Zuschneiden."],
+          ["Reduziert das Zuschneiden die Bildqualität?",
+           "Nein — Zuschneiden ist eine nicht-destruktive Operation an den verbleibenden Pixeln. Es entfernt einfach die Bereiche außerhalb Ihrer Auswahl, ohne die Pixeldaten dessen zu verändern, was Sie behalten. Die gespeicherte Datei hat innerhalb des zugeschnittenen Bereichs volle Qualität."],
+          ["Was ist der Unterschied zwischen Zuschneiden und Größenänderung?",
+           "Zuschneiden entfernt Teile des Bildes — es ändert den Leinwandbereich und reduziert die Gesamtzahl der Pixel ohne Skalierung. Größenänderung skaliert das gesamte Bild nach oben oder unten, ändert die Abmessungen, behält aber den gesamten Inhalt bei. Verwenden Sie Zuschneiden zum Neurahmen; verwenden Sie Größenänderung, um die Ausgabedimensionen zu ändern."],
+          ["Was bedeutet Seitenverhältnis?",
+           "Das Seitenverhältnis ist die proportionale Beziehung zwischen Breite und Höhe eines Bildes, ausgedrückt als zwei Zahlen, getrennt durch einen Doppelpunkt (z.B. 16:9). Es beschreibt die Form des Bildes. Ein 16:9-Bild ist breiter als hoch; ein 1:1-Bild ist ein perfektes Quadrat. Das Sperren des Seitenverhältnisses beim Zuschneiden stellt sicher, dass die Proportionen beim Anpassen des Zuschneidebereichs fest bleiben."],
+          ["Welche Formate werden unterstützt?",
+           "Sie können JPEG-, JPG-, PNG-, WebP-, GIF- und AVIF-Dateien zuschneiden. Die Ausgabe wird im selben Format wie Ihr Original gespeichert, wobei Transparenz (PNG) und andere formatspezifische Funktionen erhalten bleiben."],
+          ["Kann ich ein PNG zuschneiden und seinen transparenten Hintergrund beibehalten?",
+           "Ja. Wenn Sie ein PNG zuschneiden, werden die transparenten Bereiche außerhalb der Zuschneideauswahl entfernt, aber die Transparenz innerhalb des zugeschnittenen Bereichs bleibt vollständig erhalten. Die heruntergeladene Datei behält den Alphakanal bei."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class

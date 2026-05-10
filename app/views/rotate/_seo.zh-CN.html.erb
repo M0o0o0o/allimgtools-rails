@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        在线旋转图片 —<br class="hidden sm:block"> 免费且即时
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        即时修正横向或倒置的照片 — 无需软件，无需注册。我们的免费在线图片旋转工具让您只需单击一下即可将任何 JPEG、PNG、WebP 或 GIF 图片旋转 90°、180° 或 270°。无论您是纠正方向错误的照片、准备打印图片，还是扶正扫描件，您都将在几秒钟内获得方向正确的文件。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "在线图片旋转工具 — 即时旋转 JPEG、PNG、WebP 图片 90°、180° 或 270°", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">分步指南</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">如何在线旋转图片</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">上传您的图片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖放或点击选择 JPEG、JPG、PNG、GIF 或 WebP 文件。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">选择旋转角度</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">选择顺时针 90°、逆时针 90° 或 180° 进行倒置。预览即时更新。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">下载您旋转后的图片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">点击下载并即时保存您方向正确的文件。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        无需账户。您的文件绝不会存储在我们的服务器上。
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">支持格式</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">旋转 JPEG、PNG、WebP 及更多格式</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "最常见的照片格式。在可能的情况下，无需重新编码即可旋转以保持质量。" },
+          { name: "PNG",        desc: "支持透明度。旋转会保留 Alpha 通道 — 徽标和图形保持完整。" },
+          { name: "GIF",        desc: "清晰旋转静态 GIF。动画 GIF 会逐帧旋转。" },
+          { name: "WebP",       desc: "谷歌的现代格式。完全支持旋转，无质量损失。" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">何时使用</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">旋转图片的常见原因</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        方向问题比您想象的更常见。以下是旋转图片能最快解决问题的几种情况：
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["修正相机方向",       "智能手机和相机有时在横向或纵向模式下拍摄时会保存横向照片。快速旋转 90° 即可纠正，且无任何质量损失。"],
+          ["纠正扫描文档",    "扫描仪通常会根据原始文件的放置方式生成旋转的输出。在分享或归档之前，将您的扫描件旋转到正确的阅读方向。"],
+          ["准备打印图片",     "打印布局需要特定方向的图片。在导出前旋转，以避免打印时出现意外。"],
+          ["扶正社交媒体内容","将横向照片上传到 Instagram 或博客看起来不专业。在上传前旋转，以防止平台意外自动旋转。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">您知道吗？</strong> JPEG 文件将方向元数据（EXIF 数据）与实际像素数据分开存储。有些应用程序使用此元数据显示图像，而另一些则忽略它并显示原始方向。旋转实际像素（此工具所做）可确保图像在任何地方都正确显示。
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">使用场景</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">谁会使用图片旋转工具？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["摄影师",      "拍摄后修正一批照片的方向。相册中一致的方向使图库看起来精致专业。"],
+          ["博主和作家", "方向错误的照片会破坏文章的视觉流畅性。在上传到您的内容管理系统之前旋转，以确保所有读者都能正确查看图片。"],
+          ["电商卖家", "横向拍摄的产品照片看起来不可信。在上传到您的商店之前纠正方向，以清晰地展示产品。"],
+          ["办公和文档", "扫描的合同、收据或身份证件经常出现旋转。在附加到电子邮件或上传到文档管理系统之前修正方向。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">常见问题</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">常见问题</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["旋转图片会降低其质量吗？",
+           "对于大多数格式，不会。对于 PNG 和 WebP，精确旋转 90°、180° 或 270° 是无损操作。对于 JPEG，图片在旋转后会重新保存，如果工具重新编码，可能会涉及非常小的质量损失 — 但在高画质设置下，这是察觉不到的。"],
+          ["图片旋转工具支持哪些图片格式？",
+           "该工具支持 JPEG、JPG、PNG、GIF 和 WebP。输出格式与您的输入文件匹配，因此 PNG 在旋转后仍是 PNG（透明度保持不变）。"],
+          ["如何修正倒置的照片？",
+           "上传您的照片并选择 180° 旋转选项。这会完全翻转图片，一键纠正任何倒置方向。"],
+          ["自动旋转和手动旋转有什么区别？",
+           "自动旋转使用您的相机或手机嵌入的 EXIF 方向元数据来正确显示图片。手动旋转则物理性地改变像素数据。如果您发现某些应用程序（忽略 EXIF）中图片显示为横向，请使用此工具手动将正确的方向“烘焙”到文件本身中。"],
+          ["我旋转后的图片会保留相同的文件格式和透明度吗？",
+           "是的。输出格式与您的输入匹配。PNG 文件在旋转后会保留其透明度（Alpha 通道）。除非您明确选择不同的格式，否则不会发生转换。"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">最后更新：2026 年 5 月</p>
+
+  </div>
+</section>

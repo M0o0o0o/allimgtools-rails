@@ -1,0 +1,225 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Comprimir Imagens Online —<br class="hidden sm:block"> Grátis, Rápido e Sem Perda de Qualidade
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Reduza o tamanho dos seus arquivos de imagem instantaneamente — sem software, sem necessidade de cadastro. Nosso compressor de imagens online gratuito usa algoritmos de compressão inteligentes para diminuir seus arquivos JPEG, PNG, GIF, WebP e AVIF, preservando a qualidade visual. Use o controle deslizante de qualidade para encontrar o equilíbrio perfeito entre tamanho do arquivo e clareza da imagem. Seja para otimizar fotos para um site, preparar imagens para e-mail ou liberar espaço de armazenamento, você obterá arquivos menores em segundos.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/compress_hero.png", alt: "Compressor de imagens online — reduza o tamanho de arquivos JPEG, PNG, WebP preservando a qualidade", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Passo a passo</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Como Comprimir uma Imagem Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Envie sua imagem</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Arraste e solte ou clique para selecionar um arquivo JPEG, JPG, PNG, GIF, WebP ou AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Ajuste o controle deslizante de qualidade</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Mova o controle deslizante para controlar o nível de compressão. Valores mais baixos produzem arquivos menores; valores mais altos preservam mais detalhes.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Baixe sua imagem comprimida</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Clique em baixar e salve seu arquivo otimizado instantaneamente.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Nenhuma conta é necessária. Seus arquivos nunca são armazenados em nossos servidores.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formatos</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Comprima JPEG, PNG, WebP e Mais</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "O formato mais comum para fotos. Ideal para imagens de alta resolução com cores e gradientes naturais." },
+          { name: "PNG",        desc: "Suporta transparência. Ótimo para logotipos, capturas de tela e gráficos." },
+          { name: "GIF",        desc: "Comprima GIFs animados ou estáticos sem perder quadros de animação." },
+          { name: "WebP",       desc: "Formato moderno do Google. Comprime significativamente menor que JPEG com qualidade equivalente." },
+          { name: "AVIF",       desc: "Formato de próxima geração com excelente eficiência de compressão para navegadores modernos." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Target file size table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referência</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Comprimir uma Imagem para um Tamanho de Arquivo Específico</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Precisa que sua imagem tenha um tamanho específico — como 100KB, 200KB ou 50KB? Use o controle deslizante de qualidade para ajustar a compressão até atingir seu objetivo. Aqui está uma referência rápida:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Tamanho Alvo</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Faixa de Qualidade Recomendada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Abaixo de 20 KB",  "10 – 25%"],
+              ["Abaixo de 50 KB",  "25 – 40%"],
+              ["Abaixo de 100 KB", "40 – 60%"],
+              ["Abaixo de 200 KB", "60 – 75%"],
+            ].each do |target, range| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= target %></td>
+                <td class="text-sm text-base-content/60"><%= range %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Os resultados variam dependendo do conteúdo e das dimensões da imagem original. Ajuste o controle deslizante e visualize antes de baixar.</p>
+    </div>
+
+    <%# ── Website / WordPress ────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Desempenho Web</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Otimize Imagens para Seu Site ou WordPress</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        A velocidade de carregamento da página é um dos fatores de ranqueamento do Google — e as imagens são geralmente as maiores culpadas. Imagens não otimizadas atrasam seu site, aumentam as taxas de rejeição e prejudicam seu SEO. Antes de enviar imagens para seu site, comprima-as para:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Melhorar Core Web Vitals",       "Reduza as pontuações de LCP (Largest Contentful Paint) diminuindo o tamanho dos arquivos de imagem."],
+          ["Reduzir o uso de largura de banda",        "Imagens menores significam carregamentos de página mais rápidos, especialmente em dispositivos móveis."],
+          ["Passar no Google PageSpeed Insights","A maioria das auditorias sinaliza imagens não comprimidas como um problema principal."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Dica para WordPress:</strong> Comprima suas imagens aqui antes de fazer o upload para a biblioteca de mídia. Isso evita depender de plugins no lado do servidor e lhe dá controle total sobre a qualidade da saída.
+      </div>
+    </div>
+
+    <%# ── Bulk compression ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Recurso Pro</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Compressão de Imagens em Lote</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Precisa comprimir várias imagens de uma vez? Nossa ferramenta de compressão em lote permite que você envie e processe vários arquivos de uma só vez — perfeito para:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-commerce",    "Comprima dezenas de imagens de produtos antes de publicar."],
+          ["Posts de blog",    "Otimize imagens destacadas e fotos incorporadas em um único lote."],
+          ["Entregáveis",  "Envie conjuntos de fotos comprimidas por e-mail ou armazenamento em nuvem."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">O processamento em lote está disponível no Pro</p>
+          <p class="text-white/60 text-sm">Processe vários arquivos com um clique.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Comece grátis →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Casos de Uso</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Por Que Comprimir Imagens?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Sites e blogs",   "Imagens grandes são a principal causa de páginas lentas. Comprimir antes de fazer o upload reduz o peso da página e melhora a experiência do usuário em todos os dispositivos."],
+          ["Anexos de e-mail",  "A maioria dos clientes de e-mail tem um limite de anexo de 25 MB. Comprimir fotos facilita o envio de várias imagens sem atingir as restrições de tamanho."],
+          ["Mídias sociais",       "Plataformas como Instagram e Facebook recompressam seus uploads, muitas vezes degradando a qualidade. Pré-comprima para manter mais controle sobre como suas fotos aparecem."],
+          ["Armazenamento e backup",   "Arquivando grandes coleções de fotos? Comprimir imagens pode reduzir significativamente os requisitos de armazenamento sem perda de qualidade perceptível em tamanhos de visualização normais."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Perguntas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Perguntas Frequentes</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Comprimir uma imagem reduz sua qualidade?",
+           "Depende do nível de compressão. A compressão com perdas (JPEG, WebP) remove alguns dados da imagem — em configurações moderadas, a diferença é quase imperceptível ao olho humano. Use o controle deslizante de qualidade para visualizar os resultados antes de baixar."],
+          ["Como comprimir uma imagem para menos de 100 KB?",
+           "Envie sua imagem, defina o controle deslizante de qualidade para cerca de 40–60% e verifique o tamanho do arquivo de saída. Ajuste para baixo se necessário. Para originais muito grandes, pode ser necessário ir mais baixo."],
+          ["É seguro comprimir imagens online?",
+           "Sim. Suas imagens são processadas diretamente e não são armazenadas, compartilhadas ou usadas para qualquer outra finalidade. Não retemos seus arquivos após o processamento."],
+          ["Qual é o melhor formato para imagens web comprimidas?",
+           "WebP oferece o melhor equilíbrio entre tamanho de arquivo e qualidade para a maioria dos casos de uso web e é suportado por todos os principais navegadores modernos. AVIF é ainda mais eficiente, mas tem um suporte de navegador ligeiramente menor. JPEG continua sendo a escolha mais segura para máxima compatibilidade."],
+          ["Posso comprimir um PNG sem perder a transparência?",
+           "Sim. A compressão PNG preserva o canal alfa (transparência). Seu PNG comprimido manterá quaisquer áreas transparentes do arquivo original."],
+          ["Qual a diferença entre compressão com perdas e sem perdas?",
+           "A compressão com perdas (JPEG, WebP) remove permanentemente alguns dados para obter arquivos menores. A compressão sem perdas (PNG) reduz o tamanho do arquivo sem remover quaisquer dados da imagem — mas a redução é geralmente menor. Para fotos, a compressão com perdas é quase sempre a melhor escolha."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-

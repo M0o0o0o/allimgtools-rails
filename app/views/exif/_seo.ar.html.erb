@@ -1,0 +1,68 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        إزالة بيانات EXIF عبر الإنترنت —<br class="hidden sm:block"> احمِ خصوصيتك فورًا
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        جرّد جميع البيانات الوصفية من صورك فورًا — لا حاجة لبرنامج أو تسجيل. مزيل EXIF المجاني عبر الإنترنت الخاص بنا يحذف بشكل دائم موقع GPS، طراز الكاميرا، تاريخ الالتقاط، معلومات العدسة، إعدادات التعريض، وجميع بيانات IPTC/XMP الوصفية من ملفات JPEG، PNG، WebP، و GIF. سواء كنت تبيع سلعًا عبر الإنترنت، أو تشارك صورًا علنًا، أو تعد صورًا لوسائل التواصل الاجتماعي، فإن معلوماتك الشخصية تبقى خاصة.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "مزيل EXIF عبر الإنترنت — تجريد GPS ومعلومات الكاميرا والبيانات الوصفية من الصور لحماية الخصوصية", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">خطوة بخطوة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">كيفية إزالة بيانات EXIF عبر الإنترنت</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حمّل صورتك</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اسحب وأفلت أو انقر لتحديد ملف JPEG، PNG، WebP، أو GIF. يمكنك تحميل صور متعددة في وقت واحد.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">إزالة جميع البيانات الوصفية</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">انقر على زر الإزالة وسيتم تجريد جميع بيانات EXIF و IPTC و XMP الوصفية من صورتك فورًا.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حمّل صورتك النظيفة</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">حمّل صورتك الخالية من البيانات الوصفية. المحتوى المرئي لصورك يبقى دون تغيير تمامًا.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 0 002-2v-6a2 0 00-2-2H6a2 0 00-2 2v6a2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        لا يلزم حساب. ملفاتك لا تُخزّن أبدًا على خوادمنا.
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">مرجع</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ما تكشفه بيانات EXIF عنك</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        كل صورة يتم التقاطها بهاتف ذكي أو كاميرا رقمية تحتوي على بيانات وصفية مخفية. إليك ما يمكن أن تكشفه هذه البيانات عند مشاركة صورة غير مجردة:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">حقل EXIF</th>
+              <th class="text-xs

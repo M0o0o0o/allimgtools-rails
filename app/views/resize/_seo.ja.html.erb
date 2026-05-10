@@ -1,0 +1,195 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        オンラインで画像をリサイズ —<br class="hidden sm:block"> 無料、即時、画質劣化なし
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        ソフトウェアのインストールやサインアップは不要。画像を瞬時にリサイズできます。当社の無料オンライン画像リサイズツールを使えば、正確な幅と高さをピクセル単位で設定したり、パーセンテージで拡大縮小したり、アスペクト比を固定して歪みを防ぐことができます。JPEG、PNG、WebP、GIF、AVIFに対応。ソーシャルメディア用の写真準備、オンラインストア用の商品画像のリサイズ、ブログ用のサムネイルのトリミングなど、数秒で完璧なサイズの画像が手に入ります。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "オンライン画像リサイズツール — JPEG、PNG、WebPを正確なピクセル寸法に瞬時にリサイズ", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ステップバイステップ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">オンラインで画像をリサイズする方法</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">画像をアップロード</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">JPEG、JPG、PNG、GIF、WebP、またはAVIFファイルをドラッグ＆ドロップするか、クリックして選択します。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">目標の寸法を設定</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">幅と高さをピクセル単位で入力するか、パーセンテージで拡大縮小します。「アスペクト比を維持」を切り替えて、画像の引き伸ばしを防ぎます。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">リサイズした画像をダウンロード</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">ダウンロードをクリックして、完璧なサイズのファイルをすぐに保存します。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        アカウント不要。ファイルが当社のサーバーに保存されることはありません。
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">対応フォーマット</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG、PNG、WebPなどをリサイズ</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "写真で最も一般的なフォーマット。自然な色とグラデーションを保持したまま、高解像度画像をリサイズします。" },
+          { name: "PNG",        desc: "透明度をサポート。アルファチャンネルを失うことなく、ロゴ、スクリーンショット、グラフィックをリサイズします。" },
+          { name: "GIF",        desc: "静止GIFを簡単にリサイズ。アニメーションGIFのリサイズでは、すべてのフレームが保持されます。" },
+          { name: "WebP",       desc: "Googleのモダンなフォーマット。WebP画像をリサイズし、ファイルサイズをコンパクトに保ちます。" },
+          { name: "AVIF",       desc: "小さなファイルサイズで優れた品質を実現する次世代フォーマット。完全なリサイズをサポートします。" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">参考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ソーシャルメディアの一般的な画像寸法</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        各プラットフォームには推奨される画像サイズがあります。この参考表を使用して、必要な正確な寸法に画像をリサイズしてください。
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">プラットフォーム / 用途</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">推奨サイズ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Instagram投稿（正方形）",  "1080 × 1080 px"],
+              ["Facebookカバー写真",     "820 × 312 px"],
+              ["Twitter / Xヘッダー",       "1500 × 500 px"],
+              ["LinkedInバナー",          "1584 × 396 px"],
+              ["YouTubeサムネイル",        "1280 × 720 px"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">プラットフォームのガイドラインは時間とともに変更されます。公開する前に、常に最新の公式ドキュメントで確認してください。</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ウェブ＆Eコマース</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">商品写真とウェブ画像をリサイズ</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        一貫した画像寸法は、ウェブサイトを洗練されたものにし、読み込みを速くします。サイトやストアにアップロードする前に、画像を以下のようにリサイズしてください。
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["レイアウトに正確に合わせる",       "CSSの歪みなしに画像がグリッドに収まるよう、正確なピクセル幅を設定します。"],
+          ["ページ読み込みを高速化",             "寸法が小さいほどファイルサイズも小さくなり、帯域幅を削減し、Core Web Vitalsを改善します。"],
+          ["商品サムネイルを標準化",  "商品グリッド全体でサイズを統一することで、プロフェッショナルな印象を与え、レイアウトのずれを減らします。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Eコマースのヒント:</strong> すべての商品画像をストアにアップロードする前に、同じ寸法にリサイズしてください。ほとんどのプラットフォーム（Shopify、WooCommerce、Etsy）では、ズーム機能のために1000 × 1000 px以上の正方形の画像を推奨しています。
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">プロ機能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">一括画像リサイズ</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        複数の画像を一度に同じ寸法にリサイズする必要がありますか？当社の一括リサイズツールを使えば、複数のファイルを一度にアップロードして処理できます — 以下のような場合に最適です。
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["商品カタログ",  "ストアにアップロードする前に、数百枚の商品写真を標準化します。"],
+          ["フォトギャラリー",   "撮影した写真全体を一括で一貫した寸法にリサイズします。"],
+          ["ソーシャルメディアセット", "プロセスを繰り返すことなく、複数の画像をプラットフォームの仕様に合わせて準備します。"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">一括処理はProプランで利用可能です</p>
+          <p class="text-white/60 text-sm">複数のファイルをワンクリックで同じ寸法にリサイズします。</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          無料で始める →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">使用例</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">なぜ画像をリサイズするのか？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["ソーシャルメディア",       "各プラットフォームには厳格なサイズ要件があります。トリミング、レターボックス化、またはプラットフォームによるぼやけたアップスケールを避けるために、正しい寸法にリサイズしてください。"],
+          ["Eコマースストア",  "商品画像の一貫性は信頼を築きます。カタログ全体で寸法を統一することで、あらゆるデバイスでプロフェッショナルなグリッドレイアウトが作成されます。"],
+          ["メールニュースレター",  "幅の広い画像はモバイルでのメールレイアウトを崩す可能性があります。すべてのメールクライアントで確実に表示されるよう、ヘッダー画像を幅600pxにリサイズしてください。"],
+          ["印刷＆ドキュメント",  "印刷テンプレート、プレゼンテーション、またはドキュメントのレイアウトで必要とされる正確なピクセル寸法に画像をリサイズし、エクスポート時の画質劣化を防ぎます。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>

@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        تدوير الصور عبر الإنترنت —<br class="hidden sm:block"> مجاني وفوري
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        صلح الصور المقلوبة أو المعوجة فورًا — لا حاجة لبرامج أو تسجيل. يتيح لك مدور الصور المجاني عبر الإنترنت تدوير أي ملف JPEG أو PNG أو WebP أو GIF بزاوية 90° أو 180° أو 270° بنقرة واحدة. سواء كنت تصحح صورة التقطت باتجاه خاطئ، أو تجهز صورة للطباعة، أو تعدل مسحًا ضوئيًا، ستحصل على الملف بالاتجاه الصحيح في ثوانٍ.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "مدور صور عبر الإنترنت — تدوير JPEG، PNG، WebP بزاوية 90°، 180°، أو 270° فورًا", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">خطوة بخطوة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">كيفية تدوير صورة عبر الإنترنت</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">ارفع صورتك</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اسحب وأفلت أو انقر لتحديد ملف JPEG أو JPG أو PNG أو GIF أو WebP.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">اختر اتجاه التدوير</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اختر 90° باتجاه عقارب الساعة، 90° عكس اتجاه عقارب الساعة، أو 180° للقلب رأسًا على عقب. تتحدث المعاينة فورًا.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حمل صورتك المدورة</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">انقر على تنزيل واحفظ ملفك بالاتجاه الصحيح فورًا.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        لا يلزم حساب. ملفاتك لا تُخزن أبدًا على خوادمنا.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">الصيغ المدعومة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">تدوير JPEG، PNG، WebP والمزيد</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "صيغة الصور الأكثر شيوعًا. قم بالتدوير دون إعادة ترميز للحفاظ على الجودة قدر الإمكان." },
+          { name: "PNG",        desc: "يدعم الشفافية. يحافظ التدوير على قناة ألفا — تبقى الشعارات والرسومات سليمة." },
+          { name: "GIF",        desc: "تدوير صور GIF الثابتة بوضوح. يتم تدوير صور GIF المتحركة إطارًا بإطار." },
+          { name: "WebP",       desc: "صيغة جوجل الحديثة. دعم كامل للتدوير دون أي فقدان في الجودة." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">متى تستخدمه</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">أسباب شائعة لتدوير الصورة</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        مشاكل الاتجاه أكثر شيوعًا مما تتخيل. إليك الحالات التي يكون فيها تدوير الصورة هو الحل الأسرع:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["إصلاح اتجاه الكاميرا",       "أحيانًا تحفظ الهواتف الذكية والكاميرات الصور بشكل جانبي عند التقاطها في الوضع الأفقي أو الرأسي. تدوير سريع بزاوية 90° يصححها دون أي فقدان في الجودة."],
+          ["تصحيح المستندات الممسوحة ضوئيًا",    "غالبًا ما تنتج الماسحات الضوئية مخرجات مدورة اعتمادًا على كيفية وضع الأصل. قم بتدوير المسح الضوئي إلى اتجاه القراءة الصحيح قبل المشاركة أو الأرشفة."],
+          ["تجهيز الصور للطباعة",     "تتطلب تخطيطات الطباعة صورًا باتجاه معين. قم بالتدوير قبل التصدير لتجنب المفاجآت عند الطباعة."],
+          ["تعديل المحتوى لوسائل التواصل الاجتماعي","تحميل صورة جانبية إلى إنستغرام أو مدونة يبدو غير احترافي. قم بالتدوير قبل التحميل حتى لا تقوم المنصة بالتدوير التلقائي بشكل غير متوقع."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">هل تعلم؟</strong> تخزن ملفات JPEG بيانات تعريف الاتجاه (بيانات EXIF) بشكل منفصل عن بيانات البكسل الفعلية. تعرض بعض التطبيقات الصورة بشكل صحيح باستخدام هذه البيانات الوصفية، بينما يتجاهلها البعض الآخر ويعرض الاتجاه الخام. تدوير البكسلات الفعلية (كما تفعل هذه الأداة) يضمن ظهور الصورة بشكل صحيح في كل مكان.
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">حالات الاستخدام</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">من يستخدم مدور الصور؟</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["المصورون",      "إصلاح الاتجاه لمجموعة من اللقطات بعد جلسة تصوير. الاتجاه المتناسق عبر الألبوم يجعل المعارض تبدو مصقولة واحترافية."],
+          ["المدونون والكتاب", "الصور الملتقطة باتجاه خاطئ تكسر التدفق البصري للمقالة. قم بالتدوير قبل التحميل إلى نظام إدارة المحتوى الخاص بك لضمان ظهور الصور بشكل صحيح لجميع القراء."],
+          ["بائعو التجارة الإلكترونية", "صور المنتجات الملتقطة بشكل جانبي تبدو غير موثوقة. صحح الاتجاه قبل التحميل إلى متجرك لعرض المنتجات بوضوح."],
+          ["المكاتب والمستندات", "غالبًا ما تظهر العقود والإيصالات ووثائق الهوية الممسوحة ضوئيًا مدورة. قم بإصلاح الاتجاه قبل إرفاقها بالرسائل الإلكترونية أو تحميلها إلى أنظمة إدارة المستندات."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">الأسئلة الشائعة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">الأسئلة المتكررة</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["هل يؤدي تدوير الصورة إلى تقليل جودتها؟",
+           "بالنسبة لمعظم الصيغ، لا. التدوير بزاوية 90° أو 180° أو 270° بالضبط هو عملية غير فقدان للبيانات لملفات PNG و WebP. بالنسبة لـ JPEG، يتم إعادة حفظ الصورة بعد التدوير، وقد يتضمن ذلك خطوة صغيرة جدًا في الجودة إذا قامت الأداة بإعادة ترميزها — ولكن عند إعدادات الجودة العالية يكون هذا غير محسوس."],
+          ["ما هي صيغ الصور التي يدعمها مدور الصور؟",
+           "تدعم الأداة صيغ JPEG و JPG و PNG و GIF و WebP. يتطابق تنسيق الإخراج مع ملف الإدخال الخاص بك، لذلك يبقى ملف PNG بصيغة PNG (مع الحفاظ على الشفافية) بعد التدوير."],
+          ["كيف أصلح صورة مقلوبة رأسًا على عقب؟",
+           "ارفع صورتك واختر خيار التدوير بزاوية 180°. هذا يقلب الصورة بالكامل، ويصحح أي اتجاه مقلوب رأسًا على عقب بنقرة واحدة."],
+          ["ما الفرق بين التدوير التلقائي والتدوير اليدوي؟",
+           "يستخدم التدوير التلقائي بيانات تعريف اتجاه EXIF المضمنة بواسطة الكاميرا أو الهاتف لعرض الصور بشكل صحيح. يغير التدوير اليدوي بيانات البكسل فعليًا. إذا وجدت أن الصور تظهر بشكل جانبي في بعض التطبيقات (التي تتجاهل EXIF)، فاستخدم هذه الأداة لتضمين الاتجاه الصحيح يدويًا في الملف نفسه."],
+          ["هل ستحافظ صورتي المدورة على نفس صيغة الملف والشفافية؟",
+           "نعم. يتطابق تنسيق الإخراج مع الإدخال الخاص بك. تحتفظ ملفات PNG بشفافيتها (قناة ألفا) بعد التدوير. لا يحدث أي تحويل إلا إذا اخترت صيغة مختلفة صراحةً."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">آخر تحديث: مايو 2026</p>
+
+  </div>
+</section>

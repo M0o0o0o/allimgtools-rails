@@ -1,0 +1,216 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Hapus Data EXIF Online —<br class="hidden sm:block"> Lindungi Privasi Anda Seketika
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Hapus semua metadata dari foto Anda secara instan — tanpa perangkat lunak, tanpa perlu mendaftar. Penghapus EXIF online gratis kami secara permanen menghapus lokasi GPS, model kamera, tanggal pengambilan, info lensa, pengaturan eksposur, dan semua metadata IPTC/XMP dari file JPEG, PNG, WebP, dan GIF. Baik Anda menjual barang secara online, berbagi foto secara publik, atau menyiapkan gambar untuk media sosial, informasi pribadi Anda tetap terjaga.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "Penghapus EXIF online — hapus GPS, info kamera, dan metadata dari foto untuk melindungi privasi", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Langkah demi langkah</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cara Menghapus Data EXIF Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Unggah gambar Anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Seret dan lepas atau klik untuk memilih file JPEG, PNG, WebP, atau GIF. Anda dapat mengunggah beberapa gambar sekaligus.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Hapus semua metadata</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klik tombol hapus dan semua metadata EXIF, IPTC, dan XMP akan langsung dihapus dari gambar Anda.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Unduh gambar bersih Anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Unduh gambar bebas metadata Anda. Konten visual foto Anda sama sekali tidak berubah.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Tidak perlu akun. File Anda tidak pernah disimpan di server kami.
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referensi</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Apa yang Diungkapkan Data EXIF Tentang Anda</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Setiap foto yang diambil dengan smartphone atau kamera digital menyematkan metadata tersembunyi. Berikut adalah apa yang dapat diungkapkan data tersebut saat Anda membagikan gambar yang belum dihapus metadatanya:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Bidang EXIF</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Apa yang Diungkapkan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS Latitude / Longitude", "Lokasi persis di mana foto diambil"],
+              ["DateTimeOriginal",         "Tanggal dan waktu persis foto diambil"],
+              ["Make / Model",             "Merek dan model kamera (misalnya Apple iPhone 15 Pro)"],
+              ["Software",                 "Perangkat lunak pengeditan yang digunakan (misalnya Adobe Lightroom, Snapseed)"],
+              ["Artist / Copyright",       "Nama dan identitas fotografer"],
+              ["LensModel",                "Lensa yang digunakan — mengisyaratkan peralatan profesional"],
+              ["ExposureTime / ISO",       "Pengaturan kamera yang dapat mengidentifikasi gaya pengambilan gambar Anda"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Semua bidang di atas — dan lainnya — dihapus saat Anda menggunakan alat ini.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kasus Penggunaan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Mengapa Menghapus Data EXIF?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Menjual barang secara online",     "Foto barang yang dijual seringkali mengandung koordinat GPS rumah Anda. Hapus metadata sebelum memposting ke marketplace seperti eBay, Craigslist, atau Facebook Marketplace."],
+          ["Berbagi foto secara publik",  "Mengunggah ke forum, Discord, atau galeri publik? Foto Anda bisa menyiarkan alamat rumah Anda. Hapus EXIF sebelum berbagi di mana pun yang tidak Anda kendalikan."],
+          ["Berbagi secara profesional",     "Hasil kerja klien tidak boleh menyertakan peralatan kamera, tanggal pengambilan gambar, atau detail pribadi Anda. Hapus metadata untuk serah terima yang bersih dan profesional."],
+          ["Keamanan media sosial",      "Meskipun sebagian besar platform menghapus EXIF saat diunggah, beberapa tidak — dan beberapa pengguna mengunduh file asli. Hapus metadata sendiri sebelum mengunggah untuk memastikan."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── What's removed ────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Cakupan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Semua Metadata Dihapus dalam Satu Klik</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Alat ini menghapus setiap lapisan metadata yang tertanam dalam gambar Anda — tidak hanya EXIF dasar, tetapi juga data IPTC dan XMP yang digunakan oleh alur kerja profesional:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Data GPS & lokasi",        "Lintang, bujur, ketinggian, dan arah peta — semuanya hilang."],
+          ["Info kamera & lensa",         "Merek, model, model lensa, versi firmware, dan nomor seri dihapus sepenuhnya."],
+          ["Stempel tanggal & waktu",         "DateTimeOriginal, DateTimeDigitized, dan semua stempel waktu terkait dihapus."],
+          ["Pengaturan eksposur",          "ISO, apertur, kecepatan rana, keseimbangan putih, mode lampu kilat — semuanya dihapus."],
+          ["Metadata IPTC / XMP",        "Pemberitahuan hak cipta, kata kunci, keterangan, info pembuat, dan pernyataan hak dari perangkat lunak profesional."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── Bulk removal ───────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Fitur Pro</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Penghapusan EXIF Massal</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Perlu menghapus metadata dari puluhan foto sekaligus? Penghapusan EXIF secara batch tersedia di Pro — sempurna untuk:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Penjual e-commerce",   "Bersihkan seluruh set foto produk sebelum mencantumkan di marketplace mana pun."],
+          ["Fotografer",        "Kirim galeri klien tanpa mengungkapkan peralatan atau jadwal pengambilan gambar Anda."],
+          ["Pembuat konten",     "Hapus metadata dari semua gambar dalam postingan atau kampanye sekaligus."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Penghapusan batch tersedia di Pro</p>
+          <p class="text-white/60 text-sm">Hapus metadata dari beberapa file dalam satu klik.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Mulai gratis →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Pertanyaan yang Sering Diajukan</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Apa itu data EXIF?",
+           "EXIF (Exchangeable Image File Format) adalah metadata yang secara otomatis tertanam dalam foto oleh kamera digital dan smartphone. Ini merekam detail teknis seperti pengaturan kamera, info lensa, tanggal dan waktu, dan — yang paling penting — lokasi GPS. Data ini tersembunyi di dalam file gambar dan tidak terlihat saat Anda melihat foto secara normal."],
+          ["Apakah penghapusan EXIF permanen?",
+           "Ya. Setelah dihapus, metadata hilang dari file yang Anda unduh. File asli di perangkat Anda tidak tersentuh, jadi Anda selalu bisa kembali ke sana. Alat kami memproses salinan — file yang Anda unggah tidak pernah disimpan di server kami."],
+          ["Apakah menghapus EXIF mengubah gambar?",
+           "Tidak. Konten visual foto Anda sama sekali tidak berubah. Menghapus metadata hanya memengaruhi lapisan data tersembunyi, bukan piksel. Gambar Anda akan terlihat identik sebelum dan sesudah."],
+          ["Data apa yang sebenarnya dihapus?",
+           "Semuanya: koordinat GPS, merek dan model kamera, info lensa, pengaturan eksposur (ISO, apertur, kecepatan rana), stempel tanggal dan waktu, perangkat lunak yang digunakan, nama artis, pemberitahuan hak cipta, dan semua bidang IPTC/XMP. Pada dasarnya semua data non-piksel dihapus."],
+          ["Mengapa menghapus EXIF sebelum berbagi online?",
+           "Meskipun Anda memercayai sebuah platform, pengguna lain dapat mengunduh gambar Anda dan mengekstrak metadata lengkap menggunakan alat gratis. Jika data GPS ada, siapa pun dapat menentukan dengan tepat di mana Anda mengambil foto — yang dapat mengungkapkan rumah, tempat kerja, atau rutinitas harian Anda."],
+          ["Apakah media sosial menghapus EXIF secara otomatis?",
+           "Sebagian besar platform besar (Instagram, Facebook, Twitter/X) memang menghapus EXIF saat diunggah, tetapi perilaku ini dapat berubah tanpa pemberitahuan, tidak berlaku untuk semua jenis file, dan tidak melindungi Anda jika seseorang mengunduh file sebelum Anda membagikannya melalui platform. Menghapus metadata sendiri sebelum mengunggah adalah satu-satunya pendekatan yang terjamin."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Terakhir diperbarui: Mei 2026</p>
+
+  </div>
+</section>

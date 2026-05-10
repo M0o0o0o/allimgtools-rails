@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        온라인 이미지 회전 —<br class="hidden sm:block"> 무료 &amp; 즉시
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        옆으로 누워있거나 거꾸로 된 사진을 소프트웨어 설치나 회원가입 없이 즉시 수정하세요. 저희의 무료 온라인 이미지 회전 도구를 사용하면 JPEG, PNG, WebP, GIF 파일을 한 번의 클릭으로 90°, 180°, 270° 회전시킬 수 있습니다. 잘못된 방향으로 촬영된 사진을 수정하거나, 인쇄용 이미지를 준비하거나, 스캔본을 똑바로 만들 때, 몇 초 안에 올바른 방향의 파일을 얻을 수 있습니다.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "온라인 이미지 회전 도구 — JPEG, PNG, WebP 파일을 90°, 180°, 270° 즉시 회전", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">단계별 안내</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">온라인에서 이미지를 회전하는 방법</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">이미지 업로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">JPEG, JPG, PNG, GIF 또는 WebP 파일을 드래그 앤 드롭하거나 클릭하여 선택하세요.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">회전 방향 선택</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">시계 방향 90°, 시계 반대 방향 90°, 또는 180°(거꾸로 뒤집기)를 선택하세요. 미리보기가 즉시 업데이트됩니다.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">회전된 이미지 다운로드</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">다운로드를 클릭하여 올바른 방향으로 조정된 파일을 즉시 저장하세요.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        계정 필요 없음. 귀하의 파일은 저희 서버에 절대 저장되지 않습니다.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">지원 형식</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP 등 다양한 형식 회전</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "가장 일반적인 사진 형식입니다. 가능한 경우 품질을 보존하기 위해 재인코딩 없이 회전합니다." },
+          { name: "PNG",        desc: "투명도를 지원합니다. 회전 시 알파 채널이 보존되어 로고와 그래픽이 손상되지 않습니다." },
+          { name: "GIF",        desc: "정적 GIF를 깔끔하게 회전합니다. 애니메이션 GIF는 프레임별로 회전됩니다." },
+          { name: "WebP",       desc: "Google의 최신 형식입니다. 품질 저하 없이 완벽한 회전 지원을 제공합니다." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">사용 시기</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">이미지를 회전해야 하는 일반적인 이유</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        방향 문제는 생각보다 흔합니다. 이미지를 회전하는 것이 가장 빠른 해결책인 상황은 다음과 같습니다:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["카메라 방향 수정",       "스마트폰과 카메라는 가로 또는 세로 모드로 촬영할 때 사진을 옆으로 저장하는 경우가 있습니다. 90° 빠른 회전으로 품질 손실 없이 수정할 수 있습니다."],
+          ["스캔 문서 수정",    "스캐너는 원본이 놓인 방식에 따라 회전된 결과물을 생성하는 경우가 많습니다. 공유하거나 보관하기 전에 스캔본을 올바른 읽기 방향으로 회전하세요."],
+          ["인쇄용 이미지 준비",     "인쇄 레이아웃은 특정 방향의 이미지를 요구합니다. 인쇄 시 예상치 못한 문제를 피하기 위해 내보내기 전에 회전하세요."],
+          ["소셜 미디어용 콘텐츠 똑바로 만들기","인스타그램이나 블로그에 옆으로 누운 사진을 업로드하면 비전문적으로 보입니다. 플랫폼이 예기치 않게 자동 회전하지 않도록 업로드 전에 회전하세요."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">알고 계셨나요?</strong> JPEG 파일은 실제 픽셀 데이터와 별도로 방향 메타데이터(EXIF 데이터)를 저장합니다. 일부 앱은 이 메타데이터를 사용하여 이미지를 올바르게 표시하지만, 다른 앱은 이를 무시하고 원본 방향을 보여줍니다. (이 도구가 하는 것처럼) 실제 픽셀을 회전하면 이미지가 모든 곳에서 올바르게 표시됩니다.
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">사용 사례</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">이미지 회전 도구는 누가 사용하나요?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["사진작가",      "촬영 후 여러 장의 사진 방향을 수정합니다. 앨범 전체의 일관된 방향은 갤러리를 세련되고 전문적으로 보이게 합니다."],
+          ["블로거 및 작가", "잘못된 방향으로 촬영된 사진은 기사의 시각적 흐름을 방해합니다. 모든 독자에게 이미지가 올바르게 표시되도록 CMS에 업로드하기 전에 회전하세요."],
+          ["전자상거래 판매자", "옆으로 누워있는 제품 사진은 신뢰할 수 없어 보입니다. 제품을 명확하게 보여주기 위해 스토어에 업로드하기 전에 방향을 수정하세요."],
+          ["사무실 및 문서", "스캔된 계약서, 영수증 또는 신분증 문서는 종종 회전된 상태로 나옵니다. 이메일에 첨부하거나 문서 관리 시스템에 업로드하기 전에 방향을 수정하세요."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">자주 묻는 질문</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">자주 묻는 질문</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["이미지를 회전하면 품질이 저하되나요?",
+           "대부분의 형식에서는 그렇지 않습니다. 정확히 90°, 180°, 270° 회전은 PNG 및 WebP의 경우 무손실 작업입니다. JPEG의 경우 회전 후 이미지가 다시 저장되는데, 도구가 재인코딩하는 경우 아주 미미한 품질 저하가 있을 수 있지만, 고품질 설정에서는 인지할 수 없습니다."],
+          ["이미지 회전 도구는 어떤 이미지 형식을 지원하나요?",
+           "이 도구는 JPEG, JPG, PNG, GIF, WebP를 지원합니다. 출력 형식은 입력 파일과 일치하므로 PNG는 회전 후에도 PNG로 유지됩니다(투명도 유지)."],
+          ["거꾸로 된 사진은 어떻게 수정하나요?",
+           "사진을 업로드하고 180° 회전 옵션을 선택하세요. 이렇게 하면 이미지가 완전히 뒤집혀 한 번의 클릭으로 거꾸로 된 방향을 수정할 수 있습니다."],
+          ["자동 회전과 수동 회전의 차이점은 무엇인가요?",
+           "자동 회전은 카메라나 휴대폰에 내장된 EXIF 방향 메타데이터를 사용하여 이미지를 올바르게 표시합니다. 수동 회전은 픽셀 데이터를 물리적으로 변경합니다. 일부 앱에서 이미지가 옆으로 표시되는 경우(EXIF를 무시하는 경우), 이 도구를 사용하여 올바른 방향을 파일 자체에 수동으로 적용하세요."],
+          ["회전된 이미지는 동일한 파일 형식과 투명도를 유지하나요?",
+           "네. 출력 형식은 입력과 일치합니다. PNG 파일은 회전 후에도 투명도(알파 채널)를 유지합니다. 다른 형식을 명시적으로 선택하지 않는 한 변환은 발생하지 않습니다."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">최종 업데이트: May 2026</p>
+
+  </div>
+</section>

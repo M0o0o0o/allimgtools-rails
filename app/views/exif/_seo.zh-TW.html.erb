@@ -1,0 +1,216 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        線上移除 EXIF 資料 —<br class="hidden sm:block"> 立即保護您的隱私
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        立即從您的照片中移除所有中繼資料 — 無需軟體，無需註冊。我們的免費線上 EXIF 移除工具能永久刪除 JPEG、PNG、WebP 和 GIF 檔案中的 GPS 位置、相機型號、拍攝日期、鏡頭資訊、曝光設定以及所有 IPTC/XMP 中繼資料。無論您是在線上銷售商品、公開分享照片，還是為社群媒體準備圖片，您的個人資訊都能保持私密。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "線上 EXIF 移除工具 — 從照片中移除 GPS、相機資訊和中繼資料以保護隱私", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">逐步教學</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">如何線上移除 EXIF 資料</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">上傳您的圖片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖放或點擊以選擇 JPEG、PNG、WebP 或 GIF 檔案。您可以一次上傳多張圖片。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">移除所有中繼資料</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">點擊移除按鈕，所有 EXIF、IPTC 和 XMP 中繼資料將立即從您的圖片中移除。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">下載您的乾淨圖片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">下載您不含中繼資料的圖片。您照片的視覺內容將完全不變。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        無需帳戶。您的檔案絕不會儲存在我們的伺服器上。
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">參考資訊</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">EXIF 資料會洩露您的哪些資訊</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        每張用智慧型手機或數位相機拍攝的照片都嵌入了隱藏的中繼資料。當您分享未經處理的圖片時，這些資料可能會洩露以下資訊：
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">EXIF 欄位</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">洩露內容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["GPS 緯度 / 經度", "照片拍攝的確切位置"],
+              ["原始日期時間",         "照片拍攝的精確日期和時間"],
+              ["品牌 / 型號",             "相機品牌和型號（例如：Apple iPhone 15 Pro）"],
+              ["軟體",                 "使用的編輯軟體（例如：Adobe Lightroom, Snapseed）"],
+              ["藝術家 / 版權",       "攝影師姓名和身份"],
+              ["鏡頭型號",                "使用的鏡頭 — 暗示專業設備"],
+              ["曝光時間 / ISO",       "可識別您拍攝風格的相機設定"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">當您使用此工具時，以上所有欄位 — 以及更多 — 都會被移除。</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">使用情境</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">為何要移除 EXIF 資料？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["線上銷售商品",     "待售商品的照片通常包含您家的 GPS 座標。在發佈到 eBay、Craigslist 或 Facebook Marketplace 等市場之前，請先移除中繼資料。"],
+          ["公開分享照片",  "上傳到論壇、Discord 或公共圖庫？您的照片可能會洩露您的住家地址。在分享到您無法控制的任何地方之前，請先移除 EXIF。"],
+          ["專業分享",     "客戶交付物不應包含您的相機設備、拍攝日期或個人詳細資訊。移除中繼資料以實現乾淨、專業的交付。"],
+          ["社群媒體安全",      "儘管大多數平台在上傳時會移除 EXIF，但有些平台不會 — 且有些用戶會下載原始檔案。在上傳前自行移除中繼資料是唯一能確保安全的方法。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── What's removed ────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">涵蓋範圍</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">一鍵移除所有中繼資料</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        此工具會移除圖片中嵌入的每個中繼資料層 — 不僅是基本的 EXIF，還包括專業工作流程中使用的 IPTC 和 XMP 資料：
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["GPS 與位置資料",        "緯度、經度、海拔和地圖方向 — 全部移除。"],
+          ["相機與鏡頭資訊",         "品牌、型號、鏡頭型號、韌體版本和序號完全移除。"],
+          ["日期與時間戳記",         "原始日期時間、數位化日期時間以及所有相關時間戳記均已移除。"],
+          ["曝光設定",          "ISO、光圈、快門速度、白平衡、閃光模式 — 全部清除。"],
+          ["IPTC / XMP 中繼資料",        "版權聲明、關鍵字、說明文字、創作者資訊以及專業軟體的權利聲明。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── Bulk removal ───────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">專業功能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">批量 EXIF 移除</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        需要一次從數十張照片中移除中繼資料嗎？專業版提供批量 EXIF 移除功能 — 適用於：
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["電商賣家",   "在任何市場上架前，清理整個產品照片集。"],
+          ["攝影師",        "交付客戶圖庫時，不洩露您的設備或拍攝排程。"],
+          ["內容創作者",     "一次性清除貼文或活動中所有圖片的中繼資料。"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">專業版提供批量移除功能</p>
+          <p class="text-white/60 text-sm">一鍵從多個檔案中移除中繼資料。</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          免費開始 →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">常見問題</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">常見問題</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["什麼是 EXIF 資料？",
+           "EXIF (可交換圖像檔案格式) 是數位相機和智慧型手機自動嵌入照片中的中繼資料。它記錄了技術細節，例如相機設定、鏡頭資訊、日期和時間，以及 — 最關鍵的 — GPS 位置。這些資料隱藏在圖片檔案內部，當您正常查看照片時是不可見的。"],
+          ["EXIF 移除是永久性的嗎？",
+           "是的。一旦移除，中繼資料就會從您下載的檔案中消失。您設備上的原始檔案不會被觸動，因此您隨時可以返回查看。我們的工具處理的是副本 — 您上傳的檔案絕不會儲存在我們的伺服器上。"],
+          ["移除 EXIF 會改變圖片嗎？",
+           "不會。您照片的視覺內容將完全不變。移除中繼資料只影響隱藏的資料層，而不影響像素。您的圖片在移除前後看起來會一模一樣。"],
+          ["實際移除了哪些資料？",
+           "所有資料：GPS 座標、相機品牌和型號、鏡頭資訊、曝光設定 (ISO、光圈、快門速度)、日期和時間戳記、使用的軟體、藝術家姓名、版權聲明以及所有 IPTC/XMP 欄位。基本上所有非像素資料都會被移除。"],
+          ["為什麼在線上分享前要移除 EXIF？",
+           "即使您信任某個平台，其他用戶仍然可以使用免費工具下載您的圖片並提取完整的中繼資料。如果存在 GPS 資料，任何人都可以精確定位您拍攝照片的位置 — 這可能會洩露您的住家、工作地點或日常行程。"],
+          ["社群媒體會自動移除 EXIF 嗎？",
+           "大多數主要平台 (Instagram、Facebook、Twitter/X) 在上傳時確實會移除 EXIF，但這種行為可能會在不通知的情況下改變，不適用於所有檔案類型，並且如果有人在您透過平台分享之前下載了檔案，也無法保護您。在上傳前自行移除中繼資料是唯一能確保安全的方法。"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">最後更新：2026 年 5 月</p>
+
+  </div>
+</section>

@@ -1,0 +1,216 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Удалить данные EXIF онлайн —<br class="hidden sm:block"> Мгновенно защитите свою конфиденциальность
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Мгновенно удаляйте все метаданные из ваших фотографий — без программного обеспечения и регистрации. Наш бесплатный онлайн-инструмент для удаления EXIF навсегда удаляет данные о местоположении GPS, модели камеры, дате съемки, информации об объективе, настройках экспозиции и все метаданные IPTC/XMP из файлов JPEG, PNG, WebP и GIF. Независимо от того, продаете ли вы товары онлайн, делитесь фотографиями публично или готовите изображения для социальных сетей, ваша личная информация останется конфиденциальной.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_hero.png", alt: "Онлайн-удаление EXIF — удаление GPS, информации о камере и метаданных из фотографий для защиты конфиденциальности", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Пошагово</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Как удалить данные EXIF онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Загрузите ваше изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перетащите или нажмите, чтобы выбрать файл JPEG, PNG, WebP или GIF. Вы можете загрузить несколько изображений одновременно.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Удалите все метаданные</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Нажмите кнопку удаления, и все метаданные EXIF, IPTC и XMP будут мгновенно удалены из вашего изображения.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Загрузите ваше чистое изображение</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Загрузите изображение без метаданных. Визуальное содержимое вашей фотографии останется полностью неизменным.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 0 002-2v-6a2 0 00-2-2H6a2 0 00-2 2v6a2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Регистрация не требуется. Ваши файлы никогда не хранятся на наших серверах.
+      </p>
+    </div>
+
+    <%# ── What EXIF reveals ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Справочник</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Что данные EXIF раскрывают о вас</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Каждая фотография, сделанная смартфоном или цифровой камерой, содержит скрытые метаданные. Вот что эти данные могут раскрыть, если вы поделитесь изображением без их удаления:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Поле EXIF</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Что оно раскрывает</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Широта / Долгота GPS", "Точное место, где была сделана фотография"],
+              ["Дата/Время оригинала",         "Точная дата и время съемки фотографии"],
+              ["Производитель / Модель",             "Марка и модель камеры (например, Apple iPhone 15 Pro)"],
+              ["Программное обеспечение",                 "Используемое программное обеспечение для редактирования (например, Adobe Lightroom, Snapseed)"],
+              ["Автор / Авторские права",       "Имя и личность фотографа"],
+              ["Модель объектива",                "Используемый объектив — намекает на профессиональное оборудование"],
+              ["Выдержка / ISO",       "Настройки камеры, которые могут определить ваш стиль съемки"],
+            ].each do |field, reveals| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= reveals %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Все вышеуказанные поля — и многое другое — удаляются при использовании этого инструмента.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Случаи использования</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Зачем удалять данные EXIF?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Продажа товаров онлайн",     "Фотографии товаров для продажи часто содержат GPS-координаты вашего дома. Удалите метаданные перед публикацией на торговых площадках, таких как eBay, Craigslist или Facebook Marketplace."],
+          ["Публичный обмен фотографиями",  "Загружаете на форумы, Discord или в публичные галереи? Ваша фотография может раскрыть ваш домашний адрес. Удалите EXIF перед публикацией везде, где вы не контролируете."],
+          ["Профессиональный обмен",     "Материалы для клиентов не должны содержать информацию о вашем оборудовании, дате съемки или личные данные. Удалите метаданные для чистой, профессиональной передачи."],
+          ["Безопасность в социальных сетях",      "Хотя большинство платформ удаляют EXIF при загрузке, некоторые этого не делают — а некоторые пользователи скачивают оригиналы. Удалите метаданные самостоятельно перед загрузкой, чтобы быть уверенным."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── What's removed ────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Что удаляется</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Все метаданные удаляются в один клик</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Этот инструмент удаляет каждый слой метаданных, встроенный в ваше изображение — не только базовые EXIF, но также данные IPTC и XMP, используемые в профессиональных рабочих процессах:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Данные GPS и местоположения",        "Широта, долгота, высота и направление на карте — все удалено."],
+          ["Информация о камере и объективе",         "Производитель, модель, модель объектива, версия прошивки и серийный номер полностью удалены."],
+          ["Метки даты и времени",         "DateTimeOriginal, DateTimeDigitized и все связанные метки времени удалены."],
+          ["Настройки экспозиции",          "ISO, диафрагма, выдержка, баланс белого, режим вспышки — все очищено."],
+          ["Метаданные IPTC / XMP",        "Уведомления об авторских правах, ключевые слова, подписи, информация о создателе и заявления о правах из профессионального программного обеспечения."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── Bulk removal ───────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro-функция</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Массовое удаление EXIF</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Нужно удалить метаданные из десятков фотографий одновременно? Массовое удаление EXIF доступно в версии Pro — идеально подходит для:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Продавцы электронной коммерции",   "Очищайте целые наборы фотографий товаров перед размещением на любой торговой площадке."],
+          ["Фотографы",        "Передавайте клиентские галереи, не раскрывая свое оборудование или график съемки."],
+          ["Создатели контента",     "Удаляйте метаданные со всех изображений в публикации или кампании за один раз."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Массовое удаление доступно в версии Pro</p>
+          <p class="text-white/60 text-sm">Удаляйте метаданные из нескольких файлов в один клик.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Начать бесплатно →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Часто задаваемые вопросы</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Часто задаваемые вопросы</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Что такое данные EXIF?",
+           "EXIF (Exchangeable Image File Format) — это метаданные, автоматически встраиваемые в фотографии цифровыми камерами и смартфонами. Они записывают технические детали, такие как настройки камеры, информация об объективе, дата и время, и — что наиболее важно — местоположение GPS. Эти данные скрыты внутри файла изображения и невидимы при обычном просмотре фотографии."],
+          ["Является ли удаление EXIF постоянным?",
+           "Да. После удаления метаданные исчезают из загруженного файла. Оригинальный файл на вашем устройстве не затрагивается, поэтому вы всегда можете к нему вернуться. Наш инструмент обрабатывает копию — ваш загруженный файл никогда не хранится на наших серверах."],
+          ["Изменяет ли удаление EXIF изображение?",
+           "Нет. Визуальное содержимое вашей фотографии остается полностью неизменным. Удаление метаданных влияет только на скрытый слой данных, а не на пиксели. Ваше изображение будет выглядеть идентично до и после."],
+          ["Какие данные фактически удаляются?",
+           "Все: координаты GPS, марка и модель камеры, информация об объективе, настройки экспозиции (ISO, диафрагма, выдержка), метки даты и времени, используемое программное обеспечение, имя автора, уведомления об авторских правах и все поля IPTC/XMP. По сути, все непиксельные данные удаляются."],
+          ["Зачем удалять EXIF перед публикацией онлайн?",
+           "Даже если вы доверяете платформе, другие пользователи могут загрузить ваше изображение и извлечь полные метаданные с помощью бесплатных инструментов. Если данные GPS присутствуют, любой может точно определить, где вы сделали фотографию — что может раскрыть ваш дом, рабочее место или ежедневный распорядок."],
+          ["Удаляют ли социальные сети EXIF автоматически?",
+           "Большинство крупных платформ (Instagram, Facebook, Twitter/X) действительно удаляют EXIF при загрузке, но это поведение может измениться без уведомления, не распространяется на все типы файлов и не защищает вас, если кто-то скачает файл до того, как вы поделитесь им через платформу. Самостоятельное удаление метаданных перед загрузкой — единственный гарантированный подход."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Последнее обновление: Май 2026</p>
+
+  </div>
+</section>

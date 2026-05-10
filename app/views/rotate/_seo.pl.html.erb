@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Obracaj obrazy online —<br class="hidden sm:block"> Darmowo i natychmiastowo
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Natychmiastowo poprawiaj zdjęcia obrócone bokiem lub do góry nogami — bez oprogramowania i rejestracji. Nasza darmowa obracarka obrazów online pozwala obracać dowolne pliki JPEG, PNG, WebP lub GIF o 90°, 180° lub 270° jednym kliknięciem. Niezależnie od tego, czy korygujesz zdjęcie zrobione w złej orientacji, przygotowujesz obraz do druku, czy prostujesz skan, otrzymasz plik z prawidłową orientacją w kilka sekund.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "Obracarka obrazów online — obracaj JPEG, PNG, WebP o 90°, 180° lub 270° natychmiastowo", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Krok po kroku</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Jak obrócić obraz online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Prześlij swój obraz</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Przeciągnij i upuść lub kliknij, aby wybrać plik JPEG, JPG, PNG, GIF lub WebP.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Wybierz obrót</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Wybierz 90° zgodnie z ruchem wskazówek zegara, 90° przeciwnie do ruchu wskazówek zegara lub 180°, aby odwrócić do góry nogami. Podgląd aktualizuje się natychmiast.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Pobierz obrócony obraz</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Kliknij pobierz i natychmiast zapisz plik z prawidłową orientacją.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Konto nie jest wymagane. Twoje pliki nigdy nie są przechowywane na naszych serwerach.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formaty</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Obracaj JPEG, PNG, WebP i inne</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Najpopularniejszy format zdjęć. Obracaj bez ponownego kodowania, aby zachować jakość, gdy to możliwe." },
+          { name: "PNG",        desc: "Obsługuje przezroczystość. Obrót zachowuje kanał alfa — logotypy i grafiki pozostają nienaruszone." },
+          { name: "GIF",        desc: "Czysto obracaj statyczne pliki GIF. Animowane pliki GIF są obracane klatka po klatce." },
+          { name: "WebP",       desc: "Nowoczesny format Google. Pełne wsparcie obrotu bez utraty jakości." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kiedy tego używać</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Częste powody, dla których warto obrócić obraz</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Problemy z orientacją są częstsze, niż mogłoby się wydawać. Oto sytuacje, w których obrót obrazu jest najszybszym rozwiązaniem:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Popraw orientację aparatu",       "Smartfony i aparaty czasami zapisują zdjęcia bokiem, gdy są robione w trybie poziomym lub pionowym. Szybki obrót o 90° koryguje to bez utraty jakości."],
+          ["Koryguj zeskanowane dokumenty",    "Skanery często generują obrócony obraz w zależności od sposobu ułożenia oryginału. Obróć skan do prawidłowej orientacji czytania przed udostępnieniem lub archiwizacją."],
+          ["Przygotuj obrazy do druku",     "Układy do druku wymagają obrazów w określonej orientacji. Obróć przed eksportem, aby uniknąć niespodzianek w drukarni."],
+          ["Prostuj treści do mediów społecznościowych","Przesyłanie zdjęcia bokiem na Instagram lub blog wygląda nieprofesjonalnie. Obróć przed przesłaniem, aby platforma nie obracała go automatycznie w nieoczekiwany sposób."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">Czy wiesz?</strong> Pliki JPEG przechowują metadane orientacji (dane EXIF) oddzielnie od rzeczywistych danych pikseli. Niektóre aplikacje wyświetlają obraz poprawnie, używając tych metadanych, podczas gdy inne je ignorują i pokazują surową orientację. Obracanie rzeczywistych pikseli (jak robi to to narzędzie) zapewnia, że obraz będzie wyświetlany poprawnie wszędzie.
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Zastosowania</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Kto używa obracarki obrazów?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Fotografowie",      "Poprawiaj orientację partii zdjęć po sesji. Spójna orientacja w całym albumie sprawia, że galerie wyglądają dopracowanie i profesjonalnie."],
+          ["Blogerzy i pisarze", "Zdjęcia zrobione w złej orientacji zakłócają wizualny przepływ artykułu. Obróć przed przesłaniem do swojego CMS, aby upewnić się, że obrazy wyświetlają się poprawnie wszystkim czytelnikom."],
+          ["Sprzedawcy e-commerce", "Zdjęcia produktów zrobione bokiem wyglądają niewiarygodnie. Popraw orientację przed przesłaniem do swojego sklepu, aby jasno prezentować produkty."],
+          ["Biuro i dokumenty", "Skanowane umowy, paragony lub dokumenty tożsamości często wychodzą obrócone. Popraw orientację przed dołączeniem do e-maili lub przesłaniem do systemów zarządzania dokumentami."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Często zadawane pytania</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Czy obracanie obrazu zmniejsza jego jakość?",
+           "Dla większości formatów nie. Obracanie o dokładnie 90°, 180° lub 270° jest operacją bezstratną dla PNG i WebP. W przypadku JPEG obraz jest ponownie zapisywany po obrocie, co może wiązać się z bardzo małym krokiem jakości, jeśli narzędzie go ponownie zakoduje — ale przy wysokich ustawieniach jakości jest to niezauważalne."],
+          ["Jakie formaty obrazów obsługuje obracarka?",
+           "Narzędzie obsługuje formaty JPEG, JPG, PNG, GIF i WebP. Format wyjściowy odpowiada plikowi wejściowemu, więc plik PNG pozostaje plikiem PNG (z zachowaną przezroczystością) po obrocie."],
+          ["Jak naprawić zdjęcie do góry nogami?",
+           "Prześlij swoje zdjęcie i wybierz opcję obrotu o 180°. Spowoduje to całkowite odwrócenie obrazu, korygując wszelkie orientacje do góry nogami jednym kliknięciem."],
+          ["Jaka jest różnica między automatycznym a ręcznym obracaniem?",
+           "Automatyczne obracanie wykorzystuje metadane orientacji EXIF osadzone przez aparat lub telefon do prawidłowego wyświetlania obrazów. Ręczne obracanie fizycznie zmienia dane pikseli. Jeśli zauważysz, że obrazy wyświetlają się bokiem w niektórych aplikacjach (które ignorują EXIF), użyj tego narzędzia, aby ręcznie zapisać prawidłową orientację w samym pliku."],
+          ["Czy mój obrócony obraz zachowa ten sam format pliku i przezroczystość?",
+           "Tak. Format wyjściowy odpowiada Twojemu wejściu. Pliki PNG zachowują swoją przezroczystość (kanał alfa) po obrocie. Konwersja nie następuje, chyba że wyraźnie wybierzesz inny format."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Ostatnia aktualizacja: Maj 2026</p>
+
+  </div>
+</section>

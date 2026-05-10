@@ -1,0 +1,170 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Обрізайте зображення онлайн —<br class="hidden sm:block"> Безкоштовно, точно та миттєво
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Обрізайте, перекадруйте та кадруйте свої зображення за лічені секунди — без програмного забезпечення та реєстрації. Наш безкоштовний онлайн-інструмент для обрізання зображень підтримує файли JPEG, PNG, WebP, GIF та AVIF. Виберіть вільне кадрування або зафіксуйте стандартне співвідношення сторін — 1:1 для фотографій профілю, 16:9 для мініатюр YouTube, 9:16 для Stories тощо. Миттєво видаляйте небажані межі, фокусуйтеся на об'єкті та готуйте зображення для будь-якої платформи.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Онлайн-інструмент для обрізання зображень — обрізайте JPEG, PNG, WebP з вільним або фіксованим співвідношенням сторін", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Покроково</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Як обрізати зображення онлайн</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Завантажте своє зображення</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перетягніть файл або натисніть, щоб вибрати файл JPEG, PNG, WebP, GIF або AVIF зі свого пристрою.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Виберіть область обрізання</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Перетягніть маркери обрізання, щоб вільно визначити область, або виберіть попередньо встановлене співвідношення — 1:1, 4:3, 16:9, 3:2 або 9:16 — щоб зафіксувати пропорції.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Завантажте обрізане зображення</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Натисніть «Завантажити» та миттєво збережіть обрізаний файл в оригінальному форматі.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Обліковий запис не потрібен. Ваші файли ніколи не зберігаються на наших серверах.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Формати</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Обрізайте JPEG, PNG, WebP та інше</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Найпоширеніший формат фотографій. Обрізає чисто, зберігаючи природні кольори та градієнти." },
+          { name: "PNG",        desc: "Підтримує прозорість. Обрізання зберігає альфа-канал, залишаючи прозорі області недоторканими." },
+          { name: "WebP",       desc: "Сучасний формат Google. Обрізає з повною точністю — чудово підходить для веб-оптимізованих зображень." },
+          { name: "GIF",        desc: "Обрізайте статичні GIF-файли, не впливаючи на палітри кольорів або прозорість." },
+          { name: "AVIF",       desc: "Формат нового покоління з відмінною якістю. Обрізайте та зберігайте всі деталі." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Довідка</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Яке співвідношення сторін слід використовувати?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Різні платформи та випадки використання вимагають різних пропорцій. Виберіть правильне співвідношення, і ваше зображення завжди виглядатиме ідеально кадруваним:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Співвідношення</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Найкраще для</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Дописи в Instagram, фотографії профілю, аватари, іконки додатків"],
+              ["16:9", "Мініатюри YouTube, обкладинки широкоформатних відео, заголовки блогів"],
+              ["4:3",  "Стандартна фотографія, презентації, класичні фотодрук"],
+              ["9:16", "Instagram Stories, відео TikTok, Reels, обкладинки Shorts"],
+              ["3:2",  "Стандарт DSLR, пейзажна фотографія, друковані альбоми"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Ви також можете вільно обрізати, не прив'язуючись до жодного співвідношення — просто перетягніть до потрібної області.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Варіанти використання</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Навіщо обрізати зображення?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Фотографії профілю",         "Зафіксуйте співвідношення 1:1 та обріжте будь-яку фотографію до ідеального квадрата для LinkedIn, Twitter, GitHub або будь-якої платформи, що відображає круглі чи квадратні аватари."],
+          ["Мініатюри &amp; обкладинки",  "Кадруйте найцікавішу частину зображення для мініатюр YouTube, заголовків блогів або карток попереднього перегляду в соціальних мережах."],
+          ["Видаліть небажані області",    "Усуньте відволікаючі фони, межі, водяні знаки або порожній простір — і залиште лише те, що має значення."],
+          ["Зображення, готові для платформ",    "Кожна платформа має свої бажані розміри. Обріжте до правильного співвідношення перед завантаженням, щоб ваше зображення ніколи не було незграбно автоматично обрізане."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Поради</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Отримайте найкращі результати при обрізанні</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Почніть з оригіналу високої роздільної здатності", "Обрізання зменшує площу пікселів, яку ви зберігаєте. Джерело високої роздільної здатності дає вам більше простору для роботи та гарантує, що обрізаний результат залишиться чітким."],
+          ["Використовуйте фіксацію співвідношення сторін для платформ",   "При підготовці зображень для певної платформи завжди спочатку фіксуйте співвідношення. Це гарантує, що результат відповідатиме необхідним розмірам без здогадок."],
+          ["Обрізайте перед стисненням",               "Спочатку обріжте, потім стисніть. Видалення небажаних пікселів зменшує розмір файлу, який потрібно стиснути, — це дає вам кращу якість при тому ж вихідному розмірі."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Часті запитання</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Часті запитання</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Чи можу я обрізати до певного розміру в пікселях?",
+           "Так. Використовуйте режим вільного обрізання та перетягуйте маркери, щоб націлитися на потрібну область. Інструмент обрізання відображає поточні розміри в пікселях під час перетягування, тому ви можете досягти точного розміру. Для фіксованих співвідношень (наприклад, 1080×1080 для Instagram) зафіксуйте співвідношення 1:1 та змініть розмір після обрізання, якщо потрібно."],
+          ["Чи зменшує обрізання якість зображення?",
+           "Ні — обрізання є неруйнівною операцією для пікселів, що залишаються. Воно просто видаляє області за межами вашого вибору, не змінюючи дані пікселів того, що ви зберігаєте. Збережений файл має повну якість в обрізаній області."],
+          ["Яка різниця між обрізанням та зміною розміру?",
+           "

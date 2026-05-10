@@ -1,0 +1,176 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Edit Metadata EXIF Online —<br class="hidden sm:block"> Editor Data Gambar Gratis
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Lihat dan edit metadata tersembunyi di dalam gambar Anda — tanpa perangkat lunak, tanpa perlu mendaftar. Editor EXIF online gratis kami memungkinkan Anda mengubah koordinat GPS, memperbaiki stempel tanggal dan waktu, menambahkan informasi hak cipta dan penulis, memperbarui kata kunci, dan banyak lagi. Berfungsi dengan file JPEG dan PNG. Sempurna untuk fotografer, kontributor stok, dan siapa saja yang membutuhkan kontrol presisi atas data gambar mereka.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/exif_edit_hero.png", alt: "Editor EXIF online — edit GPS, tanggal, hak cipta, dan bidang metadata dalam file JPEG dan PNG", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Langkah demi langkah</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cara Mengedit Metadata EXIF Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Unggah gambar Anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Seret dan lepas atau klik untuk memilih file JPEG atau PNG. Anda dapat mengunggah beberapa gambar dan mengeditnya satu per satu.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Edit bidang metadata</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Perbarui bidang EXIF apa pun — koordinat GPS, tanggal pengambilan, info kamera, hak cipta, nama artis, kata kunci, atau deskripsi. Biarkan bidang kosong untuk menghapusnya.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Terapkan dan unduh</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klik Simpan untuk menulis perubahan Anda, lalu unduh gambar yang diperbarui. Gunakan "Terapkan ke semua gambar" untuk menyalin pengeditan yang sama ke setiap file yang telah Anda unggah.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Tidak perlu akun. File Anda tidak pernah disimpan di server kami.
+      </p>
+    </div>
+
+    <%# ── Editable fields table ──────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Referensi</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bidang EXIF yang Dapat Diedit</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Setiap bidang yang tercantum di bawah ini dapat dibaca, diedit, atau dihapus langsung di editor. Perubahan akan ditulis kembali ke file gambar saat diunduh — konten visual foto Anda tidak pernah disentuh.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Bidang EXIF</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Apa yang Dapat Anda Atur</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Lintang / Bujur GPS", "Tambah, ubah, atau hapus lokasi pengambilan foto"],
+              ["DateTimeOriginal",         "Perbaiki tanggal pengambilan yang salah atau koreksi zona waktu yang keliru"],
+              ["Artis / Pembuat",         "Tambahkan nama Anda agar kepengarangan Anda menyertai file"],
+              ["Hak Cipta",               "Sematkan pernyataan hak cipta (misalnya © 2026 Jane Smith)"],
+              ["Kata Kunci",                "Tambahkan tag yang dapat dicari untuk perpustakaan stok atau manajemen aset"],
+              ["ImageDescription",        "Tulis keterangan atau deskripsi alt-text untuk gambar"],
+              ["Merek / Model",            "Perbarui atau hapus bidang merek dan model kamera"],
+            ].each do |field, purpose| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= field %></td>
+                <td class="text-sm text-base-content/60"><%= purpose %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Bidang tambahan mungkin terlihat dalam mode hanya-baca tergantung pada data yang disematkan dalam file.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kasus Penggunaan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Mengapa Mengedit Metadata EXIF?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Tambahkan hak cipta & kredit",     "Sematkan nama, pernyataan hak cipta, dan detail kontak Anda langsung ke dalam file sehingga informasi kepemilikan tetap bersama gambar ke mana pun ia pergi."],
+          ["Perbaiki tanggal atau waktu yang salah",      "Jam kamera bisa melenceng, berpindah zona waktu, atau diatur ulang setelah penggantian baterai. Koreksi tanggal pengambilan agar perpustakaan foto Anda tetap tersusun akurat."],
+          ["Tambahkan GPS ke foto tanpa tag",  "Diambil dengan kamera tanpa GPS? Tambahkan koordinat lokasi secara manual agar foto muncul dengan benar di peta dan dalam pencarian berbasis lokasi."],
+          ["Persiapan foto stok",     "Perpustakaan stok memerlukan hak cipta, kata kunci, dan deskripsi yang akurat yang disematkan dalam file. Edit semua bidang yang diperlukan sebelum pengiriman untuk mempercepat proses peninjauan."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Apply to all feature ───────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pengeditan Massal</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Terapkan Pengeditan ke Beberapa Gambar</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Editor bekerja pada satu gambar dalam satu waktu, tetapi Anda dapat mengunggah beberapa file dalam satu sesi. Setelah mengedit gambar pertama, gunakan tombol <strong class="text-base-content font-semibold">"Terapkan ke semua gambar"</strong> untuk menyalin perubahan metadata Anda saat ini ke setiap file lain yang diunggah — menghemat Anda dari pengulangan pengeditan yang sama satu per satu.
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Hak cipta yang konsisten di seluruh sesi pemotretan",  "Terapkan pernyataan hak cipta dan nama artis Anda ke setiap gambar dari satu sesi dalam satu klik."],
+          ["Kata kunci bersama untuk satu set foto",       "Atur kata kunci deskriptif yang sama di semua gambar yang ditujukan untuk perpustakaan stok atau folder klien."],
+          ["Penandaan GPS yang seragam",                   "Tetapkan lokasi yang sama untuk semua foto yang diambil di tempat atau acara yang sama."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Pertanyaan yang Sering Diajukan</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Data EXIF apa yang bisa diedit?",
+           "Anda dapat mengedit koordinat GPS, tanggal dan waktu (DateTimeOriginal), nama artis/pembuat, pernyataan hak cipta, kata kunci, deskripsi/keterangan gambar, dan merek/model kamera. Bidang yang Anda biarkan kosong akan dihapus dari file. Bidang hanya-baca tambahan mungkin ditampilkan tergantung pada apa yang terkandung dalam file asli."],
+          ["Apakah mengedit data EXIF mengubah kualitas gambar?",
+           "Tidak. Pengeditan EXIF hanya memodifikasi lapisan metadata — data piksel yang membentuk foto Anda tidak pernah disentuh. Gambar Anda akan terlihat identik sebelum dan sesudah pengeditan, dan format file tetap sama."],
+          ["Format file apa saja yang didukung?",
+           "JPEG dan PNG sepenuhnya didukung untuk membaca dan menulis metadata EXIF. JPEG adalah format paling umum untuk data EXIF dan mendukung rentang bidang terluas. PNG mendukung subset bidang metadata. WebP dan GIF memiliki dukungan EXIF terbatas atau tidak ada sama sekali tergantung pada bagaimana mereka dibuat."],
+          ["Bagaimana cara menambahkan koordinat GPS ke foto?",
+           "Buka gambar di editor, temukan bidang Lintang dan Bujur GPS, dan masukkan koordinat desimal untuk lokasi (misalnya 48.8584, 2.2945 untuk Menara Eiffel). Anda dapat menemukan koordinat untuk lokasi mana pun menggunakan Google Maps — klik kanan pada suatu tempat dan salin koordinat yang ditampilkan."],
+          ["Bagaimana cara menambahkan pernyataan hak cipta ke foto saya?",
+           "Unggah gambar Anda, masukkan teks hak cipta Anda di bidang Hak Cipta (misalnya: © 2026 Nama Anda. Semua hak dilindungi undang-undang.), dan simpan. Untuk menerapkan hak cipta yang sama ke beberapa gambar yang diunggah, klik \"Terapkan ke semua gambar\" setelah mengedit yang pertama."],
+          ["Apa fungsi \"Terapkan ke semua gambar\"?",
+           "Ketika Anda memiliki beberapa gambar yang diunggah dalam sesi yang sama, \"Terapkan ke semua gambar\" menyalin bidang metadata yang telah Anda edit pada gambar saat ini ke setiap file lain dalam antrean unggahan Anda. Ini adalah jalan pintas untuk menerapkan hak cipta, kata kunci, atau data lokasi yang konsisten di seluruh set foto tanpa mengulang pengeditan secara manual untuk setiap file."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Terakhir diperbarui: Mei 2026</p>
+
+  </div>
+</section>

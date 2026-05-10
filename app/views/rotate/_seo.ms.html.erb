@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Putar Imej Dalam Talian —<br class="hidden sm:block"> Percuma &amp; Segera
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Betulkan foto senget atau terbalik serta-merta — tiada perisian, tiada pendaftaran diperlukan. Pemutar imej dalam talian percuma kami membolehkan anda memutar mana-mana JPEG, PNG, WebP, atau GIF sebanyak 90°, 180°, atau 270° dengan satu klik. Sama ada anda membetulkan foto yang diambil dalam orientasi salah, menyediakan imej untuk cetakan, atau meluruskan imbasan, anda akan mendapat fail yang berorientasi betul dalam beberapa saat.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "Pemutar imej dalam talian — putar JPEG, PNG, WebP sebanyak 90°, 180°, atau 270° serta-merta", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Langkah demi langkah</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cara Memutar Imej Dalam Talian</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Muat naik imej anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Seret dan lepas atau klik untuk memilih fail JPEG, JPG, PNG, GIF, atau WebP.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Pilih putaran anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Pilih 90° ikut arah jam, 90° lawan arah jam, atau 180° untuk membalikkan terbalik. Pratonton dikemas kini serta-merta.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Muat turun imej anda yang telah diputar</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klik muat turun dan simpan fail anda yang berorientasi betul serta-merta.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Tiada akaun diperlukan. Fail anda tidak pernah disimpan di pelayan kami.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Format</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Putar JPEG, PNG, WebP &amp; Lain-lain</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Format foto paling biasa. Putar tanpa pengekodan semula untuk mengekalkan kualiti jika boleh." },
+          { name: "PNG",        desc: "Menyokong ketelusan. Putaran mengekalkan saluran alfa — logo dan grafik kekal utuh." },
+          { name: "GIF",        desc: "Putar GIF statik dengan bersih. GIF animasi diputar bingkai demi bingkai." },
+          { name: "WebP",       desc: "Format moden Google. Sokongan putaran penuh tanpa penalti kualiti." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Bila Menggunakannya</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Sebab Biasa untuk Memutar Imej</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Isu orientasi lebih biasa daripada yang anda sangka. Berikut adalah situasi di mana memutar imej adalah penyelesaian terpantas:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Betulkan orientasi kamera",       "Telefon pintar dan kamera kadang-kadang menyimpan foto secara senget apabila diambil dalam mod landskap atau potret. Putaran 90° pantas membetulkannya tanpa kehilangan kualiti."],
+          ["Betulkan dokumen yang diimbas",    "Pengimbas sering menghasilkan output yang diputar bergantung pada cara asal diletakkan. Putar imbasan anda ke orientasi bacaan yang betul sebelum berkongsi atau mengarkibkan."],
+          ["Sediakan imej untuk cetakan",     "Susun atur cetakan memerlukan imej dalam orientasi tertentu. Putar sebelum mengeksport untuk mengelakkan kejutan di pencetak."],
+          ["Luruskan kandungan untuk media sosial","Memuat naik foto senget ke Instagram atau blog kelihatan tidak profesional. Putar sebelum memuat naik supaya platform tidak memutar secara automatik tanpa diduga."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">Tahukah anda?</strong> Fail JPEG menyimpan metadata orientasi (data EXIF) secara berasingan daripada data piksel sebenar. Sesetengah aplikasi memaparkan imej dengan betul menggunakan metadata ini, manakala yang lain mengabaikannya dan menunjukkan orientasi mentah. Memutar piksel sebenar (seperti yang dilakukan oleh alat ini) memastikan imej muncul dengan betul di mana-mana.
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kes Penggunaan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Siapa yang Menggunakan Pemutar Imej?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Jurugambar",      "Betulkan orientasi pada sekumpulan gambar selepas sesi penggambaran. Orientasi yang konsisten di seluruh album menjadikan galeri kelihatan kemas dan profesional."],
+          ["Penulis blog & penulis", "Foto yang diambil dalam orientasi salah mengganggu aliran visual artikel. Putar sebelum memuat naik ke CMS anda untuk memastikan imej muncul dengan betul untuk semua pembaca."],
+          ["Penjual e-dagang", "Foto produk yang diambil secara senget kelihatan tidak boleh dipercayai. Betulkan orientasi sebelum memuat naik ke kedai anda untuk memaparkan produk dengan jelas."],
+          ["Pejabat & dokumen", "Kontrak, resit, atau dokumen pengenalan yang diimbas sering keluar dalam keadaan terputar. Betulkan orientasi sebelum melampirkan ke e-mel atau memuat naik ke sistem pengurusan dokumen."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Soalan Lazim</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Soalan Lazim</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Adakah memutar imej mengurangkan kualitinya?",
+           "Untuk kebanyakan format, tidak. Memutar tepat 90°, 180°, atau 270° adalah operasi tanpa kehilangan untuk PNG dan WebP. Untuk JPEG, imej disimpan semula selepas putaran, yang mungkin melibatkan langkah kualiti yang sangat kecil jika alat mengekod semula — tetapi pada tetapan kualiti tinggi ini tidak dapat dikesan."],
+          ["Format imej apa yang disokong oleh pemutar ini?",
+           "Alat ini menyokong JPEG, JPG, PNG, GIF, dan WebP. Format output sepadan dengan fail input anda, jadi PNG kekal sebagai PNG (dengan ketelusan utuh) selepas putaran."],
+          ["Bagaimana saya membetulkan foto yang terbalik?",
+           "Muat naik foto anda dan pilih pilihan putaran 180°. Ini membalikkan imej sepenuhnya, membetulkan sebarang orientasi terbalik dalam satu klik."],
+          ["Apakah perbezaan antara putaran automatik dan putaran manual?",
+           "Putaran automatik menggunakan metadata orientasi EXIF yang dibenamkan oleh kamera atau telefon anda untuk memaparkan imej dengan betul. Putaran manual secara fizikal mengubah data piksel. Jika anda mendapati imej dipaparkan secara senget dalam sesetengah aplikasi (yang mengabaikan EXIF), gunakan alat ini untuk memasukkan orientasi yang betul secara manual ke dalam fail itu sendiri."],
+          ["Adakah imej saya yang diputar akan mengekalkan format fail dan ketelusan yang sama?",
+           "Ya. Format output sepadan dengan input anda. Fail PNG mengekalkan ketelusan (saluran alfa) mereka selepas putaran. Tiada penukaran berlaku melainkan anda secara eksplisit memilih format yang berbeza."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Kemas kini terakhir: Mei 2026</p>
+
+  </div>
+</section>

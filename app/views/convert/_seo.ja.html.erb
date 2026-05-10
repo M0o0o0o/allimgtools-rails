@@ -1,0 +1,158 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        画像をオンラインで変換 —<br class="hidden sm:block"> 無料の形式変換ツール
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        ソフトウェアや登録不要で、画像を瞬時に異なる形式に変換できます。当社の無料オンライン画像変換ツールは、JPEG、PNG、WebP、GIF、AVIFに対応しています。Webサイトを高速化するためにWebPに切り替えたり、ファイルサイズを小さくするためにPNGをJPEGに変換したり、プラットフォームが要求する正確な形式で画像を準備したりできます。画像をアップロードし、数秒で変換されたファイルをダウンロードしてください。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/convert_hero.png", alt: "オンライン画像形式変換ツール — JPEG、PNG、WebP、GIF、AVIFを瞬時に変換", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ステップバイステップ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">画像をオンラインで変換する方法</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">画像をアップロード</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">デバイスからJPEG、PNG、WebP、GIF、またはAVIFファイルをドラッグ＆ドロップするか、クリックして選択してください。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">出力形式を選択</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">ターゲット形式（JPEG、PNG、WebP、GIF、またはAVIF）を選択してください。変換ツールがすべての技術的な詳細を自動的に処理します。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">変換された画像をダウンロード</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">ダウンロードをクリックすると、変換されたファイルがすぐに保存され、どこでも使用できるようになります。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        アカウント不要。お客様のファイルが当社のサーバーに保存されることはありません。
+      </p>
+    </div>
+
+    <%# ── Format comparison table ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">参考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG、PNG、WebP、GIF、AVIF — どの形式が最適ですか？</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        各画像形式には異なる強みがあります。この表を参考に、ニーズに合った出力形式を選択してください：
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">形式</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">最適な用途</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["JPEG",  "写真、ウェブ画像、ソーシャルメディア — 高い互換性、自然な風景に適した小さなファイルサイズ"],
+              ["PNG",   "ロゴ、イラスト、スクリーンショット — 完全な透過性サポートを備えたロスレス品質"],
+              ["WebP",  "モダンウェブ — 最高の全体的な圧縮率；JPEGと同品質でより小さく、透過性をサポート"],
+              ["GIF",   "シンプルなアニメーション、限られた色のグラフィック — アニメーションコンテンツに対する幅広いプラットフォームサポート"],
+              ["AVIF",  "次世代ウェブ — 優れた品質で最高の圧縮効率；パフォーマンスが重要なサイトに最適"],
+            ].each do |fmt, desc| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= fmt %></td>
+                <td class="text-sm text-base-content/60"><%= desc %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">迷った場合は、ウェブ用途にはWebPに、透過性とロスレス品質が必要な場合はPNGに変換してください。</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ユースケース</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">なぜ画像形式を変換するのか？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["ウェブ用にWebPに変換",           "WebPファイルは、同等の品質でJPEGよりも25〜35%小さくなります。サイトの画像をWebPに切り替えることは、ページ速度とCore Web Vitalsスコアを向上させる最も迅速な方法の一つです。"],
+          ["ファイルサイズを小さくするためにPNGをJPEGに",         "PNGファイルはロスレスでサイズが大きいです。画像に透過性が必要ない場合、JPEGまたはWebPに変換することでファイルサイズを劇的に削減できます — 多くの場合60〜80%削減されます。"],
+          ["品質と透過性のためにJPEGをPNGに", "透過背景を追加したり、ピクセルパーフェクトな忠実度が必要な画像を扱ったりする必要がありますか？PNGに変換することで、ロスレス品質とアルファチャンネルサポートが得られます。"],
+          ["プラットフォームが要求する形式",             "異なるツール、CMSプラットフォーム、デザインワークフローでは特定のファイル形式が必要です。ここで一度変換すれば、毎回正しい形式をアップロードできます。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Web performance section ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ウェブパフォーマンス</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ウェブサイトを高速化するために画像をWebPに変換</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        GoogleのPageSpeed InsightsとLighthouse監査では、「次世代形式で画像を配信する」ことが主要な最適化として定期的に指摘されています。画像をアップロードする前にWebPまたはAVIFに変換することで、以下のことが可能になります：
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Core Web Vitalsを改善",        "画像ファイルが小さいほど、Googleの主要なランキングシグナルの一つであるLCP（Largest Contentful Paint）が削減されます。"],
+          ["帯域幅とホスティングコストを削減", "最新の形式は、同じ視覚品質をはるかに小さいファイルサイズで提供し、サーバー負荷とデータ転送を削減します。"],
+          ["Lighthouse監査に合格",          "従来のJPEGおよびPNGファイルをWebPまたはAVIFに変換することで、PageSpeed Insightsの最も一般的な警告の一つを直接解決できます。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPressのヒント：</strong>メディアライブラリにアップロードする前に、ここで画像をWebPに変換してください。これにより、プラグインへの依存を避け、出力品質と形式を完全に制御できます。
+      </div>
+    </div>
+
+    <%# ── Bulk conversion ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">プロ機能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">一括画像変換</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        複数の画像を一度に変換する必要がありますか？当社の一括変換ツールを使用すると、複数のファイルを一度にアップロードして処理できます — 以下のような場合に最適です：
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Eコマース",    "ストアに公開する前に、製品画像ライブラリ全体をWebPに変換します。"],
+          ["ブログとコンテンツ", "特集画像やインライン写真を一括で一貫した形式に変換します。"],
+          ["デザインのエクスポート", "PNGデザインアセットのフォルダを、納品またはウェブ公開用にJPEGまたはWebPに変換します。"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 2

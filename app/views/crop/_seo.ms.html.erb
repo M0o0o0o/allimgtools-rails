@@ -1,0 +1,193 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Pangkas Imej Dalam Talian —<br class="hidden sm:block"> Percuma, Tepat &amp; Segera
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Pangkas, bingkai semula, dan potong imej anda dalam beberapa saat — tiada perisian, tiada pendaftaran diperlukan. Pemangkas imej dalam talian percuma kami menyokong fail JPEG, PNG, WebP, GIF, dan AVIF. Pilih pemangkasan bentuk bebas atau kunci kepada nisbah aspek standard — 1:1 untuk gambar profil, 16:9 untuk lakaran kecil YouTube, 9:16 untuk Stories, dan banyak lagi. Buang sempadan yang tidak diingini, fokus pada subjek, dan sediakan imej anda untuk mana-mana platform dengan serta-merta.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "Pemangkas imej dalam talian — pangkas JPEG, PNG, WebP dengan bentuk bebas atau nisbah aspek tetap", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Langkah demi langkah</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cara Memangkas Imej Dalam Talian</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Muat naik imej anda</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Seret dan lepas atau klik untuk memilih fail JPEG, PNG, WebP, GIF, atau AVIF dari peranti anda.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Pilih kawasan pangkasan</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Seret pemegang pangkasan untuk menentukan kawasan anda secara bebas, atau pilih nisbah pratetap — 1:1, 4:3, 16:9, 3:2, atau 9:16 — untuk mengunci perkadaran.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Muat turun imej anda yang telah dipangkas</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Klik muat turun dan simpan fail anda yang telah dipangkas serta-merta dalam format asalnya.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Tiada akaun diperlukan. Fail anda tidak pernah disimpan di pelayan kami.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Format</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Pangkas JPEG, PNG, WebP &amp; Banyak Lagi</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Format foto paling biasa. Memangkas dengan bersih sambil mengekalkan warna dan gradien semula jadi." },
+          { name: "PNG",        desc: "Menyokong ketelusan. Pemangkasan mengekalkan saluran alfa, memastikan kawasan telus kekal utuh." },
+          { name: "WebP",       desc: "Format moden Google. Memangkas dengan kesetiaan penuh — bagus untuk imej yang dioptimumkan web." },
+          { name: "GIF",        desc: "Pangkas GIF statik tanpa menjejaskan palet warna atau ketelusan." },
+          { name: "AVIF",       desc: "Format generasi seterusnya dengan kualiti yang sangat baik. Pangkas dan kekalkan semua butiran." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Rujukan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Nisbah Aspek Mana Yang Patut Anda Gunakan?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Platform dan kes penggunaan yang berbeza memerlukan perkadaran yang berbeza. Pilih nisbah yang betul dan imej anda akan kelihatan dibingkai dengan sempurna setiap masa:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Nisbah</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Terbaik Untuk</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "Siaran Instagram, gambar profil, avatar, ikon aplikasi"],
+              ["16:9", "Lakaran kecil YouTube, kulit video skrin lebar, pengepala blog"],
+              ["4:3",  "Fotografi standard, pembentangan, cetakan foto klasik"],
+              ["9:16", "Instagram Stories, video TikTok, Reels, kulit Shorts"],
+              ["3:2",  "Standard DSLR, fotografi landskap, album cetakan"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Anda juga boleh memangkas secara bebas tanpa mengunci kepada mana-mana nisbah — hanya seret ke kawasan yang anda inginkan.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Kes Penggunaan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Mengapa Memangkas Imej Anda?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Gambar profil",         "Kunci kepada 1:1 dan pangkas mana-mana foto menjadi segi empat sama yang sempurna untuk LinkedIn, Twitter, GitHub, atau mana-mana platform yang memaparkan avatar bulat atau segi empat sama."],
+          ["Lakaran kecil &amp; kulit",  "Bingkai bahagian imej yang paling menarik untuk lakaran kecil YouTube, pengepala blog, atau kad pratonton media sosial."],
+          ["Buang kawasan yang tidak diingini",    "Hapuskan latar belakang, sempadan, tera air, atau ruang kosong yang mengganggu — dan kekalkan hanya yang penting."],
+          ["Imej sedia platform",    "Setiap platform mempunyai dimensi pilihan sendiri. Pangkas kepada nisbah yang betul sebelum memuat naik supaya imej anda tidak pernah dipangkas secara automatik dengan janggal."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Petua</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Dapatkan Hasil Terbaik Semasa Memangkas</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["Mulakan dengan asal resolusi tinggi", "Pemangkasan mengurangkan kawasan piksel yang anda simpan. Sumber resolusi tinggi memberi anda lebih banyak ruang untuk bekerja dan memastikan hasil pangkasan kekal tajam."],
+          ["Gunakan kunci nisbah aspek untuk platform",   "Apabila menyediakan imej untuk platform tertentu, sentiasa kunci nisbah terlebih dahulu. Ini menjamin hasilnya sepadan dengan dimensi yang diperlukan tanpa perlu meneka."],
+          ["Pangkas sebelum memampatkan",               "Pangkas dahulu, kemudian mampatkan. Membuang piksel yang tidak diingini mengurangkan saiz fail yang perlu anda mampatkan — memberikan anda kualiti yang lebih baik pada saiz output yang sama."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Soalan Lazim</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Soalan Lazim</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["Bolehkah saya memangkas kepada saiz piksel tertentu?",
+           "Ya. Gunakan mod pangkasan bebas dan seret pemegang untuk menyasarkan kawasan yang anda inginkan. Alat pangkasan memaparkan dimensi piksel semasa anda menyeret, jadi anda boleh mencapai saiz yang tepat. Untuk nisbah tetap (seperti 1080×1080 untuk Instagram), kunci nisbah 1:1 dan ubah saiz selepas memangkas jika perlu."],
+          ["Adakah pemangkasan mengurangkan kualiti imej?",
+           "Tidak — pemangkasan adalah operasi tidak merosakkan pada piksel yang kekal. Ia hanya membuang kawasan di luar pilihan anda tanpa mengubah data piksel yang anda simpan. Fail yang disimpan adalah kualiti penuh dalam kawasan yang dipangkas."],
+          ["Apakah perbezaan antara pangkas dan ubah saiz?",
+           "Pemangkasan membuang sebahagian daripada imej — ia mengubah kawasan kanvas dan mengurangkan jumlah kiraan piksel tanpa penskalaan. Pengubahan saiz menskalakan keseluruhan imej ke atas atau ke bawah, mengubah dimensi tetapi mengekalkan semua kandungan. Gunakan pangkas untuk membingkai semula; gunakan ubah saiz untuk mengubah dimensi output."],
+          ["Apakah maksud nisbah aspek?",
+           "Nisbah aspek adalah hubungan berkadaran antara lebar dan tinggi imej, dinyatakan sebagai dua nombor yang dipisahkan oleh titik bertindih (cth., 16:9). Ia menerangkan bentuk imej. Imej 16:9 lebih lebar daripada tingginya; imej 1:1 adalah segi empat sama yang sempurna. Mengunci nisbah aspek semasa memangkas memastikan perkadaran kekal tetap semasa anda melaraskan kawasan pangkasan."],
+          ["Format mana yang disokong?",
+           "Anda boleh memangkas fail JPEG, JPG, PNG, WebP, GIF, dan AVIF. Output disimpan dalam format yang sama dengan asal anda, mengekalkan ketelusan (PNG) dan ciri-ciri khusus format lain."],
+          ["Bolehkah saya memangkas PNG dan mengekalkan latar belakang telusnya?",
+           "Ya. Apabila anda memangkas PNG, kawasan telus di luar pilihan pangkasan dibuang tetapi ketelusan dalam kawasan yang dipangkas dikekalkan sepenuhnya. Fail yang dimuat turun akan mengekalkan saluran alfa."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Terakhir dikemas kini: Mei 2026</p>
+
+  </div>
+</section>

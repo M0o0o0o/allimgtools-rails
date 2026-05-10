@@ -1,0 +1,235 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Resize Images Online —<br class="hidden sm:block"> Free, Instant &amp; No Quality Loss
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Change the dimensions of your images instantly — no software, no sign-up required. Our free online image resizer lets you set an exact width and height in pixels, scale by percentage, or lock the aspect ratio to avoid distortion. Works with JPEG, PNG, WebP, GIF, and AVIF. Whether you're preparing photos for social media, resizing product images for your online store, or cropping thumbnails for a blog, you'll get perfectly sized images in seconds.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "Online image resizer — resize JPEG, PNG, WebP to exact pixel dimensions instantly", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Step by step</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">How to Resize an Image Online</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Upload your image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Drag and drop or click to select a JPEG, JPG, PNG, GIF, WebP, or AVIF file.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Set your target dimensions</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Enter a width and height in pixels, or scale by percentage. Toggle "Maintain aspect ratio" to prevent stretching.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Download your resized image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Click download and save your perfectly sized file instantly.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        No account required. Your files are never stored on our servers.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formats</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Resize JPEG, PNG, WebP &amp; More</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "The most common format for photos. Resize high-resolution images while preserving natural colors and gradients." },
+          { name: "PNG",        desc: "Supports transparency. Resize logos, screenshots, and graphics without losing the alpha channel." },
+          { name: "GIF",        desc: "Resize static GIFs with ease. Animated GIF resizing retains all frames." },
+          { name: "WebP",       desc: "Google's modern format. Resize WebP images and keep file sizes compact." },
+          { name: "AVIF",       desc: "Next-generation format with excellent quality at small file sizes. Full resize support." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Reference</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Common Image Dimensions for Social Media</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Every platform has its own recommended image size. Use this reference table to resize your images to the exact dimensions you need:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Platform / Use</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Recommended Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Instagram Post (square)",  "1080 × 1080 px"],
+              ["Facebook Cover Photo",     "820 × 312 px"],
+              ["Twitter / X Header",       "1500 × 500 px"],
+              ["LinkedIn Banner",          "1584 × 396 px"],
+              ["YouTube Thumbnail",        "1280 × 720 px"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Platform guidelines change over time. Always verify with the latest official documentation before publishing.</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Web & E-commerce</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Resize Product Photos &amp; Web Images</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Consistent image dimensions make your website look polished and load faster. Before uploading to your site or store, resize images to:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Match your layout exactly",       "Set a precise pixel width so images fit your grid without CSS distortion."],
+          ["Speed up page loads",             "Smaller dimensions mean smaller file sizes, reducing bandwidth and improving Core Web Vitals."],
+          ["Standardize product thumbnails",  "Uniform sizes across product grids look professional and reduce layout shifts."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">E-commerce tip:</strong> Resize all product images to the same dimensions before uploading to your store. Most platforms (Shopify, WooCommerce, Etsy) recommend square images at 1000 × 1000 px or larger for zoom functionality.
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Pro Feature</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Bulk Image Resizing</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Need to resize multiple images to the same dimensions at once? Our bulk resize tool lets you upload and process several files in one go — perfect for:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Product catalogs",  "Standardize hundreds of product photos before uploading to your store."],
+          ["Photo galleries",   "Resize an entire shoot to consistent dimensions in one batch."],
+          ["Social media sets", "Prepare multiple images to platform specifications without repeating the process."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Bulk processing is available on Pro</p>
+          <p class="text-white/60 text-sm">Resize multiple files to the same dimensions in one click.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Start free →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Use Cases</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Why Resize Images?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Social media",       "Every platform has strict size requirements. Resize to the correct dimensions to avoid cropping, letterboxing, or blurry upscaling by the platform."],
+          ["E-commerce stores",  "Product image consistency builds trust. Uniform dimensions across your catalog create a professional grid layout on any device."],
+          ["Email newsletters",  "Wide images can break email layouts on mobile. Resize header images to 600 px wide for reliable rendering across all email clients."],
+          ["Print & documents",  "Resize images to the exact pixel dimensions required by your print template, presentation, or document layout to avoid quality loss on export."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["How do I maintain the aspect ratio when resizing?",
+           "Enable the 'Maintain aspect ratio' toggle before entering your dimensions. When active, entering a width automatically calculates the correct height (and vice versa), so your image won't appear stretched or squashed."],
+          ["Will resizing reduce image quality?",
+           "Scaling an image down (making it smaller) has minimal quality impact. Scaling up (making it larger than the original) can introduce blurriness because pixels are being interpolated. For best results, always start from the highest-resolution original you have."],
+          ["What image formats can I resize?",
+           "Our tool supports JPEG, JPG, PNG, GIF, WebP, and AVIF. The output format matches the input — a PNG stays a PNG after resizing, preserving any transparency."],
+          ["How do I resize an image for Instagram?",
+           "Instagram recommends 1080 × 1080 px for square posts, 1080 × 1350 px for portrait, and 1080 × 566 px for landscape. Enter your target dimensions, enable aspect ratio lock, and download your resized image ready to upload."],
+          ["What's the difference between resizing and cropping?",
+           "Resizing changes the overall dimensions of the entire image, scaling all content proportionally (or non-proportionally). Cropping removes portions of the image to change the framing. Use resize when you need a specific pixel size; use crop when you need to cut out a region."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Last updated: May 2026</p>
+
+  </div>
+</section>

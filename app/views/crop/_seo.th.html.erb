@@ -1,0 +1,176 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        ตัดรูปภาพออนไลน์ —<br class="hidden sm:block"> ฟรี แม่นยำ และทันใจ
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        ตัดแต่ง จัดองค์ประกอบ และครอปรูปภาพของคุณได้ในไม่กี่วินาที — ไม่ต้องใช้ซอฟต์แวร์ ไม่ต้องลงทะเบียน เครื่องมือตัดรูปภาพออนไลน์ฟรีของเรารองรับไฟล์ JPEG, PNG, WebP, GIF และ AVIF เลือกการตัดแบบอิสระหรือล็อกตามอัตราส่วนมาตรฐาน — 1:1 สำหรับรูปโปรไฟล์, 16:9 สำหรับภาพขนาดย่อของ YouTube, 9:16 สำหรับ Stories และอื่นๆ ลบขอบที่ไม่ต้องการ เน้นที่วัตถุหลัก และเตรียมรูปภาพของคุณให้พร้อมสำหรับทุกแพลตฟอร์มได้ทันที
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/crop_hero.png", alt: "เครื่องมือตัดรูปภาพออนไลน์ — ตัด JPEG, PNG, WebP ด้วยการตัดแบบอิสระหรืออัตราส่วนคงที่", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ทีละขั้นตอน</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">วิธีตัดรูปภาพออนไลน์</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">อัปโหลดรูปภาพของคุณ</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">ลากและวาง หรือคลิกเพื่อเลือกไฟล์ JPEG, PNG, WebP, GIF หรือ AVIF จากอุปกรณ์ของคุณ</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">เลือกพื้นที่ที่จะตัด</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">ลากจุดปรับขนาดเพื่อกำหนดพื้นที่ของคุณได้อย่างอิสระ หรือเลือกอัตราส่วนที่ตั้งไว้ล่วงหน้า — 1:1, 4:3, 16:9, 3:2 หรือ 9:16 — เพื่อล็อกสัดส่วน</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">ดาวน์โหลดรูปภาพที่ตัดแล้วของคุณ</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">คลิกดาวน์โหลดและบันทึกไฟล์ที่ตัดแล้วของคุณได้ทันทีในรูปแบบเดิม</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        ไม่ต้องมีบัญชี ไฟล์ของคุณจะไม่ถูกเก็บไว้บนเซิร์ฟเวอร์ของเรา
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">รูปแบบไฟล์</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ตัด JPEG, PNG, WebP และอื่นๆ</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "รูปแบบภาพถ่ายที่พบบ่อยที่สุด ตัดได้อย่างสะอาดตาพร้อมรักษาสีและไล่ระดับสีตามธรรมชาติ" },
+          { name: "PNG",        desc: "รองรับความโปร่งใส การตัดจะรักษาส่วนอัลฟ่าแชนเนล ทำให้พื้นที่โปร่งใสยังคงอยู่" },
+          { name: "WebP",       desc: "รูปแบบที่ทันสมัยของ Google ตัดด้วยความละเอียดสูงสุด — เหมาะสำหรับรูปภาพที่ปรับให้เหมาะสมกับเว็บ" },
+          { name: "GIF",        desc: "ตัด GIF แบบคงที่โดยไม่ส่งผลกระทบต่อชุดสีหรือความโปร่งใส" },
+          { name: "AVIF",       desc: "รูปแบบยุคใหม่ที่มีคุณภาพยอดเยี่ยม ตัดและรักษารายละเอียดทั้งหมด" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Aspect ratio reference table ───────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ข้อมูลอ้างอิง</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">คุณควรใช้อัตราส่วนภาพใด?</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        แพลตฟอร์มและการใช้งานที่แตกต่างกันต้องการสัดส่วนที่แตกต่างกัน เลือกอัตราส่วนที่เหมาะสม แล้วรูปภาพของคุณจะดูจัดองค์ประกอบได้อย่างสมบูรณ์แบบทุกครั้ง:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">อัตราส่วน</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">เหมาะสำหรับ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["1:1",  "โพสต์ Instagram, รูปโปรไฟล์, อวตาร, ไอคอนแอป"],
+              ["16:9", "ภาพขนาดย่อของ YouTube, ปกวิดีโอไวด์สกรีน, ส่วนหัวบล็อก"],
+              ["4:3",  "การถ่ายภาพมาตรฐาน, งานนำเสนอ, ภาพพิมพ์คลาสสิก"],
+              ["9:16", "Instagram Stories, วิดีโอ TikTok, Reels, ปก Shorts"],
+              ["3:2",  "มาตรฐาน DSLR, การถ่ายภาพทิวทัศน์, อัลบั้มภาพพิมพ์"],
+            ].each do |ratio, uses| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= ratio %></td>
+                <td class="text-sm text-base-content/60"><%= uses %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">คุณยังสามารถตัดได้อย่างอิสระโดยไม่ต้องล็อกอัตราส่วนใดๆ — เพียงแค่ลากไปยังพื้นที่ที่คุณต้องการ</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">กรณีการใช้งาน</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ทำไมต้องตัดรูปภาพของคุณ?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["รูปโปรไฟล์",         "ล็อกเป็น 1:1 และตัดรูปภาพใดๆ ให้เป็นสี่เหลี่ยมจัตุรัสที่สมบูรณ์แบบสำหรับ LinkedIn, Twitter, GitHub หรือแพลตฟอร์มใดๆ ที่แสดงอวตารแบบวงกลมหรือสี่เหลี่ยม"],
+          ["ภาพขนาดย่อและปก",  "จัดองค์ประกอบส่วนที่น่าสนใจที่สุดของรูปภาพสำหรับภาพขนาดย่อของ YouTube, ส่วนหัวบล็อก หรือการ์ดแสดงตัวอย่างโซเชียลมีเดีย"],
+          ["ลบพื้นที่ที่ไม่ต้องการ",    "กำจัดพื้นหลังที่รบกวน, ขอบ, ลายน้ำ หรือพื้นที่ว่าง — และเก็บไว้เฉพาะส่วนที่สำคัญ"],
+          ["รูปภาพพร้อมใช้งานสำหรับแพลตฟอร์ม",    "แต่ละแพลตฟอร์มมีขนาดที่ต้องการ ตัดให้ได้อัตราส่วนที่ถูกต้องก่อนอัปโหลด เพื่อให้รูปภาพของคุณไม่ถูกตัดอัตโนมัติอย่างไม่เหมาะสม"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Tips ──────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">เคล็ดลับ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">ได้ผลลัพธ์ที่ดีที่สุดเมื่อตัดรูปภาพ</h2>
+      </div>
+      <ul class="space-y-4 mb-4">
+        <% [
+          ["เริ่มต้นด้วยต้นฉบับที่มีความละเอียดสูง", "การตัดจะลดพื้นที่พิกเซลที่คุณเก็บไว้ แหล่งที่มาที่มีความละเอียดสูงช่วยให้คุณมีพื้นที่ทำงานมากขึ้นและรับประกันว่าผลลัพธ์ที่ตัดแล้วจะยังคงคมชัด"],
+          ["ใช้การล็อกอัตราส่วนภาพสำหรับแพลตฟอร์ม",   "เมื่อเตรียมรูปภาพสำหรับแพลตฟอร์มเฉพาะ ให้ล็อกอัตราส่วนก่อนเสมอ สิ่งนี้รับประกันว่าผลลัพธ์จะตรงกับขนาดที่ต้องการโดยไม่ต้องคาดเดา"],
+          ["ตัดก่อนบีบอัด",               "ตัดก่อนแล้วค่อยบีบอัด การลบพิกเซลที่ไม่ต้องการจะลดขนาดไฟล์ที่คุณต้องบีบอัด — ทำให้คุณได้คุณภาพที่ดีขึ้นที่ขนาดเอาต์พุตเท่าเดิม"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">คำถามที่พบบ่อย</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">คำถามที่พบบ่อย</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["ฉันสามารถตัดให้ได้ขนาดพิกเซลที่กำหนดได้หรือไม่?",
+           "ได้ ใช้โหมดตัดแบบอิสระและลากจุดปรับขนาดเพื่อกำหนดพื้นที่ที่คุณต้องการ เครื่องมือตัดจะแสดงขนาดพิกเซลปัจจุบันขณะที่คุณลาก เพื่อให้คุณสามารถกำหนดขนาดที่แน่นอนได้ สำหรับอัตราส่วนคงที่ (เช่น 1080×1080 สำหรับ Instagram) ให้ล็อกอัตราส่วน 1:1 และปรับขนาดหลังจากตัดหากจำเป็น"],
+          ["การตัดรูปภาพลดคุณภาพของภาพหรือไม่?",
+           "ไม่ การตัดเป็นการดำเนินการที่ไม่ทำลายพิกเซลที่เหลืออยู่ มันเพียงแค่ลบพื้นที่ภายนอกส่วนที่คุณเลือกออกโดยไม่เปลี่ยนแปลงข้อมูลพิกเซลของส่วนที่คุณเก็บไว้ ไฟล์ที่บันทึกจะมีคุณภาพเต็มที่ภายในพื้นที่ที่ถูกตัด"],
+          ["ความแตกต่างระหว่างการตัด (crop) และการปรับขนาด (resize) คืออะไร?",
+           "การตัดจะลบส่วนต่างๆ ของรูปภาพออก — มันจะเปลี่ยนพื้นที่แคนวาสและลดจำนวนพิกเซลทั้งหมดโดยไม่มีการปรับขนาด การปรับขนาดจะปรับขนาดรูปภาพทั้งหมดขึ้นหรือลง เปลี่ยนขนาดแต่ยังคงเนื้อหาทั้งหมดไว้ ใช้การตัดเพื่อจัดองค์ประกอบใหม่; ใช้การปรับขนาดเพื่อเปลี่ยนขนาดเอาต์พุต"],
+          ["อัตราส่วนภาพหมายถึงอะไร?",
+           "อัตราส่วนภาพคือความสัมพันธ์ตามสัดส่วนระหว่างความกว้างและความสูงของรูปภาพ ซึ่งแสดงเป็นตัวเลขสองตัวคั่นด้วยเครื่องหมายทวิภาค (เช่น 16:9) มันอธิบายรูปร่างของรูปภาพ รูปภาพ 16:9 จะกว้างกว่าสูง; รูปภาพ 1:1 เป็นสี่เหลี่ยมจัตุรัสที่สมบูรณ์แบบ การล็อกอัตราส่วนภาพขณะตัดจะช่วยให้สัดส่วนคงที่เมื่อคุณปรับพื้นที่การตัด"],
+          ["รองรับรูปแบบไฟล์ใดบ้าง?",
+           "คุณสามารถตัดไฟล์ JPEG, JPG, PNG, WebP, GIF และ AVIF ได้ ผลลัพธ์จะถูกบันทึกในรูปแบบเดียวกับต้นฉบับของคุณ โดยรักษาส่วนโปร่งใส (PNG) และคุณสมบัติเฉพาะของรูปแบบอื่นๆ ไว้"],
+          ["ฉันสามารถตัดไฟล์ PNG และรักษาส่วนพื้นหลังโปร่งใสไว้ได้หรือไม่?",
+           "ได้ เมื่อคุณตัดไฟล์ PNG พื้นที่โปร่งใสภายนอกส่วนที่เลือกจะถูกลบออก แต่ความโปร่งใสภายในพื้นที่ที่ถูกตัดจะยังคงอยู่ครบถ้วน ไฟล์ที่ดาวน์โหลดจะยังคง

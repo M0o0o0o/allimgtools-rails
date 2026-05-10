@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        छवियों को ऑनलाइन घुमाएँ —<br class="hidden sm:block"> मुफ़्त और तुरंत
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        टेढ़ी या उल्टी तस्वीरों को तुरंत ठीक करें — किसी सॉफ़्टवेयर या साइन-अप की आवश्यकता नहीं। हमारा मुफ़्त ऑनलाइन इमेज रोटेटर आपको किसी भी JPEG, PNG, WebP, या GIF को एक क्लिक से 90°, 180°, या 270° तक घुमाने देता है। चाहे आप गलत ओरिएंटेशन में ली गई तस्वीर को ठीक कर रहे हों, प्रिंट के लिए एक छवि तैयार कर रहे हों, या किसी स्कैन को सीधा कर रहे हों, आपको कुछ ही सेकंड में सही ओरिएंटेशन वाली फ़ाइल मिल जाएगी।
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "ऑनलाइन इमेज रोटेटर — JPEG, PNG, WebP को 90°, 180°, या 270° पर तुरंत घुमाएँ", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">चरण-दर-चरण</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">एक छवि को ऑनलाइन कैसे घुमाएँ</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">अपनी छवि अपलोड करें</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">एक JPEG, JPG, PNG, GIF, या WebP फ़ाइल चुनने के लिए ड्रैग और ड्रॉप करें या क्लिक करें।</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">अपना घुमाव चुनें</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">90° दक्षिणावर्त, 90° वामावर्त, या 180° चुनें ताकि छवि उल्टी हो जाए। पूर्वावलोकन तुरंत अपडेट होता है।</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">अपनी घुमाई हुई छवि डाउनलोड करें</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">डाउनलोड पर क्लिक करें और अपनी सही ओरिएंटेशन वाली फ़ाइल तुरंत सहेजें।</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        किसी खाते की आवश्यकता नहीं। आपकी फ़ाइलें हमारे सर्वर पर कभी संग्रहीत नहीं होती हैं।
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">फ़ॉर्मेट</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG, PNG, WebP और अन्य को घुमाएँ</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "सबसे सामान्य फोटो फ़ॉर्मेट। गुणवत्ता बनाए रखने के लिए जहाँ संभव हो, बिना री-एनकोडिंग के घुमाएँ।" },
+          { name: "PNG",        desc: "पारदर्शिता का समर्थन करता है। घुमाव अल्फा चैनल को बरकरार रखता है — लोगो और ग्राफिक्स अक्षुण्ण रहते हैं।" },
+          { name: "GIF",        desc: "स्थिर GIF को साफ-सुथरा घुमाएँ। एनिमेटेड GIF को फ्रेम-दर-फ्रेम घुमाया जाता है।" },
+          { name: "WebP",       desc: "Google का आधुनिक फ़ॉर्मेट। बिना किसी गुणवत्ता हानि के पूर्ण घुमाव समर्थन।" },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">इसका उपयोग कब करें</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">एक छवि को घुमाने के सामान्य कारण</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        ओरिएंटेशन की समस्याएँ आपकी सोच से कहीं अधिक सामान्य हैं। यहाँ वे स्थितियाँ दी गई हैं जहाँ एक छवि को घुमाना सबसे तेज़ समाधान है:
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["कैमरा ओरिएंटेशन ठीक करें",       "स्मार्टफोन और कैमरे कभी-कभी लैंडस्केप या पोर्ट्रेट मोड में ली गई तस्वीरों को टेढ़ा सहेजते हैं। एक त्वरित 90° घुमाव बिना किसी गुणवत्ता हानि के इसे ठीक कर देता है।"],
+          ["स्कैन किए गए दस्तावेज़ों को ठीक करें",    "स्कैनर अक्सर मूल दस्तावेज़ को कैसे रखा गया था, उसके आधार पर घुमावदार आउटपुट उत्पन्न करते हैं। साझा करने या संग्रहीत करने से पहले अपने स्कैन को सही पढ़ने के ओरिएंटेशन में घुमाएँ।"],
+          ["प्रिंट के लिए छवियाँ तैयार करें",     "प्रिंट लेआउट के लिए छवियों को एक विशिष्ट ओरिएंटेशन में होना आवश्यक है। प्रिंटर पर किसी भी अप्रत्याशित समस्या से बचने के लिए निर्यात करने से पहले घुमाएँ।"],
+          ["सोशल मीडिया के लिए सामग्री सीधी करें","इंस्टाग्राम या ब्लॉग पर एक टेढ़ी तस्वीर अपलोड करना अव्यावसायिक लगता है। अपलोड करने से पहले घुमाएँ ताकि प्लेटफ़ॉर्म अप्रत्याशित रूप से स्वतः-घुमाव न करे।"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">क्या आप जानते हैं?</strong> JPEG फ़ाइलें ओरिएंटेशन मेटाडेटा (EXIF डेटा) को वास्तविक पिक्सेल डेटा से अलग संग्रहीत करती हैं। कुछ ऐप्स इस मेटाडेटा का उपयोग करके छवि को सही ढंग से प्रदर्शित करते हैं, जबकि अन्य इसे अनदेखा करते हैं और कच्चा ओरिएंटेशन दिखाते हैं। वास्तविक पिक्सेल को घुमाना (जैसा कि यह उपकरण करता है) यह सुनिश्चित करता है कि छवि हर जगह सही ढंग से दिखाई दे।
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">उपयोग के मामले</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">इमेज रोटेटर का उपयोग कौन करता है?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["फोटोग्राफर",      "शूट के बाद शॉट्स के एक बैच पर ओरिएंटेशन ठीक करें। एक एल्बम में सुसंगत ओरिएंटेशन गैलरी को पॉलिश और पेशेवर दिखाता है।"],
+          ["ब्लॉगर और लेखक", "गलत ओरिएंटेशन में ली गई तस्वीरें एक लेख के दृश्य प्रवाह को तोड़ देती हैं। सभी पाठकों के लिए छवियों को सही ढंग से प्रदर्शित करने के लिए अपने CMS पर अपलोड करने से पहले घुमाएँ।"],
+          ["ई-कॉमर्स विक्रेता", "टेढ़ी ली गई उत्पाद तस्वीरें अविश्वसनीय लगती हैं। उत्पादों को स्पष्ट रूप से प्रस्तुत करने के लिए अपने स्टोर पर अपलोड करने से पहले ओरिएंटेशन को ठीक करें।"],
+          ["कार्यालय और दस्तावेज़", "स्कैन किए गए अनुबंध, रसीदें, या आईडी दस्तावेज़ अक्सर घुमावदार निकलते हैं। ईमेल से संलग्न करने या दस्तावेज़ प्रबंधन प्रणालियों पर अपलोड करने से पहले ओरिएंटेशन ठीक करें।"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">अक्सर पूछे जाने वाले प्रश्न</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">अक्सर पूछे जाने वाले प्रश्न</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["क्या एक छवि को घुमाने से उसकी गुणवत्ता कम हो जाती है?",
+           "अधिकांश फ़ॉर्मेट के लिए, नहीं। ठीक 90°, 180°, या 270° पर घुमाना PNG और WebP के लिए एक दोषरहित ऑपरेशन है। JPEG के लिए, घुमाव के बाद छवि को फिर से सहेजा जाता है, जिसमें यदि उपकरण इसे फिर से एनकोड करता है तो एक बहुत छोटा गुणवत्ता चरण शामिल हो सकता है — लेकिन उच्च गुणवत्ता सेटिंग्स पर यह अगोचर होता है।"],
+          ["रोटेटर किन छवि फ़ॉर्मेट का समर्थन करता है?",
+           "यह उपकरण JPEG, JPG, PNG, GIF, और WebP का समर्थन करता है। आउटपुट फ़ॉर्मेट आपकी इनपुट फ़ाइल से मेल खाता है, इसलिए घुमाव के बाद एक PNG, PNG ही रहता है (पारदर्शिता बरकरार रहती है)।"],
+          ["मैं एक उल्टी तस्वीर को कैसे ठीक करूँ?",
+           "अपनी तस्वीर अपलोड करें और 180° घुमाव विकल्प चुनें। यह छवि को पूरी तरह से पलट देता है, एक क्लिक में किसी भी उल्टे ओरिएंटेशन को ठीक करता है।"],
+          ["स्वतः-घुमाव और मैन्युअल घुमाव में क्या अंतर है?",
+           "स्वतः-घुमाव आपकी कैमरा या फ़ोन द्वारा एम्बेडेड EXIF ओरिएंटेशन मेटाडेटा का उपयोग करके छवियों को सही ढंग से प्रदर्शित करता है। मैन्युअल घुमाव पिक्सेल डेटा को भौतिक रूप से बदलता है। यदि आपको कुछ ऐप्स में छवियाँ टेढ़ी दिखाई देती हैं (जो EXIF को अनदेखा करते हैं), तो इस उपकरण का उपयोग करके फ़ाइल में ही सही ओरिएंटेशन को मैन्युअल रूप से ठीक करें।"],
+          ["क्या मेरी घुमाई हुई छवि वही फ़ाइल फ़ॉर्मेट और पारदर्शिता बनाए रखेगी?",
+           "हाँ। आउटपुट फ़ॉर्मेट आपके इनपुट से मेल खाता है। PNG फ़ाइलें घुमाव के बाद अपनी पारदर्शिता (अल्फा चैनल) बरकरार रखती हैं। कोई रूपांतरण तब तक नहीं होता जब तक आप स्पष्ट रूप से एक अलग फ़ॉर्मेट नहीं चुनते।"],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">अंतिम अपडेट: मई 2026</p>
+
+  </div>
+</section>

@@ -1,0 +1,192 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        線上圖片轉換 —<br class="hidden sm:block"> 免費格式轉換器
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        即時轉換您的圖片格式 — 無需軟體，無需註冊。我們的免費線上圖片轉換器支援 JPEG、PNG、WebP、GIF 和 AVIF。轉換為 WebP 以加速網站，將 PNG 轉換為 JPEG 以縮小檔案，或準備符合平台特定格式要求的圖片。上傳您的圖片，幾秒鐘內即可下載轉換後的檔案。
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/convert_hero.png", alt: "線上圖片格式轉換器 — 即時轉換 JPEG、PNG、WebP、GIF 和 AVIF", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">逐步教學</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">如何線上轉換圖片</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">上傳您的圖片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">拖放或點擊以從您的裝置選擇 JPEG、PNG、WebP、GIF 或 AVIF 檔案。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">選擇輸出格式</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">選擇您的目標格式 — JPEG、PNG、WebP、GIF 或 AVIF。轉換器會自動處理所有技術細節。</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">下載您轉換後的圖片</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">點擊下載並即時儲存您轉換後的檔案，隨時隨地皆可使用。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        無需帳戶。您的檔案絕不會儲存在我們的伺服器上。
+      </p>
+    </div>
+
+    <%# ── Format comparison table ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">參考</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG、PNG、WebP、GIF 和 AVIF — 哪種格式最適合？</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        每種圖片格式都有其獨特的優勢。使用此表格選擇最適合您需求的輸出格式：
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">格式</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">最適用於</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["JPEG",  "照片、網路圖片、社群媒體 — 兼容性佳，適用於自然場景的小檔案大小"],
+              ["PNG",   "標誌、插圖、螢幕截圖 — 無損品質並完全支援透明度"],
+              ["WebP",  "現代網路 — 最佳整體壓縮；在相同品質下比 JPEG 更小，支援透明度"],
+              ["GIF",   "簡單動畫、顏色有限的圖形 — 廣泛的平台支援動畫內容"],
+              ["AVIF",  "下一代網路 — 最高的壓縮效率和卓越的品質；適用於對性能要求嚴苛的網站"],
+            ].each do |fmt, desc| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= fmt %></td>
+                <td class="text-sm text-base-content/60"><%= desc %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">如有疑問，用於網頁時可轉換為 WebP，若需要透明度和無損品質則轉換為 PNG。</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">使用案例</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">為何要轉換圖片格式？</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["轉換為 WebP 以用於網路",           "WebP 檔案在同等品質下比 JPEG 小 25–35%。將您網站的圖片轉換為 WebP 是提升頁面速度和核心網頁指標分數最快的方法之一。"],
+          ["PNG 轉 JPEG 以縮小檔案",         "PNG 檔案是無損且龐大的。如果您的圖片不需要透明度，轉換為 JPEG 或 WebP 可以顯著縮小檔案大小 — 通常可減少 60–80%。"],
+          ["JPEG 轉 PNG 以獲得品質和透明度", "需要添加透明背景或處理需要像素級精確度的圖片？轉換為 PNG 以獲得無損品質和 Alpha 色版支援。"],
+          ["平台要求的格式",             "不同的工具、CMS 平台和設計工作流程需要特定的檔案格式。在這裡轉換一次，每次都能上傳正確的格式。"],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Web performance section ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">網頁性能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">將圖片轉換為 WebP 以加速網站</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Google 的 PageSpeed Insights 和 Lighthouse 審核經常將「以新一代格式提供圖片」標記為關鍵優化。在上傳前將您的圖片轉換為 WebP 或 AVIF 有助於您：
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["改善核心網頁指標",        "較小的圖片檔案可減少 LCP (最大內容繪製)，這是 Google 的主要排名信號之一。"],
+          ["降低頻寬和託管成本", "現代格式以極小的檔案大小提供相同的視覺品質，減少伺服器負載和數據傳輸。"],
+          ["通過 Lighthouse 審核",          "將傳統的 JPEG 和 PNG 檔案轉換為 WebP 或 AVIF 直接解決了 PageSpeed Insights 最常見的警告之一。"],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">WordPress 提示：</strong>在上傳到媒體庫之前，請在這裡將您的圖片轉換為 WebP。這可以避免插件依賴，並讓您完全控制輸出品質和格式。
+      </div>
+    </div>
+
+    <%# ── Bulk conversion ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">專業版功能</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">批量圖片轉換</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        需要一次轉換多張圖片嗎？我們的批量轉換工具讓您一次上傳和處理多個檔案 — 非常適合：
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["電子商務",    "在發佈到您的商店之前，將整個產品圖片庫轉換為 WebP。"],
+          ["部落格和內容", "一次性批量轉換特色圖片和內嵌照片為一致的格式。"],
+          ["設計匯出", "將包含 PNG 設計資產的資料夾轉換為 JPEG 或 WebP，用於交付或網路發佈。"],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label.html_safe %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">批量轉換功能適用於專業版</p>
+          <p class="text-white/60 text-sm">一鍵將多張圖片轉換為任何格式。</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          免費開始 →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">常見問題</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">常見問題</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["有損和無損轉換之間有什麼區別？",
+           "有損轉換（例如，將 PNG 轉換為 JPEG 或 WebP）通過永久刪除部分數據來壓縮圖片，從而產生較小的檔案，但品質會略有折衷。無損轉換（例如，JPEG 轉換為 PNG）保留所有像素數據，但可能不會縮小檔案大小。對於用於網路的照片，WebP 等有損格式提供了最佳的尺寸與品質平衡。"],
+          ["所有瀏覽器都支援 WebP 嗎？",
+           "是的。WebP 已被所有主要現代瀏覽器 — Chrome、Firefox、Safari、Edge 和 Opera — 完全支援，覆蓋了全球超過 97% 的網路用戶。它現在是網頁圖片的推薦格式，對於大多數專案來說，可以安全使用而無需備用方案。"],
+          ["將 PNG 轉換為 JPEG 時，透明度會發生什麼變化？",
+           "

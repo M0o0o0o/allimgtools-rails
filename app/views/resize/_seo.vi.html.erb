@@ -1,0 +1,195 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Thay đổi kích thước ảnh trực tuyến —<br class="hidden sm:block"> Miễn phí, tức thì &amp; Không giảm chất lượng
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Thay đổi kích thước hình ảnh của bạn ngay lập tức — không cần phần mềm, không cần đăng ký. Công cụ thay đổi kích thước ảnh trực tuyến miễn phí của chúng tôi cho phép bạn đặt chiều rộng và chiều cao chính xác theo pixel, điều chỉnh theo tỷ lệ phần trăm hoặc khóa tỷ lệ khung hình để tránh biến dạng. Hoạt động với JPEG, PNG, WebP, GIF và AVIF. Cho dù bạn đang chuẩn bị ảnh cho mạng xã hội, thay đổi kích thước ảnh sản phẩm cho cửa hàng trực tuyến hay cắt ảnh thu nhỏ cho blog, bạn sẽ có được những hình ảnh với kích thước hoàn hảo chỉ trong vài giây.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/resize_hero.png", alt: "Công cụ thay đổi kích thước ảnh trực tuyến — thay đổi kích thước JPEG, PNG, WebP theo kích thước pixel chính xác ngay lập tức", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Từng bước một</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Cách thay đổi kích thước ảnh trực tuyến</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Tải ảnh của bạn lên</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Kéo và thả hoặc nhấp để chọn tệp JPEG, JPG, PNG, GIF, WebP hoặc AVIF.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Đặt kích thước mục tiêu của bạn</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Nhập chiều rộng và chiều cao theo pixel, hoặc điều chỉnh theo tỷ lệ phần trăm. Bật "Duy trì tỷ lệ khung hình" để tránh bị kéo giãn.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Tải ảnh đã thay đổi kích thước của bạn xuống</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Nhấp tải xuống và lưu tệp có kích thước hoàn hảo của bạn ngay lập tức.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Không cần tài khoản. Tệp của bạn không bao giờ được lưu trữ trên máy chủ của chúng tôi.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Định dạng</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Thay đổi kích thước JPEG, PNG, WebP &amp; Nhiều hơn nữa</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Định dạng phổ biến nhất cho ảnh. Thay đổi kích thước ảnh độ phân giải cao trong khi vẫn giữ nguyên màu sắc và độ chuyển màu tự nhiên." },
+          { name: "PNG",        desc: "Hỗ trợ độ trong suốt. Thay đổi kích thước logo, ảnh chụp màn hình và đồ họa mà không làm mất kênh alpha." },
+          { name: "GIF",        desc: "Dễ dàng thay đổi kích thước GIF tĩnh. Thay đổi kích thước GIF động vẫn giữ nguyên tất cả các khung hình." },
+          { name: "WebP",       desc: "Định dạng hiện đại của Google. Thay đổi kích thước ảnh WebP và giữ kích thước tệp nhỏ gọn." },
+          { name: "AVIF",       desc: "Định dạng thế hệ tiếp theo với chất lượng tuyệt vời ở kích thước tệp nhỏ. Hỗ trợ thay đổi kích thước đầy đủ." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Social media dimensions table ─────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Tham khảo</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Kích thước ảnh phổ biến cho mạng xã hội</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Mỗi nền tảng có kích thước ảnh khuyến nghị riêng. Sử dụng bảng tham khảo này để thay đổi kích thước ảnh của bạn theo đúng kích thước bạn cần:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Nền tảng / Mục đích sử dụng</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">Kích thước khuyến nghị</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["Bài đăng Instagram (vuông)",  "1080 × 1080 px"],
+              ["Ảnh bìa Facebook",     "820 × 312 px"],
+              ["Ảnh bìa Twitter / X",       "1500 × 500 px"],
+              ["Ảnh bìa LinkedIn",          "1584 × 396 px"],
+              ["Ảnh thu nhỏ YouTube",        "1280 × 720 px"],
+            ].each do |platform, size| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= platform %></td>
+                <td class="text-sm text-base-content/60"><%= size %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">Hướng dẫn của nền tảng thay đổi theo thời gian. Luôn xác minh với tài liệu chính thức mới nhất trước khi xuất bản.</p>
+    </div>
+
+    <%# ── Web / E-commerce use case ─────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Web & Thương mại điện tử</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Thay đổi kích thước ảnh sản phẩm &amp; ảnh web</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Kích thước ảnh nhất quán giúp trang web của bạn trông chuyên nghiệp và tải nhanh hơn. Trước khi tải lên trang web hoặc cửa hàng của bạn, hãy thay đổi kích thước ảnh để:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Khớp chính xác với bố cục của bạn",       "Đặt chiều rộng pixel chính xác để ảnh vừa với lưới của bạn mà không bị biến dạng CSS."],
+          ["Tăng tốc độ tải trang",             "Kích thước nhỏ hơn có nghĩa là dung lượng tệp nhỏ hơn, giảm băng thông và cải thiện Core Web Vitals."],
+          ["Chuẩn hóa ảnh thu nhỏ sản phẩm",  "Kích thước đồng nhất trên các lưới sản phẩm trông chuyên nghiệp và giảm sự dịch chuyển bố cục."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">Mẹo thương mại điện tử:</strong> Thay đổi kích thước tất cả ảnh sản phẩm về cùng một kích thước trước khi tải lên cửa hàng của bạn. Hầu hết các nền tảng (Shopify, WooCommerce, Etsy) khuyến nghị ảnh vuông có kích thước 1000 × 1000 px hoặc lớn hơn để có chức năng phóng to.
+      </div>
+    </div>
+
+    <%# ── Bulk resize ────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Tính năng Pro</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Thay đổi kích thước ảnh hàng loạt</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Cần thay đổi kích thước nhiều ảnh về cùng một kích thước cùng lúc? Công cụ thay đổi kích thước hàng loạt của chúng tôi cho phép bạn tải lên và xử lý nhiều tệp cùng một lúc — hoàn hảo cho:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["Danh mục sản phẩm",  "Chuẩn hóa hàng trăm ảnh sản phẩm trước khi tải lên cửa hàng của bạn."],
+          ["Thư viện ảnh",   "Thay đổi kích thước toàn bộ bộ ảnh về kích thước nhất quán trong một lần."],
+          ["Bộ ảnh mạng xã hội", "Chuẩn bị nhiều ảnh theo thông số kỹ thuật của nền tảng mà không cần lặp lại quy trình."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">Xử lý hàng loạt có sẵn trên gói Pro</p>
+          <p class="text-white/60 text-sm">Thay đổi kích thước nhiều tệp về cùng một kích thước chỉ với một cú nhấp chuột.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          Bắt đầu miễn phí →
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Trường hợp sử dụng</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Tại sao phải thay đổi kích thước ảnh?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Mạng xã hội",       "Mỗi nền tảng có yêu cầu kích thước nghiêm ngặt. Thay đổi kích thước theo đúng kích thước để tránh bị cắt, thêm viền đen hoặc làm mờ khi nền tảng phóng to."],
+          ["Cửa hàng thương mại điện tử",  "Sự nhất quán của ảnh sản phẩm xây dựng lòng tin. Kích thước đồng nhất trên toàn bộ danh mục của bạn tạo ra bố cục lưới chuyên nghiệp trên mọi thiết bị."],
+          ["Bản tin email",  "Ảnh rộng có thể làm hỏng bố cục email trên thiết bị di động. Thay đổi kích thước ảnh tiêu đề thành chiều rộng 600 px để hiển thị đáng tin cậy trên tất cả các ứng dụng email."],
+          ["In ấn & tài liệu",  "Thay đổi kích thước ảnh theo đúng kích thước pixel yêu cầu của mẫu in, bản trình bày hoặc bố cục tài liệu của bạn để tránh mất chất lượng khi xuất."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55

@@ -1,0 +1,196 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        تحويل الصور عبر الإنترنت —<br class="hidden sm:block"> محول صيغ مجاني
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        حوّل صورك بين الصيغ المختلفة فورًا — لا حاجة لبرامج أو تسجيل. يدعم محول الصور المجاني عبر الإنترنت لدينا صيغ JPEG، PNG، WebP، GIF، و AVIF. انتقل إلى WebP لمواقع ويب أسرع، حوّل PNG إلى JPEG لملفات أصغر، أو جهّز الصور بالصيغة التي تتطلبها المنصة بالضبط. حمّل صورتك وقم بتنزيل الملف المحول في ثوانٍ.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/convert_hero.png", alt: "محول صيغ الصور عبر الإنترنت — حوّل JPEG، PNG، WebP، GIF و AVIF فورًا", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">خطوة بخطوة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">كيفية تحويل صورة عبر الإنترنت</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">حمّل صورتك</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اسحب وأفلت أو انقر لتحديد ملف JPEG، PNG، WebP، GIF، أو AVIF من جهازك.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">اختر صيغة الإخراج</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">اختر صيغتك المستهدفة — JPEG، PNG، WebP، GIF، أو AVIF. يتعامل المحول مع جميع التفاصيل الفنية تلقائيًا.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">نزّل صورتك المحولة</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">انقر على تنزيل واحفظ ملفك المحول فورًا، جاهزًا للاستخدام في أي مكان.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        لا يلزم حساب. لا يتم تخزين ملفاتك على خوادمنا أبدًا.
+      </p>
+    </div>
+
+    <%# ── Format comparison table ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">مرجع</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">JPEG، PNG، WebP، GIF و AVIF — ما هي الصيغة المناسبة؟</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        لكل صيغة صورة نقطة قوة مختلفة. استخدم هذا الجدول لاختيار صيغة الإخراج المناسبة لاحتياجاتك:
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-base-200">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-base-200/60 border-base-200">
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">الصيغة</th>
+              <th class="text-xs text-base-content/50 font-semibold uppercase tracking-wide">الأفضل لـ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% [
+              ["JPEG",  "الصور الفوتوغرافية، صور الويب، وسائل التواصل الاجتماعي — توافق رائع، أحجام ملفات صغيرة للمشاهد الطبيعية"],
+              ["PNG",   "الشعارات، الرسوم التوضيحية، لقطات الشاشة — جودة بدون فقدان مع دعم كامل للشفافية"],
+              ["WebP",  "الويب الحديث — أفضل ضغط إجمالي؛ أصغر من JPEG بنفس الجودة، يدعم الشفافية"],
+              ["GIF",   "الرسوم المتحركة البسيطة، الرسومات ذات الألوان المحدودة — دعم واسع للمنصات للمحتوى المتحرك"],
+              ["AVIF",  "الويب من الجيل التالي — أعلى كفاءة ضغط بجودة ممتازة؛ مثالي للمواقع الحساسة للأداء"],
+            ].each do |fmt, desc| %>
+              <tr class="border-base-200">
+                <td class="text-sm font-medium text-base-content"><%= fmt %></td>
+                <td class="text-sm text-base-content/60"><%= desc %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-base-content/35 mt-3">عند الشك، حوّل إلى WebP للاستخدام على الويب أو PNG عندما تحتاج إلى الشفافية والجودة بدون فقدان.</p>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">حالات الاستخدام</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">لماذا تحويل صيغ الصور؟</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Convert to WebP for the web",           "ملفات WebP أصغر بنسبة 25-35% من JPEG بنفس الجودة. تحويل صور موقعك إلى WebP هو أحد أسرع المكاسب لسرعة الصفحة ودرجات Core Web Vitals."],
+          ["PNG to JPEG for smaller files",         "ملفات PNG بدون فقدان وكبيرة الحجم. إذا كانت صورتك لا تحتاج إلى شفافية، فإن التحويل إلى JPEG أو WebP يقلل حجم الملف بشكل كبير — غالبًا بنسبة 60-80%."],
+          ["JPEG to PNG for quality &amp; transparency", "هل تحتاج إلى إضافة خلفية شفافة أو العمل مع صورة تتطلب دقة بكسل مثالية؟ حوّل إلى PNG للحصول على جودة بدون فقدان ودعم قناة ألفا."],
+          ["Platform-required formats",             "تتطلب الأدوات المختلفة ومنصات إدارة المحتوى وسير عمل التصميم صيغ ملفات محددة. حوّل مرة واحدة هنا وقم بتحميل الصيغة الصحيحة في كل مرة."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title.html_safe %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Web performance section ────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">أداء الويب</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">حوّل الصور إلى WebP لمواقع ويب أسرع</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        تشير تدقيقات Google PageSpeed Insights و Lighthouse بانتظام إلى "تقديم الصور بصيغ الجيل التالي" كتحسين رئيسي. يساعدك تحويل صورك إلى WebP أو AVIF قبل التحميل على:
+      </p>
+      <ul class="space-y-4 mb-8">
+        <% [
+          ["Improve Core Web Vitals",        "تقلل ملفات الصور الأصغر من LCP (Largest Contentful Paint)، وهي إحدى إشارات الترتيب الأساسية لـ Google."],
+          ["Cut bandwidth and hosting costs", "توفر الصيغ الحديثة نفس الجودة المرئية بجزء صغير من حجم الملف، مما يقلل من حمل الخادم ونقل البيانات."],
+          ["Pass Lighthouse audits",          "يؤدي تحويل ملفات JPEG و PNG القديمة إلى WebP أو AVIF إلى حل مباشر لأحد أكثر تحذيرات PageSpeed Insights شيوعًا."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200">
+        <strong class="text-base-content font-semibold">نصيحة WordPress:</strong> حوّل صورك إلى WebP هنا قبل التحميل إلى مكتبة الوسائط. هذا يتجنب الاعتماد على الإضافات ويمنحك تحكمًا كاملاً في جودة الإخراج والصيغة.
+      </div>
+    </div>
+
+    <%# ── Bulk conversion ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">ميزة احترافية</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">تحويل الصور دفعة واحدة</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        هل تحتاج إلى تحويل صور متعددة دفعة واحدة؟ تتيح لك أداة التحويل الجماعي لدينا تحميل ومعالجة عدة ملفات في عملية واحدة — مثالية لـ:
+      </p>
+      <ul class="space-y-3 mb-8">
+        <% [
+          ["E-commerce",    "حوّل مكتبات صور المنتجات بأكملها إلى WebP قبل النشر في متجرك."],
+          ["Blog &amp; content", "حوّل الصور المميزة والصور المضمنة دفعة واحدة إلى صيغة متسقة."],
+          ["Design exports", "حوّل مجلدًا من أصول تصميم PNG إلى JPEG أو WebP للتسليم أو النشر على الويب."],
+        ].each do |label, desc| %>
+          <li class="flex gap-3 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-base-200 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= label.html_safe %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-6 flex items-center justify-between gap-6">
+        <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 h-14 w-14 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative">
+          <p class="font-bold text-white mb-0.5">التحويل الجماعي متاح في خطة Pro</p>
+          <p class="text-white/60 text-sm">حوّل صورًا متعددة إلى أي صيغة بنقرة واحدة.</p>
+        </div>
+        <%= link_to pricing_path, class: "relative shrink-0 btn btn-sm bg-white text-primary hover:bg-white/90 border-0 font-semibold shadow-sm" do %>
+          ابدأ مجانًا ←
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">الأسئلة الشائعة</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">الأسئلة المتكررة</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["What is the difference between lossy and lossless conversion?",
+           "التحويل مع فقدان البيانات (مثل تحويل PNG إلى JPEG أو WebP) يضغط الصورة عن طريق إزالة بعض البيانات بشكل دائم، مما ينتج عنه ملفات أصغر مع تضحيات طفيفة في الجودة. التحويل بدون فقدان البيانات (مثل JPEG إلى PNG) يحتفظ بجميع بيانات البكسل ولكنه قد لا يقلل حجم الملف. بالنسبة للصور المخصصة للويب، توفر الصيغ ذات الفقدان مثل WebP أفضل توازن بين الحجم والجودة."],
+          ["Is WebP supported by all browsers?",
+           "نعم. WebP مدعوم بالكامل من قبل جميع المتصفحات الحديثة الرئيسية — Chrome، Firefox، Safari، Edge، و Opera — ويغطي أكثر من 97% من مستخدمي الويب العالميين. إنه الآن الصيغة الموصى بها لصور الويب وهو آمن للاستخدام بدون احتياطيات لمعظم المشاريع."],
+          ["What happens to transparency when converting PNG to JPEG?",
+           "لا يدعم JPEG الشفافية. عند تحويل صورة PNG بخلفية شفافة إلى JPEG، يتم ملء المناطق الشفافة بلون ثابت (عادةً أبيض). للحفاظ على الشفافية، حوّل إلى WebP أو PNG بدلاً من ذلك — كلاهما يدعم قناة ألفا."],
+          ["What is the best image format for websites?",
+           "WebP هو أفضل صيغة شاملة لمعظم المواقع الإلكترونية في عام 2025. يوفر أحجام ملفات أصغر بنسبة 25-35% من JPEG بنفس الجودة، ويدعم الشفافية، ومدعوم من جميع المتصفحات الحديثة. للحصول على أقصى ضغط في المتصفحات المتطورة، يذهب AVIF أبعد من ذلك — لكن WebP يحقق التوازن المثالي بين التوافق والأداء."],
+          ["What is the difference between image formats?",
+           "يستخدم JPEG ضغطًا مع فقدان البيانات وهو مثالي للصور الفوتوغرافية. يستخدم PNG ضغطًا بدون فقدان البيانات ويدعم الشفافية، مما يجعله رائعًا للرسومات والشعارات. يجمع WebP بين أفضل ما في الاثنين — مع فقدان أو بدون فقدان البيانات بأحجام ملفات أصغر ودعم الشفافية. يدعم GIF الرسوم المتحركة البسيطة

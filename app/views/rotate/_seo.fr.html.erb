@@ -1,0 +1,161 @@
+<section class="border-t border-base-200">
+  <div class="max-w-3xl mx-auto px-6 sm:px-10 py-20 space-y-20">
+
+    <%# ── Hero ──────────────────────────────────────────────────────── %>
+    <div class="space-y-5">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-base-content leading-tight">
+        Faire pivoter des images en ligne —<br class="hidden sm:block"> Gratuit &amp; Instantané
+      </h1>
+      <p class="text-base-content/55 leading-relaxed text-base sm:text-lg max-w-2xl">
+        Corrigez instantanément les photos de travers ou à l'envers — aucun logiciel, aucune inscription requise. Notre outil de rotation d'images en ligne gratuit vous permet de faire pivoter n'importe quel fichier JPEG, PNG, WebP ou GIF de 90°, 180° ou 270° en un seul clic. Que vous corrigiez une photo prise dans la mauvaise orientation, prépariez une image pour l'impression ou redressiez un scan, vous obtiendrez le fichier correctement orienté en quelques secondes.
+      </p>
+      <div class="rounded-2xl overflow-hidden border border-base-200 shadow-sm mt-4">
+        <%= image_tag "/images/seo/rotate_hero.png", alt: "Outil de rotation d'images en ligne — faites pivoter instantanément des JPEG, PNG, WebP de 90°, 180° ou 270°", class: "w-full h-auto object-cover", loading: "lazy", width: "800", height: "450" %>
+      </div>
+    </div>
+
+    <%# ── How to ─────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Étape par étape</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Comment faire pivoter une image en ligne</h2>
+      </div>
+      <ol class="space-y-5">
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">1</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Téléchargez votre image</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Glissez-déposez ou cliquez pour sélectionner un fichier JPEG, JPG, PNG, GIF ou WebP.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">2</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Choisissez votre rotation</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Sélectionnez 90° dans le sens horaire, 90° dans le sens antihoraire ou 180° pour retourner l'image. L'aperçu se met à jour instantanément.</p>
+          </div>
+        </li>
+        <li class="flex gap-5 items-start">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-extrabold text-sm mt-0.5">3</span>
+          <div class="pt-1.5">
+            <p class="font-semibold text-base-content mb-1">Téléchargez votre image pivotée</p>
+            <p class="text-sm text-base-content/55 leading-relaxed">Cliquez sur télécharger et enregistrez instantanément votre fichier correctement orienté.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="text-xs text-base-content/35 mt-6 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Aucun compte requis. Vos fichiers ne sont jamais stockés sur nos serveurs.
+      </p>
+    </div>
+
+    <%# ── Supported formats ──────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Formats</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Faire pivoter JPEG, PNG, WebP &amp; Plus</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <% [
+          { name: "JPEG / JPG", desc: "Le format photo le plus courant. Faites pivoter sans ré-encodage pour préserver la qualité lorsque c'est possible." },
+          { name: "PNG",        desc: "Prend en charge la transparence. La rotation préserve le canal alpha — les logos et graphiques restent intacts." },
+          { name: "GIF",        desc: "Faites pivoter les GIF statiques proprement. Les GIF animés sont pivotés image par image." },
+          { name: "WebP",       desc: "Le format moderne de Google. Prise en charge complète de la rotation sans perte de qualité." },
+        ].each do |fmt| %>
+          <div class="bg-base-200/40 border border-base-200 rounded-xl p-4 hover:border-primary/30 hover:bg-primary/3 transition-colors">
+            <p class="font-semibold text-base-content text-sm mb-1.5"><%= fmt[:name] %></p>
+            <p class="text-xs text-base-content/55 leading-relaxed"><%= fmt[:desc] %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Common use cases ───────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Quand l'utiliser</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Raisons courantes de faire pivoter une image</h2>
+      </div>
+      <p class="text-base-content/55 mb-6 text-sm leading-relaxed">
+        Les problèmes d'orientation sont plus courants qu'on ne le pense. Voici les situations où faire pivoter une image est la solution la plus rapide :
+      </p>
+      <ul class="space-y-4">
+        <% [
+          ["Corriger l'orientation de l'appareil photo",       "Les smartphones et appareils photo enregistrent parfois les photos de travers lorsqu'elles sont prises en mode paysage ou portrait. Une rotation rapide de 90° corrige cela sans aucune perte de qualité."],
+          ["Corriger les documents scannés",    "Les scanners produisent souvent une sortie pivotée selon la façon dont l'original a été placé. Faites pivoter votre scan à la bonne orientation de lecture avant de le partager ou de l'archiver."],
+          ["Préparer les images pour l'impression",     "Les mises en page d'impression nécessitent des images dans une orientation spécifique. Faites pivoter avant d'exporter pour éviter les surprises à l'impression."],
+          ["Redresser le contenu pour les réseaux sociaux","Télécharger une photo de travers sur Instagram ou un blog n'est pas professionnel. Faites pivoter avant de télécharger pour que la plateforme ne la fasse pas pivoter automatiquement de manière inattendue."],
+        ].each do |title, desc| %>
+          <li class="flex gap-4 items-start">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </span>
+            <p class="text-sm text-base-content/70"><strong class="text-base-content font-semibold"><%= title %></strong> — <%= desc %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bg-base-200/50 rounded-xl px-5 py-4 text-sm text-base-content/55 leading-relaxed border border-base-200 mt-8">
+        <strong class="text-base-content font-semibold">Le saviez-vous ?</strong> Les fichiers JPEG stockent les métadonnées d'orientation (données EXIF) séparément des données de pixels réelles. Certaines applications affichent l'image correctement en utilisant ces métadonnées, tandis que d'autres les ignorent et montrent l'orientation brute. Faire pivoter les pixels réels (comme le fait cet outil) garantit que l'image apparaît correctement partout.
+      </div>
+    </div>
+
+    <%# ── Use cases ──────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">Cas d'utilisation</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Qui utilise un outil de rotation d'images ?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <% [
+          ["Photographes",      "Corrigez l'orientation d'un lot de photos après une séance. Une orientation cohérente dans un album rend les galeries soignées et professionnelles."],
+          ["Blogueurs & rédacteurs", "Les photos prises dans la mauvaise orientation rompent le flux visuel d'un article. Faites pivoter avant de télécharger sur votre CMS pour vous assurer que les images apparaissent correctement pour tous les lecteurs."],
+          ["Vendeurs e-commerce", "Les photos de produits prises de travers semblent peu fiables. Corrigez l'orientation avant de télécharger sur votre boutique pour présenter clairement les produits."],
+          ["Bureau & documents", "Les contrats scannés, reçus ou documents d'identité sont souvent pivotés. Corrigez l'orientation avant de les joindre à des e-mails ou de les télécharger vers des systèmes de gestion de documents."],
+        ].each do |title, desc| %>
+          <div class="rounded-2xl border border-base-200 bg-base-100 p-6 hover:border-primary/20 hover:shadow-sm transition-all">
+            <p class="font-semibold text-base-content mb-2"><%= title %></p>
+            <p class="text-sm text-base-content/55 leading-relaxed"><%= desc %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── FAQ ───────────────────────────────────────────────────────── %>
+    <div>
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-base-content mt-2">Foire aux questions</h2>
+      </div>
+      <div class="space-y-2">
+        <% [
+          ["La rotation d'une image réduit-elle sa qualité ?",
+           "Pour la plupart des formats, non. Une rotation de 90°, 180° ou 270° est une opération sans perte pour les PNG et WebP. Pour les JPEG, l'image est réenregistrée après rotation, ce qui peut impliquer une très légère étape de qualité si l'outil la ré-encode — mais avec des paramètres de haute qualité, c'est imperceptible."],
+          ["Quels formats d'image l'outil de rotation prend-il en charge ?",
+           "L'outil prend en charge les formats JPEG, JPG, PNG, GIF et WebP. Le format de sortie correspond à votre fichier d'entrée, donc un PNG reste un PNG (avec sa transparence intacte) après rotation."],
+          ["Comment corriger une photo à l'envers ?",
+           "Téléchargez votre photo et sélectionnez l'option de rotation à 180°. Cela retourne complètement l'image, corrigeant toute orientation à l'envers en un seul clic."],
+          ["Quelle est la différence entre la rotation automatique et la rotation manuelle ?",
+           "La rotation automatique utilise les métadonnées d'orientation EXIF intégrées par votre appareil photo ou téléphone pour afficher les images correctement. La rotation manuelle modifie physiquement les données de pixels. Si vous constatez que des images s'affichent de travers dans certaines applications (qui ignorent l'EXIF), utilisez cet outil pour intégrer manuellement la bonne orientation dans le fichier lui-même."],
+          ["Mon image pivotée conservera-t-elle le même format de fichier et la même transparence ?",
+           "Oui. Le format de sortie correspond à votre entrée. Les fichiers PNG conservent leur transparence (canal alpha) après rotation. Aucune conversion n'a lieu, sauf si vous choisissez explicitement un format différent."],
+        ].each do |question, answer| %>
+          <div class="collapse collapse-plus rounded-xl border border-base-200 bg-base-100 hover:border-primary/20 transition-colors">
+            <input type="checkbox">
+            <div class="collapse-title font-semibold text-base-content text-sm"><%= question %></div>
+            <div class="collapse-content">
+              <p class="text-sm text-base-content/60 leading-relaxed"><%= answer %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ── Footer note ─────────────────────────────────────────────────── %>
+    <p class="text-xs text-base-content/25 text-right">Dernière mise à jour : mai 2026</p>
+
+  </div>
+</section>
