@@ -25,16 +25,16 @@ class ResizeImagesJobTest < ActiveSupport::TestCase
     assert_equal "done", task.reload.status
   end
 
-  test "marks task failed and re-raises on error" do
+  test "continues and marks task done when one upload fails" do
     task   = create_task(tool: "resize")
     upload = create_upload(task: task)
 
     job = ResizeImagesJob.new
     job.stub(:resize_upload, ->(*) { raise "resize failed" }) do
-      assert_raises(RuntimeError) { job.perform(task.task_id, resizes: resizes_for(upload)) }
+      assert_nothing_raised { job.perform(task.task_id, resizes: resizes_for(upload)) }
     end
 
-    assert_equal "failed", task.reload.status
+    assert_equal "done", task.reload.status
   end
 
   test "only processes uploads whose ids are in resizes keys" do

@@ -1,4 +1,16 @@
-export const CHUNK_SIZE = 2 * 1024 * 1024; // 2MB (matches server MAX_CHUNK_SIZE)
+export const CHUNK_SIZE = 5 * 1024 * 1024; // 5MB (matches server MAX_CHUNK_SIZE)
+
+async function fetchWithRetry(url, options, retries = 3) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, options);
+      if (res.ok || res.status < 500 || attempt === retries) return res;
+    } catch (e) {
+      if (attempt === retries) throw e;
+    }
+    await new Promise(r => setTimeout(r, 1000 * 2 ** attempt));
+  }
+}
 
 // Uploads files in parallel using chunked upload protocol.
 //
@@ -39,7 +51,7 @@ async function uploadFile(file, taskId, csrfToken) {
     formData.append("filename", file.name);
     formData.append("chunk", file.slice(start, end));
 
-    const response = await fetch("/uploads/chunk", {
+    const response = await fetchWithRetry("/uploads/chunk", {
       method: "POST",
       headers: { "X-CSRF-Token": csrfToken },
       body: formData,

@@ -8,6 +8,8 @@ class CompressImagesJob < ApplicationJob
 
     uploads.find_each do |upload|
       compress_upload(upload, quality: quality, strip_exif: strip_exif)
+    rescue => e
+      Rails.logger.error "CompressImagesJob: #{upload.upload_id} failed: #{e.message}"
     end
 
     task.update!(status: "done")

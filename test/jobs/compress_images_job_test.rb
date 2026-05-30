@@ -19,18 +19,16 @@ class CompressImagesJobTest < ActiveSupport::TestCase
     assert_equal "done", task.reload.status
   end
 
-  test "marks task failed and re-raises on error" do
+  test "continues and marks task done when one upload fails" do
     task = create_task(tool: "compress")
     _upload = create_upload(task: task)
 
     job = CompressImagesJob.new
     job.stub(:compress_upload, ->(*) { raise "vips exploded" }) do
-      assert_raises(RuntimeError, "vips exploded") do
-        job.perform(task.task_id, quality: 80)
-      end
+      assert_nothing_raised { job.perform(task.task_id, quality: 80) }
     end
 
-    assert_equal "failed", task.reload.status
+    assert_equal "done", task.reload.status
   end
 
   test "filters uploads by upload_ids when provided" do

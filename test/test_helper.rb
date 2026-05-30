@@ -10,10 +10,12 @@ unless Object.method_defined?(:stub)
       new_name = :"__stub_#{name}__"
       metaclass = class << self; self; end
 
-      # Ensure the method exists on the metaclass so alias_method works
+      # Ensure the method exists on the metaclass so alias_method works.
+      # Capture the bound Method directly (not instance_method) to avoid infinite
+      # recursion when the owner is the instance's own singleton class (e.g. method_missing).
       unless methods(false).map(&:to_s).include?(name.to_s)
-        original_owner = method(name).owner
-        metaclass.define_method(name) { |*a, **k, &b| original_owner.instance_method(name).bind_call(self, *a, **k, &b) }
+        original_method = method(name)
+        metaclass.define_method(name) { |*a, **k, &b| original_method.call(*a, **k, &b) }
       end
 
       metaclass.alias_method new_name, name
@@ -138,13 +140,13 @@ module ActiveSupport
     # Stub ImageProcessing::Vips.source to return a chainable mock whose
     # #call returns a Tempfile containing `content`.
     def with_vips_stub(content: "fake-image-data", ext: ".png")
-      result = Tempfile.new(["vips_result", ext])
+      result = Tempfile.new([ "vips_result", ext ])
       result.binmode
       result.write(content)
       result.rewind
 
       mock = ChainablePipelineMock.new(result)
-      ImageProcessing::Vips.stub(:source, mock) do
+      ImageProcessing::Vips.stub(:source, ->(*) { mock }) do
         yield result
       end
     ensure

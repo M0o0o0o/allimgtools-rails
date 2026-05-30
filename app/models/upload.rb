@@ -28,14 +28,17 @@ class Upload < ApplicationRecord
   end
 
   def assemble!(max_size: MAX_FILE_SIZE)
+    claimed = self.class.where(id: id, status: "pending").update_all(status: "assembling")
+    return if claimed == 0
+
+    reload
+
     total_size = total_chunks.times.sum { |i| File.size(chunk_path(i)) }
     raise "File size exceeds limit." if total_size > max_size
 
-    update!(status: "assembling")
-
     Tempfile.open([ "upload", File.extname(filename) ], binmode: true) do |output|
       total_chunks.times do |i|
-        output.write(File.binread(chunk_path(i)))
+        IO.copy_stream(chunk_path(i).to_s, output)
       end
       output.rewind
 
@@ -51,6 +54,8 @@ class Upload < ApplicationRecord
     FileUtils.rm_rf(tmp_dir)
   rescue => e
     update!(status: "failed")
+    file.purge if file.attached?
+    compressed_file.purge if compressed_file.attached?
     FileUtils.rm_rf(tmp_dir)
     raise e
   end

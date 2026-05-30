@@ -11,6 +11,8 @@ class ResizeImagesJob < ApplicationJob
         height: settings["height"],
         maintain_aspect_ratio: settings["maintain_aspect_ratio"] != false
       )
+    rescue => e
+      Rails.logger.error "ResizeImagesJob: #{upload.upload_id} failed: #{e.message}"
     end
 
     task.update!(status: "done")

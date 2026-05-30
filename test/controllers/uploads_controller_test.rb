@@ -21,12 +21,8 @@ class UploadsControllerTest < ActionDispatch::IntegrationTest
     tmp = Tempfile.new([ "upload_test", ".png" ])
     tmp.binmode
     tmp.write(MINIMAL_PNG)
-    tmp.rewind
-    ActionDispatch::Http::UploadedFile.new(
-      tempfile: tmp,
-      filename: name,
-      type:     "image/png"
-    )
+    tmp.flush
+    Rack::Test::UploadedFile.new(tmp.path, "image/png", true)
   end
 
   # ── Validation: upload_id ─────────────────────────────────────────────────
@@ -96,17 +92,21 @@ class UploadsControllerTest < ActionDispatch::IntegrationTest
   # ── Validation: chunk size ────────────────────────────────────────────────
 
   test "rejects oversized chunk" do
-    oversize = "x" * (UploadsController::MAX_CHUNK_SIZE + 1)
     task = create_task
+    oversize_file = Tempfile.new([ "oversize", ".bin" ])
+    oversize_file.binmode
+    oversize_file.write("x" * (UploadsController::MAX_CHUNK_SIZE + 1))
+    oversize_file.flush
     post upload_chunk_path, params: {
       upload_id: SecureRandom.uuid, chunk_index: 0, total_chunks: 1,
       filename: "test.png", task_id: task.task_id,
-      chunk: ActionDispatch::Http::UploadedFile.new(
-        tempfile: StringIO.new(oversize), filename: "test.png", type: "image/png"
-      )
+      chunk: Rack::Test::UploadedFile.new(oversize_file.path, "application/octet-stream", true)
     }
     assert_response :unprocessable_entity
     assert_match "exceeds the limit", response.parsed_body["error"]
+  ensure
+    oversize_file&.close
+    oversize_file&.unlink
   end
 
   # ── Batch limit ───────────────────────────────────────────────────────────

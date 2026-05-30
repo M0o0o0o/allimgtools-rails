@@ -1,13 +1,13 @@
 class UploadsController < ApplicationController
   MAX_FILENAME_LENGTH = 255
-  MAX_CHUNK_SIZE      = 2 * 1024 * 1024 + 1.kilobyte  # 2MB + 1KB 여유
-  MAX_CHUNKS          = (Upload::MAX_FILE_SIZE_PRO.to_f / (2 * 1024 * 1024)).ceil + 1
+  MAX_CHUNK_SIZE      = 5 * 1024 * 1024 + 1.kilobyte  # 5MB + 1KB 여유
+  MAX_CHUNKS          = (Upload::MAX_FILE_SIZE_PRO.to_f / (5 * 1024 * 1024)).ceil + 1
 
   def chunk
     upload_id    = params.require(:upload_id)
     chunk_index  = params.require(:chunk_index).to_i
     total_chunks = params.require(:total_chunks).to_i
-    filename     = params.require(:filename)
+    filename     = params[:filename].to_s
     chunk_data   = params.require(:chunk)
     task_id      = params.require(:task_id)
     ip_address   = request.remote_ip
@@ -30,7 +30,8 @@ class UploadsController < ApplicationController
     max_size = Upload.max_size_for(Current.user)
 
     # 4. Validate actual chunk size (do not trust client-reported file_size)
-    if chunk_data.size > MAX_CHUNK_SIZE
+    chunk_size = chunk_data.respond_to?(:size) ? chunk_data.size : chunk_data.bytesize
+    if chunk_size > MAX_CHUNK_SIZE
       return render json: { error: "File size exceeds the limit." }, status: :unprocessable_entity
     end
 
@@ -54,19 +55,24 @@ class UploadsController < ApplicationController
 
     return render json: { error: "Upload already completed." }, status: :unprocessable_entity if upload.status == "done"
 
+    unless chunk_index.between?(0, upload.total_chunks - 1)
+      return render json: { error: "Invalid request." }, status: :bad_request
+    end
+
     FileUtils.mkdir_p(upload.tmp_dir)
-    File.binwrite(upload.chunk_path(chunk_index), chunk_data.read)
+    chunk_bytes = chunk_data.respond_to?(:read) ? chunk_data.read : chunk_data
+    File.binwrite(upload.chunk_path(chunk_index), chunk_bytes)
 
-    saved_count = Dir.glob(upload.tmp_dir.join("*.chunk")).count
+    upload.increment!(:chunks_received)
 
-    if saved_count == total_chunks
+    if upload.chunks_received == upload.total_chunks
       upload.assemble!(max_size: max_size)
       render json: { status: "done", upload_id: upload_id, task_id: task_id }
     else
-      render json: { status: "pending", received: saved_count, total: total_chunks }
+      render json: { status: "pending", received: upload.chunks_received, total: upload.total_chunks }
     end
   rescue => e
-    Rails.logger.error "UploadsController#chunk error: #{e.class}: #{e.message}"
+    Rails.logger.error "UploadsController#chunk error: #{e.class}: #{e.message}\n#{e.backtrace.first(5).join("\n")}"
     render json: { error: "An error occurred. Please try again." }, status: :unprocessable_entity
   end
 end

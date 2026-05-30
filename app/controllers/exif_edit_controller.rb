@@ -42,7 +42,7 @@ class ExifEditController < ApplicationController
     upload = Upload.completed.find_by!(upload_id: params[:upload_id])
 
     data = upload.file.open do |f|
-      raw = IO.popen([ "exiftool", "-json", "-n", f.path ], &:read)
+      raw = Timeout.timeout(10) { IO.popen([ "exiftool", "-json", "-n", f.path ], &:read) }
       tags = JSON.parse(raw).first || {}
 
       existing = tags.each_with_object({}) do |(key, val), h|

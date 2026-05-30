@@ -11,6 +11,8 @@ class ConvertImagesJob < ApplicationJob
 
     uploads.find_each do |upload|
       convert_upload(upload, to_format: to_format)
+    rescue => e
+      Rails.logger.error "ConvertImagesJob: #{upload.upload_id} failed: #{e.message}"
     end
 
     task.update!(status: "done")

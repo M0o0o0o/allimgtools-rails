@@ -1,6 +1,7 @@
 <div data-controller="chunk-upload"
      data-chunk-upload-success-path-value="<%= success_path %>"
-     data-chunk-upload-task-id-value="<%= task.task_id %>">
+     data-chunk-upload-task-id-value="<%= task.task_id %>"
+     data-chunk-upload-max-file-size-value="<%= user_max_file_size %>">
   <form data-action="submit->chunk-upload#upload">
 
     <%# Drag and drop area %>
@@ -13,7 +14,7 @@
         </svg>
         <div>
           <p class="text-base font-semibold text-base-content">Drag images here or click to select</p>
-          <p class="text-sm text-base-content/50 mt-1">JPEG, PNG, GIF, WebP, AVIF · Max 5MB per file</p>
+          <p class="text-sm text-base-content/50 mt-1">JPEG, PNG, GIF, WebP, AVIF · Max <%= user_max_file_size / 1.megabyte %>MB per file</p>
         </div>
       </div>
       <input

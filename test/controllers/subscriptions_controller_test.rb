@@ -12,9 +12,11 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
       "items"          => [ { "price" => { "id" => PADDLE_TEST_PRICE_ID } } ]
     }
 
-    PaddleApi.stub(:active_subscriptions, [ active_sub ]) do
-      post subscription_checkout_complete_path,
-           params: { customer_id: "ctm_new_001" }
+    with_paddle_credentials do
+      PaddleApi.stub(:active_subscriptions, [ active_sub ]) do
+        post subscription_checkout_complete_path,
+             params: { customer_id: "ctm_new_001" }
+      end
     end
 
     assert_response :success
@@ -88,8 +90,10 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
       "items"          => [ { "price" => { "id" => PADDLE_TEST_PRICE_ID } } ]
     }
 
-    PaddleApi.stub(:active_subscriptions, [ active_sub ]) do
-      post subscription_sync_path
+    with_paddle_credentials do
+      PaddleApi.stub(:active_subscriptions, [ active_sub ]) do
+        post subscription_sync_path
+      end
     end
 
     assert_redirected_to my_page_path

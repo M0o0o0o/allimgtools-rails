@@ -22,15 +22,17 @@ class PaddleWebhookJobTest < ActiveSupport::TestCase
   # ── subscription.activated ───────────────────────────────────────────────
 
   test "activated sets subscription fields on user" do
-    user = users(:free_user)
-    user.update!(customer_id: "ctm_free_test")
+    with_paddle_credentials do
+      user = users(:free_user)
+      user.update!(customer_id: "ctm_free_test")
 
-    perform(activated_event(user))
+      perform(activated_event(user))
 
-    user.reload
-    assert_equal "sub_new_001", user.subscription_id
-    assert_equal "pro", user.subscription_plan
-    assert user.subscribed?
+      user.reload
+      assert_equal "sub_new_001", user.subscription_id
+      assert_equal "pro", user.subscription_plan
+      assert user.subscribed?
+    end
   end
 
   test "activated sets subscribed_until to next_billed_at + 1 day" do
@@ -68,13 +70,11 @@ class PaddleWebhookJobTest < ActiveSupport::TestCase
     user = users(:free_user)
     user.update!(customer_id: "ctm_free_test4")
 
-    original = ENV["PADDLE_PRO_YEARLY_PRICE_ID"]
-    ENV["PADDLE_PRO_YEARLY_PRICE_ID"] = "pri_01yearly"
-
-    perform(activated_event(user, price_id: "pri_01yearly"))
-    assert_equal "pro_yearly", user.reload.subscription_plan
+    with_paddle_credentials(pro_yearly_price_id: "pri_01yearly") do
+      perform(activated_event(user, price_id: "pri_01yearly"))
+      assert_equal "pro_yearly", user.reload.subscription_plan
+    end
   ensure
-    ENV["PADDLE_PRO_YEARLY_PRICE_ID"] = original
     user.update!(customer_id: nil, subscription_id: nil, subscription_plan: nil, subscribed_until: nil)
   end
 
@@ -106,21 +106,23 @@ class PaddleWebhookJobTest < ActiveSupport::TestCase
   # ── subscription.updated ─────────────────────────────────────────────────
 
   test "updated changes plan and subscribed_until" do
-    user = users(:pro_user)
-    new_date = 2.months.from_now
+    with_paddle_credentials do
+      user = users(:pro_user)
+      new_date = 2.months.from_now
 
-    perform(
-      "event_type" => "subscription.updated",
-      "data"       => {
-        "customer_id"    => user.customer_id,
-        "next_billed_at" => new_date.iso8601,
-        "items"          => [ { "price" => { "id" => PADDLE_TEST_PRICE_ID } } ]
-      }
-    )
+      perform(
+        "event_type" => "subscription.updated",
+        "data"       => {
+          "customer_id"    => user.customer_id,
+          "next_billed_at" => new_date.iso8601,
+          "items"          => [ { "price" => { "id" => PADDLE_TEST_PRICE_ID } } ]
+        }
+      )
 
-    user.reload
-    assert_equal "pro", user.subscription_plan
-    assert user.subscribed?
+      user.reload
+      assert_equal "pro", user.subscription_plan
+      assert user.subscribed?
+    end
   end
 
   # ── subscription.cancelled ───────────────────────────────────────────────
@@ -186,28 +188,29 @@ class PaddleWebhookJobTest < ActiveSupport::TestCase
 
   test "activated falls back to email lookup when customer_id not saved" do
     user = users(:free_user)
-    # Ensure no customer_id saved
     user.update!(customer_id: nil)
 
-    customer_data = { "id" => "ctm_looked_up", "email" => user.email_address }
-    PaddleApi.stub(:customer, { "data" => customer_data }) do
-      perform(
-        "event_type" => "subscription.activated",
-        "data"       => {
-          "id"             => "sub_fallback",
-          "customer_id"    => "ctm_looked_up",
-          "next_billed_at" => 1.month.from_now.iso8601,
-          "items"          => [ { "price" => { "id" => PADDLE_TEST_PRICE_ID } } ]
-        }
-      )
-    end
+    with_paddle_credentials do
+      customer_data = { "id" => "ctm_looked_up", "email" => user.email_address }
+      PaddleApi.stub(:customer, { "data" => customer_data }) do
+        perform(
+          "event_type" => "subscription.activated",
+          "data"       => {
+            "id"             => "sub_fallback",
+            "customer_id"    => "ctm_looked_up",
+            "next_billed_at" => 1.month.from_now.iso8601,
+            "items"          => [ { "price" => { "id" => PADDLE_TEST_PRICE_ID } } ]
+          }
+        )
+      end
 
-    user.reload
-    assert_equal "ctm_looked_up", user.customer_id
-    assert_equal "pro", user.subscription_plan
+      user.reload
+      assert_equal "ctm_looked_up", user.customer_id
+      assert_equal "pro", user.subscription_plan
+    end
   ensure
-    user.update!(customer_id: nil, subscription_id: nil,
-                 subscription_plan: nil, subscribed_until: nil)
+    user&.update!(customer_id: nil, subscription_id: nil,
+                  subscription_plan: nil, subscribed_until: nil)
   end
 
   # ── unknown event type ────────────────────────────────────────────────────

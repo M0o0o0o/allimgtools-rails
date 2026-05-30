@@ -1,7 +1,18 @@
 import { Controller } from "@hotwired/stimulus";
 
 const CHUNK_SIZE = 5 * 1024 * 1024; // 5MB
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
+async function fetchWithRetry(url, options, retries = 3) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, options);
+      if (res.ok || res.status < 500 || attempt === retries) return res;
+    } catch (e) {
+      if (attempt === retries) throw e;
+    }
+    await new Promise(r => setTimeout(r, 1000 * 2 ** attempt));
+  }
+}
 
 export default class extends Controller {
   static targets = [
@@ -15,7 +26,11 @@ export default class extends Controller {
     "errorAlert",
     "errorMessage",
   ];
-  static values = { successPath: String, taskId: String };
+  static values = {
+    successPath: String,
+    taskId: String,
+    maxFileSize: { type: Number, default: 10 * 1024 * 1024 },
+  };
 
   #files = [];
 
@@ -67,14 +82,15 @@ export default class extends Controller {
       li.className =
         "relative rounded-xl overflow-hidden bg-base-100 shadow aspect-square flex items-center justify-center";
 
-      if (file.size > MAX_FILE_SIZE) {
+      const limitMB = Math.round(this.maxFileSizeValue / (1024 * 1024));
+      if (file.size > this.maxFileSizeValue) {
         li.innerHTML = `
           <div class="absolute inset-0 bg-error/10 flex flex-col items-center justify-center p-2 text-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-error mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
             </svg>
             <p class="text-xs text-error font-medium leading-tight">${file.name}</p>
-            <p class="text-xs text-error/70">Exceeds 5MB</p>
+            <p class="text-xs text-error/70">Exceeds ${limitMB}MB</p>
           </div>`;
       } else {
         const img = document.createElement("img");
@@ -126,9 +142,10 @@ export default class extends Controller {
     this.progressAreaTarget.classList.remove("hidden");
     this.#hideError();
 
+    const limitMB = Math.round(this.maxFileSizeValue / (1024 * 1024));
     for (const file of this.#files) {
-      if (file.size > MAX_FILE_SIZE) {
-        this.#showError(`${file.name} exceeds the 5MB size limit.`);
+      if (file.size > this.maxFileSizeValue) {
+        this.#showError(`${file.name} exceeds the ${limitMB}MB size limit.`);
         this.progressAreaTarget.classList.add("hidden");
         this.submitTarget.disabled = false;
         return;
@@ -175,7 +192,7 @@ export default class extends Controller {
       formData.append("filename", file.name);
       formData.append("chunk", file.slice(start, end));
 
-      const response = await fetch("/uploads/chunk", {
+      const response = await fetchWithRetry("/uploads/chunk", {
         method: "POST",
         headers: { "X-CSRF-Token": csrfToken },
         body: formData,

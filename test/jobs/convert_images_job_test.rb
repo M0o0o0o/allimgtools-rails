@@ -17,16 +17,16 @@ class ConvertImagesJobTest < ActiveSupport::TestCase
     assert_equal "done", task.reload.status
   end
 
-  test "marks task failed and re-raises on error" do
+  test "continues and marks task done when one upload fails" do
     task    = create_task(tool: "convert")
     _upload = create_upload(task: task, filename: "image.png")
 
     job = ConvertImagesJob.new
     job.stub(:convert_upload, ->(*) { raise "convert error" }) do
-      assert_raises(RuntimeError) { job.perform(task.task_id, to_format: "jpeg") }
+      assert_nothing_raised { job.perform(task.task_id, to_format: "jpeg") }
     end
 
-    assert_equal "failed", task.reload.status
+    assert_equal "done", task.reload.status
   end
 
   test "skips conversion when source and target format are the same" do

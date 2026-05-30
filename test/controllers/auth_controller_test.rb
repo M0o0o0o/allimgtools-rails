@@ -21,17 +21,18 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
 
   test "google_callback creates session and redirects" do
     user = users(:free_user)
-    mock_auth = {
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
       provider: user.provider,
       uid:      user.uid,
       info:     { email: user.email_address, name: user.name, image: nil }
-    }
+    )
 
-    get "/auth/google_oauth2/callback",
-        env: { "omniauth.auth" => OmniAuth::AuthHash.new(mock_auth) }
+    get "/auth/google_oauth2/callback"
 
     assert_response :redirect
     assert cookies[:session_id].present?
+  ensure
+    OmniAuth.config.mock_auth.delete(:google_oauth2)
   end
 
   test "google_callback redirects to root on error" do

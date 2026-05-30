@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   constraints subdomain: "admin" do
     resource :session
-    resource :password, only: [ :new, :edit, :update ]
+    resource :password, only: [ :new, :create, :edit, :update ]
 
     scope module: :admin, as: :admin do
       root "dashboard#index"
