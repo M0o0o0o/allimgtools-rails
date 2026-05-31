@@ -22,18 +22,22 @@ class CompressImagesJob < ApplicationJob
 
   def compress_upload(upload, quality:, strip_exif: false)
     ext = upload.normalized_extension
+    keep_opts = strip_exif ? { keep: :none } : {}
 
     result = upload.file.open do |source|
       pipeline = ImageProcessing::Vips.source(source)
       pipeline = case ext
-      when "jpeg" then pipeline.convert("jpeg").saver(quality: quality, strip: strip_exif)
-      when "webp"  then pipeline.convert("webp").saver(quality: quality, strip: strip_exif)
-      when "png"   then pipeline.convert("png").saver(compression: 9)
-      when "avif"  then pipeline.convert("avif").saver(quality: quality, strip: strip_exif)
+      when "jpeg" then pipeline.convert("jpeg").saver(quality: quality, **keep_opts)
+      when "webp"  then pipeline.convert("webp").saver(quality: quality, **keep_opts)
+      when "png"
+        palette = quality < 100
+        pipeline.convert("png").saver(compression: 9, palette: palette, Q: quality, **keep_opts)
+      when "avif"  then pipeline.convert("avif").saver(quality: quality, **keep_opts)
       when "gif"
         colours = (quality / 100.0 * 254 + 2).round.clamp(2, 256)
-        pipeline.convert("gif").saver(colours: colours, dither: 1.0, effort: 7)
-      else pipeline.saver(quality: quality, strip: strip_exif)
+        bitdepth = Math.log2(colours).ceil.clamp(1, 8)
+        pipeline.convert("gif").saver(bitdepth: bitdepth, dither: 1.0, effort: 7, **keep_opts)
+      else pipeline.saver(quality: quality, **keep_opts)
       end
       pipeline.call
     end
