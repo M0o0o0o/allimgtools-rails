@@ -1,5 +1,6 @@
 <% content_for :title, t("rotate.page_title") %>
 <% content_for :description, t("rotate.page_description") %>
+<% content_for :og_image, "/images/seo/rotate_hero.png" %>
 <% content_for :head do %>
   <script type="application/ld+json">
   {
@@ -12,6 +13,9 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "description": "Rotate and flip images online for free."
   }
+  </script>
+  <script type="application/ld+json">
+  <%= { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": t("rotate.faq").map { |item| { "@type": "Question", "name": item[:q], "acceptedAnswer": { "@type": "Answer", "text": item[:a] } } } }.to_json.html_safe %>
   </script>
 <% end %>
 <% content_for :main_class, "flex-1 flex flex-col min-h-0" %>

@@ -38,6 +38,25 @@ tr:
     convert_desc: "JPEG, PNG ve WebP formatları arasında dönüştürün."
     meta_title: "Allimgtools — Ücretsiz Çevrimiçi Resim Araçları"
     meta_description: "Ücretsiz çevrimiçi resim araçları. JPEG, PNG, WebP, GIF ve AVIF resimlerini anında sıkıştırın, yeniden boyutlandırın ve dönüştürün. Kayıt gerekmez. Dosyalar 3 saat sonra silinir."
+    why_title: "Neden Allimgtools?"
+    why_1_title: "Kayıt Gerektirmez"
+    why_1_body: "Tüm araçlar anında çalışır — hesap, e-posta veya kayıt gerekmez. Yükleyin ve başlayın."
+    why_2_title: "Dosyalar Otomatik Silinir"
+    why_2_body: "Görselleriniz 3 saat içinde kalıcı olarak silinir. Depolama yok, kayıt yok, veri paylaşımı yok."
+    why_3_title: "7 Araç, Tek Yer"
+    why_3_body: "Sıkıştır, yeniden boyutlandır, döndür, kırp, format dönüştür ve EXIF meta verilerini düzenle ya da kaldır — hepsi ücretsiz."
+    use_cases_title: "Günlük Görsel Görevler İçin Tasarlandı"
+    use_cases_1_title: "Online Satıcılar"
+    use_cases_1_body: "Etsy, Trendyol veya mağazanız için ürün fotoğraflarını toplu olarak sıkıştırın ve yeniden boyutlandırın. Her yüklemeden önce tek tek işlemeyi bırakın."
+    use_cases_2_title: "Web ve İçerik Üreticileri"
+    use_cases_2_body: "Daha hızlı sayfa yüklemesi için görsel dosya boyutlarını küçültün. Google PageSpeed puanını ve Core Web Vitals'ı iyileştirmek için JPEG'i WebP'ye dönüştürün."
+    use_cases_3_title: "Gizlilik Bilincine Sahip Kullanıcılar"
+    use_cases_3_body: "Fotoğrafları kamuya açık paylaşmadan önce GPS koordinatlarını, kamera modelini ve çekim tarihini silin. Paylaştıklarınız kontrolünüzde olmalı."
+    trust_1: "Dosyalar 3 saat içinde silindi"
+    trust_2: "Kayıt gerekmez"
+    trust_3: "GDPR uyumlu"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 ücretsiz araç"
 
   compress:
     page_title: "Ücretsiz Resim Sıkıştırıcı — Çevrimiçi Dosya Boyutunu Küçült | Allimgtools"
@@ -177,6 +196,16 @@ tr:
     failed: "İşlem Başarısız"
     error: "Bir hata oluştu. Lütfen tekrar deneyin."
     try_again: "Tekrar Dene"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Görüntü optimizasyonu, dönüştürme ve düzenleme hakkında ipuçları, kılavuzlar ve güncellemeler."
+    index_title: "Blog"
+    index_description: "Görüntülerle çalışmak için faydalı ipuçları, kılavuzlar ve güncellemeler."
+    no_posts: "Henüz gönderi yok."
+    read_more: "Devamını oku"
+    read_time: "%{minutes} dk okuma"
+    back_to_blog: "Bloga dön"
 
   pricing:
     meta_title: "Fiyatlandırma — Allimgtools"

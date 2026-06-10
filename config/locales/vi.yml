@@ -38,6 +38,25 @@ vi:
     convert_desc: "Chuyển đổi giữa các định dạng JPEG, PNG và WebP."
     meta_title: "Allimgtools — Công cụ ảnh trực tuyến miễn phí"
     meta_description: "Công cụ ảnh trực tuyến miễn phí. Nén, thay đổi kích thước và chuyển đổi ảnh JPEG, PNG, WebP, GIF và AVIF ngay lập tức. Không cần đăng ký. Tệp bị xóa sau 3 giờ."
+    why_title: "Tại sao chọn Allimgtools?"
+    why_1_title: "Không cần đăng ký"
+    why_1_body: "Tất cả công cụ hoạt động ngay lập tức — không cần tài khoản, email hay đăng ký. Chỉ cần tải lên và bắt đầu."
+    why_2_title: "Tệp được xóa tự động"
+    why_2_body: "Ảnh của bạn bị xóa vĩnh viễn trong vòng 3 giờ. Không lưu trữ, không nhật ký, không chia sẻ dữ liệu."
+    why_3_title: "7 công cụ trong một nơi"
+    why_3_body: "Nén, thay đổi kích thước, xoay, cắt, chuyển đổi định dạng và chỉnh sửa hoặc xóa siêu dữ liệu EXIF — tất cả miễn phí."
+    use_cases_title: "Được thiết kế cho công việc hình ảnh hàng ngày"
+    use_cases_1_title: "Người bán hàng online"
+    use_cases_1_body: "Nén và thay đổi kích thước ảnh sản phẩm cho Shopee, Lazada hoặc cửa hàng của bạn theo lô. Đừng xử lý từng ảnh một trước mỗi lần tải lên."
+    use_cases_2_title: "Nhà tạo nội dung web"
+    use_cases_2_body: "Giảm kích thước tệp ảnh để tải trang nhanh hơn. Chuyển đổi JPEG sang WebP để cải thiện điểm PageSpeed và Core Web Vitals của Google."
+    use_cases_3_title: "Người dùng quan tâm đến quyền riêng tư"
+    use_cases_3_body: "Xóa tọa độ GPS, kiểu máy ảnh và ngày chụp trước khi chia sẻ ảnh công khai. Những gì bạn chia sẻ phải do bạn kiểm soát."
+    trust_1: "Tệp bị xóa trong vòng 3 giờ"
+    trust_2: "Không cần đăng ký"
+    trust_3: "Tuân thủ GDPR"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 công cụ miễn phí"
 
   compress:
     page_title: "Công cụ nén ảnh miễn phí — Giảm kích thước tệp trực tuyến | Allimgtools"
@@ -177,6 +196,16 @@ vi:
     failed: "Xử lý thất bại"
     error: "Đã xảy ra lỗi. Vui lòng thử lại."
     try_again: "Thử lại"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Mẹo, hướng dẫn và cập nhật về tối ưu hóa, chuyển đổi và chỉnh sửa hình ảnh."
+    index_title: "Blog"
+    index_description: "Mẹo hữu ích, hướng dẫn và cập nhật để làm việc với hình ảnh."
+    no_posts: "Chưa có bài viết nào."
+    read_more: "Đọc thêm"
+    read_time: "%{minutes} phút đọc"
+    back_to_blog: "Quay lại Blog"
 
   pricing:
     meta_title: "Bảng giá — Allimgtools"

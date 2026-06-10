@@ -7,14 +7,16 @@ SitemapGenerator::Sitemap.public_path = Rails.root.join("storage", "sitemaps").t
 SitemapGenerator::Sitemap.create(include_root: false) do
   locales = SUPPORTED_LOCALES.keys
 
-  # Build alternates array for hreflang
+  # Build alternates array for hreflang (includes x-default pointing to English URL)
   build_alternates = ->(path_builder) {
-    locales.map do |locale|
+    alts = locales.map do |locale|
       {
         href: "#{SitemapGenerator::Sitemap.default_host}#{path_builder.call(locale)}",
         lang: locale.to_s
       }
     end
+    alts << { href: "#{SitemapGenerator::Sitemap.default_host}#{path_builder.call(:en)}", lang: "x-default" }
+    alts
   }
 
   # Locale-prefixed path (no prefix for :en)
@@ -41,7 +43,11 @@ SitemapGenerator::Sitemap.create(include_root: false) do
     { path: "png-to-jpg",  priority: 0.8, changefreq: "monthly" },
     { path: "png-to-webp", priority: 0.8, changefreq: "monthly" },
     { path: "webp-to-jpg", priority: 0.8, changefreq: "monthly" },
-    { path: "webp-to-png", priority: 0.8, changefreq: "monthly" }
+    { path: "webp-to-png", priority: 0.8, changefreq: "monthly" },
+    { path: "pricing",     priority: 0.6, changefreq: "monthly" },
+    { path: "faq",         priority: 0.6, changefreq: "monthly" },
+    { path: "terms",       priority: 0.4, changefreq: "yearly"  },
+    { path: "privacy",     priority: 0.4, changefreq: "yearly"  }
   ]
 
   static_pages.each do |page|
@@ -58,11 +64,14 @@ SitemapGenerator::Sitemap.create(include_root: false) do
     end
   end
 
-  # Blog index page (English only — no locale alternates)
-  add "/posts",
-      changefreq: "weekly",
-      priority: 0.7,
-      alternates: [ { href: "#{SitemapGenerator::Sitemap.default_host}/posts", lang: "en" } ]
+  # Blog index page — all locales
+  blog_alternates = build_alternates.call(->(l) { locale_path.call(l, "posts").then { |p| p.empty? ? "/posts" : p } })
+  locales.each do |locale|
+    add locale_path.call(locale, "posts"),
+        changefreq: "weekly",
+        priority: 0.7,
+        alternates: blog_alternates
+  end
 
   # Individual blog posts (per locale that has a translation)
   Post.published.includes(:translations).find_each do |post|

@@ -38,6 +38,25 @@ ca:
     convert_desc: "Converteix entre els formats JPEG, PNG i WebP."
     meta_title: "Allimgtools — Eines d'imatge en línia gratuïtes"
     meta_description: "Eines d'imatge en línia gratuïtes. Comprimeix, redimensiona i converteix imatges JPEG, PNG, WebP, GIF i AVIF instantàniament. Sense registre. Fitxers eliminats després de 3 hores."
+    why_title: "Per què Allimgtools?"
+    why_1_title: "Sense registre"
+    why_1_body: "Totes les eines funcionen al moment — sense compte, sense correu electrònic, sense registre. Puja i comença."
+    why_2_title: "Fitxers eliminats automàticament"
+    why_2_body: "Les vostres imatges s'eliminen permanentment en 3 hores. Sense emmagatzematge, sense registres, sense compartir dades."
+    why_3_title: "7 eines en un sol lloc"
+    why_3_body: "Comprimeix, redimensiona, gira, retalla, converteix formats i edita o elimina metadades EXIF — tot gratuïtament."
+    use_cases_title: "Dissenyat per a tasques d'imatge quotidianes"
+    use_cases_1_title: "Venedors en línia"
+    use_cases_1_body: "Comprimeix i redimensiona fotos de productes per a Etsy o la teva botiga en massa. Deixa de processar una imatge alhora."
+    use_cases_2_title: "Creadors web i de contingut"
+    use_cases_2_body: "Redueix la mida dels fitxers d'imatge per a càrregues de pàgina més ràpides. Converteix JPEG a WebP per millorar la puntuació PageSpeed i els Core Web Vitals."
+    use_cases_3_title: "Usuaris conscients de la privadesa"
+    use_cases_3_body: "Elimina les coordenades GPS, el model de càmera i la data de captura abans de compartir fotos públicament. El que comparteixes ha d'estar sota el teu control."
+    trust_1: "Fitxers eliminats en 3 hores"
+    trust_2: "Sense registre necessari"
+    trust_3: "Compatible amb RGPD"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 eines gratuïtes"
 
   compress:
     page_title: "Compressor d'imatges gratuït — Reduir la mida en línia | Allimgtools"
@@ -177,6 +196,16 @@ ca:
     failed: "Error en el processament"
     error: "S'ha produït un error. Si us plau, torna-ho a intentar."
     try_again: "Tornar a intentar"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Consells, guies i actualitzacions sobre optimització, conversió i edició d'imatges."
+    index_title: "Blog"
+    index_description: "Consells útils, guies i actualitzacions per treballar amb imatges."
+    no_posts: "Encara no hi ha publicacions."
+    read_more: "Llegir més"
+    read_time: "%{minutes} min de lectura"
+    back_to_blog: "Tornar al blog"
 
   pricing:
     meta_title: "Preus — Allimgtools"

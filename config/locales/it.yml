@@ -38,6 +38,25 @@ it:
     convert_desc: "Converti tra i formati JPEG, PNG e WebP."
     meta_title: "Allimgtools — Strumenti immagine online gratuiti"
     meta_description: "Strumenti immagine online gratuiti. Comprimi, ridimensiona e converti immagini JPEG, PNG, WebP, GIF e AVIF istantaneamente. Senza registrazione. File eliminati dopo 3 ore."
+    why_title: "Perché Allimgtools?"
+    why_1_title: "Senza registrazione"
+    why_1_body: "Tutti gli strumenti funzionano subito — nessun account, nessuna email, nessuna registrazione. Carica e vai."
+    why_2_title: "File eliminati automaticamente"
+    why_2_body: "Le tue immagini vengono eliminate definitivamente entro 3 ore. Nessuna conservazione, nessun log, nessuna condivisione dei dati."
+    why_3_title: "7 strumenti, un solo posto"
+    why_3_body: "Comprimi, ridimensiona, ruota, ritaglia, converti formati e modifica o rimuovi i metadati EXIF — tutto gratuitamente."
+    use_cases_title: "Progettato per le attività quotidiane con le immagini"
+    use_cases_1_title: "Venditori online"
+    use_cases_1_body: "Comprimi e ridimensiona le foto dei prodotti per Etsy, marketplace o il tuo negozio — in blocco. Smettila di elaborare un'immagine alla volta."
+    use_cases_2_title: "Creatori web e di contenuti"
+    use_cases_2_body: "Riduci le dimensioni dei file per caricamenti più rapidi. Converti JPEG in WebP per migliorare il punteggio PageSpeed e i Core Web Vitals."
+    use_cases_3_title: "Utenti attenti alla privacy"
+    use_cases_3_body: "Rimuovi coordinate GPS, modello fotocamera e data di scatto prima di condividere le foto pubblicamente. Ciò che condividi deve essere sotto il tuo controllo."
+    trust_1: "File eliminati entro 3 ore"
+    trust_2: "Nessuna registrazione richiesta"
+    trust_3: "Conforme al GDPR"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 strumenti gratuiti"
 
   compress:
     page_title: "Compressore di immagini gratuito — Riduci le dimensioni online | Allimgtools"
@@ -177,6 +196,16 @@ it:
     failed: "Elaborazione fallita"
     error: "Si è verificato un errore. Riprova."
     try_again: "Riprova"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Consigli, guide e aggiornamenti sull'ottimizzazione, conversione e modifica delle immagini."
+    index_title: "Blog"
+    index_description: "Consigli utili, guide e aggiornamenti per lavorare con le immagini."
+    no_posts: "Nessun articolo ancora."
+    read_more: "Leggi di più"
+    read_time: "%{minutes} min di lettura"
+    back_to_blog: "Torna al blog"
 
   pricing:
     meta_title: "Prezzi — Allimgtools"

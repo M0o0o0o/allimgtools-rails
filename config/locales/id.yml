@@ -38,6 +38,25 @@ id:
     convert_desc: "Konversi antara format JPEG, PNG, dan WebP."
     meta_title: "Allimgtools — Alat Gambar Online Gratis"
     meta_description: "Alat gambar online gratis. Kompres, ubah ukuran, dan konversi gambar JPEG, PNG, WebP, GIF, dan AVIF secara instan. Tanpa pendaftaran. File dihapus setelah 3 jam."
+    why_title: "Mengapa Allimgtools?"
+    why_1_title: "Tanpa Daftar"
+    why_1_body: "Semua alat langsung bisa digunakan — tanpa akun, email, atau pendaftaran. Cukup unggah dan mulai."
+    why_2_title: "File Dihapus Otomatis"
+    why_2_body: "Gambar Anda akan dihapus secara permanen dalam 3 jam. Tanpa penyimpanan, tanpa log, tanpa berbagi data."
+    why_3_title: "7 Alat dalam Satu Tempat"
+    why_3_body: "Kompres, ubah ukuran, putar, pangkas, konversi format, dan edit atau hapus metadata EXIF — semuanya gratis."
+    use_cases_title: "Dirancang untuk Tugas Gambar Sehari-hari"
+    use_cases_1_title: "Penjual Online"
+    use_cases_1_body: "Kompres dan ubah ukuran foto produk untuk Tokopedia, Shopee, atau toko Anda secara massal. Berhenti memproses satu gambar setiap kali akan mengunggah."
+    use_cases_2_title: "Kreator Web & Konten"
+    use_cases_2_body: "Kurangi ukuran file gambar untuk pemuatan halaman yang lebih cepat. Konversi JPEG ke WebP untuk meningkatkan skor PageSpeed dan Core Web Vitals Google."
+    use_cases_3_title: "Pengguna yang Peduli Privasi"
+    use_cases_3_body: "Hapus koordinat GPS, model kamera, dan tanggal pengambilan foto sebelum berbagi secara publik. Apa yang Anda bagikan harus dalam kendali Anda."
+    trust_1: "File dihapus dalam 3 jam"
+    trust_2: "Tanpa pendaftaran"
+    trust_3: "Sesuai GDPR"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 alat gratis"
 
   compress:
     page_title: "Kompresor Gambar Gratis — Kurangi Ukuran File Online | Allimgtools"
@@ -177,6 +196,16 @@ id:
     failed: "Pemrosesan Gagal"
     error: "Terjadi kesalahan. Silakan coba lagi."
     try_again: "Coba Lagi"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Tips, panduan, dan pembaruan tentang optimasi, konversi, dan pengeditan gambar."
+    index_title: "Blog"
+    index_description: "Tips bermanfaat, panduan, dan pembaruan untuk bekerja dengan gambar."
+    no_posts: "Belum ada postingan."
+    read_more: "Baca selengkapnya"
+    read_time: "%{minutes} menit baca"
+    back_to_blog: "Kembali ke Blog"
 
   pricing:
     meta_title: "Harga — Allimgtools"

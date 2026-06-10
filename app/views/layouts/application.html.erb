@@ -12,14 +12,11 @@
     <%= csp_meta_tag %>
 
     <%# Canonical URL — each locale page points to itself (self-referencing canonical) %>
-    <% canonical_path = request.path.sub(%r{\A/(#{PUBLIC_LOCALE_PATTERN})(/|\z)}, '/') %>
     <link rel="canonical" href="https://allimgtools.com<%= request.path == '/' ? '' : request.path %>">
 
     <%# hreflang tags for SEO %>
-    <%# Blog is English-only — only declare en + x-default to avoid duplicate content signals %>
-    <% if controller_name == "posts" %>
-      <link rel="alternate" hreflang="en" href="https://allimgtools.com<%= canonical_path == "/" ? "" : canonical_path %>">
-      <link rel="alternate" hreflang="x-default" href="https://allimgtools.com<%= canonical_path == "/" ? "" : canonical_path %>">
+    <% if content_for?(:hreflang) %>
+      <%= yield :hreflang %>
     <% else %>
       <% SUPPORTED_LOCALES.each_key do |locale| %>
         <link rel="alternate" hreflang="<%= locale %>"
@@ -34,18 +31,20 @@
     <meta property="og:site_name" content="Allimgtools">
     <meta property="og:title" content="<%= content_for(:title) || t("home.meta_title") %>">
     <meta property="og:description" content="<%= content_for(:description) || t("home.meta_description") %>">
-    <meta property="og:url" content="https://allimgtools.com<%= canonical_path == '/' ? '' : canonical_path %>">
-    <meta property="og:locale" content="<%= controller_name == "posts" ? "en" : I18n.locale.to_s.gsub('-', '_') %>">
-    <% unless controller_name == "posts" %>
-      <% (SUPPORTED_LOCALES.keys.map(&:to_s) - [ I18n.locale.to_s ]).each do |loc| %>
+    <meta property="og:url" content="https://allimgtools.com<%= request.path == '/' ? '' : request.path %>">
+    <meta property="og:image" content="https://allimgtools.com<%= content_for?(:og_image) ? yield(:og_image) : '/images/seo/compress_hero.png' %>">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="450">
+    <meta property="og:locale" content="<%= I18n.locale.to_s.gsub('-', '_') %>">
+    <% (SUPPORTED_LOCALES.keys.map(&:to_s) - [ I18n.locale.to_s ]).each do |loc| %>
     <meta property="og:locale:alternate" content="<%= loc.gsub('-', '_') %>">
-      <% end %>
     <% end %>
 
     <%# Twitter Card %>
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<%= content_for(:title) || t("home.meta_title") %>">
     <meta name="twitter:description" content="<%= content_for(:description) || t("home.meta_description") %>">
+    <meta name="twitter:image" content="https://allimgtools.com<%= content_for?(:og_image) ? yield(:og_image) : '/images/seo/compress_hero.png' %>">
 
     <%= yield :head %>
 

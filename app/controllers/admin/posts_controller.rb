@@ -27,8 +27,9 @@ module Admin
     def update
       if @post.update(post_params)
         if params[:translate].present?
-          TranslatePostJob.perform_later(@post.id)
-          redirect_to admin_posts_path, notice: "Post updated. Translation is running in the background."
+          target_locales = SUPPORTED_LOCALES.keys.map(&:to_s) - [ TranslatePostJob::SOURCE_LOCALE ]
+          target_locales.each { |locale| TranslatePostJob.perform_later(@post.id, locale) }
+          redirect_to admin_posts_path, notice: "Post updated. Translating into #{target_locales.size} languages in the background."
         else
           redirect_to admin_posts_path, notice: "Post updated."
         end

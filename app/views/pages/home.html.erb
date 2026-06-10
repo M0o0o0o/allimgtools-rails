@@ -1,138 +1,309 @@
 <% content_for :title, t("home.meta_title") %>
 <% content_for :description, t("home.meta_description") %>
+<% content_for :main_class, "flex-1" %>
 <% content_for :head do %>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "SoftwareApplication",
     "name": "Allimgtools",
     "url": "https://allimgtools.com",
-    "description": "Free online image tools. Compress, resize, and convert images instantly.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://allimgtools.com"
-    }
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free online image tools. Compress, resize, rotate, crop, convert, and edit EXIF metadata. No signup required."
   }
   </script>
 <% end %>
 
-<div class="max-w-2xl mx-auto">
-    <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold mb-3"><%= t("home.title") %></h1>
-        <p class="text-base-content/60 text-lg"><%= t("home.description") %></p>
+<%# ─── Hero ──────────────────────────────────────────────────────────── %>
+<section class="relative overflow-hidden bg-base-100 border-b border-base-200">
+
+  <div class="absolute inset-0 opacity-60"
+       style="background-image: radial-gradient(circle, oklch(55% 0.22 255 / 0.12) 1px, transparent 1px); background-size: 24px 24px;"
+       aria-hidden="true"></div>
+
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_65%_at_50%_-10%,oklch(55%_0.22_255_/_0.18),transparent_70%)]"
+       aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-3xl px-6 pt-16 pb-14 text-center">
+
+    <div class="mb-8 inline-flex items-center gap-2 rounded-full border border-base-300 bg-base-100/90 px-4 py-1.5 text-sm font-medium text-base-content/60 shadow-sm backdrop-blur-sm">
+      <span class="h-2 w-2 animate-pulse rounded-full bg-primary"></span>
+      <%= t("home.trust_2") %>&ensp;·&ensp;<%= t("home.trust_1") %>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <%= link_to new_compress_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-        <div class="card-body">
-            <div class="flex items-center gap-4">
-                <div class="p-3 bg-primary/10 rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                    </svg>
-                </div>
-                <div>
-                    <h2 class="card-title text-lg"><%= t("nav.compress") %></h2>
-                    <p class="text-base-content/60 text-sm"><%= t("home.compress_desc") %></p>
-                </div>
-            </div>
-        </div>
-        <% end %>
+    <h1 class="mb-5 text-5xl font-extrabold leading-[1.1] tracking-tight text-base-content sm:text-6xl">
+      <%= t("home.title") %>
+    </h1>
 
-        <%= link_to new_resize_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-        <div class="card-body">
-            <div class="flex items-center gap-4">
-                <div class="p-3 bg-primary/10 rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                </div>
-                <div>
-                    <h2 class="card-title text-lg"><%= t("nav.resize") %></h2>
-                    <p class="text-base-content/60 text-sm"><%= t("home.resize_desc") %></p>
-                </div>
-            </div>
-        </div>
-        <% end %>
+    <p class="mx-auto mb-10 max-w-md text-lg leading-relaxed text-base-content/55">
+      <%= t("home.description") %>
+    </p>
 
-        <%= link_to new_rotate_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-        <div class="card-body">
-            <div class="flex items-center gap-4">
-                <div class="p-3 bg-primary/10 rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                    </svg>
-                </div>
-                <div>
-                    <h2 class="card-title text-lg"><%= t("nav.rotate") %></h2>
-                    <p class="text-base-content/60 text-sm"><%= t("home.rotate_desc") %></p>
-                </div>
-            </div>
-        </div>
-        <% end %>
-
-        <%= link_to new_crop_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-        <div class="card-body">
-            <div class="flex items-center gap-4">
-                <div class="p-3 bg-primary/10 rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4V3m14 14h-4v7M3 10l18 11M3 10L21 3"/>
-                    </svg>
-                </div>
-                <div>
-                    <h2 class="card-title text-lg"><%= t("nav.crop") %></h2>
-                    <p class="text-base-content/60 text-sm"><%= t("home.crop_desc") %></p>
-                </div>
-            </div>
-        </div>
-        <% end %>
-
-        <%= link_to new_exif_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-        <div class="card-body">
-            <div class="flex items-center gap-4">
-                <div class="p-3 bg-primary/10 rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
-                </div>
-                <div>
-                    <h2 class="card-title text-lg"><%= t("nav.exif") %></h2>
-                    <p class="text-base-content/60 text-sm"><%= t("home.exif_desc") %></p>
-                </div>
-            </div>
-        </div>
-        <% end %>
-
-        <%= link_to new_exif_edit_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-        <div class="card-body">
-            <div class="flex items-center gap-4">
-                <div class="p-3 bg-primary/10 rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                    </svg>
-                </div>
-                <div>
-                    <h2 class="card-title text-lg"><%= t("nav.exif_edit") %></h2>
-                    <p class="text-base-content/60 text-sm"><%= t("home.exif_edit_desc") %></p>
-                </div>
-            </div>
-        </div>
-        <% end %>
-
-        <%= link_to new_convert_path, class: "card bg-base-100 shadow-sm hover:shadow-md transition-shadow" do %>
-        <div class="card-body">
-            <div class="flex items-center gap-4">
-                <div class="p-3 bg-primary/10 rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                    </svg>
-                </div>
-                <div>
-                    <h2 class="card-title text-lg"><%= t("nav.convert") %></h2>
-                    <p class="text-base-content/60 text-sm"><%= t("home.convert_desc") %></p>
-                </div>
-            </div>
-        </div>
-        <% end %>
+    <div class="flex flex-wrap items-center justify-center gap-2.5">
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-base-200 px-3.5 py-1.5 text-xs font-medium text-base-content/60">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <%= t("home.trust_5") %>
+      </span>
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-base-200 px-3.5 py-1.5 text-xs font-medium text-base-content/60">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <%= t("home.trust_3") %>
+      </span>
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-base-200 px-3.5 py-1.5 text-xs font-medium text-base-content/60">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <%= t("home.trust_4") %>
+      </span>
     </div>
-</div>
+
+  </div>
+</section>
+
+<%# ─── Tool cards ─────────────────────────────────────────────────────── %>
+<section class="py-12">
+  <div class="mx-auto max-w-3xl px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+      <%= link_to new_compress_path, class: "group flex items-center gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/30 hover:shadow-md" do %>
+        <div class="shrink-0 rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary/15">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="font-semibold text-sm text-base-content"><%= t("nav.compress") %></div>
+          <div class="text-xs text-base-content/55 mt-0.5 leading-relaxed"><%= t("home.compress_desc") %></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-base-content/20 transition-colors group-hover:text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      <% end %>
+
+      <%= link_to new_resize_path, class: "group flex items-center gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/30 hover:shadow-md" do %>
+        <div class="shrink-0 rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary/15">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="font-semibold text-sm text-base-content"><%= t("nav.resize") %></div>
+          <div class="text-xs text-base-content/55 mt-0.5 leading-relaxed"><%= t("home.resize_desc") %></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-base-content/20 transition-colors group-hover:text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      <% end %>
+
+      <%= link_to new_rotate_path, class: "group flex items-center gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/30 hover:shadow-md" do %>
+        <div class="shrink-0 rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary/15">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="font-semibold text-sm text-base-content"><%= t("nav.rotate") %></div>
+          <div class="text-xs text-base-content/55 mt-0.5 leading-relaxed"><%= t("home.rotate_desc") %></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-base-content/20 transition-colors group-hover:text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      <% end %>
+
+      <%= link_to new_crop_path, class: "group flex items-center gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/30 hover:shadow-md" do %>
+        <div class="shrink-0 rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary/15">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4V3m14 14h-4v7M3 10l18 11M3 10L21 3"/>
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="font-semibold text-sm text-base-content"><%= t("nav.crop") %></div>
+          <div class="text-xs text-base-content/55 mt-0.5 leading-relaxed"><%= t("home.crop_desc") %></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-base-content/20 transition-colors group-hover:text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      <% end %>
+
+      <%= link_to new_exif_path, class: "group flex items-center gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/30 hover:shadow-md" do %>
+        <div class="shrink-0 rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary/15">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="font-semibold text-sm text-base-content"><%= t("nav.exif") %></div>
+          <div class="text-xs text-base-content/55 mt-0.5 leading-relaxed"><%= t("home.exif_desc") %></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-base-content/20 transition-colors group-hover:text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      <% end %>
+
+      <%= link_to new_exif_edit_path, class: "group flex items-center gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/30 hover:shadow-md" do %>
+        <div class="shrink-0 rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary/15">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="font-semibold text-sm text-base-content"><%= t("nav.exif_edit") %></div>
+          <div class="text-xs text-base-content/55 mt-0.5 leading-relaxed"><%= t("home.exif_edit_desc") %></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-base-content/20 transition-colors group-hover:text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      <% end %>
+
+      <%# Convert — spans full width to avoid a lone orphan card %>
+      <%= link_to new_convert_path, class: "group sm:col-span-2 flex items-center gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/30 hover:shadow-md" do %>
+        <div class="shrink-0 rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary/15">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="font-semibold text-sm text-base-content"><%= t("nav.convert") %></div>
+          <div class="text-xs text-base-content/55 mt-0.5 leading-relaxed"><%= t("home.convert_desc") %></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-base-content/20 transition-colors group-hover:text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      <% end %>
+
+    </div>
+  </div>
+</section>
+
+<%# ─── Why ────────────────────────────────────────────────────────────── %>
+<section class="bg-base-100 border-t border-b border-base-200">
+  <div class="mx-auto max-w-3xl px-6 py-16">
+
+    <div class="mb-10 text-center">
+      <h2 class="text-2xl font-bold text-base-content"><%= t("home.why_title") %></h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div class="rounded-2xl border border-base-200 p-6 transition-colors hover:border-primary/20">
+        <div class="mb-4 select-none font-black text-5xl leading-none text-primary/10">01</div>
+        <h3 class="mb-1.5 text-sm font-bold text-base-content"><%= t("home.why_1_title") %></h3>
+        <p class="text-xs leading-relaxed text-base-content/55"><%= t("home.why_1_body") %></p>
+      </div>
+      <div class="rounded-2xl border border-base-200 p-6 transition-colors hover:border-primary/20">
+        <div class="mb-4 select-none font-black text-5xl leading-none text-primary/10">02</div>
+        <h3 class="mb-1.5 text-sm font-bold text-base-content"><%= t("home.why_2_title") %></h3>
+        <p class="text-xs leading-relaxed text-base-content/55"><%= t("home.why_2_body") %></p>
+      </div>
+      <div class="rounded-2xl border border-base-200 p-6 transition-colors hover:border-primary/20">
+        <div class="mb-4 select-none font-black text-5xl leading-none text-primary/10">03</div>
+        <h3 class="mb-1.5 text-sm font-bold text-base-content"><%= t("home.why_3_title") %></h3>
+        <p class="text-xs leading-relaxed text-base-content/55"><%= t("home.why_3_body") %></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<%# ─── Use cases ─────────────────────────────────────────────────────── %>
+<section class="py-14">
+  <div class="mx-auto max-w-3xl px-4">
+
+    <h2 class="mb-8 text-center text-2xl font-bold text-base-content"><%= t("home.use_cases_title") %></h2>
+
+    <div class="flex flex-col gap-3">
+      <div class="flex items-start gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/25 hover:shadow-sm">
+        <div class="shrink-0 rounded-xl bg-secondary/10 p-2.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="mb-1 text-sm font-semibold text-base-content"><%= t("home.use_cases_1_title") %></h3>
+          <p class="text-xs leading-relaxed text-base-content/55"><%= t("home.use_cases_1_body") %></p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/25 hover:shadow-sm">
+        <div class="shrink-0 rounded-xl bg-secondary/10 p-2.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="mb-1 text-sm font-semibold text-base-content"><%= t("home.use_cases_2_title") %></h3>
+          <p class="text-xs leading-relaxed text-base-content/55"><%= t("home.use_cases_2_body") %></p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-2xl border border-base-200 bg-base-100 p-5 transition-all hover:border-primary/25 hover:shadow-sm">
+        <div class="shrink-0 rounded-xl bg-secondary/10 p-2.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="mb-1 text-sm font-semibold text-base-content"><%= t("home.use_cases_3_title") %></h3>
+          <p class="text-xs leading-relaxed text-base-content/55"><%= t("home.use_cases_3_body") %></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<%# ─── Trust strip ───────────────────────────────────────────────────── %>
+<section class="bg-base-100 border-t border-base-200">
+  <div class="mx-auto max-w-3xl px-6 py-8">
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-base-content/40">
+
+      <span class="inline-flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <%= t("home.trust_1") %>
+      </span>
+
+      <span aria-hidden="true" class="text-base-content/20">·</span>
+
+      <span class="inline-flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+        <%= t("home.trust_2") %>
+      </span>
+
+      <span aria-hidden="true" class="text-base-content/20">·</span>
+
+      <span class="inline-flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        <%= t("home.trust_3") %>
+      </span>
+
+      <span aria-hidden="true" class="text-base-content/20">·</span>
+
+      <span class="inline-flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <%= t("home.trust_4") %>
+      </span>
+
+      <span aria-hidden="true" class="text-base-content/20">·</span>
+
+      <span class="inline-flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+        </svg>
+        <%= t("home.trust_5") %>
+      </span>
+
+    </div>
+  </div>
+</section>

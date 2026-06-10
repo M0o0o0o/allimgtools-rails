@@ -38,6 +38,25 @@ sv:
     convert_desc: "Konvertera mellan JPEG, PNG och WebP."
     meta_title: "Allimgtools — Gratis online bildverktyg"
     meta_description: "Gratis online bildverktyg. Komprimera, ändra storlek och konvertera JPEG, PNG, WebP, GIF och AVIF bilder direkt. Ingen registrering. Filer raderas efter 3 timmar."
+    why_title: "Varför Allimgtools?"
+    why_1_title: "Ingen registrering"
+    why_1_body: "Alla verktyg fungerar direkt — inget konto, ingen e-post, ingen registrering. Ladda upp och sätt igång."
+    why_2_title: "Filer raderas automatiskt"
+    why_2_body: "Dina bilder raderas permanent inom 3 timmar. Ingen lagring, inga loggar, ingen datadelning."
+    why_3_title: "7 verktyg på ett ställe"
+    why_3_body: "Komprimera, ändra storlek, rotera, beskär, konvertera format och redigera eller ta bort EXIF-metadata — allt gratis."
+    use_cases_title: "Byggt för vardagliga bilduppgifter"
+    use_cases_1_title: "Näthandlare"
+    use_cases_1_body: "Komprimera och ändra storlek på produktbilder för Etsy, Tradera eller din webbutik — i bulk. Sluta bearbeta en bild i taget inför varje uppladdning."
+    use_cases_2_title: "Webb- och innehållsskapare"
+    use_cases_2_body: "Minska bildfilernas storlek för snabbare sidladdning. Konvertera JPEG till WebP för att förbättra ditt PageSpeed-betyg och Core Web Vitals."
+    use_cases_3_title: "Integritetsmån användare"
+    use_cases_3_body: "Ta bort GPS-koordinater, kameramodell och fotograferingsdatum innan du delar bilder offentligt. Det du delar ska vara under din kontroll."
+    trust_1: "Filer raderade inom 3 timmar"
+    trust_2: "Ingen registrering krävs"
+    trust_3: "GDPR-kompatibelt"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 gratis verktyg"
 
   compress:
     page_title: "Gratis bildkomprimator — Minska filstorlek online | Allimgtools"
@@ -177,6 +196,16 @@ sv:
     failed: "Bearbetningen misslyckades"
     error: "Ett fel inträffade. Försök igen."
     try_again: "Försök igen"
+
+  posts:
+    meta_title: "Blogg — Allimgtools"
+    meta_description: "Tips, guider och uppdateringar om bildoptimering, konvertering och redigering."
+    index_title: "Blogg"
+    index_description: "Användbara tips, guider och uppdateringar för att arbeta med bilder."
+    no_posts: "Inga inlägg ännu."
+    read_more: "Läs mer"
+    read_time: "%{minutes} min läsning"
+    back_to_blog: "Tillbaka till bloggen"
 
   pricing:
     meta_title: "Priser — Allimgtools"

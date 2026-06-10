@@ -38,6 +38,25 @@ pl:
     convert_desc: "Konwertuj między formatami JPEG, PNG i WebP."
     meta_title: "Allimgtools — Darmowe narzędzia obrazu online"
     meta_description: "Darmowe narzędzia obrazu online. Kompresuj, zmieniaj rozmiar i konwertuj obrazy JPEG, PNG, WebP, GIF i AVIF natychmiast. Bez rejestracji. Pliki usuwane po 3 godzinach."
+    why_title: "Dlaczego Allimgtools?"
+    why_1_title: "Bez rejestracji"
+    why_1_body: "Wszystkie narzędzia działają natychmiast — bez konta, e-maila ani rejestracji. Wyślij plik i zacznij."
+    why_2_title: "Pliki usuwane automatycznie"
+    why_2_body: "Twoje obrazy są trwale usuwane w ciągu 3 godzin. Bez przechowywania, bez logów, bez udostępniania danych."
+    why_3_title: "7 narzędzi w jednym miejscu"
+    why_3_body: "Kompresuj, zmieniaj rozmiar, obracaj, przycinaj, konwertuj formaty i edytuj lub usuwaj metadane EXIF — wszystko za darmo."
+    use_cases_title: "Stworzony do codziennej pracy z obrazami"
+    use_cases_1_title: "Sprzedawcy online"
+    use_cases_1_body: "Kompresuj i zmieniaj rozmiar zdjęć produktów dla Etsy, Allegro lub swojego sklepu masowo. Przestań przetwarzać jedno zdjęcie na raz przed każdym przesłaniem."
+    use_cases_2_title: "Twórcy stron i treści"
+    use_cases_2_body: "Zmniejsz rozmiary plików graficznych dla szybszego ładowania stron. Konwertuj JPEG na WebP, aby poprawić wyniki PageSpeed i Core Web Vitals."
+    use_cases_3_title: "Użytkownicy dbający o prywatność"
+    use_cases_3_body: "Usuń współrzędne GPS, model aparatu i datę zdjęcia przed publicznym udostępnieniem. To, co udostępniasz, powinno być pod Twoją kontrolą."
+    trust_1: "Pliki usunięte w ciągu 3 godzin"
+    trust_2: "Bez wymaganej rejestracji"
+    trust_3: "Zgodny z RODO"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 bezpłatnych narzędzi"
 
   compress:
     page_title: "Darmowy kompresor obrazów — Zmniejsz rozmiar pliku online | Allimgtools"
@@ -179,6 +198,16 @@ pl:
     failed: "Przetwarzanie nie powiodło się"
     error: "Wystąpił błąd. Spróbuj ponownie."
     try_again: "Spróbuj ponownie"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Wskazówki, poradniki i aktualizacje dotyczące optymalizacji, konwersji i edycji obrazów."
+    index_title: "Blog"
+    index_description: "Przydatne wskazówki, poradniki i aktualizacje do pracy z obrazami."
+    no_posts: "Brak artykułów."
+    read_more: "Czytaj więcej"
+    read_time: "%{minutes} min czytania"
+    back_to_blog: "Wróć do bloga"
 
   pricing:
     meta_title: "Cennik — Allimgtools"

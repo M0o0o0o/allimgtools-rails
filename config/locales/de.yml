@@ -38,6 +38,25 @@ de:
     convert_desc: "Zwischen JPEG, PNG und WebP konvertieren."
     meta_title: "Allimgtools — Kostenlose Online-Bildwerkzeuge"
     meta_description: "Kostenlose Online-Bildwerkzeuge. JPEG, PNG, WebP, GIF und AVIF Bilder sofort komprimieren, skalieren und konvertieren. Keine Anmeldung erforderlich. Dateien nach 3 Stunden gelöscht."
+    why_title: "Warum Allimgtools?"
+    why_1_title: "Keine Registrierung"
+    why_1_body: "Alle Tools funktionieren sofort — kein Konto, keine E-Mail, keine Anmeldung. Einfach hochladen und loslegen."
+    why_2_title: "Dateien automatisch gelöscht"
+    why_2_body: "Ihre Bilder werden innerhalb von 3 Stunden dauerhaft gelöscht. Keine Speicherung, keine Logs, keine Datenweitergabe."
+    why_3_title: "7 Tools, ein Ort"
+    why_3_body: "Komprimieren, skalieren, drehen, zuschneiden, Formate konvertieren und EXIF-Metadaten bearbeiten oder entfernen — alles kostenlos."
+    use_cases_title: "Für alltägliche Bildbearbeitung entwickelt"
+    use_cases_1_title: "Online-Verkäufer"
+    use_cases_1_body: "Komprimieren und skalieren Sie Produktfotos für Etsy, eBay oder Ihren Shop in einem Schritt. Hören Sie auf, Bilder einzeln zu bearbeiten."
+    use_cases_2_title: "Web- & Content-Ersteller"
+    use_cases_2_body: "Reduzieren Sie Dateigrößen für schnellere Ladezeiten. Konvertieren Sie JPEG in WebP, um PageSpeed-Werte und Core Web Vitals zu verbessern."
+    use_cases_3_title: "Datenschutzbewusste Nutzer"
+    use_cases_3_body: "Entfernen Sie GPS-Koordinaten, Kameramodell und Aufnahmedatum, bevor Sie Fotos öffentlich teilen. Was Sie teilen, sollten Sie kontrollieren."
+    trust_1: "Dateien innerhalb von 3 Stunden gelöscht"
+    trust_2: "Keine Anmeldung erforderlich"
+    trust_3: "DSGVO-konform"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 kostenlose Tools"
 
   compress:
     page_title: "Kostenloser Bildkompressor — Dateigröße online reduzieren | Allimgtools"
@@ -177,6 +196,16 @@ de:
     failed: "Verarbeitung fehlgeschlagen"
     error: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
     try_again: "Erneut versuchen"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Tipps, Anleitungen und Updates zur Bildoptimierung, -konvertierung und -bearbeitung."
+    index_title: "Blog"
+    index_description: "Nützliche Tipps, Anleitungen und Updates für die Arbeit mit Bildern."
+    no_posts: "Noch keine Beiträge."
+    read_more: "Weiterlesen"
+    read_time: "%{minutes} Min. Lesezeit"
+    back_to_blog: "Zurück zum Blog"
 
   pricing:
     meta_title: "Preise — Allimgtools"

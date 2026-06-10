@@ -1,6 +1,37 @@
 <% content_for :title, "#{@translation.title} — Allimgtools Blog" %>
-<% content_for :description, @translation.description.presence || @translation.title %>
+<%
+  meta_description = @translation.description.presence ||
+    (@translation.body.present? ? @translation.body.to_plain_text.truncate(160, omission: "...") : @translation.title)
+%>
+<% content_for :description, meta_description %>
 <% content_for :main_class, "flex-1" %>
+<% content_for :hreflang do %>
+  <% @post.translations.each do |t| %>
+    <link rel="alternate" hreflang="<%= t.locale %>"
+          href="https://allimgtools.com<%= t.locale == I18n.default_locale.to_s ? '' : "/#{t.locale}" %>/posts/<%= @post.slug %>">
+  <% end %>
+  <link rel="alternate" hreflang="x-default"
+        href="https://allimgtools.com/posts/<%= @post.slug %>">
+<% end %>
+<% content_for :head do %>
+  <script type="application/ld+json">
+  <%= {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": @translation.title,
+    "description": @translation.description.presence || @translation.title,
+    "url": "https://allimgtools.com#{request.path}",
+    "datePublished": (@post.published_at || @post.created_at).iso8601,
+    "dateModified": @post.updated_at.iso8601,
+    "inLanguage": I18n.locale.to_s,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Allimgtools",
+      "url": "https://allimgtools.com"
+    }
+  }.to_json.html_safe %>
+  </script>
+<% end %>
 
 <%# Article hero %>
 <div class="bg-gradient-to-br from-base-100 to-base-200 border-b border-base-200">

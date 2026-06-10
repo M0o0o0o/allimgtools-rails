@@ -38,6 +38,25 @@ nl:
     convert_desc: "Converteer tussen JPEG, PNG en WebP formaten."
     meta_title: "Allimgtools — Gratis online afbeeldingstools"
     meta_description: "Gratis online afbeeldingstools. Comprimeer, verklein en converteer JPEG, PNG, WebP, GIF en AVIF afbeeldingen direct. Geen registratie. Bestanden na 3 uur verwijderd."
+    why_title: "Waarom Allimgtools?"
+    why_1_title: "Geen registratie"
+    why_1_body: "Alle tools werken direct — geen account, geen e-mail, geen registratie. Upload en begin."
+    why_2_title: "Bestanden automatisch verwijderd"
+    why_2_body: "Uw afbeeldingen worden binnen 3 uur permanent verwijderd. Geen opslag, geen logs, geen datadeling."
+    why_3_title: "7 tools op één plek"
+    why_3_body: "Comprimeer, vergroot/verklein, roteer, bijsnijden, converteer formaten en bewerk of verwijder EXIF-metadata — alles gratis."
+    use_cases_title: "Gebouwd voor dagelijkse beeldtaken"
+    use_cases_1_title: "Online verkopers"
+    use_cases_1_body: "Comprimeer en pas de grootte aan van productfoto's voor Etsy, Bol.com of uw webshop — in bulk. Stop met het verwerken van één foto tegelijk."
+    use_cases_2_title: "Web- en contentmakers"
+    use_cases_2_body: "Verklein afbeeldingsbestanden voor snellere laadtijden. Converteer JPEG naar WebP om uw PageSpeed-score en Core Web Vitals te verbeteren."
+    use_cases_3_title: "Privacybewuste gebruikers"
+    use_cases_3_body: "Verwijder GPS-coördinaten, cameramodel en opnamedatum voordat u foto's openbaar deelt. Wat u deelt, moet onder uw controle zijn."
+    trust_1: "Bestanden verwijderd binnen 3 uur"
+    trust_2: "Geen registratie vereist"
+    trust_3: "AVG-conform"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 gratis tools"
 
   compress:
     page_title: "Gratis afbeeldingscompressor — Bestandsgrootte online verkleinen | Allimgtools"
@@ -177,6 +196,16 @@ nl:
     failed: "Verwerking mislukt"
     error: "Er is een fout opgetreden. Probeer het opnieuw."
     try_again: "Opnieuw proberen"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Tips, handleidingen en updates over beeldoptimalisatie, -conversie en -bewerking."
+    index_title: "Blog"
+    index_description: "Handige tips, handleidingen en updates voor het werken met afbeeldingen."
+    no_posts: "Nog geen berichten."
+    read_more: "Lees meer"
+    read_time: "%{minutes} min lezen"
+    back_to_blog: "Terug naar blog"
 
   pricing:
     meta_title: "Prijzen — Allimgtools"

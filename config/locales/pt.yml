@@ -38,6 +38,25 @@ pt:
     convert_desc: "Converta entre os formatos JPEG, PNG e WebP."
     meta_title: "Allimgtools — Ferramentas de imagem online gratuitas"
     meta_description: "Ferramentas de imagem online gratuitas. Comprima, redimensione e converta imagens JPEG, PNG, WebP, GIF e AVIF instantaneamente. Sem registo. Ficheiros eliminados após 3 horas."
+    why_title: "Por que Allimgtools?"
+    why_1_title: "Sem cadastro"
+    why_1_body: "Todas as ferramentas funcionam instantaneamente — sem conta, sem e-mail, sem registro. Faça upload e comece."
+    why_2_title: "Arquivos excluídos automaticamente"
+    why_2_body: "Suas imagens são excluídas permanentemente em até 3 horas. Sem armazenamento, sem registros, sem compartilhamento de dados."
+    why_3_title: "7 ferramentas em um só lugar"
+    why_3_body: "Comprima, redimensione, gire, recorte, converta formatos e edite ou remova metadados EXIF — tudo de graça."
+    use_cases_title: "Feito para tarefas cotidianas com imagens"
+    use_cases_1_title: "Vendedores online"
+    use_cases_1_body: "Comprima e redimensione fotos de produtos para Etsy, marketplaces ou sua loja em lote. Pare de processar imagem por imagem antes de cada upload."
+    use_cases_2_title: "Criadores de web e conteúdo"
+    use_cases_2_body: "Reduza o tamanho dos arquivos para carregamentos mais rápidos. Converta JPEG para WebP e melhore seu PageSpeed e Core Web Vitals."
+    use_cases_3_title: "Usuários conscientes sobre privacidade"
+    use_cases_3_body: "Remova coordenadas GPS, modelo da câmera e data de captura antes de compartilhar fotos publicamente. O que você compartilha deve estar sob seu controle."
+    trust_1: "Arquivos excluídos em até 3 horas"
+    trust_2: "Sem cadastro necessário"
+    trust_3: "Compatível com LGPD/GDPR"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 ferramentas gratuitas"
 
   compress:
     page_title: "Compressor de imagens gratuito — Reduza o tamanho online | Allimgtools"
@@ -177,6 +196,16 @@ pt:
     failed: "Falha no processamento"
     error: "Ocorreu um erro. Por favor, tente novamente."
     try_again: "Tentar novamente"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Dicas, guias e atualizações sobre otimização, conversão e edição de imagens."
+    index_title: "Blog"
+    index_description: "Dicas úteis, guias e atualizações para trabalhar com imagens."
+    no_posts: "Ainda não há publicações."
+    read_more: "Leia mais"
+    read_time: "%{minutes} min de leitura"
+    back_to_blog: "Voltar ao blog"
 
   pricing:
     meta_title: "Preços — Allimgtools"

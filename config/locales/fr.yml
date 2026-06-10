@@ -38,6 +38,25 @@ fr:
     convert_desc: "Convertissez entre les formats JPEG, PNG et WebP."
     meta_title: "Allimgtools — Outils image en ligne gratuits"
     meta_description: "Outils image en ligne gratuits. Compressez, redimensionnez et convertissez des images JPEG, PNG, WebP, GIF et AVIF instantanément. Sans inscription. Fichiers supprimés après 3 heures."
+    why_title: "Pourquoi Allimgtools ?"
+    why_1_title: "Sans inscription"
+    why_1_body: "Tous les outils fonctionnent instantanément — sans compte, sans e-mail, sans inscription. Téléchargez et c'est parti."
+    why_2_title: "Fichiers supprimés automatiquement"
+    why_2_body: "Vos images sont définitivement supprimées dans les 3 heures. Aucun stockage, aucun journal, aucun partage de données."
+    why_3_title: "7 outils, un seul endroit"
+    why_3_body: "Compresser, redimensionner, faire pivoter, recadrer, convertir des formats et modifier ou supprimer les métadonnées EXIF — tout gratuitement."
+    use_cases_title: "Conçu pour les tâches d'image quotidiennes"
+    use_cases_1_title: "Vendeurs en ligne"
+    use_cases_1_body: "Compressez et redimensionnez les photos de vos produits pour Etsy, votre boutique ou d'autres marketplaces — en masse. Fini le traitement photo par photo."
+    use_cases_2_title: "Créateurs web et de contenu"
+    use_cases_2_body: "Réduisez la taille des images pour accélérer le chargement des pages. Convertissez JPEG en WebP pour améliorer votre score PageSpeed et les Core Web Vitals."
+    use_cases_3_title: "Utilisateurs soucieux de la vie privée"
+    use_cases_3_body: "Supprimez les coordonnées GPS, le modèle d'appareil photo et la date de prise de vue avant de partager publiquement. Ce que vous partagez doit rester sous votre contrôle."
+    trust_1: "Fichiers supprimés dans les 3 heures"
+    trust_2: "Aucune inscription requise"
+    trust_3: "Conforme RGPD"
+    trust_4: "JPEG · PNG · WebP · GIF · AVIF"
+    trust_5: "7 outils gratuits"
 
   compress:
     page_title: "Compresseur d'images gratuit — Réduire la taille en ligne | Allimgtools"
@@ -177,6 +196,16 @@ fr:
     failed: "Échec du traitement"
     error: "Une erreur s'est produite. Veuillez réessayer."
     try_again: "Réessayer"
+
+  posts:
+    meta_title: "Blog — Allimgtools"
+    meta_description: "Conseils, guides et mises à jour sur l'optimisation, la conversion et l'édition d'images."
+    index_title: "Blog"
+    index_description: "Conseils utiles, guides et mises à jour pour travailler avec des images."
+    no_posts: "Aucun article pour le moment."
+    read_more: "Lire la suite"
+    read_time: "%{minutes} min de lecture"
+    back_to_blog: "Retour au blog"
 
   pricing:
     meta_title: "Tarifs — Allimgtools"
