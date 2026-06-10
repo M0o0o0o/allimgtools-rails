@@ -38,7 +38,8 @@ class UploadsController < ApplicationController
     upload = Upload.find_by(upload_id: upload_id)
 
     if upload.nil?
-      batch_limit = Task.batch_limit_for(Current.user)
+      task_tool = Task.where(task_id: task_id).pick(:tool)
+      batch_limit = Task.batch_limit_for(Current.user, tool: task_tool)
       batch_count = Upload.where(task_id: task_id).where.not(status: "failed").count
       if batch_count >= batch_limit
         return render json: { error: "Batch limit (#{batch_limit} files) reached." }, status: :too_many_requests

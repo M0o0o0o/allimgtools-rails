@@ -204,3 +204,55 @@ document.addEventListener("trix-attachment-add", function (event) {
     })
     .catch(() => attachment.remove())
 }, true)
+
+/* ==========================================================================
+   TRIX TABLE PRESERVATION
+   Trix는 <table>을 지원하지 않아 로드 시 구조를 제거합니다.
+   - DOMContentLoaded/turbo:load: 테이블을 [[TABLE_N]] blockquote 마커로 교체
+   - submit(capture): 마커를 원본 테이블 HTML로 복원 후 전송
+   ========================================================================== */
+const _trixTableStore = new Map() // inputId → string[]
+
+function trixTableSetup() {
+  document.querySelectorAll("trix-editor[input]").forEach(editor => {
+    const inputId = editor.getAttribute("input")
+    if (_trixTableStore.has(inputId)) return
+
+    const input = document.getElementById(inputId)
+    if (!input || !input.value.includes("<table")) return
+
+    const tables = []
+    const processed = input.value.replace(/<table[\s\S]*?<\/table>/gi, match => {
+      const i = tables.length
+      tables.push(match)
+      return `<blockquote>[[TABLE_${i}]]</blockquote>`
+    })
+
+    _trixTableStore.set(inputId, tables)
+    input.value = processed
+
+    const banner = document.createElement("div")
+    banner.className = "bg-amber-50 border border-amber-300 text-amber-800 text-xs px-3 py-2 rounded mb-1"
+    banner.textContent = `이 본문에 HTML 테이블 ${tables.length}개 포함 — 에디터에서는 [[TABLE_N]]으로 표시되며 저장 시 자동 복원됩니다.`
+    editor.insertAdjacentElement("beforebegin", banner)
+  })
+}
+
+document.addEventListener("DOMContentLoaded", trixTableSetup)
+document.addEventListener("turbo:load", trixTableSetup)
+
+document.addEventListener("submit", function(event) {
+  const form = event.target
+  _trixTableStore.forEach((tables, inputId) => {
+    const input = document.getElementById(inputId)
+    if (!input || !form.contains(input)) return
+    let html = input.value
+    tables.forEach((tableHtml, i) => {
+      html = html.replace(
+        new RegExp(`<blockquote>\\[\\[TABLE_${i}\\]\\]<\\/blockquote>`, "g"),
+        tableHtml
+      )
+    })
+    input.value = html
+  })
+}, true)

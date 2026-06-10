@@ -12,7 +12,7 @@ module ToolController
   end
 
   def user_max_batch_size
-    Task.batch_limit_for(Current.user)
+    Task.batch_limit_for(Current.user, tool: controller_name)
   end
 
   def create_task

@@ -530,4 +530,140 @@ trix-editor h4,
   line-height: 1.2;
   margin: 0.5em 0 0.25em;
 }
+/* --- 스티키 툴바 --- */
+trix-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  padding: 4px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+trix-toolbar .trix-button-row {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+trix-toolbar .trix-button-row::-webkit-scrollbar { display: none; }
+
+/* --- 에디터 내 리스트 --- */
+trix-editor ul { list-style-type: disc;    margin: 0.75em 0; padding-left: 1.5em; }
+trix-editor ol { list-style-type: decimal; margin: 0.75em 0; padding-left: 1.5em; }
+trix-editor li { margin: 0.3em 0; display: list-item; }
+
+/* --- 에디터 내 blockquote --- */
+trix-editor blockquote {
+  border-left: 4px solid #93c5fd;
+  padding: 0.5em 1em;
+  margin: 0.75em 0;
+  background: #f0f9ff;
+  border-radius: 0 6px 6px 0;
+  color: #475569;
+  font-style: italic;
+}
+
+/* --- 테이블 스타일 --- */
+trix-editor table,
+.trix-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1em 0;
+  font-size: 0.95em;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+trix-editor thead,  .trix-content thead  { background: #f1f5f9; }
+trix-editor th,     .trix-content th     {
+  padding: 0.75em 1em;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+  color: #374151;
+  border-bottom: 2px solid #e2e8f0;
+}
+trix-editor th:not(:last-child),    .trix-content th:not(:last-child)    { border-right: 1px solid #e2e8f0; }
+trix-editor td,     .trix-content td     {
+  padding: 0.7em 1em;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+trix-editor td:not(:last-child),    .trix-content td:not(:last-child)    { border-right: 1px solid #e2e8f0; }
+trix-editor tbody tr:last-child td, .trix-content tbody tr:last-child td { border-bottom: none; }
+trix-editor tbody tr:nth-child(even), .trix-content tbody tr:nth-child(even) { background: #f8fafc; }
+
+/* --- blockquote (렌더링) --- */
+.trix-content blockquote {
+  border-left: 4px solid #93c5fd;
+  padding: 0.75em 1.25em;
+  margin: 1.25em 0;
+  background: #f0f9ff;
+  border-radius: 0 8px 8px 0;
+  color: #475569;
+  font-style: italic;
+}
+
+/* --- 이미지 --- */
+.trix-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.08);
+  margin: 0.5em auto;
+}
+
+/* --- 커스텀 박스 --- */
+.trix-content .pro-tip {
+  border-left: 4px solid #3b82f6;
+  background: linear-gradient(to right, #eff6ff, #f5f9ff);
+  border-radius: 0 10px 10px 0;
+  padding: 0.875em 1.1em;
+  margin: 1.75em 0;
+  color: #1e3a8a;
+  font-size: 0.95em;
+  font-weight: 600;
+  line-height: 1.65;
+}
+.trix-content .warning {
+  border-left: 4px solid #f59e0b;
+  background: linear-gradient(to right, #fffbeb, #fffef5);
+  border-radius: 0 10px 10px 0;
+  padding: 0.875em 1.1em;
+  margin: 1.75em 0;
+  color: #78350f;
+  font-size: 0.95em;
+  font-weight: 600;
+  line-height: 1.65;
+}
+.trix-content .highlight {
+  border-left: 4px solid #10b981;
+  background: linear-gradient(to right, #f0fdf4, #f7fef9);
+  border-radius: 0 10px 10px 0;
+  padding: 0.875em 1.1em;
+  margin: 1.75em 0;
+  color: #064e3b;
+  font-size: 0.95em;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+/* --- 테이블 가로 스크롤 래퍼 (table_of_contents_controller.js 자동 적용) --- */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1em 0;
+}
+
+/* --- 이미지 나란히 배치 (table_of_contents_controller.js 자동 적용) --- */
+.image-row {
+  display: flex;
+  gap: 0.5em;
+  margin: 1em 0;
+}
+.image-row figure {
+  flex: 1;
+  min-width: 0;
+}
 /* ========================================================================== */

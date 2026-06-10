@@ -20,8 +20,8 @@ class Upload < ApplicationRecord
     tmp_dir.join("#{index}.chunk")
   end
 
-  MAX_FILE_SIZE     = 10.megabytes
-  MAX_FILE_SIZE_PRO = 30.megabytes
+  MAX_FILE_SIZE     = 30.megabytes
+  MAX_FILE_SIZE_PRO = 100.megabytes
 
   def self.max_size_for(user)
     user&.subscribed? ? MAX_FILE_SIZE_PRO : MAX_FILE_SIZE
