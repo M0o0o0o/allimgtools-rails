@@ -1,6 +1,6 @@
 module Admin
   class PostsController < BaseController
-    before_action :set_post, only: %i[edit update destroy]
+    before_action :set_post, only: %i[edit update destroy translate]
 
     def index
       @posts = Post.includes(:translations).order(created_at: :desc)
@@ -26,16 +26,20 @@ module Admin
 
     def update
       if @post.update(post_params)
-        if params[:translate].present?
-          target_locales = SUPPORTED_LOCALES.keys.map(&:to_s) - [ TranslatePostJob::SOURCE_LOCALE ]
-          target_locales.each { |locale| TranslatePostJob.perform_later(@post.id, locale) }
-          redirect_to admin_posts_path, notice: "Post updated. Translating into #{target_locales.size} languages in the background."
-        else
-          redirect_to admin_posts_path, notice: "Post updated."
-        end
+        redirect_to admin_posts_path, notice: "Post updated."
       else
         render :edit, status: :unprocessable_entity
       end
+    end
+
+    def translate
+      locales = Array(params[:locales]).reject(&:blank?)
+      if locales.empty?
+        redirect_to edit_admin_post_path(@post), alert: "번역할 언어를 선택해주세요."
+        return
+      end
+      locales.each { |locale| TranslatePostJob.perform_later(@post.id, locale) }
+      redirect_to edit_admin_post_path(@post), notice: "#{locales.size}개 언어 번역이 백그라운드에서 시작됐습니다."
     end
 
     def destroy

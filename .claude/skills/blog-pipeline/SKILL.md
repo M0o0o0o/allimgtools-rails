@@ -217,7 +217,7 @@ allimgtools는 이미지 압축·변환·리사이즈·EXIF 제거 등을 제공
 아래 Rails runner로 SerpAPI를 호출한다:
 
 ```bash
-RAILS_ENV=production bin/rails runner - << 'RUBY'
+bin/kamal app exec --reuse "bin/rails runner -" << 'RUBY'
 results = Crawlers::GoogleSearch.new.search(
   query: "<keyword>",
   gl: "us",
@@ -482,25 +482,29 @@ WORD_COUNT: [최종 단어 수 추정]
 
 ### 5-1. 이미지 프롬프트 설계
 
-각 `<!-- IMG_SLOT: ... -->` 주석에 대해 DALL-E 3 프롬프트를 작성한다.
+각 `<!-- IMG_SLOT: ... -->` 주석에 대해 gpt-image-1 프롬프트를 작성한다.
 
 **공통 스타일 지침**:
-- "clean, modern flat illustration, light blue and white color palette, tech/web tool aesthetic, no text in image"
+- 기본 톤: "clean flat design illustration, bold solid blue background (#2563EB or similar), white and light-colored icons/shapes, Google/Apple app-icon aesthetic, professional and modern"
+- **텍스트 레이블 적극 활용**: 포맷명(HEIC, JPG, WebP, PNG), 수치(50%, 5MB, 320KB) 등 핵심 정보는 굵은 흰색 배지/라벨로 이미지 안에 포함
+- 오브젝트는 흰색 테두리 또는 그림자로 배경과 분리감 부여
 - 구체적이고 시각적인 장면 묘사 (추상 금지)
-- Before/after 유형: 수치 포함한 명확한 대비
-- UI 유형: 실제 앱 스크린샷 느낌의 목업
+- Before/after 유형: 좌우 분할 또는 화살표 전후 대비, 수치 레이블 명시
+- UI 목업 유형: 실제 앱 UI처럼 버튼·슬라이더·퍼센트 표시 포함
+- 포맷 변환 유형: 두 포맷 아이콘을 배지 형태로 배치 + 변환 화살표
 
 **프롬프트 예시**:
-- Before/after → `"Clean flat illustration showing two identical photos side by side, left labeled '5MB' and right '320KB', compression arrow between them, light blue and white palette, minimal tech aesthetic, no text labels other than the sizes"`
-- 비교 다이어그램 → `"Modern infographic-style flat illustration comparing two format boxes labeled WebP and JPG, showing quality and file size balance on a scale, blue gradient accents, white background"`
-- 개념 다이어그램 → `"Clean technical diagram showing image optimization pipeline: original photo → compress → CDN → fast website, connected by arrows, flat icon style, blue and white"`
+- 압축 before/after → `"Clean flat illustration on solid blue background, two image thumbnails side by side connected by a right-pointing arrow, left thumbnail labeled '5MB' badge, right thumbnail labeled '320KB' badge, white rounded rectangles with subtle shadow, bold white text labels, Google-style flat design, professional and modern"`
+- 포맷 변환 → `"Flat design illustration on blue gradient background, large centered document/image icon in white, lower-left floating badge labeled 'HEIC' in dark blue rounded rectangle, lower-right floating badge labeled 'JPG' in white rounded rectangle, conversion arrow between badges, clean app-icon aesthetic, bold and simple"`
+- 리사이즈 UI → `"Clean flat illustration on solid blue background, centered image frame icon with dashed selection handles at corners and sides, resize arrow pointing outward at top-right corner, two percentage badges '50%' and '100%' below in white rounded rectangles, professional minimal design"`
+- 개념 다이어그램 → `"Clean flat infographic on blue background, three white rounded icon cards connected by arrows from left to right: camera icon → compress icon → fast rocket icon, each card has a short white label underneath, modern tech aesthetic"`
 
 ### 5-2. 이미지 생성 및 업로드
 
 각 프롬프트에 대해 아래 Rails runner를 실행한다 (이미지 1개씩):
 
 ```bash
-RAILS_ENV=production bin/rails runner - << 'RUBY'
+bin/kamal app exec --reuse "bin/rails runner -" << 'RUBY'
 require "open-uri"
 
 client = OpenAI::Client.new(access_token: Rails.application.credentials.dig(:openai, :api_key))
@@ -511,11 +515,12 @@ keyword_slug = "<keyword_slug>"
 
 response = client.images.generate(
   parameters: {
-    model: "gpt-image-1",
+    model: "dall-e-3",
     prompt: prompt,
     n: 1,
-    size: "1536x1024",
-    quality: "medium"
+    size: "1792x1024",
+    quality: "hd",
+    response_format: "b64_json"
   }
 )
 
@@ -546,7 +551,7 @@ RUBY
 
 ```html
 <figure>
-  <img src="<BLOB_PATH>" alt="<IMG_SLOT 설명>" loading="lazy" width="1536" height="1024">
+  <img src="<BLOB_PATH>" alt="<IMG_SLOT 설명>" loading="lazy" width="1792" height="1024">
 </figure>
 ```
 
@@ -572,7 +577,7 @@ RUBY
 `tmp/blog_pipeline/<keyword_slug>/final.html` 을 읽어 메타데이터 주석에서 값을 파싱한다.
 
 ```bash
-RAILS_ENV=production bin/rails runner - << 'RUBY'
+bin/kamal app exec --reuse "bin/rails runner -" << 'RUBY'
 title       = "파싱된 H1 제목"
 description = "파싱된 메타 디스크립션"
 slug        = "파싱된-slug"

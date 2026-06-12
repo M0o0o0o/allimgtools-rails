@@ -110,9 +110,6 @@
 
   <div class="flex flex-wrap gap-3 pt-2">
     <%= f.submit class: "btn btn-primary" %>
-    <% if post.persisted? %>
-      <%= f.submit "Update Post + Translate", name: "translate", class: "btn btn-secondary gap-2" %>
-    <% end %>
     <%= link_to "Cancel", admin_posts_path, class: "btn btn-ghost" %>
   </div>
 <% end %>

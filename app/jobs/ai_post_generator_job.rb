@@ -66,9 +66,10 @@ class AiPostGeneratorJob < ApplicationJob
       body: content[:body]
     )
 
-    TranslatePostJob.perform_later(post.id)
+    target_locales = SUPPORTED_LOCALES.keys.map(&:to_s) - [ TranslatePostJob::SOURCE_LOCALE ]
+    target_locales.each { |locale| TranslatePostJob.perform_later(post.id, locale) }
 
-    Rails.logger.info "[AiPostGenerator] Successfully created post: #{post.slug} (id: #{post.id}), translation queued"
+    Rails.logger.info "[AiPostGenerator] Successfully created post: #{post.slug} (id: #{post.id}), #{target_locales.size} translation jobs queued"
   end
 
   private

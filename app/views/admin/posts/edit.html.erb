@@ -7,3 +7,62 @@
     <%= render "form", post: @post %>
   </div>
 </div>
+
+<%# Translation management card — only for persisted posts %>
+<div class="card bg-base-100 shadow mt-6">
+  <div class="card-body space-y-4">
+    <div class="flex items-center justify-between">
+      <h2 class="card-title text-base">번역 관리</h2>
+      <span class="text-xs text-base-content/50">소스: 한국어 (원본)</span>
+    </div>
+
+    <%= form_with url: translate_admin_post_path(@post), method: :post, class: "space-y-4" do %>
+      <%
+        translated_locales = @post.translations.select { |t| t.title.present? }.map(&:locale)
+        translatable = SUPPORTED_LOCALES.reject { |k, _| k.to_s == TranslatePostJob::SOURCE_LOCALE }
+        translated_count = translatable.count { |k, _| translated_locales.include?(k.to_s) }
+      %>
+
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-base-content/60">
+          <%= translated_count %> / <%= translatable.size %> 언어 번역됨
+        </span>
+        <div class="flex gap-1 ml-auto">
+          <button type="button"
+                  onclick="document.querySelectorAll('.locale-cb').forEach(cb => cb.checked = true)"
+                  class="btn btn-xs btn-ghost">전체 선택</button>
+          <button type="button"
+                  onclick="document.querySelectorAll('.locale-cb').forEach(cb => cb.checked = false)"
+                  class="btn btn-xs btn-ghost">전체 해제</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+        <% translatable.each do |locale_key, locale_info| %>
+          <%
+            is_translated = translated_locales.include?(locale_key.to_s)
+          %>
+          <label class="flex items-center gap-2 p-2.5 rounded-lg border border-base-200 hover:border-primary/40 cursor-pointer transition-colors has-[:checked]:border-primary/40 has-[:checked]:bg-primary/5">
+            <input type="checkbox"
+                   name="locales[]"
+                   value="<%= locale_key %>"
+                   class="checkbox checkbox-sm checkbox-primary locale-cb"
+                   <%= is_translated ? "" : "checked" %>>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium truncate"><%= locale_info[:native] %></p>
+              <% if is_translated %>
+                <span class="badge badge-success badge-xs gap-0.5">번역됨</span>
+              <% else %>
+                <span class="badge badge-ghost badge-xs">없음</span>
+              <% end %>
+            </div>
+          </label>
+        <% end %>
+      </div>
+
+      <div class="flex justify-end pt-1">
+        <%= submit_tag "번역 시작", class: "btn btn-secondary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

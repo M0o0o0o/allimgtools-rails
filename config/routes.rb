@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
     scope module: :admin, as: :admin do
       root "dashboard#index"
-      resources :posts
+      resources :posts do
+        member { post :translate }
+      end
       resources :uploads, only: [ :index, :create ]
       get  "ai-writer",          to: "ai_writer#index",    as: :ai_writer
       post "ai-writer/generate", to: "ai_writer#generate", as: :ai_writer_generate
