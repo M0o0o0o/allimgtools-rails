@@ -11,25 +11,51 @@
 <%# Translation management card — only for persisted posts %>
 <div class="card bg-base-100 shadow mt-6">
   <div class="card-body space-y-4">
-    <div class="flex items-center justify-between">
-      <h2 class="card-title text-base">번역 관리</h2>
-      <span class="text-xs text-base-content/50">소스: 한국어 (원본)</span>
-    </div>
+    <h2 class="card-title text-base">번역 관리</h2>
 
     <%= form_with url: translate_admin_post_path(@post), method: :post, class: "space-y-4" do %>
       <%
         translated_locales = @post.translations.select { |t| t.title.present? }.map(&:locale)
-        translatable = SUPPORTED_LOCALES.reject { |k, _| k.to_s == TranslatePostJob::SOURCE_LOCALE }
-        translated_count = translatable.count { |k, _| translated_locales.include?(k.to_s) }
+        source_candidates = translated_locales & %w[ko en]
+        default_source = source_candidates.include?("ko") ? "ko" : (source_candidates.first || "ko")
       %>
 
+      <%# Source locale selector %>
+      <div class="flex items-center gap-3 p-3 bg-base-200 rounded-xl">
+        <span class="text-sm font-medium shrink-0">번역 기준 언어:</span>
+        <div class="flex gap-3">
+          <% if source_candidates.size > 1 %>
+            <% source_candidates.each do |loc| %>
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="radio" name="source_locale" value="<%= loc %>"
+                       class="radio radio-sm radio-primary"
+                       onchange="updateSourceLocale(this.value)"
+                       <%= loc == default_source ? "checked" : "" %>>
+                <span class="text-sm"><%= SUPPORTED_LOCALES[loc.to_sym]&.dig(:native) || loc.upcase %></span>
+              </label>
+            <% end %>
+          <% else %>
+            <input type="hidden" name="source_locale" value="<%= default_source %>">
+            <span class="text-sm font-semibold">
+              <%= SUPPORTED_LOCALES[default_source.to_sym]&.dig(:native) || default_source.upcase %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+
+      <%# Stats + bulk actions %>
       <div class="flex items-center gap-3">
-        <span class="text-sm text-base-content/60">
-          <%= translated_count %> / <%= translatable.size %> 언어 번역됨
+        <span class="text-sm text-base-content/60" id="translate-count">
+          <%
+            translatable_count = SUPPORTED_LOCALES.reject { |k, _| k.to_s == default_source }.size
+            done_count = SUPPORTED_LOCALES.reject { |k, _| k.to_s == default_source }
+                                          .count { |k, _| translated_locales.include?(k.to_s) }
+          %>
+          <%= done_count %> / <%= translatable_count %> 언어 번역됨
         </span>
         <div class="flex gap-1 ml-auto">
           <button type="button"
-                  onclick="document.querySelectorAll('.locale-cb').forEach(cb => cb.checked = true)"
+                  onclick="document.querySelectorAll('.locale-cb:not([style*=\'display: none\'])').forEach(cb => cb.checked = true)"
                   class="btn btn-xs btn-ghost">전체 선택</button>
           <button type="button"
                   onclick="document.querySelectorAll('.locale-cb').forEach(cb => cb.checked = false)"
@@ -37,22 +63,26 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-        <% translatable.each do |locale_key, locale_info| %>
+      <%# Locale checkboxes — all locales, source row hidden via JS %>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2" id="locale-grid">
+        <% SUPPORTED_LOCALES.each do |locale_key, locale_info| %>
           <%
+            is_source  = locale_key.to_s == default_source
             is_translated = translated_locales.include?(locale_key.to_s)
           %>
-          <label class="flex items-center gap-2 p-2.5 rounded-lg border border-base-200 hover:border-primary/40 cursor-pointer transition-colors has-[:checked]:border-primary/40 has-[:checked]:bg-primary/5">
+          <label class="flex items-center gap-2 p-2.5 rounded-lg border border-base-200 hover:border-primary/40 cursor-pointer transition-colors has-[:checked]:border-primary/40 has-[:checked]:bg-primary/5"
+                 data-locale="<%= locale_key %>"
+                 <%= is_source ? 'style="display:none"' : "" %>>
             <input type="checkbox"
                    name="locales[]"
                    value="<%= locale_key %>"
                    class="checkbox checkbox-sm checkbox-primary locale-cb"
-                   <%= is_translated ? "" : "checked" %>>
+                   <%= (!is_source && !is_translated) ? "checked" : "" %>>
             <div class="flex-1 min-w-0">
               <p class="text-sm font-medium truncate"><%= locale_info[:native] %></p>
-              <% if is_translated %>
-                <span class="badge badge-success badge-xs gap-0.5">번역됨</span>
-              <% else %>
+              <% if is_translated && !is_source %>
+                <span class="badge badge-success badge-xs">번역됨</span>
+              <% elsif !is_source %>
                 <span class="badge badge-ghost badge-xs">없음</span>
               <% end %>
             </div>
@@ -66,3 +96,16 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  function updateSourceLocale(newSource) {
+    document.querySelectorAll('#locale-grid [data-locale]').forEach(function(label) {
+      if (label.dataset.locale === newSource) {
+        label.style.display = 'none';
+        label.querySelector('input[type=checkbox]').checked = false;
+      } else {
+        label.style.display = '';
+      }
+    });
+  }
+</script>

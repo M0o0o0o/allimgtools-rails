@@ -7,25 +7,26 @@ class TranslatePostJob < ApplicationJob
 
   SOURCE_LOCALE = "ko"
 
-  def perform(post_id, target_locale)
+  def perform(post_id, target_locale, source_locale: SOURCE_LOCALE)
     post = Post.includes(:translations).find(post_id)
-    source = post.translations.find { |t| t.locale == SOURCE_LOCALE }
+    source = post.translations.find { |t| t.locale == source_locale }
 
     unless source
-      Rails.logger.error "[TranslatePostJob] No Korean translation found for post #{post_id}"
+      Rails.logger.error "[TranslatePostJob] No #{source_locale} translation found for post #{post_id}"
       return
     end
 
     return if source.title.blank?
 
-    Rails.logger.info "[TranslatePostJob] Translating post #{post_id} ko → #{target_locale}..."
+    Rails.logger.info "[TranslatePostJob] Translating post #{post_id} #{source_locale} → #{target_locale}..."
 
     translated = AiServices::OpenaiService.new.translate_content(
       title: source.title,
       description: source.description,
       body: source.body.to_s,
       cta_text: source.cta_text,
-      target_locale: target_locale
+      target_locale: target_locale,
+      source_locale: source_locale
     )
 
     translation = post.translations.find { |t| t.locale == target_locale } ||

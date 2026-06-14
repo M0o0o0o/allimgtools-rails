@@ -515,12 +515,11 @@ keyword_slug = "<keyword_slug>"
 
 response = client.images.generate(
   parameters: {
-    model: "dall-e-3",
+    model: "gpt-image-1",
     prompt: prompt,
     n: 1,
-    size: "1792x1024",
-    quality: "hd",
-    response_format: "b64_json"
+    size: "1536x1024",
+    quality: "high"
   }
 )
 
@@ -551,7 +550,7 @@ RUBY
 
 ```html
 <figure>
-  <img src="<BLOB_PATH>" alt="<IMG_SLOT 설명>" loading="lazy" width="1792" height="1024">
+  <img src="<BLOB_PATH>" alt="<IMG_SLOT 설명>" loading="lazy" width="1536" height="1024">
 </figure>
 ```
 

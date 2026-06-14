@@ -76,10 +76,10 @@
     <div class="flex-1 overflow-auto">
 
       <%# Idle: dropzone %>
-      <div class="flex flex-col min-h-full"
-           data-exif-tool-target="dropzoneArea">
-        <div class="flex-1 m-4 sm:m-6 border-2 border-dashed border-base-300 rounded-2xl cursor-pointer
+      <div data-exif-tool-target="dropzoneArea">
+        <div class="m-4 sm:m-6 border-2 border-dashed border-base-300 rounded-2xl cursor-pointer
                     flex flex-col items-center justify-center text-center
+                    min-h-[calc(100dvh-6rem)] sm:min-h-[calc(100dvh-7rem)]
                     transition-colors hover:border-primary hover:bg-primary/5"
              data-exif-tool-target="dropzone"
              data-action="click->exif-tool#openFilePicker">

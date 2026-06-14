@@ -38,8 +38,9 @@ module Admin
         redirect_to edit_admin_post_path(@post), alert: "번역할 언어를 선택해주세요."
         return
       end
-      locales.each { |locale| TranslatePostJob.perform_later(@post.id, locale) }
-      redirect_to edit_admin_post_path(@post), notice: "#{locales.size}개 언어 번역이 백그라운드에서 시작됐습니다."
+      source_locale = params[:source_locale].presence || TranslatePostJob::SOURCE_LOCALE
+      locales.each { |locale| TranslatePostJob.perform_later(@post.id, locale, source_locale: source_locale) }
+      redirect_to edit_admin_post_path(@post), notice: "#{locales.size}개 언어 번역이 백그라운드에서 시작됐습니다. (소스: #{source_locale})"
     end
 
     def destroy

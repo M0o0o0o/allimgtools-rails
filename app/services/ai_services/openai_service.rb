@@ -159,48 +159,50 @@ module AiServices
 
     # --------------------------------------------------------
     # 5. 번역
-    # 목적: 한국어 원문 → 25개 언어 자연스럽게
+    # 목적: 소스 언어 원문 → 25개 언어 자연스럽게
     # --------------------------------------------------------
-    TRANSLATION_PROMPT = <<~PROMPT
-      Translate the following Korean blog post into the target language.
+    def translation_prompt(source_language)
+      <<~PROMPT
+        Translate the following #{source_language} blog post into the target language.
 
-      ## Core principle
-      Translate meaning, not words.
-      Ask: "How would a native speaker naturally say this?"
-      If a sentence sounds like a translation — rewrite it until it doesn't.
+        ## Core principle
+        Translate meaning, not words.
+        Ask: "How would a native speaker naturally say this?"
+        If a sentence sounds like a translation — rewrite it until it doesn't.
 
-      ## Title & description
-      Rewrite as if a native speaker wrote them from scratch.
-      The meaning must stay. The exact wording can change significantly if needed.
+        ## Title & description
+        Rewrite as if a native speaker wrote them from scratch.
+        The meaning must stay. The exact wording can change significantly if needed.
 
-      ## Tone
-      The original is direct, casual, and written like someone talking to a colleague.
-      Do not make it more formal, more polished, or more "professional."
-      If the original is blunt — stay blunt. If it's dry — stay dry.
+        ## Tone
+        The original is direct, casual, and written like someone talking to a colleague.
+        Do not make it more formal, more polished, or more "professional."
+        If the original is blunt — stay blunt. If it's dry — stay dry.
 
-      ## Sentence rhythm
-      Short sentences in the original are intentional.
-      Do not merge them into longer sentences to sound more "natural."
-      A one-line paragraph stays a one-line paragraph.
+        ## Sentence rhythm
+        Short sentences in the original are intentional.
+        Do not merge them into longer sentences to sound more "natural."
+        A one-line paragraph stays a one-line paragraph.
 
-      ## Idiomatic expressions
-      Find natural equivalents in the target language.
-      Never transliterate or carry Korean phrasing patterns into the output.
+        ## Idiomatic expressions
+        Find natural equivalents in the target language.
+        Never transliterate or carry #{source_language} phrasing patterns into the output.
 
-      ## HTML
-      Keep all HTML tags exactly as-is.
-      Translate only the text content inside them.
+        ## HTML
+        Keep all HTML tags exactly as-is.
+        Translate only the text content inside them.
 
-      ## Strict rules
-      - Do not add content that isn't in the original
-      - Do not remove any content
-      - Do not add transitional phrases or summaries that weren't there
-      - Do not smooth over abrupt tone shifts — they're intentional
+        ## Strict rules
+        - Do not add content that isn't in the original
+        - Do not remove any content
+        - Do not add transitional phrases or summaries that weren't there
+        - Do not smooth over abrupt tone shifts — they're intentional
 
-      ## Self-check before output
-      Read the translation. If any sentence feels like a translation — rewrite it.
-      The final output must feel like it was originally written in the target language.
-    PROMPT
+        ## Self-check before output
+        Read the translation. If any sentence feels like a translation — rewrite it.
+        The final output must feel like it was originally written in the target language.
+      PROMPT
+    end
 
     def initialize
       @client = OpenAI::Client.new(
@@ -262,9 +264,10 @@ module AiServices
       meta.merge(body: body)
     end
 
-    def translate_content(title:, description:, body:, target_locale:, cta_text: nil)
+    def translate_content(title:, description:, body:, target_locale:, source_locale: "ko", cta_text: nil)
       locale_name = SUPPORTED_LOCALES[target_locale.to_sym]&.dig(:name) || target_locale.to_s.upcase
-      prompt = +"#{TRANSLATION_PROMPT}\n\n"
+      source_language = SUPPORTED_LOCALES[source_locale.to_sym]&.dig(:name) || source_locale.upcase
+      prompt = +"#{translation_prompt(source_language)}\n\n"
       prompt << "## Target Language: #{locale_name}\nYou MUST write ALL output in #{locale_name}.\n\n"
       prompt << "## Content to Translate\n"
       prompt << "Title: #{title}\n"
