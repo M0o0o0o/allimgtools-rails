@@ -161,46 +161,65 @@ module AiServices
     # 5. 번역
     # 목적: 소스 언어 원문 → 25개 언어 자연스럽게
     # --------------------------------------------------------
+    TRANSLATION_SYSTEM_PROMPT = <<~PROMPT
+      You are a professional localization specialist for a web-based image tool platform (allimgtools.com).
+      You translate technical blog posts about image compression, conversion, resizing, and related topics.
+
+      Your translations must read as if a native speaker in the target language wrote them from scratch — not as if they were translated. You are not a word-for-word translator. You are a writer who happens to know both languages.
+
+      ## What you never change
+      - HTML tags and their attributes (class, href, src, id, data-*) — leave exactly as-is
+      - File format names: JPEG, JPG, PNG, WebP, AVIF, GIF, HEIC, SVG, PDF
+      - Technical terms used as proper nouns: Photoshop, Lightroom, WordPress, Shopify, Google PageSpeed, Lighthouse, Core Web Vitals, LCP, CLS, INP
+      - URLs and file paths
+      - Code snippets inside <code> or <pre> tags
+      - Numbers and units unless local convention differs (e.g., use local decimal separator)
+
+      ## What you always adapt
+      - Sentence structure: restructure sentences to match natural patterns in the target language
+      - Idioms: find the closest natural equivalent — never transliterate
+      - Cultural references: adapt if they won't land in the target culture
+      - Register: match the original's casual-professional tone — avoid making it sound formal or academic
+
+      ## HTML alt text
+      Translate alt text naturally. It describes the image content — make it sound native.
+
+      ## Right-to-left languages (Arabic, Hebrew)
+      Do not add RTL attributes or dir tags. Just translate the text content naturally.
+
+      ## Quality standard
+      After translating each paragraph, ask: "Would a native speaker write it this way?"
+      If the answer is no — rewrite it until they would.
+    PROMPT
+
     def translation_prompt(source_language)
       <<~PROMPT
-        Translate the following #{source_language} blog post into the target language.
+        Translate the following #{source_language} blog post into the specified target language.
 
-        ## Core principle
-        Translate meaning, not words.
-        Ask: "How would a native speaker naturally say this?"
-        If a sentence sounds like a translation — rewrite it until it doesn't.
+        ## Tone & voice
+        The original is direct, casual, and written like a knowledgeable colleague talking to another.
+        - Short sentences are intentional — do not merge them
+        - A one-line paragraph stays a one-line paragraph
+        - Blunt stays blunt. Dry stays dry.
+        - Do NOT make it more formal, polished, or "professional" than the original
 
-        ## Title & description
-        Rewrite as if a native speaker wrote them from scratch.
-        The meaning must stay. The exact wording can change significantly if needed.
+        ## Title & meta description
+        These are SEO-critical. Rewrite them as if a native speaker created them for their local audience:
+        - Keep the primary keyword but use its most natural local phrasing
+        - Meta description: stay within 155 characters, include a clear benefit or action hook
+        - Avoid direct word-for-word translation of the title — adapt it to sound native
 
-        ## Tone
-        The original is direct, casual, and written like someone talking to a colleague.
-        Do not make it more formal, more polished, or more "professional."
-        If the original is blunt — stay blunt. If it's dry — stay dry.
+        ## Body content
+        - Translate meaning, not words
+        - Preserve paragraph breaks and list structure exactly
+        - Technical how-to steps must be precise and unambiguous
+        - "You" (second person) tone must be preserved — do not shift to third person or passive
 
-        ## Sentence rhythm
-        Short sentences in the original are intentional.
-        Do not merge them into longer sentences to sound more "natural."
-        A one-line paragraph stays a one-line paragraph.
-
-        ## Idiomatic expressions
-        Find natural equivalents in the target language.
-        Never transliterate or carry #{source_language} phrasing patterns into the output.
-
-        ## HTML
-        Keep all HTML tags exactly as-is.
-        Translate only the text content inside them.
-
-        ## Strict rules
-        - Do not add content that isn't in the original
+        ## What NOT to do
+        - Do not add sentences, explanations, or summaries that aren't in the original
         - Do not remove any content
-        - Do not add transitional phrases or summaries that weren't there
-        - Do not smooth over abrupt tone shifts — they're intentional
-
-        ## Self-check before output
-        Read the translation. If any sentence feels like a translation — rewrite it.
-        The final output must feel like it was originally written in the target language.
+        - Do not carry #{source_language} grammatical patterns into the output
+        - Do not smooth over deliberate abrupt transitions — they're part of the voice
       PROMPT
     end
 
@@ -284,8 +303,9 @@ module AiServices
 
       response = @client.chat(
         parameters: {
-          model: "gpt-4o-mini",
+          model: "gpt-4o",
           messages: [
+            { role: "system", content: TRANSLATION_SYSTEM_PROMPT },
             { role: "user", content: prompt }
           ],
           response_format: {
