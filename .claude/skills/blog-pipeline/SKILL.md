@@ -217,7 +217,7 @@ allimgtools는 이미지 압축·변환·리사이즈·EXIF 제거 등을 제공
 아래 Rails runner로 SerpAPI를 호출한다:
 
 ```bash
-bin/kamal app exec --reuse "bin/rails runner -" << 'RUBY'
+bin/kamal app exec --reuse --roles=web -i "bin/rails runner -" << 'RUBY'
 results = Crawlers::GoogleSearch.new.search(
   query: "<keyword>",
   gl: "us",
@@ -232,6 +232,8 @@ results.each_with_index do |r, i|
 end
 RUBY
 ```
+
+**중요**: `--roles=web` 와 `-i` 플래그를 반드시 포함한다. `--roles=web` 없이는 web과 job 컨테이너 양쪽에서 중복 실행되어 비용이 두 배로 들고, `-i` (interactive) 없이는 heredoc으로 전달한 stdin이 컨테이너로 전달되지 않아 스크립트가 조용히 아무 동작도 하지 않는다 (에러 없이 빈 결과만 반환됨).
 
 SerpAPI 실패 시: `WebSearch`로 영어 키워드 직접 검색.
 
@@ -499,13 +501,21 @@ WORD_COUNT: [최종 단어 수 추정]
 - 리사이즈 UI → `"Clean flat illustration on solid blue background, centered image frame icon with dashed selection handles at corners and sides, resize arrow pointing outward at top-right corner, two percentage badges '50%' and '100%' below in white rounded rectangles, professional minimal design"`
 - 개념 다이어그램 → `"Clean flat infographic on blue background, three white rounded icon cards connected by arrows from left to right: camera icon → compress icon → fast rocket icon, each card has a short white label underneath, modern tech aesthetic"`
 
-### 5-2. 이미지 생성 및 업로드
+### 5-2. 이미지 생성, 압축, 업로드
+
+gpt-image-1은 PNG를 반환하며 flat 일러스트 기준으로 장당 1.5MB 내외로 매우 무겁다 (이미지 최적화 툴 사이트의 블로그가 페이지를 무겁게 만드는 건 본말전도). **반드시 WebP로 변환·압축한 뒤 업로드한다** — `image_processing` (libvips) 변환 시 동일한 그림이 장당 15~35KB로, 약 97~98% 줄어든다. 변환은 무손실에 가까운 수준으로 화질 차이가 거의 없다.
+
+**quality는 `medium`을 사용한다** (2026-06 기준 1024x1024 환산가: low $0.011~0.016 / medium $0.042~0.063 / high $0.167~0.250 — high 대비 약 75% 절감). 우리 이미지는 사진이 아니라 단순 도형 + 굵은 텍스트 배지 스타일이라 medium에서도 품질 차이가 거의 없고, 어차피 업로드 전에 WebP로 재압축하므로 high의 디테일이 그대로 보존되지도 않는다. 텍스트 배지가 자꾸 흐려지거나 깨지면 `low`로는 내리지 말고 medium을 유지할 것.
+
+참고: gpt-image-1은 2026-10-23 deprecated 예정이므로, 그 전에 후속 모델(GPT Image 1.5/2 등)로 마이그레이션이 필요할 수 있다.
 
 각 프롬프트에 대해 아래 Rails runner를 실행한다 (이미지 1개씩):
 
 ```bash
-bin/kamal app exec --reuse "bin/rails runner -" << 'RUBY'
+bin/kamal app exec --reuse --roles=web -i "bin/rails runner -" << 'RUBY'
 require "open-uri"
+require "base64"
+require "image_processing/vips"
 
 client = OpenAI::Client.new(access_token: Rails.application.credentials.dig(:openai, :api_key))
 
@@ -519,26 +529,41 @@ response = client.images.generate(
     prompt: prompt,
     n: 1,
     size: "1536x1024",
-    quality: "high"
+    quality: "medium"
   }
 )
-
-require "base64"
 
 b64 = response.dig("data", 0, "b64_json")
 raise "No image data returned" if b64.nil?
 
 image_data = Base64.decode64(b64)
+
+tmp_in = Tempfile.new(["gen", ".png"], binmode: true)
+tmp_in.write(image_data)
+tmp_in.rewind
+
+compressed = ImageProcessing::Vips
+  .source(tmp_in)
+  .convert("webp")
+  .saver(quality: 75)
+  .call
+
 blob = ActiveStorage::Blob.create_and_upload!(
-  io: StringIO.new(image_data),
-  filename: "blog-#{keyword_slug}-#{slot_index}.png",
-  content_type: "image/png"
+  io: File.open(compressed.path),
+  filename: "blog-#{keyword_slug}-#{slot_index}.webp",
+  content_type: "image/webp"
 )
+
+compressed.close
+compressed.unlink
+tmp_in.close
+tmp_in.unlink
 
 signed_id = blob.signed_id
 blob_path = "/rails/active_storage/blobs/redirect/#{signed_id}/#{blob.filename}"
 puts "BLOB_KEY:#{blob.key}"
 puts "BLOB_PATH:#{blob_path}"
+puts "SIZE_KB:#{(blob.byte_size / 1024.0).round(1)}"
 RUBY
 ```
 
@@ -576,7 +601,7 @@ RUBY
 `tmp/blog_pipeline/<keyword_slug>/final.html` 을 읽어 메타데이터 주석에서 값을 파싱한다.
 
 ```bash
-bin/kamal app exec --reuse "bin/rails runner -" << 'RUBY'
+bin/kamal app exec --reuse --roles=web -i "bin/rails runner -" << 'RUBY'
 title       = "파싱된 H1 제목"
 description = "파싱된 메타 디스크립션"
 slug        = "파싱된-slug"

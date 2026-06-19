@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(grep -n '`<' tmp/blog_pipeline/webp-vs-jpg-png/draft.html)",
+      "Bash(grep -n '`<\\\\|<img>\\\\|<picture>' tmp/blog_pipeline/webp-vs-jpg-png/draft.html)",
+      "Bash(python3 -)",
+      "Bash(python3)",
+      "Bash(grep -n '`<\\\\|<img>\\\\|<picture>' tmp/blog_pipeline/png-to-jpg-file-size/draft.html)"
+    ]
+  }
+}

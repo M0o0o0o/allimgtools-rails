@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Read(//Users/imuyeol/Desktop/tripkorean/app/models/**)"
+      "Read(//Users/imuyeol/Desktop/tripkorean/app/models/**)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }
