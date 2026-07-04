@@ -10,6 +10,8 @@ en:
     convert: "Image Convert"
     image_converter: "Image Converter"
     language: "Language"
+    for_etsy_sellers: "For Etsy Sellers"
+    etsy_preset: "Etsy Preset"
 
   posts:
     meta_title: "Blog — Allimgtools"
@@ -68,6 +70,9 @@ en:
     trust_3: "GDPR compliant"
     trust_4: "JPEG · PNG · WebP · GIF · AVIF"
     trust_5: "7 free tools"
+    etsy_banner_title: "Selling on Etsy?"
+    etsy_banner_body: "Get product photos Etsy-ready in one batch — correct size, format, and color mode, compressed and ready to upload."
+    etsy_banner_cta: "See the Etsy Toolkit"
 
   compress:
     page_title: "Free Image Compressor — Reduce File Size Online | Allimgtools"
@@ -386,3 +391,90 @@ en:
       a1: "We use Google Sign-In. Click &ldquo;Log in&rdquo; and sign in with your Google account — no password required."
       q2: "What happens if I delete my account?"
       a2: "Your account and all associated data are permanently removed from Allimgtools. If you have an active Pro subscription, please cancel it first from My Page."
+
+  etsy_sellers:
+    meta_title: "Free Image Tools for Etsy Sellers — Resize, Compress & Fix Upload Errors | Allimgtools"
+    meta_description: "Get product photos Etsy-ready in one batch: correct size, format, and color mode, compressed and ready to upload. Free for up to 20 photos, no signup."
+    hero:
+      badge: "For Etsy sellers"
+      title: "Get your product photos Etsy-ready — before Etsy rejects them"
+      subtitle: "Compress, resize, and fix format issues for up to 100 product photos in one batch. No signup, no software, files deleted after 3 hours."
+      cta_primary: "Process My Product Photos Free"
+      cta_secondary: "See Pro batch pricing"
+    problem:
+      title: "The upload didn't fail because your photos are bad"
+      subtitle: "It failed because of a spec you probably didn't know existed."
+      items:
+        - title: "File too large to finish uploading"
+          body: "On a slow connection, a large product photo can simply stop uploading partway through — no clear error, just a stuck progress bar."
+        - title: "Wrong color mode"
+          body: "Photos exported for print (CMYK) look washed out or get rejected on Etsy, which expects RGB."
+        - title: "Unsupported format"
+          body: "Etsy only accepts .jpg, .gif, .png, .svg, and .heic. Anything else needs converting first."
+        - title: "Below the recommended size"
+          body: "Etsy recommends 2000×2000px square photos. Smaller images look soft in the zoom view buyers rely on."
+      closing: "Fixing this one photo at a time, for every new listing, eats the time you should be spending on your shop."
+    solution:
+      title: "One click: Etsy-ready, guaranteed"
+      subtitle: "Drop up to 100 photos, get back photos already sized, formatted, and compressed for Etsy — no Photoshop required."
+      checklist:
+        - "Dimensions matched to Etsy's recommended 2000×2000px (or your own custom size)"
+        - "Format converted to Etsy-supported JPG or PNG"
+        - "Color mode corrected to RGB"
+        - "File size brought under Etsy's upload limit"
+        - "GPS location and camera metadata stripped before you publish"
+      cta: "Try It on My Photos"
+    comparison:
+      title: "Why sellers use Allimgtools instead of a generic compressor"
+      intro: "Most tools solve one piece of this. Allimgtools solves the whole upload, in one place."
+      tinypng: "TinyPNG compresses well, but that's all it does — no resizing, no format conversion, and free accounts are capped at 20 images, 5MB each. You'd still need a separate tool for dimensions and color mode."
+      iloveimg: "iLoveIMG covers more tools and is well-reviewed, but processing more than a handful of photos requires creating an account — and there's no EXIF removal if you want your location data stripped before posting."
+      etsy_resizers: "Dedicated Etsy resizers like Photoroom or ImResizer get the dimensions right, but most stop there — they don't check color mode, strip metadata, or handle more than a dozen photos per batch."
+      table:
+        headers: ["", "Allimgtools", "TinyPNG", "iLoveIMG", "Etsy-only resizers"]
+        rows:
+          - label: "Free batch size"
+            values: ["20 photos", "20 photos", "50 photos (signup required)", "~12 photos"]
+          - label: "Compress + resize + convert"
+            values: [true, false, true, false]
+          - label: "Etsy spec auto-fix (size, format, color mode)"
+            values: [true, false, false, "Partial (size only)"]
+          - label: "EXIF / GPS removal"
+            values: [true, false, false, false]
+          - label: "Signup required"
+            values: [false, false, "For bulk", "Varies"]
+    pricing:
+      title: "Free for a quick fix. Pro for a full collection."
+      free_title: "Free"
+      free_body: "20 photos per batch, up to 30MB each. No account needed. Good for touching up a single listing."
+      pro_title: "Pro — $7/mo or $49/yr"
+      pro_body: "100 photos per batch, up to 100MB each. Process a full new collection in one upload."
+      cta: "Start Free — No Signup"
+    faq:
+      - q: "Is it safe to upload my product photos?"
+        a: "Yes. Files are processed and then automatically deleted within 3 hours. We never store, analyze, or share your images, and no account is required to use the free tier."
+      - q: "Will compression hurt my listing photo quality?"
+        a: "You control the quality slider and can preview before downloading. At 60–75% quality, the difference is barely visible — and PNG lossless mode is available if you want zero quality loss."
+      - q: "Does this guarantee Etsy will accept my photos?"
+        a: "We match Etsy's published requirements for size, format, color mode, and file size. We can't control Etsy's review of the photo content itself, but the technical upload errors — file too large, wrong format, wrong color mode — are handled automatically."
+      - q: "I also sell on Shopify or WooCommerce — does this still work?"
+        a: "Yes. The Etsy preset is just a starting point — every tool lets you set custom dimensions and formats for any platform."
+    final_cta:
+      title: "Stop fixing photos one at a time"
+      subtitle: "Drop your next collection in and get every photo Etsy-ready in one pass."
+      cta: "Process My Photos Free"
+
+  etsy_preset:
+    page_title: "Etsy Photo Preset — Resize, Fix Color Mode & Compress | Allimgtools"
+    page_description: "Drop your product photos and get them back resized to Etsy's spec, color-corrected to RGB, converted to JPG or PNG, and compressed — in one pass. No signup."
+    title: "Etsy Photo Preset"
+    description: "Drop your product photos. We'll resize, fix the color mode, convert, and compress them for Etsy — all at once."
+    settings: "Settings"
+    output_format: "Output format"
+    quality: "Quality"
+    smaller_file: "Smaller file"
+    higher_quality: "Higher quality"
+    strip_exif: "Remove EXIF data"
+    strip_exif_description: "Strips GPS location, camera model, and shooting date before you publish. Recommended for product photos."
+    auto_note: "Every photo is automatically resized to fit within 2000×2000px and color-corrected to RGB — Etsy's recommended spec — no setting needed."
+    start: "Make Etsy-Ready"

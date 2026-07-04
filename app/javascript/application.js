@@ -208,38 +208,41 @@ document.addEventListener("trix-attachment-add", function (event) {
 /* ==========================================================================
    TRIX TABLE PRESERVATION
    Trix는 <table>을 지원하지 않아 로드 시 구조를 제거합니다.
-   - DOMContentLoaded/turbo:load: 테이블을 [[TABLE_N]] blockquote 마커로 교체
+   - trix-initialize: data-original-html 속성에서 원본 HTML을 읽어
+     테이블을 [[TABLE_N]] blockquote 마커로 교체 후 에디터에 로드
    - submit(capture): 마커를 원본 테이블 HTML로 복원 후 전송
+   ※ DOMContentLoaded/turbo:load 방식은 Trix가 이미 content를 처리한
+     뒤에 실행되므로 신뢰할 수 없음. trix-initialize 안에서 처리해야 함.
    ========================================================================== */
 const _trixTableStore = new Map() // inputId → string[]
 
-function trixTableSetup() {
-  document.querySelectorAll("trix-editor[input]").forEach(editor => {
-    const inputId = editor.getAttribute("input")
-    if (_trixTableStore.has(inputId)) return
+document.addEventListener("trix-initialize", function(event) {
+  const editor   = event.target
+  const inputId  = editor.getAttribute("input")
+  if (!inputId || _trixTableStore.has(inputId)) return
 
-    const input = document.getElementById(inputId)
-    if (!input || !input.value.includes("<table")) return
+  const originalHtml = editor.dataset.originalHtml || ""
+  if (!originalHtml.includes("<table")) return
 
-    const tables = []
-    const processed = input.value.replace(/<table[\s\S]*?<\/table>/gi, match => {
-      const i = tables.length
-      tables.push(match)
-      return `<blockquote>[[TABLE_${i}]]</blockquote>`
-    })
+  const tables = []
+  const processed = originalHtml.replace(/<table[\s\S]*?<\/table>/gi, match => {
+    const i = tables.length
+    tables.push(match)
+    return `<blockquote>[[TABLE_${i}]]</blockquote>`
+  })
 
-    _trixTableStore.set(inputId, tables)
-    input.value = processed
+  _trixTableStore.set(inputId, tables)
+
+  // setTimeout(0): trix-initialize 콜백 밖에서 loadHTML을 호출해야 안전함
+  setTimeout(() => {
+    editor.editor.loadHTML(processed)
 
     const banner = document.createElement("div")
     banner.className = "bg-amber-50 border border-amber-300 text-amber-800 text-xs px-3 py-2 rounded mb-1"
     banner.textContent = `이 본문에 HTML 테이블 ${tables.length}개 포함 — 에디터에서는 [[TABLE_N]]으로 표시되며 저장 시 자동 복원됩니다.`
     editor.insertAdjacentElement("beforebegin", banner)
-  })
-}
-
-document.addEventListener("DOMContentLoaded", trixTableSetup)
-document.addEventListener("turbo:load", trixTableSetup)
+  }, 0)
+})
 
 document.addEventListener("submit", function(event) {
   const form = event.target
@@ -248,8 +251,10 @@ document.addEventListener("submit", function(event) {
     if (!input || !form.contains(input)) return
     let html = input.value
     tables.forEach((tableHtml, i) => {
+      // Trix가 blockquote 내부를 약간 다르게 직렬화할 수 있으므로
+      // 속성·공백·내부 태그를 허용하는 유연한 정규식 사용
       html = html.replace(
-        new RegExp(`<blockquote>\\[\\[TABLE_${i}\\]\\]<\\/blockquote>`, "g"),
+        new RegExp(`<blockquote[^>]*>\\s*(?:<[^/][^>]*>\\s*)*\\[\\[TABLE_${i}\\]\\]\\s*(?:<\\/[^>]+>\\s*)*<\\/blockquote>`, "gi"),
         tableHtml
       )
     })

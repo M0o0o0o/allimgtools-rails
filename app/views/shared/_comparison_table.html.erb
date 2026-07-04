@@ -1,0 +1,30 @@
+<%
+  cell = ->(v) do
+    case v
+    when true  then '<span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-success/15 mx-auto"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>'.html_safe
+    when false then '<span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-base-200 mx-auto"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-base-content/25" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/></svg></span>'.html_safe
+    else v
+    end
+  end
+%>
+<div class="overflow-x-auto rounded-2xl border border-base-200 shadow-sm">
+  <table class="w-full text-sm">
+    <thead>
+      <tr class="border-b border-base-200 bg-base-200/30">
+        <% table[:headers].each_with_index do |h, i| %>
+          <th class="px-4 py-3 text-<%= i == 0 ? 'left' : 'center' %> text-xs font-bold uppercase tracking-wide text-base-content/40"><%= h %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% table[:rows].each do |row| %>
+        <tr class="border-t border-base-200">
+          <td class="px-4 py-3 text-base-content/70 font-medium"><%= row[:label] %></td>
+          <% row[:values].each do |v| %>
+            <td class="px-4 py-3 text-center text-base-content/60"><%= cell.call(v) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

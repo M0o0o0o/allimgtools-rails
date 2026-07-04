@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
   has_many :uploads, foreign_key: :task_id, primary_key: :task_id
 
-  TOOLS = %w[compress resize rotate convert crop exif exif_edit].freeze
+  TOOLS = %w[compress resize rotate convert crop exif exif_edit etsy_preset].freeze
   STATUSES = %w[pending processing done failed].freeze
 
   BATCH_LIMIT_FREE = 20

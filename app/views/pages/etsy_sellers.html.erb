@@ -1,0 +1,160 @@
+<% content_for :title, t("etsy_sellers.meta_title") %>
+<% content_for :description, t("etsy_sellers.meta_description") %>
+<% content_for :main_class, "flex-1" %>
+<% content_for :head do %>
+  <script type="application/ld+json">
+  <%= { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": t("etsy_sellers.faq").map { |item| { "@type": "Question", "name": item[:q], "acceptedAnswer": { "@type": "Answer", "text": item[:a] } } } }.to_json.html_safe %>
+  </script>
+<% end %>
+
+<%# ─── Hero ──────────────────────────────────────────────────────────── %>
+<section class="relative overflow-hidden bg-base-100 border-b border-base-200">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_65%_at_50%_-10%,oklch(55%_0.22_255_/_0.18),transparent_70%)]" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-3xl px-6 pt-16 pb-14 text-center">
+    <div class="mb-8 inline-flex items-center gap-2 rounded-full border border-base-300 bg-base-100/90 px-4 py-1.5 text-sm font-medium text-primary shadow-sm backdrop-blur-sm">
+      <%= t("etsy_sellers.hero.badge") %>
+    </div>
+
+    <h1 class="mb-5 text-4xl font-extrabold leading-[1.15] tracking-tight text-base-content sm:text-5xl">
+      <%= t("etsy_sellers.hero.title") %>
+    </h1>
+
+    <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-base-content/55">
+      <%= t("etsy_sellers.hero.subtitle") %>
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <%= link_to t("etsy_sellers.hero.cta_primary"), new_etsy_preset_path, class: "btn btn-primary btn-lg shadow-sm shadow-primary/20" %>
+      <%= link_to t("etsy_sellers.hero.cta_secondary"), pricing_path, class: "btn btn-ghost btn-lg" %>
+    </div>
+  </div>
+</section>
+
+<%# ─── Problem ────────────────────────────────────────────────────────── %>
+<section class="py-14">
+  <div class="mx-auto max-w-3xl px-4">
+    <div class="mb-10 text-center">
+      <h2 class="text-2xl font-bold text-base-content mb-2"><%= t("etsy_sellers.problem.title") %></h2>
+      <p class="text-base-content/50"><%= t("etsy_sellers.problem.subtitle") %></p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <% t("etsy_sellers.problem.items").each do |item| %>
+        <div class="rounded-2xl border border-base-200 bg-base-100 p-5">
+          <h3 class="mb-1.5 text-sm font-bold text-base-content"><%= item[:title] %></h3>
+          <p class="text-sm leading-relaxed text-base-content/55"><%= item[:body] %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <p class="mt-8 text-center text-sm font-medium text-base-content/60 max-w-xl mx-auto">
+      <%= t("etsy_sellers.problem.closing") %>
+    </p>
+  </div>
+</section>
+
+<%# ─── Solution / preset ──────────────────────────────────────────────── %>
+<section class="bg-base-100 border-t border-b border-base-200">
+  <div class="mx-auto max-w-3xl px-6 py-16">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl font-bold text-base-content mb-2"><%= t("etsy_sellers.solution.title") %></h2>
+      <p class="text-base-content/50"><%= t("etsy_sellers.solution.subtitle") %></p>
+    </div>
+
+    <ul class="flex flex-col gap-3 max-w-xl mx-auto mb-8">
+      <% t("etsy_sellers.solution.checklist").each do |line| %>
+        <li class="flex items-start gap-3 text-sm text-base-content/75">
+          <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 mt-0.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
+          <%= line %>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="text-center">
+      <%= link_to t("etsy_sellers.solution.cta"), new_etsy_preset_path, class: "btn btn-primary shadow-sm shadow-primary/20" %>
+    </div>
+  </div>
+</section>
+
+<%# ─── Comparison ─────────────────────────────────────────────────────── %>
+<section class="py-16">
+  <div class="mx-auto max-w-3xl px-4">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl font-bold text-base-content mb-2"><%= t("etsy_sellers.comparison.title") %></h2>
+      <p class="text-base-content/50"><%= t("etsy_sellers.comparison.intro") %></p>
+    </div>
+
+    <div class="flex flex-col gap-4 mb-10">
+      <div class="rounded-2xl border border-base-200 p-5">
+        <h3 class="mb-1.5 text-sm font-bold text-base-content">TinyPNG</h3>
+        <p class="text-sm leading-relaxed text-base-content/60"><%= t("etsy_sellers.comparison.tinypng") %></p>
+      </div>
+      <div class="rounded-2xl border border-base-200 p-5">
+        <h3 class="mb-1.5 text-sm font-bold text-base-content">iLoveIMG</h3>
+        <p class="text-sm leading-relaxed text-base-content/60"><%= t("etsy_sellers.comparison.iloveimg") %></p>
+      </div>
+      <div class="rounded-2xl border border-base-200 p-5">
+        <h3 class="mb-1.5 text-sm font-bold text-base-content">Etsy-only resizers</h3>
+        <p class="text-sm leading-relaxed text-base-content/60"><%= t("etsy_sellers.comparison.etsy_resizers") %></p>
+      </div>
+    </div>
+
+    <%= render "shared/comparison_table", table: t("etsy_sellers.comparison.table") %>
+  </div>
+</section>
+
+<%# ─── Pricing ────────────────────────────────────────────────────────── %>
+<section class="bg-base-100 border-t border-b border-base-200">
+  <div class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-2xl font-bold text-base-content text-center mb-10"><%= t("etsy_sellers.pricing.title") %></h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+      <div class="rounded-2xl border border-base-200 p-6">
+        <h3 class="text-sm font-bold text-base-content/40 uppercase tracking-widest mb-2"><%= t("etsy_sellers.pricing.free_title") %></h3>
+        <p class="text-sm leading-relaxed text-base-content/70"><%= t("etsy_sellers.pricing.free_body") %></p>
+      </div>
+      <div class="rounded-2xl border-2 border-primary p-6 bg-primary/5">
+        <h3 class="text-sm font-bold text-primary uppercase tracking-widest mb-2"><%= t("etsy_sellers.pricing.pro_title") %></h3>
+        <p class="text-sm leading-relaxed text-base-content/70"><%= t("etsy_sellers.pricing.pro_body") %></p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <%= link_to t("etsy_sellers.pricing.cta"), new_etsy_preset_path, class: "btn btn-primary shadow-sm shadow-primary/20" %>
+    </div>
+  </div>
+</section>
+
+<%# ─── FAQ ────────────────────────────────────────────────────────────── %>
+<section class="py-16">
+  <div class="mx-auto max-w-2xl px-4">
+    <h2 class="text-2xl font-bold text-base-content text-center mb-8"><%= t("common.faq_title") %></h2>
+    <div class="flex flex-col gap-3">
+      <% t("etsy_sellers.faq").each do |item| %>
+        <details class="group rounded-2xl border border-base-200 bg-base-100 p-5">
+          <summary class="cursor-pointer list-none font-semibold text-sm text-base-content flex items-center justify-between">
+            <%= item[:q] %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-base-content/40 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-base-content/60"><%= item[:a] %></p>
+        </details>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%# ─── Final CTA ──────────────────────────────────────────────────────── %>
+<section class="bg-base-100 border-t border-base-200">
+  <div class="mx-auto max-w-2xl px-6 py-16 text-center">
+    <h2 class="text-2xl font-bold text-base-content mb-2"><%= t("etsy_sellers.final_cta.title") %></h2>
+    <p class="text-base-content/50 mb-8"><%= t("etsy_sellers.final_cta.subtitle") %></p>
+    <%= link_to t("etsy_sellers.final_cta.cta"), new_etsy_preset_path, class: "btn btn-primary btn-lg shadow-sm shadow-primary/20" %>
+  </div>
+</section>

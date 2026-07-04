@@ -27,9 +27,11 @@ class ConvertImagesJob < ApplicationJob
     return if upload.normalized_extension == to_format
 
     result = upload.file.open do |source|
+      has_alpha = Vips::Image.new_from_file(source.path).has_alpha?
+
       pipeline = ImageProcessing::Vips.source(source)
       pipeline = pipeline.colourspace("srgb")
-      pipeline = pipeline.flatten(background: [ 255, 255, 255 ]) if to_format == "jpeg"
+      pipeline = pipeline.flatten(background: [ 255, 255, 255 ]) if to_format == "jpeg" && has_alpha
       pipeline.convert(to_format).call
     end
 

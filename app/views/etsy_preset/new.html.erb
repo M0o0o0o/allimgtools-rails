@@ -1,0 +1,261 @@
+<% content_for :title, t("etsy_preset.page_title") %>
+<% content_for :description, t("etsy_preset.page_description") %>
+<% content_for :og_image, "/images/seo/compress_hero.png" %>
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Etsy Photo Preset",
+    "url": "https://allimgtools.com<%= request.path %>",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "<%= t("etsy_preset.page_description") %>"
+  }
+  </script>
+<% end %>
+<% content_for :main_class, "flex-1 flex flex-col min-h-0" %>
+
+<div data-controller="etsy-preset-tool"
+     data-etsy-preset-tool-task-id-value="<%= @task.task_id %>"
+     data-etsy-preset-tool-start-url-value="<%= start_etsy_preset_path(locale: nil) %>"
+     data-etsy-preset-tool-max-file-size-value="<%= user_max_file_size %>"
+     data-etsy-preset-tool-max-files-value="<%= user_max_batch_size %>"
+     class="flex-1 flex flex-col min-h-0 relative"
+     data-action="dragenter->etsy-preset-tool#onDragEnter
+                  dragover->etsy-preset-tool#onDragOver
+                  dragleave->etsy-preset-tool#onDragLeave
+                  drop->etsy-preset-tool#onDrop">
+
+  <%# ─── Drag overlay ───────────────────────────────────────────── %>
+  <div class="hidden absolute inset-0 z-20 m-3 border-2 border-dashed border-primary rounded-2xl
+              bg-primary/5 flex items-center justify-center pointer-events-none"
+       data-etsy-preset-tool-target="dragOverlay">
+    <div class="text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <p class="text-base font-semibold text-primary"><%= t("common.drop_images") %></p>
+    </div>
+  </div>
+
+  <%# ─── Main layout ──────────────────────────────────────────────── %>
+  <div class="flex-1 flex min-h-0">
+
+    <%# ─── Desktop sidebar ──────────────────────────────────────── %>
+    <aside class="hidden lg:flex flex-col w-72 bg-base-100 border-r border-base-200 p-6 shrink-0"
+           data-etsy-preset-tool-target="sidebar">
+
+      <h2 class="text-base font-bold mb-6"><%= t("etsy_preset.settings") %></h2>
+
+      <div class="flex-1 flex flex-col gap-6">
+        <div class="form-control">
+          <label class="label pb-2">
+            <span class="label-text font-medium"><%= t("etsy_preset.output_format") %></span>
+          </label>
+          <div class="join w-full">
+            <button type="button" class="join-item btn btn-sm flex-1 btn-primary"
+                    data-etsy-preset-tool-target="formatBtn" data-format="jpeg"
+                    data-action="click->etsy-preset-tool#selectFormat">JPG</button>
+            <button type="button" class="join-item btn btn-sm flex-1 btn-outline"
+                    data-etsy-preset-tool-target="formatBtn" data-format="png"
+                    data-action="click->etsy-preset-tool#selectFormat">PNG</button>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label class="label pb-1">
+            <span class="label-text font-medium"><%= t("etsy_preset.quality") %></span>
+            <span class="label-text-alt text-primary font-bold text-base"
+                  data-etsy-preset-tool-target="qualityDisplay">85</span>
+          </label>
+          <input type="range" min="1" max="100" value="85"
+                 class="range range-primary"
+                 data-etsy-preset-tool-target="qualitySlider"
+                 data-action="input->etsy-preset-tool#updateQuality">
+          <div class="flex justify-between text-xs text-base-content/50 mt-1.5 px-0.5">
+            <span><%= t("etsy_preset.smaller_file") %></span>
+            <span><%= t("etsy_preset.higher_quality") %></span>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label class="label cursor-pointer gap-3 items-start">
+            <input type="checkbox" checked
+                   class="checkbox checkbox-primary mt-0.5 shrink-0"
+                   data-etsy-preset-tool-target="stripExifCheckbox">
+            <span class="label-text font-medium"><%= t("etsy_preset.strip_exif") %></span>
+          </label>
+          <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
+            <%= t("etsy_preset.strip_exif_description") %>
+          </div>
+        </div>
+
+        <div class="text-sm text-base-content/60 bg-primary/5 border border-primary/10 rounded-xl p-3">
+          <%= t("etsy_preset.auto_note") %>
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-full mt-6 gap-2"
+              data-etsy-preset-tool-target="startBtn"
+              data-action="click->etsy-preset-tool#startEtsyPreset"
+              disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+        <%= t("etsy_preset.start") %>
+      </button>
+    </aside>
+
+    <%# ─── Scrollable content area ──────────────────────────────── %>
+    <div class="flex-1 overflow-auto">
+
+      <%# Idle: dropzone %>
+      <div data-etsy-preset-tool-target="dropzoneArea">
+        <div class="m-4 sm:m-6 border-2 border-dashed border-base-300 rounded-2xl cursor-pointer
+                    flex flex-col items-center justify-center text-center
+                    min-h-[calc(100dvh-6rem)] sm:min-h-[calc(100dvh-7rem)]
+                    transition-colors hover:border-primary hover:bg-primary/5"
+             data-etsy-preset-tool-target="dropzone"
+             data-action="click->etsy-preset-tool#openFilePicker">
+          <div class="flex flex-col items-center gap-4 p-10 pointer-events-none">
+            <h1 class="text-2xl font-bold"><%= t("etsy_preset.title") %></h1>
+            <p class="text-sm text-base-content/60"><%= t("etsy_preset.description") %></p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-base-content/25 mt-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <div>
+              <p class="text-base font-semibold text-base-content"><%= t("common.drag_click") %></p>
+              <p class="text-sm text-base-content/50 mt-1"><%= t("common.file_types") %></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-6 pb-6 max-w-md mx-auto">
+          <p class="text-xs text-center text-base-content/40"><%= t("etsy_preset.auto_note") %></p>
+        </div>
+      </div>
+
+      <%# Active: image grid %>
+      <div class="hidden p-4 sm:p-6 pb-28 lg:pb-6" data-etsy-preset-tool-target="contentArea">
+        <ul class="flex flex-wrap justify-center gap-3" data-etsy-preset-tool-target="fileGrid"></ul>
+
+        <div class="hidden mt-5 flex items-center justify-center gap-3" data-etsy-preset-tool-target="progressArea">
+          <span class="loading loading-spinner loading-sm text-primary"></span>
+          <span class="text-sm text-base-content/70" data-etsy-preset-tool-target="status"><%= t("common.uploading") %></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <%# ─── Fixed bottom-right: Settings + Add more (mobile) ─────── %>
+  <div class="hidden fixed bottom-6 right-6 z-10 flex flex-col items-end gap-2"
+       data-etsy-preset-tool-target="fixedActions">
+    <button class="btn btn-outline btn-sm gap-2 bg-base-100 shadow-lg lg:hidden"
+            data-action="click->etsy-preset-tool#openSettings">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+      </svg>
+      <%= t("common.settings") %>
+    </button>
+    <button class="btn btn-outline btn-sm gap-2 bg-base-100 shadow-lg"
+            data-action="click->etsy-preset-tool#openFilePicker">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+      </svg>
+      <%= t("common.add_more") %>
+    </button>
+  </div>
+
+  <%# ─── Fixed bottom-left: Start (mobile only) ───────────────── %>
+  <div class="hidden fixed bottom-6 left-6 z-10 lg:hidden"
+       data-etsy-preset-tool-target="fixedActions">
+    <button class="btn btn-primary gap-2 shadow-lg"
+            data-etsy-preset-tool-target="startBtn"
+            data-action="click->etsy-preset-tool#startEtsyPreset"
+            disabled>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+      <%= t("etsy_preset.start") %>
+    </button>
+  </div>
+
+  <%# Hidden file input %>
+  <input type="file"
+         accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
+         multiple
+         class="hidden"
+         data-etsy-preset-tool-target="input"
+         data-action="change->etsy-preset-tool#onFileChange">
+
+  <%# ─── Mobile settings modal ─────────────────────────────────── %>
+  <dialog id="settings-modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box rounded-t-2xl sm:rounded-2xl">
+      <h3 class="font-bold text-lg mb-5"><%= t("etsy_preset.settings") %></h3>
+
+      <div class="form-control mb-4">
+        <label class="label pb-2">
+          <span class="label-text font-medium"><%= t("etsy_preset.output_format") %></span>
+        </label>
+        <div class="join w-full">
+          <button type="button" class="join-item btn flex-1 btn-primary"
+                  data-etsy-preset-tool-target="formatBtn" data-format="jpeg"
+                  data-action="click->etsy-preset-tool#selectFormat">JPG</button>
+          <button type="button" class="join-item btn flex-1 btn-outline"
+                  data-etsy-preset-tool-target="formatBtn" data-format="png"
+                  data-action="click->etsy-preset-tool#selectFormat">PNG</button>
+        </div>
+      </div>
+
+      <div class="form-control mb-4">
+        <label class="label pb-1">
+          <span class="label-text font-medium"><%= t("etsy_preset.quality") %></span>
+          <span class="label-text-alt text-primary font-bold text-base"
+                data-etsy-preset-tool-target="qualityDisplay">85</span>
+        </label>
+        <input type="range" min="1" max="100" value="85"
+               class="range range-primary"
+               data-etsy-preset-tool-target="qualitySlider"
+               data-action="input->etsy-preset-tool#updateQuality">
+        <div class="flex justify-between text-xs text-base-content/50 mt-1.5 px-0.5">
+          <span><%= t("etsy_preset.smaller_file") %></span>
+          <span><%= t("etsy_preset.higher_quality") %></span>
+        </div>
+      </div>
+
+      <div class="form-control mb-6">
+        <label class="label cursor-pointer gap-3 items-start mb-2">
+          <input type="checkbox" checked
+                 class="checkbox checkbox-primary mt-0.5 shrink-0"
+                 data-etsy-preset-tool-target="stripExifCheckbox">
+          <span class="label-text font-medium"><%= t("etsy_preset.strip_exif") %></span>
+        </label>
+        <div class="text-sm text-base-content/60 bg-base-200 rounded-xl p-3">
+          <%= t("etsy_preset.strip_exif_description") %>
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-full gap-2"
+              data-etsy-preset-tool-target="startBtn"
+              data-action="click->etsy-preset-tool#startEtsyPreset"
+              disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+        <%= t("etsy_preset.start") %>
+      </button>
+
+      <form method="dialog" class="mt-3">
+        <button class="btn btn-ghost w-full"><%= t("common.close") %></button>
+      </form>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
+
+</div>

@@ -1,0 +1,9 @@
+<div class="px-6 pb-6">
+  <%= link_to etsy_sellers_path, class: "group flex items-center gap-3 rounded-xl border border-base-200 bg-base-100 px-4 py-3 text-sm transition-colors hover:border-primary/30 hover:bg-primary/5" do %>
+    <span class="font-medium text-base-content/70"><%= t("home.etsy_banner_title") %></span>
+    <span class="text-base-content/45"><%= t("home.etsy_banner_cta") %></span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-primary/60 transition-transform group-hover:translate-x-0.5 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+    </svg>
+  <% end %>
+</div>

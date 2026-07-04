@@ -18,6 +18,7 @@
   <%# Center — tool nav %>
   <div class="navbar-center hidden lg:flex">
     <nav class="flex gap-0.5 items-center">
+      <%= link_to t("nav.for_etsy_sellers"), etsy_sellers_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'pages' && action_name == 'etsy_sellers' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
       <%= link_to t("nav.compress"), new_compress_path, class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'compress' ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
       <%= link_to t("nav.resize"),   new_resize_path,   class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'resize'   ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>
       <%= link_to t("nav.exif"),      new_exif_path,      class: "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors hover:bg-base-200 #{controller_name == 'exif'      ? 'text-primary' : 'text-base-content/60 hover:text-base-content'}" %>

@@ -56,7 +56,8 @@
           <%= t.label :body, class: "label label-text font-medium" %>
           <%= t.rich_text_area :body,
               class: "min-h-64",
-              placeholder: t.object.locale == "ko" ? "내용을 입력하세요..." : "Write your content..." %>
+              placeholder: t.object.locale == "ko" ? "내용을 입력하세요..." : "Write your content...",
+              data: { original_html: t.object.body.body&.to_html || "" } %>
         </div>
 
         <div class="divider text-xs text-base-content/40">CTA 버튼 (선택)</div>

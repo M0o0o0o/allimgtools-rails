@@ -25,4 +25,7 @@ class PagesController < ApplicationController
 
   def privacy
   end
+
+  def etsy_sellers
+  end
 end

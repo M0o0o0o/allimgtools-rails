@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   post "exif-edit/start", to: "exif_edit#start", as: :start_exif_edit
   post "rotate/start",   to: "rotate#start",   as: :start_rotate
   post "crop/start",     to: "crop#start",     as: :start_crop
+  post "etsy-preset/start", to: "etsy_preset#start", as: :start_etsy_preset
 
   # Download routes (no locale prefix — task_id is the identifier)
   get "download/:task_id",     to: "downloads#show", as: :download
@@ -65,6 +66,7 @@ Rails.application.routes.draw do
     get "exif-edit", to: "exif_edit#new", as: :new_exif_edit
     get "rotate", to: "rotate#new", as: :new_rotate
     get "crop",   to: "crop#new",   as: :new_crop
+    get "etsy-preset", to: "etsy_preset#new", as: :new_etsy_preset
 
     get    "my-page", to: "pages#my_page",        as: :my_page
     delete "my-page", to: "pages#destroy_account", as: :destroy_account
@@ -72,6 +74,9 @@ Rails.application.routes.draw do
     get "faq",     to: "pages#faq",     as: :faq
     get "terms",   to: "pages#terms",   as: :terms
     get "privacy", to: "pages#privacy", as: :privacy
+
+    # Vertical landing pages
+    get "for/etsy-sellers", to: "pages#etsy_sellers", as: :etsy_sellers
 
     root "pages#home"
   end
